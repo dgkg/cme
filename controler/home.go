@@ -1,7 +1,7 @@
 package controler
 
 import (
-	M "github.com/ritoon/kong/cme_front/model"
+	M "github.com/konginteractive/cme/model"
 	"log"
 )
 

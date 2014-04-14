@@ -1,8 +1,8 @@
 package main
 
 import (
-	C "github.com/ritoon/kong/cme_front/controler"
-	M "github.com/ritoon/kong/cme_front/model"
+	C "github.com/konginteractive/cme/controler"
+	M "github.com/konginteractive/cme/model"
 	//_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
 	//"github.com/jinzhu/gorm"
