@@ -24,12 +24,11 @@ func main() {
 	// listes des rootes
 	r.HandleFunc("/", HomeHandler)
 	r.HandleFunc("/forum", ForumHandler)
+	r.HandleFunc("/forum/add", ForumAddHandler)
 	r.HandleFunc("/eleves", StudentHandler)
 	r.HandleFunc("/tutoriel", TutoHandler)
+	r.HandleFunc("/tutoriel/add", TutoAddHandler)
 	r.HandleFunc("/news", NewsHandler)
-	r.HandleFunc("/", HomeHandler)
-	r.HandleFunc("/", HomeHandler)
-	r.HandleFunc("/", HomeHandler)
 
 	/*
 		// Forum Handlers
@@ -88,7 +87,27 @@ func main() {
 }
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, C.HomeTempl, C.HomeView())
+	Render(w, "index", C.HomeView())
+}
+
+func ForumHandler(w http.ResponseWriter, r *http.Request) {
+	Render(w, "forum", C.HomeView())
+}
+
+func ForumAddHandler(w http.ResponseWriter, r *http.Request) {
+	Render(w, "forum_add", C.HomeView())
+}
+func StudentHandler(w http.ResponseWriter, r *http.Request) {
+	Render(w, "user", C.HomeView())
+}
+func TutoHandler(w http.ResponseWriter, r *http.Request) {
+	Render(w, "tutorial", C.HomeView())
+}
+func TutoAddHandler(w http.ResponseWriter, r *http.Request) {
+	Render(w, "tutorial_add", C.HomeView())
+}
+func NewsHandler(w http.ResponseWriter, r *http.Request) {
+	Render(w, "news", C.HomeView())
 }
 
 func Render(w http.ResponseWriter, tmpl string, p M.Page) {
