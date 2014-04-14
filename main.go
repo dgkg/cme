@@ -26,9 +26,9 @@ func main() {
 	r.HandleFunc("/forum", ForumHandler)
 	r.HandleFunc("/forum/add", ForumAddHandler)
 	r.HandleFunc("/eleves", StudentHandler)
-	r.HandleFunc("/tutoriel", TutoHandler)
+	r.HandleFunc("/tutoriels", TutoHandler)
 	r.HandleFunc("/tutoriel/add", TutoAddHandler)
-	r.HandleFunc("/news", NewsHandler)
+	r.HandleFunc("/actualites", NewsHandler)
 
 	/*
 		// Forum Handlers
