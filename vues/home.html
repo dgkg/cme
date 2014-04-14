@@ -1,0 +1,25 @@
+{{ define "home" }}
+
+
+<html>
+<head>
+	<title>{{.Title}}</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+
+<h1>{{.Title}}</h1>
+
+{{range .Images}}
+	<img src="{{.Url}}">
+{{end}}
+
+
+
+</body>
+</html>
+
+
+
+
+{{ end }}

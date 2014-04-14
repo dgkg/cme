@@ -1,0 +1,8 @@
+{
+	"DbType": ["mysql","mysql"],
+	"DbUser": ["root","lskdqjf"],
+	"DbPass": ["root","jf5!slGsjv6"],
+	"DbProtocol": ["localhost:8889","localhost:8889"],
+	"DbName": ["cme_test","cme_production"]
+}
+
