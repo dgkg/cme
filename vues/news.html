@@ -1,43 +1,6 @@
+{{ define "news" }}
 <!DOCTYPE html>
-<html class="no-js">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>CME - Communauté Maryse-Éloy - Actualités</title>
-        <meta name="description" content="Un répertoire de tutoriels créés par les membres du CME.">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="stylesheet" href="css/normalize.min.css">
-        <link rel="stylesheet" href="css/main.css">
-
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    </head>
-    <body>
-
-        <div id="wrapper"  class="actualites">
-
-            <div class="header">
-
-                <a href="../index.html"><img id="logo" src="img/logo.png" alt="Logo du CME"></a>
-                
-                <ul class="nav-mobile">
-                    <li><a href="../eleves/index.html">Élèves</a></li>
-                    <li><a href="../forum/index.html">Forum</a></li>
-                    <li><a href="../tutoriels/index.html">Tutoriels</a></li>
-                    <li><a href="../actualites/index.html">Actualités</a></li>
-                </ul>
-
-                <ul class="nav1-ipad">
-                    <li><a href="../eleves/index.html">Élèves</a></li>
-                    <li><a href="../forum/index.html">Forum</a></li>
-                </ul>
-                <ul class="nav2-ipad">
-                    <li><a href="../tutoriels/index.html">Tutoriels</a></li>
-                    <li><a href="../actualites/index.html">Actualités</a></li>
-                </ul>
-
-            </div>
-
+{{template "header" .}}
             <div class="body">
 
                 <div class="liste-actu">
@@ -112,21 +75,7 @@
 
                 <hr>
 
-                <div class="footer">
-
-                    <img src="img/logo.png">
-
-                    <ul>
-                        <li><a href="../eleves/index.html">Élèves</a></li>
-                        <li><a href="../forum/index.html">Forum</a></li>
-                        <li><a href="../tutoriels/index.html">Tutoriels</a></li>
-                        <li><a href="../actualites/index.html">Actualités</a></li>
-                    </ul>
-
-                    <p>Copyright © CME 2014</p>
-                    <p>Site entièrement réalisé par <a href="http://konginteractive.com/">Kong Interactive</a></p>
-
-                </div>
+               {{template "footer" .}}
             </div>
         </div>
 
@@ -136,3 +85,4 @@
         <!-- <script type="text/javascript" src="js/main.js"></script> -->
     </body>
 </html>
+{{ end }}
