@@ -1,0 +1,171 @@
+.actualites {
+
+	.body {
+		margin-right: 30px;
+		margin-left: 30px;
+
+		hr {
+			clear: both;
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+
+		.liste-actu {
+
+			.actu {
+
+
+				h2 {
+					display: block;
+					line-height: 1.4em;
+					font-size: 28px;
+					font-family: $titre-light;
+					margin-right: auto;
+					margin-left: auto;
+				}
+
+				.actu-contenu {
+
+					p {
+						font-size: 16px;
+						line-height: 1.4em;
+						font-family: $texte-regular;
+						color: #424245;
+					}
+				}
+
+				.actu-meta {
+					margin-bottom: 120px;
+
+					p {
+						font-family: $titre-regular;
+						text-transform: uppercase;
+						color: #515155;
+					}
+
+					.actu-date {
+						float: left;
+					}
+
+					.actu-auteur {
+						float: right;
+					}
+				}
+			}
+		}
+
+		.pagination {
+			clear: both;
+
+			ul {
+				display: none;
+			}
+
+			.btn-nav-suiv {
+				display: none;
+			}
+
+			select {
+				display: block;
+	            margin-left: auto;
+	            margin-right: auto;
+	            width: 40%;
+	            height: 30px;
+	            padding: 2px;
+	            -webkit-border-radius:1px;
+	            -moz-border-radius:1px;
+	            border-radius:1px;
+	            font-family: $titre-regular;
+	            font-size: 16px;
+			}
+		}
+	}
+
+	/* iPads (portrait) ----------- */
+    @media only screen 
+    and (min-device-width : 768px) {
+
+    	.body {
+
+    		.liste-actu {
+
+    			.actu {
+    				clear: both;
+
+    				h2 {
+    					max-width: 60%;
+    					float: left;
+    					margin-left: 20%;
+    					margin-right: 20%;
+    				}
+
+    				.actu-contenu {
+    					width: 60%;
+    					float: right;
+    					margin-right: 20%;
+    					margin-bottom: 60px;
+
+    					p:first-child {
+    						margin-top: 0;
+    					}
+    				}
+
+    				.actu-meta {
+    					width: 20%;
+    					float: left;
+
+    					p {
+    						margin: 0;
+    						line-height: 2em;
+    					}
+
+    					.actu-auteur {
+    						clear: both;
+    						float: left;
+    					}
+    				}
+    			}
+    		}
+
+			.pagination {
+
+				ul {
+					display: block;
+					text-align: center;
+					padding: 0;
+
+					li {
+						display: inline-block;
+						width: 30px;
+						height: 30px;
+						margin-right: 10px;
+						font-size: 18px;
+						font-family: $titre-regular;
+					}
+				}
+
+				select {
+					display: none;
+				}
+			}
+    	}
+	}
+
+	/* Desktops and laptops ----------- */
+    @media only screen
+    and (min-width : 1224px) {
+
+        #wrapper {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        .body {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}

@@ -1,0 +1,268 @@
+.eleves {
+
+	.body {
+		margin-right: 30px;
+		margin-left: 30px;
+
+		.entete {
+
+			h1 {
+				text-transform: uppercase;
+			}
+
+			p {
+				font-size: 14px;
+			}
+		}
+
+		.categories {
+
+			h2 {
+				text-align: center;
+				margin-top: 30px;
+				margin-bottom: 30px;
+				font-size: 26px;
+				text-transform: uppercase;
+			}
+
+			ul {
+				display: none;
+			}
+
+			select {
+	            display: block;
+	            margin-left: auto;
+	            margin-right: auto;
+	            width: 80%;
+	            height: 40px;
+	            padding: 2px;
+	            -webkit-border-radius:1px;
+	            -moz-border-radius:1px;
+	            border-radius:1px;
+	            font-family: $titre-regular;
+	            font-size: 16px;
+	        }
+
+	        form {
+	        	margin-top: 30px;
+	        	margin-bottom: 30px;
+
+	        	input {
+	        		display: block;
+	        		margin-right: auto;
+	        		margin-left: auto;
+	        		width: 80%;
+	        		height: 40px;
+	        	}
+	        }
+		}
+
+		hr {
+			clear: both;
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+
+		.liste-eleves {
+
+			.eleve {
+				float: left;
+				margin-right: 2%;
+				margin-left: 2%;
+				margin-bottom: 20px;
+				width: 48%;
+
+				img {
+					width: 100%;
+
+				}
+
+				h2 {
+					margin-top: 8px;
+					font-size: 14px;
+				}
+			}
+
+			.eleve:nth-child(even) {
+				margin-right: 0;
+			}
+
+			.eleve:nth-child(odd) {
+				margin-left: 0;
+			}
+		}
+
+		.pagination {
+
+			ul {
+				display: none;
+			}
+
+			.btn-nav-suiv {
+				display: none;
+			}
+
+			select {
+				clear: both;
+				display: block;
+	            margin-left: auto;
+	            margin-right: auto;
+	            width: 40%;
+	            height: 30px;
+	            padding: 2px;
+	            -webkit-border-radius:1px;
+	            -moz-border-radius:1px;
+	            border-radius:1px;
+	            font-family: $titre-regular;
+	            font-size: 16px;
+			}
+		}
+	}
+
+	/* iPads (portrait) ----------- */
+    @media only screen 
+    and (min-device-width : 768px) {
+
+    	.body {
+
+    		.entete {
+
+				h1, p {
+					float: left;
+				}
+
+				p {
+					clear: both;
+					max-width: 320px;
+				}
+			}
+
+			.categories {
+
+				h2 {
+					display: none;
+				}
+
+				ul {
+	                display: block;
+	                padding: 0;
+	                width: 50%;
+	                float: left;
+	                margin: 0;
+
+	                li {
+		                display: inline-block;
+		                font-family: $titre-regular;
+		                text-transform: uppercase;
+		                font-size: 20px;
+		                padding-right: 15px;
+		                line-height: 1.4em;
+		                color: #4A4A4A;
+		                float: left;
+
+		                a {
+		                    color: #727272;
+		                    text-decoration: none;
+		                }
+
+		                a:visited {
+		                    color: #727272;
+		                    text-decoration: none;
+		                }
+		            }
+
+		            li:first-child {
+		                margin-right: 20px;
+		                color: $gris-texte;
+		            }
+	            }
+
+	            select {
+	                display: block;
+	                width: 20%;
+	                margin: 0;
+	            }
+
+	            form {
+	            	float: right;
+	            	margin: 0;
+	            	margin-bottom: 30px;
+	            	width: 320px;
+
+		        	input {
+		        		height: 30px;
+		        	}
+		        }
+			}
+
+			.liste-eleves {
+
+				.eleve {
+					margin-right: 2%;
+					margin-left: 2%;
+					margin-bottom: 20px;
+					width: 22%;
+				}
+
+				.eleve:nth-child(even) {
+					margin-right: 2%;
+				}
+
+				.eleve:nth-child(odd) {
+					margin-left: 2%;
+				}
+
+				.eleve:nth-child(4n) {
+					margin-right: 0;
+				}
+
+				.eleve:nth-child(4n-3) {
+					margin-left: 0;
+				}
+			}
+
+			.pagination {
+
+				ul {
+					display: block;
+					text-align: center;
+					clear: both;
+					padding: 0;
+					margin-top: 40px;
+					margin-bottom: 40px;
+
+					li {
+						display: inline-block;
+						width: 30px;
+						height: 30px;
+						margin-right: 10px;
+						font-size: 18px;
+						font-family: $titre-regular;
+					}
+				}
+
+				select {
+					display: none;
+				}
+			}
+    	}
+	}
+
+	/* Desktops and laptops ----------- */
+    @media only screen
+    and (min-width : 1224px) {
+
+        #wrapper {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        .body {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}

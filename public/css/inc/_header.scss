@@ -1,0 +1,125 @@
+.header {
+    width: 100%;
+    min-height: 20px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    #logo {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        width: 80px;
+        height: auto;
+    }
+
+    .nav-mobile {
+        padding: 0;
+    }
+
+    .nav-mobile li {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1.2em;
+        font-family: $titre-regular;
+        font-size: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .nav-mobile li:first-child {
+        margin-top: 1.2em;
+    }
+
+    .nav-mobile li:last-child {
+        margin-bottom: 0;
+    }
+
+    a {
+        color: $gris-texte;
+    }
+
+    a:hover {
+        color: $btn-rouge;
+    }
+
+    .nav1-ipad, .nav2-ipad {
+        display: none;
+    }
+}
+
+/* iPads (portrait and landscape) ----------- */
+    @media only screen 
+    and (min-device-width : 768px) {
+
+    .header {
+        position: relative;
+
+        #logo {
+            display: block;
+            position: absolute;
+            width: 80px;
+            height: auto;
+            margin: auto;
+            top: 0; left: 0; right: 0; bottom: 0;
+        }
+
+        .nav-mobile {
+            display: none;
+        }
+
+        .nav1-ipad, .nav2-ipad {
+            display: inline-block;
+            position: absolute;
+            padding: 0;
+            list-style-type:none;
+            vertical-align: middle;
+            top: 40px;
+            margin-right: 30px;
+            margin-left: 30px;
+        }
+
+        .nav1-ipad {
+            left: 0px;
+        }
+
+        .nav2-ipad {
+            right: 0px;
+        }
+
+        .nav1-ipad li, .nav2-ipad li {
+            display: inline-block;
+            margin-bottom: 1.2em;
+            font-family: $titre-regular;
+            font-size: 20px;
+        }
+
+        .nav1-ipad li:first-child, .nav2-ipad li:first-child {
+            margin-right: 40px;
+        }
+
+        .nav1-ipad li a, .nav2-ipad li a {
+            vertical-align: middle;
+        }
+    }
+}
+
+/* Desktops and laptops ----------- */
+    @media only screen
+    and (min-width : 1224px) {
+
+    .header {
+        padding-top: 100px;
+        padding-bottom: 100px;
+
+        .nav1-ipad, .nav2-ipad {
+            margin-right: 0;
+            margin-left: 0;
+            top: 80px;
+        }
+
+        .nav1-ipad li , .nav2-ipad li {
+            font-size: 22px;
+        }
+    }
+}

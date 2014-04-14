@@ -1,0 +1,94 @@
+.footer {
+
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    ul {
+        padding: 0;
+    }
+
+    ul li {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1.2em;
+        font-family: $titre-regular;
+        font-size: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    ul li:first-child {
+        margin-top: 1.2em;
+    }
+
+    ul li:last-child {
+        margin-bottom: $marge-entre-sections;
+    }
+
+    p {
+        text-align: center;
+        font-size: 16px;
+        font-family: $titre-regular;
+    }
+
+    a {
+        color: $gris-texte;
+    }
+
+    a:hover {
+        color: $btn-rouge;
+    }
+    
+}
+
+/* iPads (portrait and landscape) ----------- */
+    @media only screen 
+    and (min-device-width : 768px) {
+
+    .footer {
+
+        img {
+            display: block;
+            margin: 0;
+            float: left;
+            margin-bottom: 40px;
+        }
+
+        ul {
+            padding: 0;
+            float: right;
+        }
+
+        ul li {
+            display: inline;
+            margin-bottom: 1.2em;
+            margin-right: 30px;
+            font-family: $titre-regular;
+            font-size: 20px;
+            list-style-type: none;
+        }
+
+        p {
+            font-size: 16px;
+            font-family: $titre-regular;
+            clear: both;
+            text-align: left;
+            text-transform: uppercase;
+            margin-top: 20px;
+            color: $gris-texte;
+
+        }
+
+        a {
+            color: $gris-texte;
+        }
+
+        a:hover {
+            color: $btn-rouge;
+        }
+    }
+}

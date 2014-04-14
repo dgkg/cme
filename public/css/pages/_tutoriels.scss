@@ -1,0 +1,341 @@
+.tutoriels {
+
+	.body {
+		margin-right: 30px;
+		margin-left: 30px;
+
+		.entete-forum {
+
+			h1 {
+				text-transform: uppercase;
+			}
+
+			p {
+				font-size: 14px;
+			}
+
+			.btn-nouv-publication {
+	            display: block;
+	            width: 100%;
+	            height: 30px;
+	            background-color: $btn-rouge;
+	            padding-top: 15px;
+	            padding-bottom: 15px;
+	            color: $quasi-blanc;
+	            text-decoration: none;
+                font-family: $titre-regular;
+                font-size: 16px;
+                text-align: center;
+                line-height: 30px;
+                vertical-align: middle;
+                margin-top: 30px;
+                margin-bottom: 30px;
+	        }
+
+			.btn-nouv-publication:hover {
+				background-color: $btn-rouge-over;
+			}
+		}
+
+		.categories {
+
+			h2 {
+				text-align: center;
+				margin-top: 30px;
+				margin-bottom: 30px;
+				font-size: 26px;
+				text-transform: uppercase;
+			}
+
+			ul {
+				display: none;
+			}
+
+			select {
+	            display: block;
+	            margin-left: auto;
+	            margin-right: auto;
+	            width: 80%;
+	            height: 40px;
+	            padding: 2px;
+	            -webkit-border-radius:1px;
+	            -moz-border-radius:1px;
+	            border-radius:1px;
+	            font-family: $titre-regular;
+	            font-size: 16px;
+	        }
+
+	        form {
+	        	margin-top: 30px;
+	        	margin-bottom: 30px;
+
+	        	input {
+	        		display: block;
+	        		margin-right: auto;
+	        		margin-left: auto;
+	        		width: 80%;
+	        		height: 40px;
+	        	}
+	        }
+		}
+
+		hr {
+			clear: both;
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+
+		.liste-posts {
+
+			.post {
+
+
+				h2 {
+					display: block;
+					width: 100%;
+					line-height: 1.4em;
+				}
+
+				.post-meta {
+					display: block;
+					margin-bottom: 10px;
+					margin-top: 20px;
+					height: 24px;
+					line-height: 30px;
+					vertical-align: middle;
+
+					img {
+						float: left;
+						margin-right: 6px;
+					}
+
+					p {
+						float: left;
+						line-height: 20px;
+						vertical-align: middle;
+						margin: 0;
+						margin-right: 16px;
+						color: #4A4A4A;
+						text-transform: uppercase;
+						font-size: 14px;
+						font-family: $titre-regular;
+					}
+
+					.post-cat {
+						float: right;
+						margin: 0;
+					}
+				}
+
+				.btn-repondre {
+					display: block;
+		            width: 80%;
+		            height: 20px;
+		            background-color: $btn-rouge;
+		            padding-top: 10px;
+		            padding-bottom: 10px;
+		            color: $quasi-blanc;
+		            text-decoration: none;
+	                font-family: $titre-regular;
+	                font-size: 16px;
+	                text-align: center;
+	                line-height: 20px;
+	                vertical-align: middle;
+	                margin-top: 20px;
+	                margin-bottom: 20px;
+	                margin-left: auto;
+	                margin-right: auto;
+					clear: both;
+				}
+			}
+		}
+
+		.pagination {
+
+			ul {
+				display: none;
+			}
+
+			.btn-nav-suiv {
+				display: none;
+			}
+
+			select {
+				display: block;
+	            margin-left: auto;
+	            margin-right: auto;
+	            width: 40%;
+	            height: 30px;
+	            padding: 2px;
+	            -webkit-border-radius:1px;
+	            -moz-border-radius:1px;
+	            border-radius:1px;
+	            font-family: $titre-regular;
+	            font-size: 16px;
+			}
+		}
+	}
+
+	/* iPads (portrait) ----------- */
+    @media only screen 
+    and (min-device-width : 768px) {
+
+    	.body {
+
+    		.entete-forum {
+
+				h1, p {
+					float: left;
+				}
+
+				p {
+					clear: both;
+					max-width: 320px;
+				}
+
+				.btn-nouv-publication {
+		            max-width: 300px;
+		            float: right;
+		            margin: 0;
+		        }
+			}
+
+			.categories {
+
+				h2 {
+					display: none;
+				}
+
+				ul {
+	                display: block;
+	                padding: 0;
+	                width: 50%;
+	                float: left;
+	                margin: 0;
+
+	                li {
+		                display: inline-block;
+		                font-family: $titre-regular;
+		                text-transform: uppercase;
+		                font-size: 20px;
+		                padding-right: 15px;
+		                line-height: 1.4em;
+		                color: #4A4A4A;
+		                float: left;
+
+		                a {
+		                    color: #727272;
+		                    text-decoration: none;
+		                }
+
+		                a:visited {
+		                    color: #727272;
+		                    text-decoration: none;
+		                }
+		            }
+
+		            li:first-child {
+		                margin-right: 20px;
+		                color: $gris-texte;
+		            }
+	            }
+
+	            select {
+	                display: none;
+	            }
+
+	            form {
+	            	float: right;
+	            	margin: 0;
+	            	margin-bottom: 30px;
+	            	width: 320px;
+
+		        	input {
+		        		height: 30px;
+		        	}
+		        }
+			}
+
+			.liste-posts {
+
+				.post {
+					position: relative;
+
+					h2 {
+						float: left;
+						width: auto;
+					}
+
+					.post-desc {
+						max-width: 480px;
+						float: left;
+						clear: both;
+					}
+
+					.post-meta {
+						position: absolute;
+						width: 240px;
+						right: 0;
+						top: 10px;
+
+						.post-cat {
+							float: none;
+							margin-bottom: 15px;
+							font-size: 20px;
+							text-transform: uppercase;
+						}
+
+						img {
+							clear: both;
+							margin-bottom: 10px;
+						}
+					}
+
+					.btn-repondre {
+						max-width: 140px;
+						float: left;
+					}
+				}
+			}
+
+			.pagination {
+
+				ul {
+					display: block;
+					text-align: center;
+
+					li {
+						display: inline-block;
+						width: 30px;
+						height: 30px;
+						margin-right: 10px;
+						font-size: 18px;
+						font-family: $titre-regular;
+					}
+				}
+
+				select {
+					display: none;
+				}
+			}
+    	}
+	}
+
+	/* Desktops and laptops ----------- */
+    @media only screen
+    and (min-width : 1224px) {
+
+        #wrapper {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        .body {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}

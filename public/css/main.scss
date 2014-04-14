@@ -1,0 +1,85 @@
+@import 'inc/html5boilerplate';
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+@import 'inc/_fonts';
+
+/* VARIABLES */
+
+$gris-texte: #262628;
+$btn-rouge: #e11414;
+$btn-rouge-over: #9c1111;
+$quasi-blanc: #f9f9f9;
+
+$titre-regular: 'gt_pressura_regular', sans-serif;
+$titre-light: 'gt_pressura_light', sans-serif;
+$texte-regular: 'Georgia', sans-serif;
+
+$marge-entre-sections: 40px;
+
+html {
+    background-color: $quasi-blanc;
+}
+
+#wrapper {
+    background-color: $quasi-blanc;
+    font-family: $texte-regular;
+    font-size: 14px;
+    line-height: 1.4em;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+textarea { 
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $titre-regular;
+}
+
+a {
+    color: $btn-rouge;
+}
+
+a:hover {
+    color: $btn-rouge-over;
+}
+
+a:visited {
+    color: $btn-rouge;
+}
+
+@import 'inc/_header';
+
+@import 'pages/_accueil';
+
+@import 'pages/_eleves';
+
+@import 'pages/_forum';
+
+@import 'pages/_tutoriels';
+
+@import 'pages/_actualites';
+
+@import 'pages/_nouveaututo';
+
+@import 'pages/_nouveausujet';
+
+@import 'inc/_footer';
+
+@import 'inc/editor';
+
+body {
+    min-width: initial;
+    padding-top: 0;
+}
+
+@import 'inc/menu';
+
+@import 'inc/_helper_print';

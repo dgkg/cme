@@ -1,0 +1,7 @@
+.forum .body {
+  margin-right: 30px;
+  margin-left: 30px; }
+  .forum .body .entete-forum h1 {
+    text-transform: uppercase; }
+  .forum .body .entete-forum p {
+    font-size: 14px; }
