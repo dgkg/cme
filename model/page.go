@@ -48,3 +48,9 @@ type PageTutoriels struct {
 	Tutoriels    []TutorialsViewHelper
 	PageWeb
 }
+
+type PageUser struct {
+	PagesList []Paginate
+	Users    []UsersViewHelper
+	PageWeb
+}

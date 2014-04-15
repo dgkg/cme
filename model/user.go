@@ -29,3 +29,7 @@ type UserImage struct {
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
 }
+
+type UsersViewHelper struct {
+	User
+}

@@ -98,7 +98,7 @@ func ForumAddHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, "forum_add", C.HomeView())
 }
 func StudentHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, "user", C.HomeView())
+	Render(w, C.UserTempl, C.UserView())
 }
 func TutoHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, C.TutorialTempl, C.TutorialView())
