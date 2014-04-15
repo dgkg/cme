@@ -33,3 +33,9 @@ type NewsPost struct {
 	CreatedAt time.Time
 	UpdatedAt time.Time
 }
+
+// Helper de vue
+type NewsViewHelper struct {
+	CategoryTitle string
+	News
+}

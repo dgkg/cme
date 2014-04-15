@@ -101,13 +101,13 @@ func StudentHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, "user", C.HomeView())
 }
 func TutoHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, "tutorial", C.HomeView())
+	Render(w, C.TutorialTempl, C.TutorialView())
 }
 func TutoAddHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, "tutorial_add", C.HomeView())
+	Render(w, "tutoriel_add", C.HomeView())
 }
 func NewsHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, "news", C.HomeView())
+	Render(w, C.NewsTempl, C.NewsView())
 }
 
 func Render(w http.ResponseWriter, tmpl string, p M.Page) {

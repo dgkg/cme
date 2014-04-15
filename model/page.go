@@ -36,3 +36,15 @@ type PageForum struct {
 	Forums    []ForumViewHelper
 	PageWeb
 }
+
+type PageNews struct {
+	PagesList []Paginate
+	News    []NewsViewHelper
+	PageWeb
+}
+
+type PageTutoriels struct {
+	PagesList []Paginate
+	Tutoriels    []TutorialsViewHelper
+	PageWeb
+}
