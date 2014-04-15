@@ -14,6 +14,8 @@ func HomeView() M.Page {
 	p := new(M.PageHome)
 	p.Title = "Coucouc de la forêt"
 
+	p.MainClass = "accueil"
+
 	p.Images[0].Url = "http://placekitten.com/100/600"
 	p.Images[1].Url = "http://placekitten.com/200/50"
 

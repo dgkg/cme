@@ -1,6 +1,9 @@
 package controler
 
 import (
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/jinzhu/gorm"
+
 	M "github.com/konginteractive/cme/model"
 	"log"
 )
@@ -9,10 +12,24 @@ var ForumTempl = "forum"
 
 func ForumView() M.Page {
 
+	db, _ := gorm.Open("mysql", "root:root@tcp(127.0.0.1:8889)/cme_test?charset=utf8&parseTime=True")
+	//cme_test
+	db.SingularTable(true)
+
+	//db.Find(&forum)
+
+	/////////////
+	/////////////
+	/////////////
+	/////////////
+	/////////////
+	/////////////
+
 	log.Println("Forum appelé")
 
 	p := new(M.PageForum)
 	p.Title = "Forum"
+	p.MainClass = "forum"
 
 	// Création des forums
 	p.Forums = make([]M.ForumViewHelper, 2)
@@ -56,4 +73,8 @@ func ForumAddView() M.Page {
 	p.Forums[1].Title = "Test B"
 
 	return p
+}
+
+func initDb() {
+
 }

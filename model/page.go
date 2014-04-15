@@ -9,6 +9,7 @@ type PageWeb struct {
 	VarSessServer string
 	VarSessCookie string
 	VarFlash      string
+	MainClass     string
 	Logge         bool
 	Menu
 }
