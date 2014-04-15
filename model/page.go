@@ -20,8 +20,18 @@ type Keyword struct {
 type Menu struct {
 }
 
+type Paginate struct {
+	Title string
+	Url   string
+}
+
 type PageHome struct {
 	Images [100]UserImage
 	PageWeb
-	Didi string
+}
+
+type PageForum struct {
+	PagesList []Paginate
+	Forums    []ForumViewHelper
+	PageWeb
 }

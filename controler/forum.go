@@ -11,14 +11,49 @@ func ForumView() M.Page {
 
 	log.Println("Forum appelé")
 
-	p := new(M.PageHome)
-	p.Title = "Coucouc de la forêt"
+	p := new(M.PageForum)
+	p.Title = "Forum"
 
-	p.Images[0].Url = "http://placekitten.com/100/600"
-	p.Images[1].Url = "http://placekitten.com/200/50"
+	// Création des forums
+	p.Forums = make([]M.ForumViewHelper, 2)
 
-	// Works !!
-	//p.Images = []M.UserImage{{Url: "http://placekitten.com/600/600"}, {Url: "http://placekitten.com/600/300"}}
+	p.Forums[0].Id = 1
+	p.Forums[0].Title = "Test A"
+	p.Forums[0].CategoryTitle = "Packaging"
+
+	p.Forums[1].Id = 2
+	p.Forums[1].Title = "Test B"
+	p.Forums[1].CategoryTitle = "Logiciel"
+
+	// pagination
+	p.PagesList = make([]M.Paginate, 5)
+
+	p.PagesList[0].Title = "1"
+	p.PagesList[0].Url = "/forum/page/1"
+
+	p.PagesList[1].Title = "2"
+	p.PagesList[1].Url = "/forum/page/2"
+
+	p.PagesList[2].Title = "3"
+	p.PagesList[2].Url = "/forum/page/3"
+
+	p.PagesList[3].Title = "4"
+	p.PagesList[3].Url = "/forum/page/4"
+
+	p.PagesList[4].Title = "5"
+	p.PagesList[4].Url = "/forum/page/5"
+
+	return p
+}
+
+func ForumAddView() M.Page {
+	p := new(M.PageForum)
+	p.Title = "Titre du sujet"
+
+	p.Forums = make([]M.ForumViewHelper, 2)
+
+	p.Forums[0].Title = "Test A"
+	p.Forums[1].Title = "Test B"
 
 	return p
 }
