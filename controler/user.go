@@ -35,19 +35,19 @@ func UserView() M.Page {
 	p.PagesList = make([]M.Paginate, 5)
 
 	p.PagesList[0].Title = "1"
-	p.PagesList[0].Url = "/etudiants/page/1"
+	p.PagesList[0].Url = "/eleves/page/1"
 
 	p.PagesList[1].Title = "2"
-	p.PagesList[1].Url = "/etudiants/page/2"
+	p.PagesList[1].Url = "/eleves/page/2"
 
 	p.PagesList[2].Title = "3"
-	p.PagesList[2].Url = "/etudiants/page/3"
+	p.PagesList[2].Url = "/eleves/page/3"
 
 	p.PagesList[3].Title = "4"
-	p.PagesList[3].Url = "/etudiants/page/4"
+	p.PagesList[3].Url = "/eleves/page/4"
 
 	p.PagesList[4].Title = "5"
-	p.PagesList[4].Url = "/etudiants/page/5"
+	p.PagesList[4].Url = "/eleves/page/5"
 
 	return p
 }
