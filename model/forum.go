@@ -33,3 +33,9 @@ type ForumPost struct {
 	CreatedAt time.Time
 	UpdatedAt time.Time
 }
+
+// Helper de vue
+type ForumViewHelper struct {
+	CategoryTitle string
+	Forum
+}
