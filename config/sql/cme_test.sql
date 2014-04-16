@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mer 16 Avril 2014 à 14:06
+-- Généré le: Mer 16 Avril 2014 à 14:59
 -- Version du serveur: 5.5.29
 -- Version de PHP: 5.4.10
 
@@ -27,6 +27,7 @@ CREATE TABLE `forum` (
   `title` varchar(100) NOT NULL,
   `text` text NOT NULL,
   `keywords` varchar(200) NOT NULL,
+  `is_solved` smallint(6) NOT NULL DEFAULT '0',
   `is_online` smallint(1) unsigned NOT NULL DEFAULT '1',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
@@ -37,19 +38,19 @@ CREATE TABLE `forum` (
 -- Contenu de la table `forum`
 --
 
-INSERT INTO `forum` (`id`, `user_id`, `forum_category_id`, `title`, `text`, `keywords`, `is_online`, `created_at`, `updated_at`) VALUES
-(1, 0, 0, 'Titre A', 'Titre A : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque eget lorem ut cursus. Sed erat neque, sodales sit amet auctor id, consequat vel erat. Phasellus urna ligula, egestas ut lacus non, dapibus eleifend nulla. Vestibulum accumsan tellus nibh, non rhoncus nisi dictum quis. Suspendisse lobortis eros ac lacus eleifend commodo. Suspendisse lacinia lacus id eros aliquet lacinia. Vestibulum vel ligula pellentesque tortor eleifend cursus id eget massa. Duis eleifend pharetra nunc, vel dignissim eros. Vestibulum sed bibendum erat.', '', 0, '2014-04-15 09:05:12', '2014-04-15 09:05:12'),
-(2, 0, 0, 'Titre B', 'Doudoud didi Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque eget lorem ut cursus. Sed erat neque, sodales sit amet auctor id, consequat vel erat. Phasellus urna ligula, egestas ut lacus non, dapibus eleifend nulla. Vestibulum accumsan tellus nibh, non rhoncus nisi dictum quis. Suspendisse lobortis eros ac lacus eleifend commodo. Suspendisse lacinia lacus id eros aliquet lacinia. Vestibulum vel ligula pellentesque tortor eleifend cursus id eget massa. Duis eleifend pharetra nunc, vel dignissim eros. Vestibulum sed bibendum erat.', '', 0, '2014-04-15 09:06:09', '2014-04-15 09:06:09'),
-(3, 0, 0, 'Titre C', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(4, 0, 0, 'Titre D', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(5, 0, 0, 'Titre E', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(6, 0, 0, 'Titre F', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(7, 0, 0, 'Titre G', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(8, 0, 0, 'Titre H', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(9, 0, 0, 'Titre I', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(10, 0, 0, 'Titre J', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(11, 0, 0, 'Titre K', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(12, 0, 0, 'Titre L', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `forum` (`id`, `user_id`, `forum_category_id`, `title`, `text`, `keywords`, `is_solved`, `is_online`, `created_at`, `updated_at`) VALUES
+(1, 0, 0, 'Titre A', 'Titre A : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque eget lorem ut cursus. Sed erat neque, sodales sit amet auctor id, consequat vel erat. Phasellus urna ligula, egestas ut lacus non, dapibus eleifend nulla. Vestibulum accumsan tellus nibh, non rhoncus nisi dictum quis. Suspendisse lobortis eros ac lacus eleifend commodo. Suspendisse lacinia lacus id eros aliquet lacinia. Vestibulum vel ligula pellentesque tortor eleifend cursus id eget massa. Duis eleifend pharetra nunc, vel dignissim eros. Vestibulum sed bibendum erat.', '', 0, 0, '2014-04-15 09:05:12', '2014-04-15 09:05:12'),
+(2, 0, 0, 'Titre B', 'Doudoud didi Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque eget lorem ut cursus. Sed erat neque, sodales sit amet auctor id, consequat vel erat. Phasellus urna ligula, egestas ut lacus non, dapibus eleifend nulla. Vestibulum accumsan tellus nibh, non rhoncus nisi dictum quis. Suspendisse lobortis eros ac lacus eleifend commodo. Suspendisse lacinia lacus id eros aliquet lacinia. Vestibulum vel ligula pellentesque tortor eleifend cursus id eget massa. Duis eleifend pharetra nunc, vel dignissim eros. Vestibulum sed bibendum erat.', '', 0, 0, '2014-04-15 09:06:09', '2014-04-15 09:06:09'),
+(3, 0, 0, 'Titre C', 'objet C Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque eget lorem ut cursus. Sed erat neque, sodales sit amet auctor id, consequat vel erat. Phasellus urna ligula, egestas ut lacus non, dapibus eleifend nulla. Vestibulum accumsan tellus nibh, non rhoncus nisi dictum quis. Suspendisse lobortis eros ac lacus eleifend commodo. Suspendisse lacinia lacus id eros aliquet lacinia. Vestibulum vel ligula pellentesque tortor eleifend cursus id eget massa. Duis eleifend pharetra nunc, vel dignissim eros. Vestibulum sed bibendum erat.', '', 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, 0, 0, 'Titre D', 'objet D Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque eget lorem ut cursus. Sed erat neque, sodales sit amet auctor id, consequat vel erat. Phasellus urna ligula, egestas ut lacus non, dapibus eleifend nulla. Vestibulum accumsan tellus nibh, non rhoncus nisi dictum quis. Suspendisse lobortis eros ac lacus eleifend commodo. Suspendisse lacinia lacus id eros aliquet lacinia. Vestibulum vel ligula pellentesque tortor eleifend cursus id eget massa. Duis eleifend pharetra nunc, vel dignissim eros. Vestibulum sed bibendum erat.', '', 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, 0, 0, 'Titre E', 'objet E Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque eget lorem ut cursus. Sed erat neque, sodales sit amet auctor id, consequat vel erat. Phasellus urna ligula, egestas ut lacus non, dapibus eleifend nulla. Vestibulum accumsan tellus nibh, non rhoncus nisi dictum quis. Suspendisse lobortis eros ac lacus eleifend commodo. Suspendisse lacinia lacus id eros aliquet lacinia. Vestibulum vel ligula pellentesque tortor eleifend cursus id eget massa. Duis eleifend pharetra nunc, vel dignissim eros. Vestibulum sed bibendum erat.', '', 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(6, 0, 0, 'Titre F', 'objet F Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque eget lorem ut cursus. Sed erat neque, sodales sit amet auctor id, consequat vel erat. Phasellus urna ligula, egestas ut lacus non, dapibus eleifend nulla. Vestibulum accumsan tellus nibh, non rhoncus nisi dictum quis. Suspendisse lobortis eros ac lacus eleifend commodo. Suspendisse lacinia lacus id eros aliquet lacinia. Vestibulum vel ligula pellentesque tortor eleifend cursus id eget massa. Duis eleifend pharetra nunc, vel dignissim eros. Vestibulum sed bibendum erat.', '', 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(7, 0, 0, 'Titre G', 'objet G Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque eget lorem ut cursus. Sed erat neque, sodales sit amet auctor id, consequat vel erat. Phasellus urna ligula, egestas ut lacus non, dapibus eleifend nulla. Vestibulum accumsan tellus nibh, non rhoncus nisi dictum quis. Suspendisse lobortis eros ac lacus eleifend commodo. Suspendisse lacinia lacus id eros aliquet lacinia. Vestibulum vel ligula pellentesque tortor eleifend cursus id eget massa. Duis eleifend pharetra nunc, vel dignissim eros. Vestibulum sed bibendum erat.', '', 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(8, 0, 0, 'Titre H', 'objet H Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque eget lorem ut cursus. Sed erat neque, sodales sit amet auctor id, consequat vel erat. Phasellus urna ligula, egestas ut lacus non, dapibus eleifend nulla. Vestibulum accumsan tellus nibh, non rhoncus nisi dictum quis. Suspendisse lobortis eros ac lacus eleifend commodo. Suspendisse lacinia lacus id eros aliquet lacinia. Vestibulum vel ligula pellentesque tortor eleifend cursus id eget massa. Duis eleifend pharetra nunc, vel dignissim eros. Vestibulum sed bibendum erat.', '', 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(9, 0, 0, 'Titre I', 'objet I Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque eget lorem ut cursus. Sed erat neque, sodales sit amet auctor id, consequat vel erat. Phasellus urna ligula, egestas ut lacus non, dapibus eleifend nulla. Vestibulum accumsan tellus nibh, non rhoncus nisi dictum quis. Suspendisse lobortis eros ac lacus eleifend commodo. Suspendisse lacinia lacus id eros aliquet lacinia. Vestibulum vel ligula pellentesque tortor eleifend cursus id eget massa. Duis eleifend pharetra nunc, vel dignissim eros. Vestibulum sed bibendum erat.', '', 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(10, 0, 0, 'Titre J', 'objet J Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque eget lorem ut cursus. Sed erat neque, sodales sit amet auctor id, consequat vel erat. Phasellus urna ligula, egestas ut lacus non, dapibus eleifend nulla. Vestibulum accumsan tellus nibh, non rhoncus nisi dictum quis. Suspendisse lobortis eros ac lacus eleifend commodo. Suspendisse lacinia lacus id eros aliquet lacinia. Vestibulum vel ligula pellentesque tortor eleifend cursus id eget massa. Duis eleifend pharetra nunc, vel dignissim eros. Vestibulum sed bibendum erat.', '', 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(11, 0, 0, 'Titre K', 'objet K Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque eget lorem ut cursus. Sed erat neque, sodales sit amet auctor id, consequat vel erat. Phasellus urna ligula, egestas ut lacus non, dapibus eleifend nulla. Vestibulum accumsan tellus nibh, non rhoncus nisi dictum quis. Suspendisse lobortis eros ac lacus eleifend commodo. Suspendisse lacinia lacus id eros aliquet lacinia. Vestibulum vel ligula pellentesque tortor eleifend cursus id eget massa. Duis eleifend pharetra nunc, vel dignissim eros. Vestibulum sed bibendum erat.', '', 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(12, 0, 0, 'Titre L', 'objet L Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque eget lorem ut cursus. Sed erat neque, sodales sit amet auctor id, consequat vel erat. Phasellus urna ligula, egestas ut lacus non, dapibus eleifend nulla. Vestibulum accumsan tellus nibh, non rhoncus nisi dictum quis. Suspendisse lobortis eros ac lacus eleifend commodo. Suspendisse lacinia lacus id eros aliquet lacinia. Vestibulum vel ligula pellentesque tortor eleifend cursus id eget massa. Duis eleifend pharetra nunc, vel dignissim eros. Vestibulum sed bibendum erat.', '', 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -87,11 +88,19 @@ CREATE TABLE `forum_post` (
   `forum_id` int(10) unsigned NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
   `text` text NOT NULL,
-  `is_online` int(1) unsigned NOT NULL,
+  `is_online` int(1) unsigned NOT NULL DEFAULT '1',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `forum_post`
+--
+
+INSERT INTO `forum_post` (`id`, `forum_id`, `user_id`, `text`, `is_online`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 'voici ma réponse A', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 1, 2, 'voici ma réponse B', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -106,7 +115,7 @@ CREATE TABLE `news` (
   `title` varchar(100) NOT NULL,
   `text` text NOT NULL,
   `keywords` varchar(200) NOT NULL,
-  `is_online` int(1) unsigned NOT NULL,
+  `is_online` int(1) unsigned NOT NULL DEFAULT '1',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -137,7 +146,7 @@ CREATE TABLE `news_post` (
   `news_id` int(10) unsigned NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
   `text` text NOT NULL,
-  `is_online` int(1) unsigned NOT NULL,
+  `is_online` int(1) unsigned NOT NULL DEFAULT '1',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -152,7 +161,7 @@ CREATE TABLE `news_post` (
 CREATE TABLE `tag` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(25) NOT NULL,
-  `is_online` int(1) NOT NULL,
+  `is_online` int(1) NOT NULL DEFAULT '1',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -171,7 +180,7 @@ CREATE TABLE `tutorial` (
   `title` varchar(100) NOT NULL,
   `text` text NOT NULL,
   `keywords` varchar(200) NOT NULL,
-  `is_online` int(1) unsigned NOT NULL,
+  `is_online` int(1) unsigned NOT NULL DEFAULT '1',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -202,7 +211,7 @@ CREATE TABLE `tutorial_post` (
   `tutorial_id` int(10) unsigned NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
   `text` text NOT NULL,
-  `is_online` int(1) unsigned NOT NULL,
+  `is_online` int(1) unsigned NOT NULL DEFAULT '1',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -222,7 +231,7 @@ CREATE TABLE `user` (
   `email` varchar(100) NOT NULL,
   `pass` varchar(200) NOT NULL,
   `keywords` varchar(200) NOT NULL,
-  `is_online` int(1) unsigned NOT NULL,
+  `is_online` int(1) unsigned NOT NULL DEFAULT '1',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
@@ -233,12 +242,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `text`, `email`, `pass`, `keywords`, `is_online`, `created_at`, `updated_at`) VALUES
-(1, 'jinzhu', '', '', '', '', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 'jinzhu', '', '', '', '', '', 0, '2014-04-07 16:35:14', '2014-04-07 16:35:14'),
-(3, 'jinzhu', '', '', '', '', '', 0, '2014-04-07 16:35:38', '2014-04-07 16:35:38'),
-(4, 'Henri', 'Lepic', '', '', '', '', 0, '2014-04-07 16:36:41', '2014-04-07 16:36:41'),
-(5, 'Henri', 'Lepic', '', '', '', '', 0, '2014-04-07 17:04:15', '2014-04-07 17:04:15'),
-(6, 'Henri', 'Lepic', '', '', '', '', 0, '2014-04-07 17:08:35', '2014-04-07 17:08:35');
+(1, 'Damien', 'Weil', 'texte de Damien Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet rhoncus augue, at mollis lacus. Phasellus eget consequat tellus. Donec sed turpis nunc. Nam id dolor porttitor, tristique tortor eget, iaculis sem. Donec nec tincidunt erat. Curabitur volutpat convallis porttitor. Nunc eleifend sem sem, quis ultricies augue porttitor ac. Nullam vitae ante nunc. Suspendisse nisi augue, condimentum eu nulla a, cursus condimentum mauris. Integer tristique pharetra tempor. Donec pharetra vestibulum risus sit amet dictum.', 'damien.weil@gmail.com', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 'René', 'Grossi', 'texte de rené Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet rhoncus augue, at mollis lacus. Phasellus eget consequat tellus. Donec sed turpis nunc. Nam id dolor porttitor, tristique tortor eget, iaculis sem. Donec nec tincidunt erat. Curabitur volutpat convallis porttitor. Nunc eleifend sem sem, quis ultricies augue porttitor ac. Nullam vitae ante nunc. Suspendisse nisi augue, condimentum eu nulla a, cursus condimentum mauris. Integer tristique pharetra tempor. Donec pharetra vestibulum risus sit amet dictum.', 'rene.grossi@gmail.com', '', '', 1, '2014-04-07 16:35:14', '2014-04-07 16:35:14'),
+(3, 'Antoine', 'Chameau', 'texte d''antoine Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet rhoncus augue, at mollis lacus. Phasellus eget consequat tellus. Donec sed turpis nunc. Nam id dolor porttitor, tristique tortor eget, iaculis sem. Donec nec tincidunt erat. Curabitur volutpat convallis porttitor. Nunc eleifend sem sem, quis ultricies augue porttitor ac. Nullam vitae ante nunc. Suspendisse nisi augue, condimentum eu nulla a, cursus condimentum mauris. Integer tristique pharetra tempor. Donec pharetra vestibulum risus sit amet dictum.', 'antoine.chameau@gmail.com', '', '', 1, '2014-04-07 16:35:38', '2014-04-07 16:35:38'),
+(4, 'Henri', 'Lepic', 'texte d''Henri Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet rhoncus augue, at mollis lacus. Phasellus eget consequat tellus. Donec sed turpis nunc. Nam id dolor porttitor, tristique tortor eget, iaculis sem. Donec nec tincidunt erat. Curabitur volutpat convallis porttitor. Nunc eleifend sem sem, quis ultricies augue porttitor ac. Nullam vitae ante nunc. Suspendisse nisi augue, condimentum eu nulla a, cursus condimentum mauris. Integer tristique pharetra tempor. Donec pharetra vestibulum risus sit amet dictum.', 'henrilepic@gmail.com', '', '', 1, '2014-04-07 16:36:41', '2014-04-07 16:36:41'),
+(5, 'Amélie', 'Lepic', 'texte Amélie Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet rhoncus augue, at mollis lacus. Phasellus eget consequat tellus. Donec sed turpis nunc. Nam id dolor porttitor, tristique tortor eget, iaculis sem. Donec nec tincidunt erat. Curabitur volutpat convallis porttitor. Nunc eleifend sem sem, quis ultricies augue porttitor ac. Nullam vitae ante nunc. Suspendisse nisi augue, condimentum eu nulla a, cursus condimentum mauris. Integer tristique pharetra tempor. Donec pharetra vestibulum risus sit amet dictum.', 'amelie.lepic@gmail.com', '', '', 0, '2014-04-07 17:04:15', '2014-04-07 17:04:15'),
+(6, 'Hugues', 'Lepic', 'texte d''hugues Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet rhoncus augue, at mollis lacus. Phasellus eget consequat tellus. Donec sed turpis nunc. Nam id dolor porttitor, tristique tortor eget, iaculis sem. Donec nec tincidunt erat. Curabitur volutpat convallis porttitor. Nunc eleifend sem sem, quis ultricies augue porttitor ac. Nullam vitae ante nunc. Suspendisse nisi augue, condimentum eu nulla a, cursus condimentum mauris. Integer tristique pharetra tempor. Donec pharetra vestibulum risus sit amet dictum.', 'h.lepic@gmail.com', '', '', 1, '2014-04-07 17:08:35', '2014-04-07 17:08:35');
 
 -- --------------------------------------------------------
 
@@ -253,7 +262,7 @@ CREATE TABLE `user_image` (
   `url` varchar(200) NOT NULL,
   `description` text NOT NULL,
   `is_featured` int(1) unsigned NOT NULL,
-  `is_online` int(1) unsigned NOT NULL,
+  `is_online` int(1) unsigned NOT NULL DEFAULT '1',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
