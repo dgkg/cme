@@ -30,6 +30,7 @@ func ForumView() M.Page {
 	p := new(M.PageForum)
 	p.Title = "Forum"
 	p.MainClass = "forum"
+	p.PageLevel = ""
 
 	// Création des forums
 	p.Forums = make([]M.ForumViewHelper, 2)
@@ -68,6 +69,7 @@ var ForumAddTempl = "forum_add"
 func ForumAddView() M.Page {
 	p := new(M.PageForum)
 	p.Title = "Titre du sujet"
+	p.PageLevel = "../"
 
 	p.Forums = make([]M.ForumViewHelper, 2)
 

@@ -10,6 +10,7 @@ type PageWeb struct {
 	VarSessCookie string
 	VarFlash      string
 	MainClass     string
+	PageLevel     string
 	Logge         bool
 	Menu
 }
@@ -39,18 +40,18 @@ type PageForum struct {
 
 type PageNews struct {
 	PagesList []Paginate
-	News    []NewsViewHelper
+	News      []NewsViewHelper
 	PageWeb
 }
 
 type PageTutoriels struct {
 	PagesList []Paginate
-	Tutoriels    []TutorialsViewHelper
+	Tutoriels []TutorialsViewHelper
 	PageWeb
 }
 
 type PageUser struct {
 	PagesList []Paginate
-	Users    []UsersViewHelper
+	Users     []UsersViewHelper
 	PageWeb
 }

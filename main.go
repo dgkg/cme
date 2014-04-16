@@ -24,10 +24,10 @@ func main() {
 	// listes des rootes
 	r.HandleFunc("/", HomeHandler)
 	r.HandleFunc("/forum", ForumHandler)
-	r.HandleFunc("/forum/add", ForumAddHandler)
+	r.HandleFunc("/forum/nouveau", ForumAddHandler)
 	r.HandleFunc("/eleves", StudentHandler)
 	r.HandleFunc("/tutoriels", TutoHandler)
-	r.HandleFunc("/tutoriel/add", TutoAddHandler)
+	r.HandleFunc("/tutoriels/nouveau/", TutoAddHandler)
 	r.HandleFunc("/actualites", NewsHandler)
 
 	/*
