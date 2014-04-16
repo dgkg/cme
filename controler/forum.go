@@ -11,6 +11,7 @@ import (
 )
 
 var ForumTempl = "forum"
+var ForumAddTempl = "forum_add"
 
 var maxElementsInPage = 5
 
@@ -35,12 +36,11 @@ func ForumAddView() M.Page {
 
 	p := new(M.PageForum)
 	p.Title = "Titre du sujet"
+	p.MainClass = "nouveaututo"
 	p.PageLevel = "../"
 	p.Forums = make([]M.Forum, 2)
 	p.Forums[0].Title = "Test A"
 	p.Forums[1].Title = "Test B"
-
-	ForumTempl = "forum_add"
 
 	return p
 }
