@@ -67,7 +67,28 @@ func getNumForms() int {
 	db := connectToDatabase()
 	var forums []M.Forum
 	var num int
-	db.Find(&forums).Count(&num)
+	db.Where("is_online = ?", "1").Find(&forums).Count(&num)
+	return num
+}
+
+// permet de récupérer les posts d'un forum
+// à partir de l'id d'un forum
+func getPostForum(id int) []M.ForumPost {
+	idForum := Itoa(id)
+	db := connectToDatabase()
+	var posts []M.ForumPost
+	db.Where("is_online = ? and forum_id = ?", "1", idForum).Find(&posts)
+	return posts
+}
+
+// permet de récupérer le nombre de posts d'un forum
+// à partir de l'id d'un forum
+func getNumPostForum(id int) int {
+	idForum := Itoa(id)
+	db := connectToDatabase()
+	var posts []M.ForumPost
+	var num int
+	db.Where("is_online = ? and forum_id = ?", "1", idForum).Find(&posts).Count(&num)
 	return num
 }
 
