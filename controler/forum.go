@@ -21,7 +21,6 @@ func ForumView() M.Page {
 	p := new(M.PageForum)
 	p.Title = "Forum"
 	p.MainClass = "forum"
-	p.PageLevel = ""
 	p.Forums = getListForums()
 	p.Categories = getAllFormCategories()
 	p.PagesList = createPaginate()
@@ -80,13 +79,9 @@ func connectToDatabase() gorm.DB {
 // fonction pour créer la pagination
 func createPaginate() []M.Paginate {
 	elTotal := getNumForms()
-}
 
-func ForumAddView() M.Page {
-	p := new(M.PageForum)
-	p.Title = "Titre du sujet"
-	p.PageLevel = "../"
 	nb := elTotal / maxElementsInPage
+
 	mf := int(math.Floor(float64(nb)))
 	log.Print(mf)
 
