@@ -18,19 +18,17 @@
                     <h2>Catégories</h2>
                     <ul>
                         <li>Catégories  /</li>
-                        <li><a href="#">Web</a></li>
-                        <li><a href="#">Print</a></li>
-                        <li><a href="#">Rough</a></li>
-                        <li><a href="#">Cours</a></li>
-                        <li><a href="#">Autre</a></li>
+
+                        {{range .Categories}}
+                        <li><a href="#">{{.Title}}</a></li>
+                        {{end}}
+
                     </ul>
 
                     <select>
-                        <option>Web</option>
-                        <option>Print</option>
-                        <option>Rough</option>
-                        <option>Cours</option>
-                        <option>Autre</option>
+                        {{range .Categories}}
+                        <option>{{.Title}}</option>
+                        {{end}}
                     </select>
 
                     <form><input type="text" placeholder="Recherche..."></form>
@@ -51,7 +49,7 @@
                         <div class="post">
 
                         <h2>{{.Title}}</h2>
-                        <p class="post-desc">Salut à tous, je cherche une liste des raccourcis clavier sur Photoshop CS6! Est-ce que quelqu'un sait où je peux les trouver? Merci beaucoup!</p>
+                        <p class="post-desc">{{.Text}}</p>
                         <div class="post-meta">
                             <p class="post-cat">{{.CategoryTitle}}</p>
                             <img src="img/icone-reponse.png" alt="Nombre de réponses"><p>0</p>
@@ -77,16 +75,9 @@
                     </ul>
 
                     <select>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
+                        {{range .PagesList}}
+                        <option>{{.Title}}</option>
+                        {{end}}
                     </select>
 
                     <a class="btn-nav-suiv" href="#">Suivant</a>

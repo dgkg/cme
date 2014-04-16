@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Lun 14 Avril 2014 à 16:18
+-- Généré le: Mer 16 Avril 2014 à 14:06
 -- Version du serveur: 5.5.29
 -- Version de PHP: 5.4.10
 
@@ -31,7 +31,25 @@ CREATE TABLE `forum` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+
+--
+-- Contenu de la table `forum`
+--
+
+INSERT INTO `forum` (`id`, `user_id`, `forum_category_id`, `title`, `text`, `keywords`, `is_online`, `created_at`, `updated_at`) VALUES
+(1, 0, 0, 'Titre A', 'Titre A : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque eget lorem ut cursus. Sed erat neque, sodales sit amet auctor id, consequat vel erat. Phasellus urna ligula, egestas ut lacus non, dapibus eleifend nulla. Vestibulum accumsan tellus nibh, non rhoncus nisi dictum quis. Suspendisse lobortis eros ac lacus eleifend commodo. Suspendisse lacinia lacus id eros aliquet lacinia. Vestibulum vel ligula pellentesque tortor eleifend cursus id eget massa. Duis eleifend pharetra nunc, vel dignissim eros. Vestibulum sed bibendum erat.', '', 0, '2014-04-15 09:05:12', '2014-04-15 09:05:12'),
+(2, 0, 0, 'Titre B', 'Doudoud didi Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque eget lorem ut cursus. Sed erat neque, sodales sit amet auctor id, consequat vel erat. Phasellus urna ligula, egestas ut lacus non, dapibus eleifend nulla. Vestibulum accumsan tellus nibh, non rhoncus nisi dictum quis. Suspendisse lobortis eros ac lacus eleifend commodo. Suspendisse lacinia lacus id eros aliquet lacinia. Vestibulum vel ligula pellentesque tortor eleifend cursus id eget massa. Duis eleifend pharetra nunc, vel dignissim eros. Vestibulum sed bibendum erat.', '', 0, '2014-04-15 09:06:09', '2014-04-15 09:06:09'),
+(3, 0, 0, 'Titre C', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, 0, 0, 'Titre D', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, 0, 0, 'Titre E', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(6, 0, 0, 'Titre F', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(7, 0, 0, 'Titre G', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(8, 0, 0, 'Titre H', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(9, 0, 0, 'Titre I', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(10, 0, 0, 'Titre J', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(11, 0, 0, 'Titre K', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(12, 0, 0, 'Titre L', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -45,7 +63,18 @@ CREATE TABLE `forum_category` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Contenu de la table `forum_category`
+--
+
+INSERT INTO `forum_category` (`id`, `title`, `created_at`, `updated_at`) VALUES
+(1, 'Packaging', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 'Web', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 'Rough', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, 'Cours', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, 'Autre', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 

@@ -32,7 +32,8 @@ type PageHome struct {
 }
 
 type PageForum struct {
-	PagesList []Paginate
-	Forums    []ForumViewHelper
+	Categories []ForumCategory
+	PagesList  []Paginate
+	Forums     []Forum
 	PageWeb
 }
