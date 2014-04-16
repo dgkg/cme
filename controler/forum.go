@@ -58,7 +58,7 @@ func getAllFormCategories() []M.ForumCategory {
 func getListForums() []M.Forum {
 	db := connectToDatabase()
 	var forums []M.Forum
-	db.Limit(maxElementsInPage).Find(&forums)
+	db.Limit(maxElementsInPage).Where("is_online = ?", "1").Find(&forums)
 	return forums
 }
 
@@ -97,14 +97,10 @@ func createPaginate() []M.Paginate {
 	return p
 }
 
-func searchInTitle() {
-	/*
-		//Work's
-		rows := db.Table("forum").Where("title = ?", "Titre B").Select("title, text").Row()
-
-		var title string
-		var text string
-		rows.Scan(&title, &text)
-		log.Print(title + " // " + text)
-	*/
+// fonction permetttant de rechercher dans les titres des questions
+func searchInTitle(s string) []M.Forum {
+	db := connectToDatabase()
+	var forums []M.Forum
+	db.Table(&forums).Where("title = ?", s)
+	return forums
 }
