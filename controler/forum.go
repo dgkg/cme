@@ -27,7 +27,7 @@ func ForumView() M.Page {
 	p.Categories = getAllFormCategories()
 	p.PagesList = createPaginate()
 
-	injectNumPostsToForums(p.Forums)
+	injectDataForumToDisplay(p.Forums)
 
 	return p
 }
@@ -55,13 +55,18 @@ func getAllFormCategories() []M.ForumCategory {
 	return cat
 }
 
-func injectNumPostsToForums(forums []M.Forum) []M.Forum {
+// Permet de retrouver le nombre de réponses pour chaque post
+// Permet aussi de réduire la description du texte de desc à 250 caractères
+func injectDataForumToDisplay(forums []M.Forum) []M.Forum {
 	lenForum := len(forums)
+
 	for i := 0; i < lenForum; i++ {
-		j := forums[i].Id
-		forums[i].PostNumb = getNumPostForum(j)
-		//log.Print(num)
+		id := forums[i].Id
+		text := forums[i].Text[0:250]
+		forums[i].PostNumb = getNumPostForum(id)
+		forums[i].Text = text
 	}
+
 	return forums
 }
 

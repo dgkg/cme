@@ -815,8 +815,7 @@ a:visited {
     .forum .body .liste-posts .post {
       position: relative; }
       .forum .body .liste-posts .post h2 {
-        float: left;
-        width: auto; }
+        float: left; }
       .forum .body .liste-posts .post .post-desc {
         max-width: 480px;
         float: left;
