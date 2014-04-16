@@ -1181,6 +1181,8 @@ a:visited {
 .nouveaututo {
   /* iPads (portrait) ----------- */
   /* Desktops and laptops ----------- */ }
+  .nouveaututo .message-accueil {
+    display: none; }
   .nouveaututo .body {
     margin-right: 30px;
     margin-left: 30px; }
@@ -1254,6 +1256,8 @@ a:visited {
 .nouveausujet {
   /* iPads (portrait) ----------- */
   /* Desktops and laptops ----------- */ }
+  .nouveausujet .message-accueil {
+    display: none; }
   .nouveausujet .body {
     margin-right: 30px;
     margin-left: 30px; }

@@ -95,7 +95,7 @@ func ForumHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ForumAddHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, C.ForumTempl, C.ForumAddView())
+	Render(w, C.ForumAddTempl, C.ForumAddView())
 }
 func StudentHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, C.UserTempl, C.UserView())

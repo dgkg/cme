@@ -35,12 +35,12 @@
             </div>
         </div>
 
-        <script type="text/javascript" src="js/vendor/jquery-1.11.0.min.js"></script>
-        <script type="text/javascript" src="js/vendor/grande.min.js"></script>
+        <script type="text/javascript" src="{{ .PageLevel }}js/vendor/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="{{ .PageLevel }}js/vendor/grande.min.js"></script>
         <script type="text/javascript">
             grande.bind(document.querySelectorAll("article"));
         </script>
-        <script src="js/main.js"></script>
+        <!-- <script src="{{ .PageLevel }}js/main.js"></script> -->
     </body>
 </html>
 {{ end }}
