@@ -56,7 +56,7 @@ func getAllFormCategories() []M.ForumCategory {
 func getListForums() []M.Forum {
 	db := connectToDatabase()
 	var forums []M.Forum
-	db.Limit(maxElementsInPage).Find(&forums)
+	db.Limit(maxElementsInPage).Where("is_online = ?", "1").Find(&forums)
 	return forums
 }
 
