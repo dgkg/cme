@@ -80,16 +80,13 @@ func connectToDatabase() gorm.DB {
 // fonction pour créer la pagination
 func createPaginate() []M.Paginate {
 	elTotal := getNumForms()
+}
 
-<<<<<<< HEAD
 func ForumAddView() M.Page {
 	p := new(M.PageForum)
 	p.Title = "Titre du sujet"
 	p.PageLevel = "../"
-=======
 	nb := elTotal / maxElementsInPage
->>>>>>> 2fef960b0f38d40039e20964eae64f4c667b523d
-
 	mf := int(math.Floor(float64(nb)))
 	log.Print(mf)
 
