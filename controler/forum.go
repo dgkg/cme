@@ -63,6 +63,8 @@ func ForumView() M.Page {
 	return p
 }
 
+var ForumAddTempl = "forum_add"
+
 func ForumAddView() M.Page {
 	p := new(M.PageForum)
 	p.Title = "Titre du sujet"
