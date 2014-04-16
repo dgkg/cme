@@ -13,6 +13,7 @@ type Forum struct {
 	Keywords        string `sql:"type:varchar(200);"`
 	IsSolved        int64
 	IsOnline        int64
+	PostNumb        int64  `sql:"-"` // Ignore this field
 	CategoryTitle   string `sql:"-"` // Ignore this field
 	CreatedAt       time.Time
 	UpdatedAt       time.Time
