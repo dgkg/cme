@@ -37,3 +37,21 @@ type PageForum struct {
 	Forums     []Forum
 	PageWeb
 }
+
+type PageNews struct {
+	PagesList []Paginate
+	News    []NewsViewHelper
+	PageWeb
+}
+
+type PageTutoriels struct {
+	PagesList []Paginate
+	Tutoriels    []TutorialsViewHelper
+	PageWeb
+}
+
+type PageUser struct {
+	PagesList []Paginate
+	Users    []UsersViewHelper
+	PageWeb
+}

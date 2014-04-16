@@ -485,6 +485,8 @@ a:visited {
 .eleves {
   /* iPads (portrait) ----------- */
   /* Desktops and laptops ----------- */ }
+  .eleves .message-accueil {
+    display: none; }
   .eleves .body {
     margin-right: 30px;
     margin-left: 30px; }
@@ -643,6 +645,8 @@ a:visited {
 .forum {
   /* iPads (portrait) ----------- */
   /* Desktops and laptops ----------- */ }
+  .forum .message-accueil {
+    display: none; }
   .forum .body {
     margin-right: 30px;
     margin-left: 30px; }
@@ -859,6 +863,8 @@ a:visited {
 .tutoriels {
   /* iPads (portrait) ----------- */
   /* Desktops and laptops ----------- */ }
+  .tutoriels .message-accueil {
+    display: none; }
   .tutoriels .body {
     margin-right: 30px;
     margin-left: 30px; }
@@ -1075,6 +1081,8 @@ a:visited {
 .actualites {
   /* iPads (portrait) ----------- */
   /* Desktops and laptops ----------- */ }
+  .actualites .message-accueil {
+    display: none; }
   .actualites .body {
     margin-right: 30px;
     margin-left: 30px; }

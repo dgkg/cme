@@ -78,7 +78,6 @@ func connectToDatabase() gorm.DB {
 
 // fonction pour créer la pagination
 func createPaginate() []M.Paginate {
-
 	elTotal := getNumForms()
 
 	nb := elTotal / maxElementsInPage

@@ -33,3 +33,7 @@ type TutorialPost struct {
 	CreatedAt  time.Time
 	UpdatedAt  time.Time
 }
+
+type TutorialsViewHelper struct {
+	Tutorial
+}
