@@ -21,6 +21,7 @@ func ForumView() M.Page {
 	p := new(M.PageForum)
 	p.Title = "Forum"
 	p.MainClass = "forum"
+	p.PageLevel = ""
 	p.Forums = getListForums()
 	p.Categories = getAllFormCategories()
 	p.PagesList = createPaginate()
@@ -34,6 +35,7 @@ func ForumAddView() M.Page {
 
 	p := new(M.PageForum)
 	p.Title = "Titre du sujet"
+	p.PageLevel = "../"
 	p.Forums = make([]M.Forum, 2)
 	p.Forums[0].Title = "Test A"
 	p.Forums[1].Title = "Test B"
