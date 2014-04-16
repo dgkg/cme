@@ -30,18 +30,19 @@ func NewsView() M.Page {
 	p := new(M.PageNews)
 	p.Title = "News"
 	p.MainClass = "actualites"
+	p.PageLevel = ""
 
 	// Création des forums
 	/*
-	p.News = make([]M.NewsViewHelper, 2)
+		p.News = make([]M.NewsViewHelper, 2)
 
-	p.News[0].Id = 1
-	p.News[0].Title = "Test A"
-	p.News[0].CategoryTitle = "Packaging"
+		p.News[0].Id = 1
+		p.News[0].Title = "Test A"
+		p.News[0].CategoryTitle = "Packaging"
 
-	p.News[1].Id = 2
-	p.News[1].Title = "Test B"
-	p.News[1].CategoryTitle = "Logiciel"
+		p.News[1].Id = 2
+		p.News[1].Title = "Test B"
+		p.News[1].CategoryTitle = "Logiciel"
 	*/
 
 	// pagination
