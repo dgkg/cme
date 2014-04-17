@@ -28,7 +28,7 @@ type Paginate struct {
 }
 
 type PageHome struct {
-	Images [100]UserImage
+	Images []UserImage
 	PageWeb
 }
 

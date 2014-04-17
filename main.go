@@ -76,16 +76,16 @@ func ForumSearchHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ForumAddHandler(w http.ResponseWriter, r *http.Request) {
-	isValid := C.ValidateForum(r)
+	isValid := C.ForumValidateForm(r)
 
 	if isValid {
 		log.Print("VALIDE!!")
-		C.SetPostForum(r)
+		C.ForumSaveForm(r)
 	} else {
 		log.Print("NON VALIDE!!")
 	}
 
-	Render(w, C.ForumTempl, C.ForumAddView())
+	Render(w, C.ForumTempl, C.ForumViewAdd())
 }
 func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
 	// récupère la catégorie sélectionnée
