@@ -23,59 +23,17 @@ func main() {
 
 	// listes des rootes
 	r.HandleFunc("/", HomeHandler)
+
 	r.HandleFunc("/forum", ForumHandler)
 	r.HandleFunc("/forum/nouveau", ForumAddHandler)
+	r.HandleFunc("/forum/{category}", ForumCatHandler)
+
 	r.HandleFunc("/eleves", StudentHandler)
+
 	r.HandleFunc("/tutoriels", TutoHandler)
 	r.HandleFunc("/tutoriels/nouveau/", TutoAddHandler)
+
 	r.HandleFunc("/actualites", NewsHandler)
-
-	/*
-		// Forum Handlers
-		r.HandleFunc("/admin/forum", ForumHandler)
-		r.HandleFunc("/admin/forum/add", ForumAddHandler)
-		r.HandleFunc("/admin/forum/edit/{id:[0-9]+}", ForumEditHandler)
-		r.HandleFunc("/admin/forum/edit/{id:[0-9]+}/post/", ForumPostHandler)
-		r.HandleFunc("/admin/forum/edit/{id:[0-9]+}/post/add", ForumPostAddHandler)
-		r.HandleFunc("/admin/forum/edit/{id:[0-9]+}/post/edit/{idpost:[0-9]+}", ForumPostEditHandler)
-		r.HandleFunc("/admin/forum/category", ForumCategoryHandler)
-		r.HandleFunc("/admin/forum/category/add", ForumCategoryAddHandler)
-		r.HandleFunc("/admin/forum/category/edit/{id:[0-9]+}", ForumCategoryEditHandler)
-		r.HandleFunc("/admin/forum/keyword", ForumKeywordHandler)
-		r.HandleFunc("/admin/forum/keyword/add", ForumKeywordAddHandler)
-		r.HandleFunc("/admin/forum/keyword/edit/{id:[0-9]+}", ForumKeywordEditHandler)
-
-		// News Handlers
-		r.HandleFunc("/admin/news", NewsHandler)
-		r.HandleFunc("/admin/news/add", NewsAddHandler)
-		r.HandleFunc("/admin/news/edit/{id:[0-9]+}", NewsEditHandler)
-		r.HandleFunc("/admin/news/category", NewsCategoryHandler)
-		r.HandleFunc("/admin/news/category/add", NewsCategoryAddHandler)
-		r.HandleFunc("/admin/news/category/edit/{id:[0-9]+}", NewsCategoryEditHandler)
-		r.HandleFunc("/admin/news/keyword", NewsKeywordHandler)
-		r.HandleFunc("/admin/news/keyword/add", NewsKeywordAddHandler)
-		r.HandleFunc("/admin/news/keyword/edit/{id:[0-9]+}", NewsKeywordEditHandler)
-
-		// Tutorial Handlers
-		r.HandleFunc("/admin/tutorial", TutorialHandler)
-		r.HandleFunc("/admin/tutorial/add", TutorialAddHandler)
-		r.HandleFunc("/admin/tutorial/edit/{id:[0-9]+}", TutorialEditHandler)
-		r.HandleFunc("/admin/tutorial/category", TutorialCategoryHandler)
-		r.HandleFunc("/admin/tutorial/category/add", TutorialCategoryAddHandler)
-		r.HandleFunc("/admin/tutorial/category/edit/{id:[0-9]+}", TutorialCategoryEditHandler)
-		r.HandleFunc("/admin/tutorial/keyword", TutorialKeywordHandler)
-		r.HandleFunc("/admin/tutorial/keyword/add", TutorialKeywordAddHandler)
-		r.HandleFunc("/admin/tutorial/keyword/edit/{id:[0-9]+}", TutorialKeywordEditHandler)
-
-		// User Handlers
-		r.HandleFunc("/admin/user", UserHandler)
-		r.HandleFunc("/admin/user/add", UserAddHandler)
-		r.HandleFunc("/admin/user/edit/{id:[0-9]+}", UserEditHandler)
-		r.HandleFunc("/admin/user/edit/{id:[0-9]+}/media", UserMediaHandler)
-		r.HandleFunc("/admin/user/edit/{id:[0-9]+}/media/add", UserMediaAddHandler)
-		r.HandleFunc("/admin/user/edit/{id:[0-9]+}/media/edit/{idmedia:[0-9]+}", UserMediaEditHandler)
-	*/
-	//
 
 	//gestion des fichiers statiques
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
@@ -97,15 +55,24 @@ func ForumHandler(w http.ResponseWriter, r *http.Request) {
 func ForumAddHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, C.ForumAddTempl, C.ForumAddView())
 }
+func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	category := vars["category"]
+	Render(w, C.ForumTempl, C.FormViewCategory(category))
+}
+
 func StudentHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, C.UserTempl, C.UserView())
 }
+
 func TutoHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, C.TutorialTempl, C.TutorialView())
 }
+
 func TutoAddHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, "tutoriel_add", C.HomeView())
 }
+
 func NewsHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, C.NewsTempl, C.NewsView())
 }

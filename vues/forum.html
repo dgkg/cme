@@ -20,7 +20,7 @@
                         <li>Catégories  /</li>
 
                         {{range .Categories}}
-                        <li><a href="#">{{.Title}}</a></li>
+                        <li><a href="{{.Url}}">{{.Title}}</a></li>
                         {{end}}
 
                     </ul>
@@ -52,16 +52,16 @@
                         <p class="post-desc">{{.Text}}</p>
                         <div class="post-meta">
                             <p class="post-cat">{{.CategoryTitle}}</p>
-                            <img src="img/icone-reponse.png" alt="Nombre de réponses"><p>{{.PostNumb}}</p>
+                            <img src="/img/icone-reponse.png" alt="Nombre de réponses"><p>{{.PostNumb}}</p>
                             
 
                             {{if eq .IsSolved 1 }}
-                                <img src="img/icone-resolu.png" alt="Statut de la publication"><p>Résolu</p>
+                                <img src="/img/icone-resolu.png" alt="Statut de la publication"><p>Résolu</p>
                             {{else}}
-                                <img src="img/icone-non-resolu.png" alt="Statut de la publication"><p>Non résolu</p>
+                                <img src="/img/icone-non-resolu.png" alt="Statut de la publication"><p>Non résolu</p>
                             {{end}}
                             
-                            <img src="img/icone-appreciations.png" alt="Nombre d'appréciations"><p>8</p>
+                            <img src="/img/icone-appreciations.png" alt="Nombre d'appréciations"><p>8</p>
                         </div>
 
                         <a class="btn-repondre" href="#">Répondre</a>
