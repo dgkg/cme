@@ -39,6 +39,7 @@ func ForumView() M.Page {
 }
 
 // permet d'afficher la liste des questions du forum
+// avec la fonction de pagination
 func ForumViewPaged(page string) M.Page {
 
 	log.Println("ForumViewPaged appelé : " + page)
