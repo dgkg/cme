@@ -76,15 +76,15 @@ func ForumSearchHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ForumAddHandler(w http.ResponseWriter, r *http.Request) {
+	isValid := C.ValidateForum(r)
 
-	/*
-		isValid := C.validateForum(r)
-		if isValid{
+	if isValid {
+		log.Print("VALIDE!!")
+		C.SetPostForum(r)
+	} else {
+		log.Print("NON VALIDE!!")
+	}
 
-		}else{
-
-		}
-	*/
 	Render(w, C.ForumAddTempl, C.ForumAddView())
 }
 func ForumCatHandler(w http.ResponseWriter, r *http.Request) {

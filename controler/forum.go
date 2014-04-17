@@ -7,6 +7,7 @@ import (
 	M "github.com/konginteractive/cme/model"
 	"log"
 	"math"
+	"net/http"
 	. "strconv"
 	"strings"
 )
@@ -287,6 +288,32 @@ func createPaginateFromIdCat(id int64) []M.Paginate {
 		p[i].Url = "?p=" + t
 	}
 	return p
+}
+
+func ValidateForum(r *http.Request) bool {
+
+	if r.PostFormValue("post-nom") == "" {
+		return false
+	}
+
+	if r.PostFormValue("post-contenu") == "" {
+		return false
+	}
+
+	return true
+}
+
+func SetPostForum(r *http.Request) {
+	db := connectToDatabase()
+	var f M.Forum
+	f.Title = r.PostFormValue("post-nom")
+	f.Text = r.PostFormValue("post-contenu")
+	f.ForumCategoryId, _ = ParseInt(r.PostFormValue("post-cat"), 0, 64)
+	//log.Print(len(r.PostFormValue("post-cat")))
+	//postCategorie := r.PostFormValue("post-cat")
+	//log.Println(postCategorie)
+	//log.Println(r.PostFormValue("post-cat")["value"])
+	db.Save(&f)
 }
 
 // fonction permetttant de rechercher dans les titres des questions
