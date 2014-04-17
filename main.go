@@ -35,7 +35,7 @@ func main() {
 
 	// routage des tutoriels
 	r.HandleFunc("/tutoriels", TutoHandler)
-	r.HandleFunc("/tutoriels/nouveau", TutoAddHandler)
+	r.HandleFunc("/tutoriel/nouveau", TutoAddHandler)
 	r.HandleFunc("/actualites", NewsHandler)
 
 	// routages des actualités

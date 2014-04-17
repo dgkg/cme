@@ -24,4 +24,5 @@ func HomeView() M.Page {
 	//p.Images = []M.UserImage{{Url: "http://placekitten.com/600/600"}, {Url: "http://placekitten.com/600/300"}}
 	//connectToDatabase()
 	return p
+
 }

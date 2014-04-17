@@ -7,7 +7,7 @@
 
                     <h1>Forum</h1>
                     <p>Utilisez ce forum pour partager vos connaissances, demander de l'aide à vos pairs et discuter de vos projets.</p>
-                    <a class="btn-nouv-publication" href="/forum/nouveau">Créer une nouvelle publication</a>
+                    <a class="btn-nouv-publication" href="/forum/nouveau" rel="nofollow">Créer une nouvelle publication</a>
 
                 </div>
 
@@ -52,16 +52,16 @@
                             <p class="post-desc">{{.Text}}</p>
                             <div class="post-meta">
                                 <p class="post-cat">{{.CategoryTitle}}</p>
-                                <img src="/img/icone-reponse.png" alt="Nombre de réponses"><p>{{.PostNumb}}</p>
+                                <img src="/img/ui/icone-reponse.png" alt="Nombre de réponses"><p>{{.PostNumb}}</p>
                                 
 
                                 {{if eq .IsSolved 1 }}
-                                    <img src="/img/icone-resolu.png" alt="Statut de la publication"><p>Résolu</p>
+                                    <img src="/img/ui/icone-resolu.png" alt="Statut de la publication"><p>Résolu</p>
                                 {{else}}
-                                    <img src="/img/icone-non-resolu.png" alt="Statut de la publication"><p>Non résolu</p>
+                                    <img src="/img/ui/icone-non-resolu.png" alt="Statut de la publication"><p>Non résolu</p>
                                 {{end}}
                                 
-                                <img src="/img/icone-appreciations.png" alt="Nombre d'appréciations"><p>8</p>
+                                <img src="/img/ui/icone-appreciations.png" alt="Nombre d'appréciations"><p>8</p>
                             </div>
 
                             <a class="btn-repondre" href="#">Répondre</a>
@@ -103,10 +103,10 @@
             </div>
         </div>
 
-        <!-- <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script> -->
-        <!-- <script type="text/javascript" src="js/jquery.justifiedGallery.js"></script> -->
-        <!-- <script type="text/javascript" src="js/jquery.contenthover.min.js"></script> -->
-        <!-- <script type="text/javascript" src="js/main.js"></script> -->
+        <!-- <script type="text/javascript" src="/js/jquery-1.11.0.min.js"></script> -->
+        <!-- <script type="text/javascript" src="/js/jquery.justifiedGallery.js"></script> -->
+        <!-- <script type="text/javascript" src="/js/jquery.contenthover.min.js"></script> -->
+        <!-- <script type="text/javascript" src="/js/main.js"></script> -->
     </body>
 </html>
 {{ end }}

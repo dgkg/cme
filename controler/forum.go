@@ -3,7 +3,6 @@ package controler
 import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
-
 	M "github.com/konginteractive/cme/model"
 	"log"
 	"math"
