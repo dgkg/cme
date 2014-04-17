@@ -24,15 +24,19 @@ func main() {
 	// listes des rootes
 	r.HandleFunc("/", HomeHandler)
 
+	// routages du forum
 	r.HandleFunc("/forum", ForumHandler)
 	r.HandleFunc("/forum/nouveau", ForumAddHandler)
 	r.HandleFunc("/forum/{category}", ForumCatHandler)
 
+	// routages des élèves
 	r.HandleFunc("/eleves", StudentHandler)
 
+	// routage des tutoriels
 	r.HandleFunc("/tutoriels", TutoHandler)
 	r.HandleFunc("/tutoriels/nouveau/", TutoAddHandler)
 
+	// routages des actualités
 	r.HandleFunc("/actualites", NewsHandler)
 
 	//gestion des fichiers statiques
@@ -49,16 +53,29 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ForumHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, C.ForumTempl, C.ForumView())
+	p := r.FormValue("p")
+	if p == "" {
+		Render(w, C.ForumTempl, C.ForumView())
+	} else {
+		Render(w, C.ForumTempl, C.ForumViewPaged(p))
+	}
 }
 
 func ForumAddHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, C.ForumAddTempl, C.ForumAddView())
 }
 func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
+	// récupère la catégorie sélectionnée
 	vars := mux.Vars(r)
 	category := vars["category"]
-	Render(w, C.ForumTempl, C.FormViewCategory(category))
+	// récupère la page en cours sélectionnée
+	p := r.FormValue("p")
+
+	if p == "" {
+		Render(w, C.ForumTempl, C.FormViewCategory(category))
+	} else {
+		Render(w, C.ForumTempl, C.FormViewCategoryPaged(category, p))
+	}
 }
 
 func StudentHandler(w http.ResponseWriter, r *http.Request) {
