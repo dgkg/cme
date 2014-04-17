@@ -108,6 +108,10 @@
 		[
 			[
 				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"instll",
 				"Package Control: Install Package"
 			],
 			[
@@ -115,7 +119,7 @@
 				"Package Control: Remove Package"
 			]
 		],
-		"width": 516.0
+		"width": 457.0
 	},
 	"console":
 	{
@@ -132,6 +136,39 @@
 	},
 	"file_history":
 	[
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/vues/forum.html",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/controler/forum.go",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/main.scss",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/main.go",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/vues/footer.html",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/vues/header.html",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/vues/forum_add.html",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveaututo.scss",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveausujet.scss",
+		"/Users/antoinelord/Dropbox/KONG - Antoine/CME/site/tutoriels/nouveau.html",
+		"/Users/antoinelord/Dropbox/KONG - Antoine/CME/site/forum/nouveau.html",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/model/page.go",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/controler/news.go",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/controler/tutorial.go",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/controler/user.go",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/controler/forum_add.go",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/controler/home.go",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/model/forum.go",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/vues/index.html",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/vues/home.html",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/vues/tutorial.html",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/model/user.go",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss",
+		"/Users/antoinelord/Library/Application Support/Sublime Text 2/Packages/GoSublime/CHANGELOG.md",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/model/news.go",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/model/tutorial.go",
+		"/Users/antoinelord/Dropbox/KONG - Antoine/CME/site/index.html",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_fonts.scss",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/main.css",
 		"/Users/antoinelord/go/src/github.com/konginteractive/hello/hello.go",
 		"/Users/antoinelord/.bashrc",
 		"/Users/antoinelord/.bash_profile",
@@ -145,7 +182,6 @@
 		"/Users/antoinelord/Dropbox/KONG - Antoine/CME/site/bower_components/grande/index.html",
 		"/Users/antoinelord/Dropbox/KONG - Antoine/CME/site/assets/css/main.css",
 		"/Users/antoinelord/Dropbox/KONG - Antoine/CME/site/assets/css/pages/_nouveaututo.scss",
-		"/Users/antoinelord/Dropbox/KONG - Antoine/CME/site/index.html",
 		"/Users/antoinelord/Dropbox/KONG - Antoine/CME/site/actualites.html",
 		"/Users/antoinelord/Dropbox/KONG - Antoine/CME/site/eleves.html",
 		"/Users/antoinelord/Dropbox/KONG - Antoine/CME/site/assets/css/_accueil.scss",
@@ -187,6 +223,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"etudiants",
+			"tutoriels",
+			"forum",
+			"Forums",
+			"forum",
+			"Forums",
 			"('../../",
 			"<a href=\"#\">1</a>",
 			"hr",
@@ -275,6 +317,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 181.0,
+	"side_bar_width": 223.0,
 	"status_bar_visible": true
 }

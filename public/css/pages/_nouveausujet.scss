@@ -41,7 +41,7 @@
 			box-sizing: border-box;         /* Opera/IE 8+ */
 		}
 
-		.tuto-contenu {
+		.post-contenu {
 			margin-top: 20px;
 			margin-bottom: 20px;
 			min-height: 320px;
@@ -72,8 +72,8 @@
 
     	.body {
 
-    		.nouv-tuto {
-    			max-width: 70%;
+    		.nouv-post {
+    			max-width: 80%;
     			margin-right: auto;
     			margin-left: auto;
     		}
@@ -102,8 +102,8 @@
             margin-left: 0;
             margin-right: 0;
 
-            .nouv-tuto {
-            	max-width: 50%;
+            .nouv-post {
+            	max-width: 70%;
             }
         }
     }
