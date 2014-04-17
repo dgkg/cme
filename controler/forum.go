@@ -23,6 +23,8 @@ var maxElementsInPage = 3
 func ForumView() M.Page {
 
 	log.Println("ForumView appelé")
+	// surcharge de la variable d'affichage
+	ForumTempl = "forum"
 
 	p := new(M.PageForum)
 	p.Title = "Forum"
@@ -40,6 +42,9 @@ func ForumView() M.Page {
 func ForumViewPaged(page string) M.Page {
 
 	log.Println("ForumViewPaged appelé : " + page)
+	// surcharge de la variable d'affichage
+	ForumTempl = "forum"
+
 	pagePosition, _ := ParseInt(page, 0, 64)
 
 	p := new(M.PageForum)
@@ -56,7 +61,10 @@ func ForumViewPaged(page string) M.Page {
 
 // permet d'afficher la liste des questions du forum avec la catégorie correspondante
 func FormViewCategory(cat string) M.Page {
+
 	log.Println("ForumView appelé")
+	// surcharge de la variable d'affichage
+	ForumTempl = "forum"
 
 	// récupère l'id de la catégorie
 	idCat := getIdFromCatName(cat)
@@ -79,6 +87,9 @@ func FormViewCategory(cat string) M.Page {
 func FormViewCategoryPaged(cat string, page string) M.Page {
 
 	log.Println("ForumView appelé")
+	// surcharge de la variable d'affichage
+	ForumTempl = "forum"
+
 	pagePosition, _ := ParseInt(page, 0, 64)
 	// récupère l'id de la catégorie
 	idCat := getIdFromCatName(cat)
@@ -99,7 +110,10 @@ func FormViewCategoryPaged(cat string, page string) M.Page {
 // va chercher dans les titres
 // et va chercher dans le texte du titre
 func ForumViewSearch(q string) M.Page {
+
 	log.Println("ForumViewSearch appelé")
+	// surcharge de la variable d'affichage
+	ForumTempl = "forum"
 
 	p := new(M.PageForum)
 	p.Title = "Forum Rechercher"
@@ -120,7 +134,6 @@ func ForumViewSearch(q string) M.Page {
 func ForumAddView() M.Page {
 
 	log.Println("ForumAddView appelé")
-
 	// surcharge de la variable d'affichage
 	ForumTempl = "forum_add"
 
@@ -171,6 +184,7 @@ func injectDataForumToDisplay(forums []M.Forum) []M.Forum {
 
 	for i := 0; i < lenForum; i++ {
 		id := forums[i].Id
+		// permet de réaliser des extraits si le texte est trop long
 		if len(forums[i].Text) > 250 {
 			text := forums[i].Text[0:250]
 			forums[i].Text = text
@@ -186,7 +200,7 @@ func injectDataForumToDisplay(forums []M.Forum) []M.Forum {
 func getListForums() []M.Forum {
 	db := connectToDatabase()
 	var forums []M.Forum
-	db.Limit(maxElementsInPage).Where("is_online = ?", "1").Find(&forums)
+	db.Limit(maxElementsInPage).Where("is_online = ?", "1").Order("id desc").Find(&forums)
 	return forums
 }
 
@@ -196,7 +210,7 @@ func getListForums() []M.Forum {
 func getListForumsPaged(fromPage int64) []M.Forum {
 	db := connectToDatabase()
 	var forums []M.Forum
-	db.Limit(maxElementsInPage).Offset(int(fromPage)*maxElementsInPage).Where("is_online = ?", "1").Find(&forums)
+	db.Limit(maxElementsInPage).Offset(int(fromPage)*maxElementsInPage).Where("is_online = ?", "1").Order("id desc").Find(&forums)
 	return forums
 }
 
@@ -204,7 +218,7 @@ func getListForumsPaged(fromPage int64) []M.Forum {
 func getListFormusFromCat(id int64) []M.Forum {
 	db := connectToDatabase()
 	var forums []M.Forum
-	db.Limit(maxElementsInPage).Where("is_online = ? and forum_category_id = ?", "1", Itoa(int(id))).Find(&forums)
+	db.Limit(maxElementsInPage).Where("is_online = ? and forum_category_id = ?", "1", Itoa(int(id))).Order("id desc").Find(&forums)
 	return forums
 }
 
@@ -214,7 +228,7 @@ func getListFormusFromCat(id int64) []M.Forum {
 func getListFormusFromCatPaged(id int64, fromPage int64) []M.Forum {
 	db := connectToDatabase()
 	var forums []M.Forum
-	db.Limit(maxElementsInPage).Offset(int(fromPage)*maxElementsInPage).Where("is_online = ? and forum_category_id = ?", "1", Itoa(int(id))).Find(&forums)
+	db.Limit(maxElementsInPage).Offset(int(fromPage)*maxElementsInPage).Where("is_online = ? and forum_category_id = ?", "1", Itoa(int(id))).Order("id desc").Find(&forums)
 	return forums
 }
 
@@ -319,10 +333,7 @@ func SetPostForum(r *http.Request) {
 	f.Title = r.PostFormValue("post-nom")
 	f.Text = r.PostFormValue("post-contenu")
 	f.ForumCategoryId, _ = ParseInt(r.PostFormValue("post-cat"), 0, 64)
-	//log.Print(len(r.PostFormValue("post-cat")))
-	//postCategorie := r.PostFormValue("post-cat")
-	//log.Println(postCategorie)
-	//log.Println(r.PostFormValue("post-cat")["value"])
+	f.IsOnline = "1" // permet de mettre en ligne automatiquement la quesion
 	db.Save(&f)
 }
 
@@ -330,7 +341,7 @@ func SetPostForum(r *http.Request) {
 func searchInTitle(s string) []M.Forum {
 	db := connectToDatabase()
 	var forums []M.Forum
-	db.Where("is_online = ? and title LIKE ? ", "1", "%"+s+"%").Or("is_online = ? and text LIKE ? ", "1", "%"+s+"%").Find(&forums)
+	db.Where("is_online = ? and title LIKE ? ", "1", "%"+s+"%").Or("is_online = ? and text LIKE ? ", "1", "%"+s+"%").Order("id desc").Find(&forums)
 	return forums
 }
 
