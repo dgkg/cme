@@ -21,12 +21,10 @@
                         <label class="label-post-contenu" for="post-contenu">Contenu</label>
                         <textarea id="post-contenu" name="post-contenu" class="post-contenu">
 
-                            <p>Écrivez votre tutoriel ici...</p>
-
                         </textarea>
 
                         <label class="label-post-cat" for="post-cat">Catégorie du sujet</label>
-                        <select id="post-cat" class="post-cat">
+                        <select id="post-cat" class="post-cat" name="post-cat">
                             {{range .Categories}}
                             <option value="{{ .Id }}">{{.Title}}</option>
                             {{end}}

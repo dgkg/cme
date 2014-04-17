@@ -63,15 +63,17 @@ func ForumHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ForumAddHandler(w http.ResponseWriter, r *http.Request) {
-	log.Print("test du post du formulaire  :" + r.PostFormValue("post-nom"))
-	/*
-		isValid := C.validateForum(r)
-		if isValid{
+	//log.Print("test du post du formulaire  : " + r.PostFormValue("post-nom"))
 
-		}else{
+	isValid := C.ValidateForum(r)
 
-		}
-	*/
+	if isValid {
+		log.Print("VALIDE!!")
+		C.SetPostForum(r)
+	} else {
+		log.Print("NON VALIDE!!")
+	}
+
 	Render(w, C.ForumAddTempl, C.ForumAddView())
 }
 func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
