@@ -1,12 +1,11 @@
 {{ define "tutorial_add" }}
-<!DOCTYPE html>
 {{template "header" .}}
 
             <div class="body">
 
-                <div class="entete-forum">
+                <div class="entete-tuto">
 
-                    <h1>Créer un tutoriel</h1>
+                    <h1>Créer un nouveau tutoriel</h1>
 
                 </div>
 
@@ -14,19 +13,31 @@
 
                 <div class="nouv-tuto">
 
-                    <h2>Nom du tutoriel</h2>
-                    <article class="tuto-nom" contenteditable="true">
-                        <p>Nom du tutoriel...</p>
-                    </article>
+                    <form action="" method="POST">
 
-                    <h2>Contenu</h2>
-                    <article class="tuto-contenu" contenteditable="true">
+                        <label class="label-tuto-nom" for="tuto-nom">Nom du tutoriel</label>
+                        <input type="text" id="tuto-nom" class="tuto-nom" name="tuto-nom">
 
-                        <p>Écrivez votre tutoriel ici...</p>
+                        <label class="label-tuto-contenu" for="tuto-contenu">Contenu</label>
+                        <textarea id="tuto-contenu" name="tuto-contenu" class="tuto-contenu">
 
-                    </article>
+                            <p>Écrivez votre tutoriel ici...</p>
 
-                    <a href="#" class="btn-soumettre">Soumettre</a>
+                        </textarea>
+
+                        <label class="label-tuto-cat" for="tuto-cat">Catégorie du tutoriel</label>
+                        <select id="tuto-cat" class="tuto-cat">
+                            <option>Catégories</option>
+                            <option>Packaging</option>
+                            <option>Web</option>
+                            <option>Rough</option>
+                            <option>Cours</option>
+                            <option>Autre</option>
+                        </select>
+
+                        <input type="submit" class="btn-soumettre" value="Soumettre">
+
+                    </form>
 
                 </div>
 
@@ -36,12 +47,14 @@
             </div>
         </div>
 
-        <script type="text/javascript" src="js/vendor/jquery-1.11.0.min.js"></script>
-        <script type="text/javascript" src="js/vendor/grande.min.js"></script>
+        <script type="text/javascript" src="{{ .PageLevel }}js/vendor/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="{{ .PageLevel }}js/vendor/ckeditor.js"></script>
         <script type="text/javascript">
-            grande.bind(document.querySelectorAll("article"));
+            CKEDITOR.replace( 'tuto-contenu', {
+
+            });
         </script>
-        <script src="js/main.js"></script>
+        <!-- <script src="{{ .PageLevel }}js/main.js"></script> -->
     </body>
 </html>
 {{ end }}

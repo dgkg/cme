@@ -9,6 +9,7 @@ import (
 )
 
 var TutorialTempl = "tutorial"
+var TutorialAddTempl = "tutorial_add"
 
 func TutorialView() M.Page {
 
@@ -62,6 +63,21 @@ func TutorialView() M.Page {
 
 	p.PagesList[4].Title = "5"
 	p.PagesList[4].Url = "/tutoriels/page/5"
+
+	return p
+}
+
+func TutorialAddView() M.Page {
+
+	log.Println("TutoAddView appelé")
+
+	p := new(M.PageTutoriels)
+	p.Title = "Titre du tuto"
+	p.MainClass = "nouveaututo"
+	p.PageLevel = "../"
+	//p.Forums = make([]M.Forum, 2)
+	//p.Forums[0].Title = "Test A"
+	//p.Forums[1].Title = "Test B"
 
 	return p
 }

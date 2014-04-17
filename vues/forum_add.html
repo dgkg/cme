@@ -27,12 +27,9 @@
 
                         <label class="label-post-cat" for="post-cat">Catégorie du sujet</label>
                         <select id="post-cat" class="post-cat">
-                            <option>Catégories</option>
-                            <option>Packaging</option>
-                            <option>Web</option>
-                            <option>Rough</option>
-                            <option>Cours</option>
-                            <option>Autre</option>
+                            {{range .Categories}}
+                            <option value="{{ .Id }}">{{.Title}}</option>
+                            {{end}}
                         </select>
 
                         <input type="submit" class="btn-soumettre" value="Soumettre">

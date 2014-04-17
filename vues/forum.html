@@ -27,7 +27,7 @@
 
                     <select>
                         {{range .Categories}}
-                        <option>{{.Title}}</option>
+                        <option value="{{ .Id }}">{{.Title}}</option>
                         {{end}}
                     </select>
 

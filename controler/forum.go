@@ -41,8 +41,9 @@ func ForumAddView() M.Page {
 	p.MainClass = "nouveausujet"
 	p.PageLevel = "../"
 	p.Forums = make([]M.Forum, 2)
-	p.Forums[0].Title = "Test A"
-	p.Forums[1].Title = "Test B"
+	p.Categories = getAllFormCategories()
+	//p.Forums[0].Title = "Test A"
+	//p.Forums[1].Title = "Test B"
 
 	return p
 }

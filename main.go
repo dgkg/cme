@@ -27,7 +27,7 @@ func main() {
 	r.HandleFunc("/forum/nouveau", ForumAddHandler)
 	r.HandleFunc("/eleves", StudentHandler)
 	r.HandleFunc("/tutoriels", TutoHandler)
-	r.HandleFunc("/tutoriels/nouveau/", TutoAddHandler)
+	r.HandleFunc("/tutoriels/nouveau", TutoAddHandler)
 	r.HandleFunc("/actualites", NewsHandler)
 
 	/*
@@ -104,7 +104,7 @@ func TutoHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, C.TutorialTempl, C.TutorialView())
 }
 func TutoAddHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, "tutoriel_add", C.HomeView())
+	Render(w, C.TutorialAddTempl, C.TutorialAddView())
 }
 func NewsHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, C.NewsTempl, C.NewsView())

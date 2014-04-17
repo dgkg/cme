@@ -8,7 +8,7 @@
 		margin-right: 30px;
 		margin-left: 30px;
 
-		.entete-forum {
+		.entete-tuto {
 
 			h1 {
 				text-transform: uppercase;
@@ -26,9 +26,10 @@
 			margin-bottom: 30px;
 		}
 
-		article {
+		input[type=text] {
 			display: block;
 			width: 100%;
+			height: 40px;
 			border: 1px solid darkgrey;
 			padding-left: 10px;
 			font-size: 16px;
@@ -41,19 +42,43 @@
 			box-sizing: border-box;         /* Opera/IE 8+ */
 		}
 
+		label {
+			margin-top: 40px;
+			display: block;
+			font-size: 20px;
+			font-family: $titre-regular;
+			margin-bottom: 15px;
+		}
+
+		label:first-child {
+			margin-top: 0;
+		}
+
+		.tuto-nom {
+			width: 100%;
+			height: 30px;
+		}
+
 		.tuto-contenu {
 			margin-top: 20px;
 			margin-bottom: 20px;
 			min-height: 320px;
 		}
 
+		.tuto-cat {
+			width: 300px;
+			height: 35px;
+
+			option {
+				font-size: 14px;
+			}
+		}
+
 		.btn-soumettre {
 	            display: block;
 	            width: 100%;
-	            height: 30px;
+	            height: 60px;
 	            background-color: $btn-rouge;
-	            padding-top: 15px;
-	            padding-bottom: 15px;
 	            color: $quasi-blanc;
 	            text-decoration: none;
                 font-family: $titre-regular;
@@ -73,7 +98,7 @@
     	.body {
 
     		.nouv-tuto {
-    			max-width: 70%;
+    			max-width: 80%;
     			margin-right: auto;
     			margin-left: auto;
     		}
@@ -103,7 +128,7 @@
             margin-right: 0;
 
             .nouv-tuto {
-            	max-width: 50%;
+            	max-width: 70%;
             }
         }
     }
