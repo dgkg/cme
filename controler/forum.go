@@ -94,6 +94,21 @@ func FormViewCategoryPaged(cat string, page string) M.Page {
 	return p
 }
 
+func ForumViewSearch(q string) M.Page {
+	log.Println("ForumViewSearch appelé")
+
+	p := new(M.PageForum)
+	p.Title = "Forum Rechercher"
+	p.MainClass = "forum"
+	p.PageLevel = ""
+	p.Forums = searchInTitle(q)
+	p.Categories = getAllFormCategories()
+
+	injectDataForumToDisplay(p.Forums)
+
+	return p
+}
+
 // permet d'afficher le formulaire de création d'une question du formulaire
 func ForumAddView() M.Page {
 
@@ -147,9 +162,11 @@ func injectDataForumToDisplay(forums []M.Forum) []M.Forum {
 
 	for i := 0; i < lenForum; i++ {
 		id := forums[i].Id
-		text := forums[i].Text[0:250]
+		if len(forums[i].Text) > 250 {
+			text := forums[i].Text[0:250]
+			forums[i].Text = text
+		}
 		forums[i].PostNumb = getNumPostForum(id)
-		forums[i].Text = text
 	}
 
 	return forums
@@ -269,6 +286,7 @@ func createPaginateFromIdCat(id int64) []M.Paginate {
 	return p
 }
 
+
 func ValidateForum(r *http.Request) bool {
 
 	if r.PostFormValue("post-nom") == "" {
@@ -300,11 +318,24 @@ func SetPostForum(r *http.Request) {
 }
 
 /*
+
 // fonction permetttant de rechercher dans les titres des questions
 func searchInTitle(s string) []M.Forum {
 	db := connectToDatabase()
 	var forums []M.Forum
-	db.Table(&forums).Where("title = ?", s)
+	db.Where("is_online = ? and title LIKE ? ", "1", "%"+s+"%").Or("is_online = ? and text LIKE ? ", "1", "%"+s+"%").Find(&forums)
 	return forums
 }
-*/
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// END ♥ allez hop au travail !
