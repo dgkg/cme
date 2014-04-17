@@ -38,7 +38,7 @@ func ForumAddView() M.Page {
 
 	p := new(M.PageForum)
 	p.Title = "Titre du sujet"
-	p.MainClass = "nouveaututo"
+	p.MainClass = "nouveausujet"
 	p.PageLevel = "../"
 	p.Forums = make([]M.Forum, 2)
 	p.Forums[0].Title = "Test A"

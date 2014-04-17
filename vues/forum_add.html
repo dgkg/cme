@@ -13,19 +13,31 @@
 
                 <div class="nouv-post">
 
-                    <h2>Nom du sujet</h2>
-                    <article class="post-nom">
-                        <p>Nom du tutoriel...</p>
-                    </article>
+                    <form action="" method="POST">
 
-                    <h2>Contenu</h2>
-                    <textarea name="post-contenu" class="post-contenu">
+                        <label class="label-post-nom" for="post-nom">Nom du sujet</label>
+                        <input type="text" id="post-nom" class="post-nom" name="post-nom">
 
-                        <p>Écrivez votre tutoriel ici...</p>
+                        <label class="label-post-contenu" for="post-contenu">Contenu</label>
+                        <textarea id="post-contenu" name="post-contenu" class="post-contenu">
 
-                    </textarea>
+                            <p>Écrivez votre tutoriel ici...</p>
 
-                    <a href="#" class="btn-soumettre">Soumettre</a>
+                        </textarea>
+
+                        <label class="label-post-cat" for="post-cat">Catégorie du sujet</label>
+                        <select id="post-cat" class="post-cat">
+                            <option>Catégories</option>
+                            <option>Packaging</option>
+                            <option>Web</option>
+                            <option>Rough</option>
+                            <option>Cours</option>
+                            <option>Autre</option>
+                        </select>
+
+                        <input type="submit" class="btn-soumettre" value="Soumettre">
+
+                    </form>
 
                 </div>
 
@@ -38,7 +50,7 @@
         <script type="text/javascript" src="{{ .PageLevel }}js/vendor/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="{{ .PageLevel }}js/vendor/ckeditor.js"></script>
         <script type="text/javascript">
-            CKEDITOR.replace( 'tuto-contenu', {
+            CKEDITOR.replace( 'post-contenu', {
 
             });
         </script>
