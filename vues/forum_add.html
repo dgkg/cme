@@ -11,19 +11,19 @@
 
                 <hr>
 
-                <div class="nouv-tuto">
+                <div class="nouv-post">
 
                     <h2>Nom du sujet</h2>
-                    <article class="tuto-nom" contenteditable="true">
+                    <article class="post-nom">
                         <p>Nom du tutoriel...</p>
                     </article>
 
                     <h2>Contenu</h2>
-                    <article class="tuto-contenu" contenteditable="true">
+                    <textarea name="post-contenu" class="post-contenu">
 
                         <p>Écrivez votre tutoriel ici...</p>
 
-                    </article>
+                    </textarea>
 
                     <a href="#" class="btn-soumettre">Soumettre</a>
 
@@ -36,9 +36,11 @@
         </div>
 
         <script type="text/javascript" src="{{ .PageLevel }}js/vendor/jquery-1.11.0.min.js"></script>
-        <script type="text/javascript" src="{{ .PageLevel }}js/vendor/grande.min.js"></script>
+        <script type="text/javascript" src="{{ .PageLevel }}js/vendor/ckeditor.js"></script>
         <script type="text/javascript">
-            grande.bind(document.querySelectorAll("article"));
+            CKEDITOR.replace( 'tuto-contenu', {
+
+            });
         </script>
         <!-- <script src="{{ .PageLevel }}js/main.js"></script> -->
     </body>
