@@ -85,7 +85,7 @@ func ForumAddHandler(w http.ResponseWriter, r *http.Request) {
 		log.Print("NON VALIDE!!")
 	}
 
-	Render(w, C.ForumAddTempl, C.ForumAddView())
+	Render(w, C.ForumTempl, C.ForumAddView())
 }
 func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
 	// récupère la catégorie sélectionnée

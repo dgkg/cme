@@ -12,9 +12,11 @@ import (
 	"strings"
 )
 
+// template utilisé par les pages affichés
+// par défaut le template est form
 var ForumTempl = "forum"
-var ForumAddTempl = "forum_add"
 
+// donne le nombre d'éléments max à afficher par page
 var maxElementsInPage = 3
 
 // permet d'afficher la liste des questions du forum
@@ -71,6 +73,9 @@ func FormViewCategory(cat string) M.Page {
 	return p
 }
 
+// permet d'afficher une liste de questions en fonction de
+// la catégorie sélectionnée
+// et de la page en cours sélectionnée
 func FormViewCategoryPaged(cat string, page string) M.Page {
 
 	log.Println("ForumView appelé")
@@ -90,6 +95,9 @@ func FormViewCategoryPaged(cat string, page string) M.Page {
 	return p
 }
 
+// permet d'afficher la recherche à partir d'un mot clef
+// va chercher dans les titres
+// et va chercher dans le texte du titre
 func ForumViewSearch(q string) M.Page {
 	log.Println("ForumViewSearch appelé")
 
@@ -112,6 +120,9 @@ func ForumViewSearch(q string) M.Page {
 func ForumAddView() M.Page {
 
 	log.Println("ForumAddView appelé")
+
+	// surcharge de la variable d'affichage
+	ForumTempl = "forum_add"
 
 	p := new(M.PageForum)
 	p.Title = "Titre du sujet"
@@ -197,6 +208,9 @@ func getListFormusFromCat(id int64) []M.Forum {
 	return forums
 }
 
+// permet de récupérer une liste de questions du formulaire en fonction
+// de l'id de la catégorie sélectionnée
+// et de la page dans laquelle on est
 func getListFormusFromCatPaged(id int64, fromPage int64) []M.Forum {
 	db := connectToDatabase()
 	var forums []M.Forum
@@ -284,6 +298,7 @@ func createPaginateFromIdCat(id int64) []M.Paginate {
 	return p
 }
 
+// permet de valider les éléments du formulaire
 func ValidateForum(r *http.Request) bool {
 
 	if r.PostFormValue("post-nom") == "" {
@@ -297,6 +312,7 @@ func ValidateForum(r *http.Request) bool {
 	return true
 }
 
+// permet d'enregistrer les éléments du formulaire
 func SetPostForum(r *http.Request) {
 	db := connectToDatabase()
 	var f M.Forum
