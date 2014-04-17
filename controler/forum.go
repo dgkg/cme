@@ -286,7 +286,6 @@ func createPaginateFromIdCat(id int64) []M.Paginate {
 	return p
 }
 
-
 func ValidateForum(r *http.Request) bool {
 
 	if r.PostFormValue("post-nom") == "" {
@@ -305,19 +304,13 @@ func SetPostForum(r *http.Request) {
 	var f M.Forum
 	f.Title = r.PostFormValue("post-nom")
 	f.Text = r.PostFormValue("post-contenu")
-	//f.ForumCategoryId = ParseInt(r.PostFormValue("post-cat"), 0, 64)
+	f.ForumCategoryId, _ = ParseInt(r.PostFormValue("post-cat"), 0, 64)
 	//log.Print(len(r.PostFormValue("post-cat")))
-	postCategorie := r.PostFormValue("post-cat")
-	log.Println(postCategorie)
-	/* for key, _ := range r.PostFormValue("post-cat") {
-		//log.Println(Itoa(int(r.PostFormValue("post-cat")[key])))
-		log.Println(Itoa(int(r.MultipartForm("post-cat")[key])))
-	} */
+	//postCategorie := r.PostFormValue("post-cat")
+	//log.Println(postCategorie)
 	//log.Println(r.PostFormValue("post-cat")["value"])
 	db.Save(&f)
 }
-
-/*
 
 // fonction permetttant de rechercher dans les titres des questions
 func searchInTitle(s string) []M.Forum {
