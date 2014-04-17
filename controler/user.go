@@ -30,7 +30,6 @@ func UserView() M.Page {
 	p := new(M.PageTutoriels)
 	p.Title = "Users"
 	p.MainClass = "eleves"
-	p.PageLevel = ""
 
 	// pagination
 	p.PagesList = make([]M.Paginate, 5)

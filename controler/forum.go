@@ -25,7 +25,6 @@ func ForumView() M.Page {
 	p := new(M.PageForum)
 	p.Title = "Forum"
 	p.MainClass = "forum"
-	p.PageLevel = ""
 	p.Forums = getListForums()
 	p.Categories = getAllFormCategories()
 	p.PagesList = createPaginate()
@@ -44,7 +43,6 @@ func ForumViewPaged(page string) M.Page {
 	p := new(M.PageForum)
 	p.Title = "Forum"
 	p.MainClass = "forum"
-	p.PageLevel = ""
 	p.Forums = getListForumsPaged(pagePosition)
 	p.Categories = getAllFormCategories()
 	p.PagesList = createPaginate()
@@ -64,7 +62,6 @@ func FormViewCategory(cat string) M.Page {
 	p := new(M.PageForum)
 	p.Title = "Forum " + cat
 	p.MainClass = "forum"
-	p.PageLevel = "../"
 	p.Forums = getListFormusFromCat(idCat)
 	p.Categories = getAllFormCategories()
 	p.PagesList = createPaginateFromIdCat(idCat)
@@ -84,7 +81,6 @@ func FormViewCategoryPaged(cat string, page string) M.Page {
 	p := new(M.PageForum)
 	p.Title = "Forum " + cat
 	p.MainClass = "forum"
-	p.PageLevel = "../"
 	p.Forums = getListFormusFromCatPaged(idCat, pagePosition)
 	p.Categories = getAllFormCategories()
 	p.PagesList = createPaginateFromIdCat(idCat)
@@ -100,7 +96,6 @@ func ForumViewSearch(q string) M.Page {
 	p := new(M.PageForum)
 	p.Title = "Forum Rechercher"
 	p.MainClass = "forum"
-	p.PageLevel = ""
 	p.Forums = searchInTitle(q)
 	p.Categories = getAllFormCategories()
 
@@ -121,7 +116,6 @@ func ForumAddView() M.Page {
 	p := new(M.PageForum)
 	p.Title = "Titre du sujet"
 	p.MainClass = "nouveausujet"
-	p.PageLevel = "../"
 	p.Forums = make([]M.Forum, 2)
 	p.Categories = getAllFormCategories()
 

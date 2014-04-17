@@ -30,7 +30,6 @@ func NewsView() M.Page {
 	p := new(M.PageNews)
 	p.Title = "News"
 	p.MainClass = "actualites"
-	p.PageLevel = ""
 
 	// Création des forums
 	/*

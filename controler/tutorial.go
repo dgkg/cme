@@ -31,7 +31,6 @@ func TutorialView() M.Page {
 	p := new(M.PageTutoriels)
 	p.Title = "Tutoriels"
 	p.MainClass = "tutoriels"
-	p.PageLevel = ""
 
 	// Création des forums
 	/*
@@ -74,7 +73,6 @@ func TutorialAddView() M.Page {
 	p := new(M.PageTutoriels)
 	p.Title = "Titre du tuto"
 	p.MainClass = "nouveaututo"
-	p.PageLevel = "../"
 	//p.Forums = make([]M.Forum, 2)
 	//p.Forums[0].Title = "Test A"
 	//p.Forums[1].Title = "Test B"
