@@ -27,6 +27,7 @@ func main() {
 	// routages du forum
 	r.HandleFunc("/forum", ForumHandler)
 	r.HandleFunc("/forum/nouveau", ForumAddHandler)
+	r.HandleFunc("/forum/search", ForumSearchHandler)
 	r.HandleFunc("/forum/{category}", ForumCatHandler)
 
 	// routages des élèves
@@ -54,11 +55,22 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ForumHandler(w http.ResponseWriter, r *http.Request) {
+
 	p := r.FormValue("p")
 	if p == "" {
 		Render(w, C.ForumTempl, C.ForumView())
 	} else {
 		Render(w, C.ForumTempl, C.ForumViewPaged(p))
+	}
+
+}
+
+func ForumSearchHandler(w http.ResponseWriter, r *http.Request) {
+	q := r.FormValue("q")
+	if q == "" {
+		Render(w, C.ForumTempl, C.ForumView())
+	} else {
+		Render(w, C.ForumTempl, C.ForumViewSearch(q))
 	}
 }
 
