@@ -51,6 +51,7 @@ func main() {
 }
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
+
 	Render(w, "index", C.HomeView())
 }
 
@@ -75,7 +76,7 @@ func ForumSearchHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ForumAddHandler(w http.ResponseWriter, r *http.Request) {
-	log.Print("test du post du formulaire  :" + r.PostFormValue("post-nom"))
+
 	/*
 		isValid := C.validateForum(r)
 		if isValid{

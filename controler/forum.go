@@ -103,6 +103,10 @@ func ForumViewSearch(q string) M.Page {
 	p.Forums = searchInTitle(q)
 	p.Categories = getAllFormCategories()
 
+	if len(p.Forums) == 0 {
+		p.SearchText = q
+	}
+
 	injectDataForumToDisplay(p.Forums)
 
 	return p

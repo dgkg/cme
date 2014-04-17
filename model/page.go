@@ -11,6 +11,7 @@ type PageWeb struct {
 	VarFlash      string
 	MainClass     string
 	PageLevel     string
+	SearchText    string // permet de récupérer dans une vue le(s) mot(s) clefs recherchés
 	Logge         bool
 	Menu
 }
