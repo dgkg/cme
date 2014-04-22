@@ -3,7 +3,6 @@ package app
 import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
-	//. "github.com/konginteractive/cme/model" // TODO a remettre après les tests sur le refactoring
 	"log"
 	"math"
 	//"net/http"// TODO à remettre après les tests sur le refactoring
@@ -16,7 +15,7 @@ import (
 
 // template utilisé par les pages affichés
 // par défaut le template est form
-var ForumTempl = "forum"
+var Templ = "forum"
 
 // donne le nombre d'éléments max à afficher par page
 var maxElementsInPage = 3
@@ -24,25 +23,40 @@ var maxElementsInPage = 3
 // permet d'afficher la liste des questions du forum
 func (pf PageForum) View() Page {
 
+	var f Forum
+
 	log.Println("ForumView appelé")
 	// surcharge de la variable d'affichage
-	ForumTempl = "forum"
+	Templ = "forum"
 
 	pf.Title = "Forum"
 	pf.MainClass = "forum"
-
-	// peut s'écrire comme sa ?!
-	pf.Forums = pf.getList()
-	pf.Categories = pf.getAllCategories()
+	pf.Forums = f.getList()
+	pf.Categories = f.getAllCategories()
 	pf.PagesList = pf.createPaginate()
 
-	/*
-		// test d'appel de fonction d'écriture
-		f.getList()
-		f.getAllCategories()
-		f.createPaginate()
-		// fin
-	*/
+	pf.injectDataToDisplay(pf.Forums)
+
+	return pf
+}
+
+// permet d'afficher la liste des questions du forum
+// avec la fonction de pagination
+func (pf PageForum) ViewPaged(page string) Page {
+
+	var f Forum
+
+	log.Println("ForumViewPaged appelé : " + page)
+	// surcharge de la variable d'affichage
+	Templ = "forum"
+
+	pagePosition, _ := ParseInt(page, 0, 64)
+
+	pf.Title = "Forum"
+	pf.MainClass = "forum"
+	pf.Forums = f.getListPaged(pagePosition)
+	pf.Categories = f.getAllCategories()
+	pf.PagesList = pf.createPaginate()
 
 	pf.injectDataToDisplay(pf.Forums)
 
@@ -50,34 +64,12 @@ func (pf PageForum) View() Page {
 }
 
 /*
-// permet d'afficher la liste des questions du forum
-// avec la fonction de pagination
-func (f Forum) ViewPaged(page string) Page {
-
-	log.Println("ForumViewPaged appelé : " + page)
-	// surcharge de la variable d'affichage
-	ForumTempl = "forum"
-
-	pagePosition, _ := ParseInt(page, 0, 64)
-
-	p := new(PageForum)
-	p.Title = "Forum"
-	p.MainClass = "forum"
-	p.Forums = forumGetListPaged(pagePosition)
-	p.Categories = forumGetAllCategories()
-	p.PagesList = forumCreatePaginate()
-
-	forumInjectDataToDisplay(p.Forums)
-
-	return p
-}
-
 // permet d'afficher la liste des questions du forum avec la catégorie correspondante
 func (f Forum) ViewCategory(cat string) Page {
 
 	log.Println("ForumView appelé")
 	// surcharge de la variable d'affichage
-	ForumTempl = "forum"
+	Templ = "forum"
 
 	// récupère l'id de la catégorie
 	idCat := forumGetIdFromCatName(cat)
@@ -101,7 +93,7 @@ func (f Forum) ViewCategoryPaged(cat string, page string) Page {
 
 	log.Println("ForumView appelé")
 	// surcharge de la variable d'affichage
-	ForumTempl = "forum"
+	Templ = "forum"
 
 	pagePosition, _ := ParseInt(page, 0, 64)
 	// récupère l'id de la catégorie
@@ -126,7 +118,7 @@ func (f Forum) ViewSearch(q string) Page {
 
 	log.Println("ForumViewSearch appelé")
 	// surcharge de la variable d'affichage
-	ForumTempl = "forum"
+	Templ = "forum"
 
 	p := new(PageForum)
 	p.Title = "Forum Rechercher"
@@ -148,7 +140,7 @@ func (f Forum) ViewAdd() Page {
 
 	log.Println("ForumAddView appelé")
 	// surcharge de la variable d'affichage
-	ForumTempl = "forum_add"
+	Templ = "forum_add"
 
 	p := new(PageForum)
 	p.Title = "Titre du sujet"
@@ -178,7 +170,7 @@ func (f Forum) getIdFromCatName(cat string) int64 {
 
 // permet de retourner toutes les catégories
 // permet aussi de créer les liens pour les catégories
-func (pf PageForum) getAllCategories() []ForumCategory {
+func (f Forum) getAllCategories() []ForumCategory {
 	db := connectToDatabase()
 	var cat []ForumCategory
 	db.Find(&cat)
@@ -213,14 +205,13 @@ func (pf PageForum) injectDataToDisplay(forums []Forum) []Forum {
 
 // permet de récupérer toute la listes des questions du forum
 // en fonction de la limite affichable par page
-func (pf PageForum) getList() []Forum {
+func (f Forum) getList() []Forum {
 	db := connectToDatabase()
 	var forums []Forum
 	db.Limit(maxElementsInPage).Where("is_online = ?", "1").Order("id desc").Find(&forums)
 	return forums
 }
 
-/*
 // permet de récupérer toute la listes des questions du forum
 // avec les fonctions de pagination
 // en fonction de la limite affichable par page
@@ -231,6 +222,7 @@ func (f Forum) getListPaged(fromPage int64) []Forum {
 	return forums
 }
 
+/*
 // permet de récupérer des questions du forum à partir de l'id de la catégorie
 func (f Forum) getListFromCat(id int64) []Forum {
 	db := connectToDatabase()

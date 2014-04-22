@@ -6,7 +6,7 @@ import (
 
 var HomeTempl = "home"
 
-func HomeView() Page {
+func (h PageHome) View() Page {
 
 	log.Println("Home appelé")
 

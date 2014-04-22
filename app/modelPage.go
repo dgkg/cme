@@ -1,8 +1,4 @@
-package controler
-
-import (
-	"time" // ajout après le refactoring
-)
+package app
 
 type Page interface {
 }
@@ -35,5 +31,28 @@ type PageForum struct {
 	Categories []ForumCategory
 	PagesList  []Paginate
 	Forums     []Forum
+	PageWeb
+}
+
+type PageHome struct {
+	Images []UserImage
+	PageWeb
+}
+
+type PageNews struct {
+	PagesList []Paginate
+	News      []NewsViewHelper
+	PageWeb
+}
+
+type PageTutoriels struct {
+	PagesList []Paginate
+	Tutoriels []TutorialsViewHelper
+	PageWeb
+}
+
+type PageUser struct {
+	PagesList []Paginate
+	Users     []UsersViewHelper
 	PageWeb
 }

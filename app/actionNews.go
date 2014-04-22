@@ -1,4 +1,4 @@
-package controler
+package app
 
 import (
 	_ "github.com/go-sql-driver/mysql"
@@ -8,7 +8,7 @@ import (
 
 var NewsTempl = "news"
 
-func NewsView() Page {
+func (pn PageNews) View() Page {
 
 	db, _ := gorm.Open("mysql", "root:root@tcp(127.0.0.1:8889)/cme_test?charset=utf8&parseTime=True")
 	//cme_test

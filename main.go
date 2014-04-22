@@ -50,31 +50,27 @@ func main() {
 }
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
-
-	Render(w, "index", HomeView())
+	var ph PageHome
+	Render(w, "index", ph.View())
 }
 
 func ForumHandler(w http.ResponseWriter, r *http.Request) {
 	var pf PageForum
-	Render(w, pf.ForumTempl, pf.View())
-	/*
-		p := r.FormValue("p")
-		if p == "" {
-			Render(w, C.ForumTempl, C.ForumView())
-		} else {
-			Render(w, C.ForumTempl, C.ForumViewPaged(p))
-		}
-	*/
-
+	p := r.FormValue("p")
+	if p == "" {
+		Render(w, Templ, pf.View())
+	} else {
+		Render(w, Templ, pf.ViewPaged(p))
+	}
 }
 
 /*
 func ForumSearchHandler(w http.ResponseWriter, r *http.Request) {
 	q := r.FormValue("q")
 	if q == "" {
-		Render(w, C.ForumTempl, C.ForumView())
+		Render(w, C.Templ, C.ForumView())
 	} else {
-		Render(w, C.ForumTempl, C.ForumViewSearch(q))
+		Render(w, C.Templ, C.ForumViewSearch(q))
 	}
 }
 
@@ -88,7 +84,7 @@ func ForumAddHandler(w http.ResponseWriter, r *http.Request) {
 		log.Print("NON VALIDE!!")
 	}
 
-	Render(w, C.ForumTempl, C.ForumViewAdd())
+	Render(w, C.Templ, C.ForumViewAdd())
 }
 func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
 	// récupère la catégorie sélectionnée
@@ -98,9 +94,9 @@ func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
 	p := r.FormValue("p")
 
 	if p == "" {
-		Render(w, C.ForumTempl, C.FormViewCategory(category))
+		Render(w, C.Templ, C.FormViewCategory(category))
 	} else {
-		Render(w, C.ForumTempl, C.FormViewCategoryPaged(category, p))
+		Render(w, C.Templ, C.FormViewCategoryPaged(category, p))
 	}
 }
 
@@ -120,7 +116,7 @@ func NewsHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, C.NewsTempl, C.NewsView())
 }
 */
-func Render(w http.ResponseWriter, tmpl string, p M.Page) {
+func Render(w http.ResponseWriter, tmpl string, p Page) {
 	w.Header().Add("Accept-Charset", "utf-8")
 	w.Header().Add("Content-Type", "text/html")
 	err := templates.ExecuteTemplate(w, tmpl, p)

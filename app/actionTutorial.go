@@ -1,17 +1,15 @@
-package controler
+package app
 
 import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
-
-	M "github.com/konginteractive/cme/model"
 	"log"
 )
 
 var TutorialTempl = "tutorial"
 var TutorialAddTempl = "tutorial_add"
 
-func TutorialView() Page {
+func (pt PageTutoriels) View() Page {
 
 	db, _ := gorm.Open("mysql", "root:root@tcp(127.0.0.1:8889)/cme_test?charset=utf8&parseTime=True")
 	//cme_test
@@ -66,7 +64,7 @@ func TutorialView() Page {
 	return p
 }
 
-func TutorialAddView() Page {
+func (pt PageTutoriels) AddView() Page {
 
 	log.Println("TutoAddView appelé")
 

@@ -1,4 +1,4 @@
-package controler
+package app
 
 import (
 	"time" // ajout après le refactoring
