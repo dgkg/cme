@@ -1077,47 +1077,47 @@ a:visited {
       margin-left: 0;
       margin-right: 0; } }
 
-.actualites {
+.news {
   /* iPads (portrait) ----------- */
   /* Desktops and laptops ----------- */ }
-  .actualites .message-accueil {
+  .news .message-accueil {
     display: none; }
-  .actualites .body {
+  .news .body {
     margin-right: 30px;
     margin-left: 30px; }
-    .actualites .body hr {
+    .news .body hr {
       clear: both;
       margin-top: 30px;
       margin-bottom: 30px; }
-    .actualites .body .liste-actu .actu h2 {
+    .news .body .liste-actu .actu h2 {
       display: block;
       line-height: 1.4em;
       font-size: 28px;
       font-family: "gt_pressura_light", sans-serif;
       margin-right: auto;
       margin-left: auto; }
-    .actualites .body .liste-actu .actu .actu-contenu p {
+    .news .body .liste-actu .actu .actu-contenu p {
       font-size: 16px;
       line-height: 1.4em;
       font-family: "Georgia", sans-serif;
       color: #424245; }
-    .actualites .body .liste-actu .actu .actu-meta {
+    .news .body .liste-actu .actu .actu-meta {
       margin-bottom: 120px; }
-      .actualites .body .liste-actu .actu .actu-meta p {
+      .news .body .liste-actu .actu .actu-meta p {
         font-family: "gt_pressura_regular", sans-serif;
         text-transform: uppercase;
         color: #515155; }
-      .actualites .body .liste-actu .actu .actu-meta .actu-date {
+      .news .body .liste-actu .actu .actu-meta .actu-date {
         float: left; }
-      .actualites .body .liste-actu .actu .actu-meta .actu-auteur {
+      .news .body .liste-actu .actu .actu-meta .actu-auteur {
         float: right; }
-    .actualites .body .pagination {
+    .news .body .pagination {
       clear: both; }
-      .actualites .body .pagination ul {
+      .news .body .pagination ul {
         display: none; }
-      .actualites .body .pagination .btn-nav-suiv {
+      .news .body .pagination .btn-nav-suiv {
         display: none; }
-      .actualites .body .pagination select {
+      .news .body .pagination select {
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -1130,50 +1130,50 @@ a:visited {
         font-family: "gt_pressura_regular", sans-serif;
         font-size: 16px; }
   @media only screen and (min-device-width: 768px) {
-    .actualites .body .liste-actu .actu {
+    .news .body .liste-actu .actu {
       clear: both; }
-      .actualites .body .liste-actu .actu h2 {
+      .news .body .liste-actu .actu h2 {
         max-width: 60%;
         float: left;
         margin-left: 20%;
         margin-right: 20%; }
-      .actualites .body .liste-actu .actu .actu-contenu {
+      .news .body .liste-actu .actu .actu-contenu {
         width: 60%;
         float: right;
         margin-right: 20%;
         margin-bottom: 60px; }
-        .actualites .body .liste-actu .actu .actu-contenu p:first-child {
+        .news .body .liste-actu .actu .actu-contenu p:first-child {
           margin-top: 0; }
-      .actualites .body .liste-actu .actu .actu-meta {
+      .news .body .liste-actu .actu .actu-meta {
         width: 20%;
         float: left; }
-        .actualites .body .liste-actu .actu .actu-meta p {
+        .news .body .liste-actu .actu .actu-meta p {
           margin: 0;
           line-height: 2em; }
-        .actualites .body .liste-actu .actu .actu-meta .actu-auteur {
+        .news .body .liste-actu .actu .actu-meta .actu-auteur {
           clear: both;
           float: left; }
-    .actualites .body .pagination ul {
+    .news .body .pagination ul {
       display: block;
       text-align: center;
       padding: 0; }
-      .actualites .body .pagination ul li {
+      .news .body .pagination ul li {
         display: inline-block;
         width: 30px;
         height: 30px;
         margin-right: 10px;
         font-size: 18px;
         font-family: "gt_pressura_regular", sans-serif; }
-    .actualites .body .pagination select {
+    .news .body .pagination select {
       display: none; } }
   @media only screen and (min-width: 1224px) {
-    .actualites #wrapper {
+    .news #wrapper {
       max-width: 1280px;
       margin-left: auto;
       margin-right: auto;
       padding-right: 0;
       padding-left: 0; }
-    .actualites .body {
+    .news .body {
       margin-left: 0;
       margin-right: 0; } }
 
@@ -1185,18 +1185,19 @@ a:visited {
   .nouveaututo .body {
     margin-right: 30px;
     margin-left: 30px; }
-    .nouveaututo .body .entete-forum h1 {
+    .nouveaututo .body .entete-tuto h1 {
       text-transform: uppercase;
       line-height: 1.4em; }
-    .nouveaututo .body .entete-forum p {
+    .nouveaututo .body .entete-tuto p {
       font-size: 14px; }
     .nouveaututo .body hr {
       clear: both;
       margin-top: 30px;
       margin-bottom: 30px; }
-    .nouveaututo .body article {
+    .nouveaututo .body input[type=text] {
       display: block;
       width: 100%;
+      height: 40px;
       border: 1px solid darkgrey;
       padding-left: 10px;
       font-size: 16px;
@@ -1210,17 +1211,31 @@ a:visited {
       /* Firefox, other Gecko */
       box-sizing: border-box;
       /* Opera/IE 8+ */ }
+    .nouveaututo .body label {
+      margin-top: 40px;
+      display: block;
+      font-size: 20px;
+      font-family: "gt_pressura_regular", sans-serif;
+      margin-bottom: 15px; }
+    .nouveaututo .body label:first-child {
+      margin-top: 0; }
+    .nouveaututo .body .tuto-nom {
+      width: 100%;
+      height: 30px; }
     .nouveaututo .body .tuto-contenu {
       margin-top: 20px;
       margin-bottom: 20px;
       min-height: 320px; }
+    .nouveaututo .body .tuto-cat {
+      width: 300px;
+      height: 35px; }
+      .nouveaututo .body .tuto-cat option {
+        font-size: 14px; }
     .nouveaututo .body .btn-soumettre {
       display: block;
       width: 100%;
-      height: 30px;
+      height: 60px;
       background-color: #e11414;
-      padding-top: 15px;
-      padding-bottom: 15px;
       color: #f9f9f9;
       text-decoration: none;
       font-family: "gt_pressura_regular", sans-serif;
@@ -1232,7 +1247,7 @@ a:visited {
       margin-bottom: 20px; }
   @media only screen and (min-device-width: 768px) {
     .nouveaututo .body .nouv-tuto {
-      max-width: 70%;
+      max-width: 80%;
       margin-right: auto;
       margin-left: auto; }
     .nouveaututo .body .btn-soumettre {
@@ -1250,7 +1265,7 @@ a:visited {
       margin-left: 0;
       margin-right: 0; }
       .nouveaututo .body .nouv-tuto {
-        max-width: 50%; } }
+        max-width: 70%; } }
 
 .nouveausujet {
   /* iPads (portrait) ----------- */
@@ -1341,6 +1356,106 @@ a:visited {
       margin-right: 0; }
       .nouveausujet .body .nouv-post {
         max-width: 70%; } }
+
+.forum-post {
+  /* iPads (portrait) ----------- */
+  /* Desktops and laptops ----------- */ }
+  .forum-post .message-accueil {
+    display: none; }
+  .forum-post .body {
+    margin-right: 30px;
+    margin-left: 30px; }
+    .forum-post .body hr {
+      clear: both;
+      margin-top: 30px;
+      margin-bottom: 30px; }
+    .forum-post .body .liste-post .post h2 {
+      display: block;
+      line-height: 1.4em;
+      font-size: 28px;
+      font-family: "gt_pressura_light", sans-serif;
+      margin-right: auto;
+      margin-left: auto; }
+    .forum-post .body .liste-post .post .post-contenu p {
+      font-size: 16px;
+      line-height: 1.4em;
+      font-family: "Georgia", sans-serif;
+      color: #424245; }
+    .forum-post .body .liste-post .post .post-meta {
+      margin-bottom: 120px; }
+      .forum-post .body .liste-post .post .post-meta p {
+        font-family: "gt_pressura_regular", sans-serif;
+        text-transform: uppercase;
+        color: #515155; }
+      .forum-post .body .liste-post .post .post-meta .post-date {
+        float: left; }
+      .forum-post .body .liste-post .post .post-meta .post-auteur {
+        float: right; }
+    .forum-post .body .pagination {
+      clear: both; }
+      .forum-post .body .pagination ul {
+        display: none; }
+      .forum-post .body .pagination .btn-nav-suiv {
+        display: none; }
+      .forum-post .body .pagination select {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+        height: 30px;
+        padding: 2px;
+        -webkit-border-radius: 1px;
+        -moz-border-radius: 1px;
+        border-radius: 1px;
+        font-family: "gt_pressura_regular", sans-serif;
+        font-size: 16px; }
+  @media only screen and (min-device-width: 768px) {
+    .forum-post .body .liste-post .post {
+      clear: both; }
+      .forum-post .body .liste-post .post h2 {
+        max-width: 60%;
+        float: left;
+        margin-left: 20%;
+        margin-right: 20%; }
+      .forum-post .body .liste-post .post .post-contenu {
+        width: 60%;
+        float: right;
+        margin-right: 20%;
+        margin-bottom: 60px; }
+        .forum-post .body .liste-post .post .post-contenu p:first-child {
+          margin-top: 0; }
+      .forum-post .body .liste-post .post .post-meta {
+        width: 20%;
+        float: left; }
+        .forum-post .body .liste-post .post .post-meta p {
+          margin: 0;
+          line-height: 2em; }
+        .forum-post .body .liste-post .post .post-meta .post-auteur {
+          clear: both;
+          float: left; }
+    .forum-post .body .pagination ul {
+      display: block;
+      text-align: center;
+      padding: 0; }
+      .forum-post .body .pagination ul li {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        font-size: 18px;
+        font-family: "gt_pressura_regular", sans-serif; }
+    .forum-post .body .pagination select {
+      display: none; } }
+  @media only screen and (min-width: 1224px) {
+    .forum-post #wrapper {
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-right: 0;
+      padding-left: 0; }
+    .forum-post .body {
+      margin-left: 0;
+      margin-right: 0; } }
 
 .footer img {
   display: block;

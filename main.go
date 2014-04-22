@@ -29,9 +29,11 @@ func main() {
 	r.HandleFunc("/forum/nouveau", ForumAddHandler)
 	r.HandleFunc("/forum/search", ForumSearchHandler)
 	r.HandleFunc("/forum/{category}", ForumCatHandler)
+	r.HandleFunc("/forum/post/{id:[0-9]+}", ForumPostHandler)
 
 	// routages des élèves
 	r.HandleFunc("/eleves", StudentHandler)
+	r.HandleFunc("/eleves/2014/henrilepic", StudentFicheHandler)
 
 	// routage des tutoriels
 	r.HandleFunc("/tutoriels", TutoHandler)
@@ -87,6 +89,7 @@ func ForumAddHandler(w http.ResponseWriter, r *http.Request) {
 
 	Render(w, C.ForumTempl, C.ForumViewAdd())
 }
+
 func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
 	// récupère la catégorie sélectionnée
 	vars := mux.Vars(r)
@@ -101,9 +104,17 @@ func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func ForumPostHandler(w http.ResponseWriter, r *http.Request) {
+	Render(w, C.ForumTempl, C.ForumViewPost())
+}
+
 func StudentHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, C.UserTempl, C.UserView())
 }
+
+/* func StudentFicheHandler(w http.ResponseWriter, r *http.Request) {
+	Render(w, C.UserTempl, C.UserFicheView())
+} */
 
 func TutoHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, C.TutorialTempl, C.TutorialView())

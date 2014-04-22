@@ -25,10 +25,10 @@ func UserView() M.Page {
 	/////////////
 	/////////////
 
-	log.Println("Users appelé")
+	log.Println("Étudiants appelé")
 
-	p := new(M.PageTutoriels)
-	p.Title = "Users"
+	p := new(M.PageUser)
+	p.Title = "Élèves"
 	p.MainClass = "eleves"
 
 	// pagination
@@ -48,6 +48,16 @@ func UserView() M.Page {
 
 	p.PagesList[4].Title = "5"
 	p.PagesList[4].Url = "/eleves/page/5"
+
+	return p
+}
+
+func UserFicheView() M.Page {
+
+	UserTempl = "student_fiche"
+	p := new(M.PageUser)
+	p.Title = "Nom de l'étudiant sélectionné"
+	p.MainClass = "eleve_fiche"
 
 	return p
 }

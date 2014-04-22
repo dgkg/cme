@@ -1,4 +1,4 @@
-.news {
+.forum-post {
 
 	.message-accueil {
 		display: none;
@@ -14,9 +14,9 @@
 			margin-bottom: 30px;
 		}
 
-		.liste-actu {
+		.liste-post {
 
-			.actu {
+			.post {
 
 
 				h2 {
@@ -28,7 +28,7 @@
 					margin-left: auto;
 				}
 
-				.actu-contenu {
+				.post-contenu {
 
 					p {
 						font-size: 16px;
@@ -38,7 +38,7 @@
 					}
 				}
 
-				.actu-meta {
+				.post-meta {
 					margin-bottom: 120px;
 
 					p {
@@ -47,11 +47,11 @@
 						color: #515155;
 					}
 
-					.actu-date {
+					.post-date {
 						float: left;
 					}
 
-					.actu-auteur {
+					.post-auteur {
 						float: right;
 					}
 				}
@@ -91,9 +91,9 @@
 
     	.body {
 
-    		.liste-actu {
+    		.liste-post {
 
-    			.actu {
+    			.post {
     				clear: both;
 
     				h2 {
@@ -103,7 +103,7 @@
     					margin-right: 20%;
     				}
 
-    				.actu-contenu {
+    				.post-contenu {
     					width: 60%;
     					float: right;
     					margin-right: 20%;
@@ -114,7 +114,7 @@
     					}
     				}
 
-    				.actu-meta {
+    				.post-meta {
     					width: 20%;
     					float: left;
 
@@ -123,7 +123,7 @@
     						line-height: 2em;
     					}
 
-    					.actu-auteur {
+    					.post-auteur {
     						clear: both;
     						float: left;
     					}

@@ -1,0 +1,47 @@
+{{ define "forum_post" }}
+<!DOCTYPE html>
+{{template "header" .}}
+            <div class="body">
+
+                <div class="liste-post">
+
+                    <div class="post">  
+                        {{ if .Forums }}
+                            {{ range .Forums }}
+                            <h2>{{ .Title }}</h2>
+
+                            <div class="post-contenu">
+
+                                {{ .Text }}
+
+                            </div>
+                            
+                            <div class="post-meta">
+                                <p class="post-date">{{ .CreatedAtString }}</p>
+                                {{if .Users}}
+                                    {{range .Users}}
+                                        <p class="post-auteur">{{ .FirstName}} {{ .LastName}}</p>
+                                    {{end}}
+                                {{end}}
+                            </div>
+
+                            {{ end }}
+                        {{ end }}
+
+                    </div>
+
+                </div>
+
+                <hr>
+
+               {{template "footer" .}}
+            </div>
+        </div>
+
+        <!-- <script type="text/javascript" src="/js/jquery-1.11.0.min.js"></script> -->
+        <!-- <script type="text/javascript" src="/js/jquery.justifiedGallery.js"></script> -->
+        <!-- <script type="text/javascript" src="/js/jquery.contenthover.min.js"></script> -->
+        <!-- <script type="text/javascript" src="/js/main.js"></script> -->
+    </body>
+</html>
+{{ end }}

@@ -16,8 +16,10 @@ type Forum struct {
 	PostNumb        int64  `sql:"-"` // Ignore this field
 	CategoryTitle   string `sql:"-"` // Ignore this field
 	CreatedAt       time.Time
+	CreatedAtString string `sql:"-"` // Ignore this field
 	UpdatedAt       time.Time
 	Posts           []ForumPost
+	Users           []User `sql:"-"` // Ignore this field
 }
 
 type ForumCategory struct {

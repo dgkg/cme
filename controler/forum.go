@@ -81,6 +81,30 @@ func FormViewCategory(cat string) M.Page {
 	return p
 }
 
+func ForumViewPost() M.Page {
+	ForumTempl = "forum_post"
+	var p M.PageForum
+
+	p.Forums = forumGetForumById(1)
+	p.Title = p.Forums[0].Title
+
+	t := p.Forums[0].CreatedAt
+	const layout = "02 Jan 2006"
+	p.Forums[0].CreatedAtString = t.Format(layout)
+	p.MainClass = "forum-post"
+	p.Forums[0].Users = getUserByIdForum(1)
+
+	return p
+}
+
+func getUserByIdForum(id int64) []M.User {
+	db := connectToDatabase()
+	var users []M.User
+	db.Limit(maxElementsInPage).Where("is_online = ? and id = ?", "1", Itoa(int(id))).Order("id desc").Find(&users)
+	return users
+
+}
+
 // permet d'afficher une liste de questions en fonction de
 // la catégorie sélectionnée
 // et de la page en cours sélectionnée
@@ -249,6 +273,14 @@ func forumCountFromIdCat(id int64) int {
 	var num int
 	db.Where("is_online = ? and forum_category_id = ?", "1", Itoa(int(id))).Find(&forums).Count(&num)
 	return num
+}
+
+func forumGetForumById(id int64) []M.Forum {
+	idForum := Itoa(int(id))
+	db := connectToDatabase()
+	var forums []M.Forum
+	db.Where("is_online = ? and id = ?", "1", idForum).Find(&forums)
+	return forums
 }
 
 // permet de récupérer les posts d'un forum

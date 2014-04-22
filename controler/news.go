@@ -28,8 +28,8 @@ func NewsView() M.Page {
 	log.Println("Forum appelé")
 
 	p := new(M.PageNews)
-	p.Title = "News"
-	p.MainClass = "actualites"
+	p.Title = "Actualités"
+	p.MainClass = "news"
 
 	// Création des forums
 	/*
