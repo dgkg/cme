@@ -25,20 +25,20 @@ func main() {
 
 	// routages du forum
 	r.HandleFunc("/forum", ForumHandler)
-	//r.HandleFunc("/forum/nouveau", ForumAddHandler)
-	//r.HandleFunc("/forum/search", ForumSearchHandler)
-	//r.HandleFunc("/forum/{category}", ForumCatHandler)
+	r.HandleFunc("/forum/nouveau", ForumAddHandler)
+	r.HandleFunc("/forum/search", ForumSearchHandler)
+	r.HandleFunc("/forum/{category}", ForumCatHandler)
 
 	// routages des élèves
-	//r.HandleFunc("/eleves", StudentHandler)
+	r.HandleFunc("/eleves", StudentHandler)
 
 	// routage des tutoriels
-	//r.HandleFunc("/tutoriels", TutoHandler)
-	//r.HandleFunc("/tutoriel/nouveau", TutoAddHandler)
-	//r.HandleFunc("/actualites", NewsHandler)
+	r.HandleFunc("/tutoriels", TutoHandler)
+	r.HandleFunc("/tutoriel/nouveau", TutoAddHandler)
+	r.HandleFunc("/actualites", NewsHandler)
 
 	// routages des actualités
-	//r.HandleFunc("/actualites", NewsHandler)
+	r.HandleFunc("/actualites", NewsHandler)
 
 	//gestion des fichiers statiques
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
@@ -51,40 +51,44 @@ func main() {
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	var ph PageHome
-	Render(w, "index", ph.View())
+	Render(w, ph.View())
 }
 
 func ForumHandler(w http.ResponseWriter, r *http.Request) {
 	var pf PageForum
 	p := r.FormValue("p")
 	if p == "" {
-		Render(w, Templ, pf.View())
+		Render(w, pf.View())
 	} else {
-		Render(w, Templ, pf.ViewPaged(p))
+		Render(w, pf.ViewPaged(p))
 	}
 }
 
-/*
 func ForumSearchHandler(w http.ResponseWriter, r *http.Request) {
+	var pf PageForum
+
 	q := r.FormValue("q")
 	if q == "" {
-		Render(w, C.Templ, C.ForumView())
+		Render(w, pf.View())
 	} else {
-		Render(w, C.Templ, C.ForumViewSearch(q))
+		Render(w, pf.ViewSearch(q))
 	}
 }
 
 func ForumAddHandler(w http.ResponseWriter, r *http.Request) {
-	isValid := C.ForumValidateForm(r)
 
-	if isValid {
+	var pf PageForum
+
+	f, v := pf.ValidateForm(r)
+
+	if v {
 		log.Print("VALIDE!!")
-		C.ForumSaveForm(r)
+		f.Save()
 	} else {
 		log.Print("NON VALIDE!!")
 	}
 
-	Render(w, C.Templ, C.ForumViewAdd())
+	Render(w, pf.ViewAdd())
 }
 func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
 	// récupère la catégorie sélectionnée
@@ -94,32 +98,32 @@ func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
 	p := r.FormValue("p")
 
 	if p == "" {
-		Render(w, C.Templ, C.FormViewCategory(category))
+		Render(w, C.FormViewCategory(category))
 	} else {
-		Render(w, C.Templ, C.FormViewCategoryPaged(category, p))
+		Render(w, C.FormViewCategoryPaged(category, p))
 	}
 }
 
 func StudentHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, C.UserTempl, C.UserView())
+	Render(w, C.UserView())
 }
 
 func TutoHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, C.TutorialTempl, C.TutorialView())
+	Render(w, C.TutorialView())
 }
 
 func TutoAddHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, C.TutorialAddTempl, C.TutorialAddView())
+	Render(w, C.TutorialAddView())
 }
 
 func NewsHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, C.NewsTempl, C.NewsView())
+	Render(w, C.NewsView())
 }
-*/
-func Render(w http.ResponseWriter, tmpl string, p Page) {
+
+func Render(w http.ResponseWriter, p Page) {
 	w.Header().Add("Accept-Charset", "utf-8")
 	w.Header().Add("Content-Type", "text/html")
-	err := templates.ExecuteTemplate(w, tmpl, p)
+	err := templates.ExecuteTemplate(w, Templ, p)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}

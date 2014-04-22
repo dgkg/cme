@@ -5,7 +5,7 @@ import (
 	"github.com/jinzhu/gorm"
 	"log"
 	"math"
-	//"net/http"// TODO à remettre après les tests sur le refactoring
+	"net/http" // TODO à remettre après les tests sur le refactoring
 	. "strconv"
 	"strings"
 	//"time" // ajout après le refactoring
@@ -63,33 +63,35 @@ func (pf PageForum) ViewPaged(page string) Page {
 	return pf
 }
 
-/*
 // permet d'afficher la liste des questions du forum avec la catégorie correspondante
-func (f Forum) ViewCategory(cat string) Page {
+func (pf PageForum) ViewCategory(cat string) Page {
+
+	var f Forum
 
 	log.Println("ForumView appelé")
 	// surcharge de la variable d'affichage
 	Templ = "forum"
 
 	// récupère l'id de la catégorie
-	idCat := forumGetIdFromCatName(cat)
+	idCat := f.getIdFromCatName(cat)
 
-	p := new(PageForum)
-	p.Title = "Forum " + cat
-	p.MainClass = "forum"
-	p.Forums = formusGetListFromCat(idCat)
-	p.Categories = forumGetAllCategories()
-	p.PagesList = forumCreatePaginateFromIdCat(idCat)
+	pf.Title = "Forum " + cat
+	pf.MainClass = "forum"
+	pf.Forums = f.getListFromCat(idCat)
+	pf.Categories = f.getAllCategories()
+	pf.PagesList = pf.createPaginateFromIdCat(idCat)
 
-	forumInjectDataToDisplay(p.Forums)
+	pf.forumInjectDataToDisplay(pf.Forums)
 
-	return p
+	return pf
 }
 
 // permet d'afficher une liste de questions en fonction de
 // la catégorie sélectionnée
 // et de la page en cours sélectionnée
-func (f Forum) ViewCategoryPaged(cat string, page string) Page {
+func (pf PageForum) ViewCategoryPaged(cat string, page string) Page {
+
+	var f Forum
 
 	log.Println("ForumView appelé")
 	// surcharge de la variable d'affichage
@@ -99,63 +101,62 @@ func (f Forum) ViewCategoryPaged(cat string, page string) Page {
 	// récupère l'id de la catégorie
 	idCat := forumGetIdFromCatName(cat)
 
-	p := new(PageForum)
-	p.Title = "Forum " + cat
-	p.MainClass = "forum"
-	p.Forums = formusGetListFromCatPaged(idCat, pagePosition)
-	p.Categories = forumGetAllCategories()
-	p.PagesList = forumCreatePaginateFromIdCat(idCat)
+	pf.Title = "Forum " + cat
+	pf.MainClass = "forum"
+	pf.Forums = f.getListFromCatPaged(idCat, pagePosition)
+	pf.Categories = f.getAllCategories()
+	pf.PagesList = pf.reatePaginateFromIdCat(idCat)
 
-	forumInjectDataToDisplay(p.Forums)
+	pf.injectDataToDisplay(pf.Forums)
 
-	return p
+	return pf
 }
 
 // permet d'afficher la recherche à partir d'un mot clef
 // va chercher dans les titres
 // et va chercher dans le texte du titre
-func (f Forum) ViewSearch(q string) Page {
+func (pf PageForum) ViewSearch(q string) Page {
+
+	var f Forum
 
 	log.Println("ForumViewSearch appelé")
 	// surcharge de la variable d'affichage
 	Templ = "forum"
 
-	p := new(PageForum)
-	p.Title = "Forum Rechercher"
-	p.MainClass = "forum"
-	p.Forums = formSearch(q)
-	p.Categories = forumGetAllCategories()
+	pf.Title = "Forum Rechercher"
+	pf.MainClass = "forum"
+	pf.Forums = f.search(q)
+	pf.Categories = f.getAllCategories()
 
 	if len(p.Forums) == 0 {
 		p.SearchText = q
 	}
 
-	forumInjectDataToDisplay(p.Forums)
+	pf.injectDataToDisplay(pf.Forums)
 
 	return p
 }
 
 // permet d'afficher le formulaire de création d'une question du formulaire
-func (f Forum) ViewAdd() Page {
+func (pf PageForum) ViewAdd() Page {
+
+	var f Forum
 
 	log.Println("ForumAddView appelé")
 	// surcharge de la variable d'affichage
 	Templ = "forum_add"
 
-	p := new(PageForum)
-	p.Title = "Titre du sujet"
-	p.MainClass = "nouveausujet"
-	p.Forums = make([]Forum, 2)
-	p.Categories = forumGetAllCategories()
+	pf.Title = "Titre du sujet"
+	pf.MainClass = "nouveausujet"
+	pf.Forums = make([]Forum, 1)
+	pf.Categories = f.getAllCategories()
 
 	return p
 }
-*/
 
-/*
 // permet de donner l'id d'une question à partir de son titre
 func (f Forum) getIdFromCatName(cat string) int64 {
-	catList := forumGetAllCategories()
+	catList := f.getAllCategories()
 	lenCat := len(cat)
 	for i := 0; i < lenCat; i++ {
 		// vérifie si la cat est celle cherchée
@@ -166,7 +167,6 @@ func (f Forum) getIdFromCatName(cat string) int64 {
 	// par défaut retourne la cat 1
 	return 1
 }
-*/
 
 // permet de retourner toutes les catégories
 // permet aussi de créer les liens pour les catégories
@@ -222,7 +222,6 @@ func (f Forum) getListPaged(fromPage int64) []Forum {
 	return forums
 }
 
-/*
 // permet de récupérer des questions du forum à partir de l'id de la catégorie
 func (f Forum) getListFromCat(id int64) []Forum {
 	db := connectToDatabase()
@@ -240,7 +239,7 @@ func (f Forum) getListFromCatPaged(id int64, fromPage int64) []Forum {
 	db.Limit(maxElementsInPage).Offset(int(fromPage)*maxElementsInPage).Where("is_online = ? and forum_category_id = ?", "1", Itoa(int(id))).Order("id desc").Find(&forums)
 	return forums
 }
-*/
+
 // permet de récupérer le nombre de forums de question total de la base de donnée
 func (f Forum) count() int {
 	db := connectToDatabase()
@@ -250,7 +249,6 @@ func (f Forum) count() int {
 	return num
 }
 
-/*
 // permet de récupérer le nombre de forums de question total de la base de donnée
 // en fonction de l'id de la catégorie
 func (f Forum) countFromIdCat(id int64) int {
@@ -261,6 +259,7 @@ func (f Forum) countFromIdCat(id int64) int {
 	return num
 }
 
+/*
 // permet de récupérer les posts d'un forum
 // à partir de l'id d'un forum
 func (f Forum) getPost(id int) []ForumPost {
@@ -307,10 +306,9 @@ func (pf PageForum) createPaginate() []Paginate {
 	return p
 }
 
-/*
 // fonction pour créer la pagination à partir d'une catégorie sélectionnée
 func (f Forum) createPaginateFromIdCat(id int64) []Paginate {
-	elTotal := forumCountFromIdCat(id)
+	elTotal := f.countFromIdCat(id)
 
 	nb := elTotal / maxElementsInPage
 	mf := int(math.Floor(float64(nb)))
@@ -325,27 +323,27 @@ func (f Forum) createPaginateFromIdCat(id int64) []Paginate {
 }
 
 // permet de valider les éléments du formulaire
-func (f Forum) ValidateForm(r *http.Request) bool {
+func (pf PageForum) ValidateForm(r *http.Request) (f Forum, v bool) {
 
-	if r.PostFormValue("post-nom") == "" {
-		return false
-	}
-
-	if r.PostFormValue("post-contenu") == "" {
-		return false
-	}
-
-	return true
-}
-
-// permet d'enregistrer les éléments du formulaire
-func (f Forum) SaveForm(r *http.Request) {
-	db := connectToDatabase()
-	var f Forum
 	f.Title = r.PostFormValue("post-nom")
 	f.Text = r.PostFormValue("post-contenu")
 	f.ForumCategoryId, _ = ParseInt(r.PostFormValue("post-cat"), 0, 64)
 	f.IsOnline = 1 // permet de mettre en ligne automatiquement la quesion
+
+	if r.PostFormValue("post-nom") == "" {
+		v = false
+	}
+
+	if r.PostFormValue("post-contenu") == "" {
+		v = false
+	}
+
+	return
+}
+
+// permet d'enregistrer les éléments du formulaire
+func (f Forum) Save(r *http.Request) {
+	db := connectToDatabase()
 	db.Save(&f)
 }
 
@@ -356,7 +354,7 @@ func (f Forum) search(s string) []Forum {
 	db.Where("is_online = ? and title LIKE ? ", "1", "%"+s+"%").Or("is_online = ? and text LIKE ? ", "1", "%"+s+"%").Order("id desc").Find(&forums)
 	return forums
 }
-*/
+
 //
 //
 //
