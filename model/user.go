@@ -8,14 +8,15 @@ type User struct {
 	Id        int64
 	FirstName string `sql:"type:varchar(100);"`
 	LastName  string `sql:"type:varchar(100);"`
-	Text      string
+	UrlImage  string // Photo profil de l'étudiant
+	Text      string // Biographie
 	Email     string
 	Pass      string
-	Keywords  string
-	IsOnline  int64
+	Keywords  string //
+	IsOnline  int64  // Si la fiche est en ligne
 	CreatedAt time.Time
 	UpdatedAt time.Time
-	Images    []UserImage
+	Images    []UserImage // Tableau contenu les projets
 }
 
 type UserImage struct {

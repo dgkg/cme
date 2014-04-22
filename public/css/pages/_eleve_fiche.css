@@ -1,0 +1,32 @@
+.eleve_fiche {
+  /* iPads (portrait) ----------- */
+  /* Desktops and laptops ----------- */ }
+  .eleve_fiche .message-accueil {
+    display: none; }
+  .eleve_fiche .body {
+    margin-right: 30px;
+    margin-left: 30px; }
+    .eleve_fiche .body hr {
+      clear: both;
+      margin-top: 30px;
+      margin-bottom: 30px; }
+    .eleve_fiche .body .etu-fiche .etu-photo {
+      width: 33%;
+      height: auto;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      margin-bottom: 60px; }
+    .eleve_fiche .body .etu-fiche .etu-bio {
+      margin-top: 30px;
+      margin-bottom: 30px; }
+  @media only screen and (min-width: 1224px) {
+    .eleve_fiche #wrapper {
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-right: 0;
+      padding-left: 0; }
+    .eleve_fiche .body {
+      margin-left: 0;
+      margin-right: 0; } }

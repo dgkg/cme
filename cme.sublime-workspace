@@ -4,16 +4,20 @@
 		"selected_items":
 		[
 			[
+				"etu",
+				"etu-bio"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
 				"no",
 				"nouv-tuto"
 			],
 			[
 				"max-",
 				"max-width"
-			],
-			[
-				"margin",
-				"margin-left"
 			],
 			[
 				"btn-",
@@ -99,6 +103,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "vues/user_fiche.html",
+			"settings":
+			{
+				"buffer_size": 3203,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "Packages/SASS Build/SASS.sublime-build",
 	"command_palette":
@@ -136,16 +148,21 @@
 	},
 	"file_history":
 	[
-		"/Users/antoinelord/go/src/github.com/konginteractive/cme/controler/forum.go",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/public/js/etu_fiche.js",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/main.scss",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/main.go",
 		"/Users/antoinelord/go/src/github.com/konginteractive/cme/controler/user.go",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/model/user.go",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/vues/index.html",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/model/page.go",
+		"/Users/antoinelord/go/src/github.com/konginteractive/cme/controler/forum.go",
 		"/Users/antoinelord/go/src/github.com/konginteractive/cme/controler/news.go",
 		"/Users/antoinelord/go/src/github.com/konginteractive/cme/controler/home.go",
 		"/Users/antoinelord/go/src/github.com/konginteractive/cme/controler/tutorial.go",
 		"/Users/antoinelord/go/src/github.com/konginteractive/cme/vues/forum.html",
 		"/Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss",
-		"/Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/main.scss",
-		"/Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss",
-		"/Users/antoinelord/go/src/github.com/konginteractive/cme/main.go",
 		"/Users/antoinelord/go/src/github.com/konginteractive/cme/vues/footer.html",
 		"/Users/antoinelord/go/src/github.com/konginteractive/cme/vues/header.html",
 		"/Users/antoinelord/go/src/github.com/konginteractive/cme/vues/forum_add.html",
@@ -155,13 +172,10 @@
 		"/Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveausujet.scss",
 		"/Users/antoinelord/Dropbox/KONG - Antoine/CME/site/tutoriels/nouveau.html",
 		"/Users/antoinelord/Dropbox/KONG - Antoine/CME/site/forum/nouveau.html",
-		"/Users/antoinelord/go/src/github.com/konginteractive/cme/model/page.go",
 		"/Users/antoinelord/go/src/github.com/konginteractive/cme/controler/forum_add.go",
 		"/Users/antoinelord/go/src/github.com/konginteractive/cme/model/forum.go",
-		"/Users/antoinelord/go/src/github.com/konginteractive/cme/vues/index.html",
 		"/Users/antoinelord/go/src/github.com/konginteractive/cme/vues/home.html",
 		"/Users/antoinelord/go/src/github.com/konginteractive/cme/vues/tutorial.html",
-		"/Users/antoinelord/go/src/github.com/konginteractive/cme/model/user.go",
 		"/Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss",
 		"/Users/antoinelord/Library/Application Support/Sublime Text 2/Packages/GoSublime/CHANGELOG.md",
 		"/Users/antoinelord/go/src/github.com/konginteractive/cme/model/news.go",
@@ -223,6 +237,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"StudentHandler",
 			"etudiants",
 			"tutoriels",
 			"forum",
@@ -252,6 +267,40 @@
 	"groups":
 	[
 		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "vues/user_fiche.html",
+					"settings":
+					{
+						"buffer_size": 3203,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2707,
+								2707
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1011.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
 			"sheets":
 			[
 			]
@@ -274,11 +323,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.430816756428,
 			1.0
 		],
 		"rows":

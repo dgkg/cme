@@ -112,9 +112,9 @@ func StudentHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, C.UserTempl, C.UserView())
 }
 
-/* func StudentFicheHandler(w http.ResponseWriter, r *http.Request) {
+func StudentFicheHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, C.UserTempl, C.UserFicheView())
-} */
+}
 
 func TutoHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, C.TutorialTempl, C.TutorialView())

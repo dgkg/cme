@@ -642,6 +642,97 @@ a:visited {
       margin-left: 0;
       margin-right: 0; } }
 
+.eleve_fiche {
+  /* iPads (portrait) ----------- */
+  /* Desktops and laptops ----------- */ }
+  .eleve_fiche .message-accueil {
+    display: none; }
+  .eleve_fiche .body {
+    margin-right: 30px;
+    margin-left: 30px; }
+    .eleve_fiche .body hr {
+      clear: both;
+      margin-top: 30px;
+      margin-bottom: 30px; }
+    .eleve_fiche .body .etu-fiche .etu-photo {
+      width: 33%;
+      height: auto;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      margin-bottom: 60px; }
+    .eleve_fiche .body .etu-fiche .etu-gradu {
+      font-family: "gt_pressura_regular", sans-serif; }
+    .eleve_fiche .body .etu-fiche .etu-bio {
+      margin-top: 30px;
+      margin-bottom: 30px; }
+    .eleve_fiche .body .etu-projets .img-projet {
+      width: 100%;
+      margin-right: auto;
+      margin-left: auto;
+      margin-bottom: 30px; }
+      .eleve_fiche .body .etu-projets .img-projet img {
+        width: 100%; }
+      .eleve_fiche .body .etu-projets .img-projet .over-projet {
+        padding: 30px;
+        background-color: black;
+        opacity: 0.8; }
+        .eleve_fiche .body .etu-projets .img-projet .over-projet h3, .eleve_fiche .body .etu-projets .img-projet .over-projet p {
+          color: #f9f9f9;
+          margin: 0; }
+        .eleve_fiche .body .etu-projets .img-projet .over-projet h3 {
+          font-family: "gt_pressura_regular", sans-serif;
+          text-transform: uppercase;
+          font-size: 20px;
+          margin-bottom: 20px; }
+        .eleve_fiche .body .etu-projets .img-projet .over-projet p {
+          font-size: 14px;
+          margin-bottom: 20px; }
+        .eleve_fiche .body .etu-projets .img-projet .over-projet a {
+          color: #e11414; }
+        .eleve_fiche .body .etu-projets .img-projet .over-projet a:hover {
+          color: #9c1111; }
+  @media only screen and (min-device-width: 768px) {
+    .eleve_fiche .body .etu-fiche {
+      margin-top: 30px; }
+      .eleve_fiche .body .etu-fiche h1 {
+        float: left;
+        width: 65.3333334%; }
+      .eleve_fiche .body .etu-fiche .etu-photo {
+        display: inline-block;
+        width: 30.666666667%;
+        float: left;
+        margin: 0;
+        margin-right: 4%;
+        margin-bottom: 60px; }
+      .eleve_fiche .body .etu-fiche .etu-gradu {
+        width: 65.3333334%;
+        float: left; }
+      .eleve_fiche .body .etu-fiche .etu-bio {
+        float: left;
+        width: 65.3333334%;
+        margin-top: 20px;
+        margin-bottom: 20px; }
+      .eleve_fiche .body .etu-fiche .etu-social {
+        width: 65.3333334%;
+        float: left; }
+    .eleve_fiche .body .etu-projets .img-projet {
+      display: inline-block;
+      width: 30.666666667%;
+      float: left; } }
+  @media only screen and (min-width: 1224px) {
+    .eleve_fiche #wrapper {
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-right: 0;
+      padding-left: 0; }
+    .eleve_fiche .body {
+      margin-left: 0;
+      margin-right: 0; }
+      .eleve_fiche .body .etu-fiche .etu-bio {
+        max-width: 30.6666667%; } }
+
 .forum {
   /* iPads (portrait) ----------- */
   /* Desktops and laptops ----------- */ }
