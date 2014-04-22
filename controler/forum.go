@@ -3,7 +3,7 @@ package controler
 import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
-	M "github.com/konginteractive/cme/model"
+	. "github.com/konginteractive/cme/model"
 	"log"
 	"math"
 	"net/http"
@@ -19,13 +19,13 @@ var ForumTempl = "forum"
 var maxElementsInPage = 3
 
 // permet d'afficher la liste des questions du forum
-func ForumView() M.Page {
+func ForumView() Page {
 
 	log.Println("ForumView appelé")
 	// surcharge de la variable d'affichage
 	ForumTempl = "forum"
 
-	p := new(M.PageForum)
+	p := new(PageForum)
 	p.Title = "Forum"
 	p.MainClass = "forum"
 	p.Forums = forumGetList()
@@ -39,7 +39,7 @@ func ForumView() M.Page {
 
 // permet d'afficher la liste des questions du forum
 // avec la fonction de pagination
-func ForumViewPaged(page string) M.Page {
+func ForumViewPaged(page string) Page {
 
 	log.Println("ForumViewPaged appelé : " + page)
 	// surcharge de la variable d'affichage
@@ -47,7 +47,7 @@ func ForumViewPaged(page string) M.Page {
 
 	pagePosition, _ := ParseInt(page, 0, 64)
 
-	p := new(M.PageForum)
+	p := new(PageForum)
 	p.Title = "Forum"
 	p.MainClass = "forum"
 	p.Forums = forumGetListPaged(pagePosition)
@@ -60,7 +60,7 @@ func ForumViewPaged(page string) M.Page {
 }
 
 // permet d'afficher la liste des questions du forum avec la catégorie correspondante
-func FormViewCategory(cat string) M.Page {
+func FormViewCategory(cat string) Page {
 
 	log.Println("ForumView appelé")
 	// surcharge de la variable d'affichage
@@ -69,7 +69,7 @@ func FormViewCategory(cat string) M.Page {
 	// récupère l'id de la catégorie
 	idCat := forumGetIdFromCatName(cat)
 
-	p := new(M.PageForum)
+	p := new(PageForum)
 	p.Title = "Forum " + cat
 	p.MainClass = "forum"
 	p.Forums = formusGetListFromCat(idCat)
@@ -84,7 +84,7 @@ func FormViewCategory(cat string) M.Page {
 // permet d'afficher une liste de questions en fonction de
 // la catégorie sélectionnée
 // et de la page en cours sélectionnée
-func FormViewCategoryPaged(cat string, page string) M.Page {
+func FormViewCategoryPaged(cat string, page string) Page {
 
 	log.Println("ForumView appelé")
 	// surcharge de la variable d'affichage
@@ -94,7 +94,7 @@ func FormViewCategoryPaged(cat string, page string) M.Page {
 	// récupère l'id de la catégorie
 	idCat := forumGetIdFromCatName(cat)
 
-	p := new(M.PageForum)
+	p := new(PageForum)
 	p.Title = "Forum " + cat
 	p.MainClass = "forum"
 	p.Forums = formusGetListFromCatPaged(idCat, pagePosition)
@@ -109,13 +109,13 @@ func FormViewCategoryPaged(cat string, page string) M.Page {
 // permet d'afficher la recherche à partir d'un mot clef
 // va chercher dans les titres
 // et va chercher dans le texte du titre
-func ForumViewSearch(q string) M.Page {
+func ForumViewSearch(q string) Page {
 
 	log.Println("ForumViewSearch appelé")
 	// surcharge de la variable d'affichage
 	ForumTempl = "forum"
 
-	p := new(M.PageForum)
+	p := new(PageForum)
 	p.Title = "Forum Rechercher"
 	p.MainClass = "forum"
 	p.Forums = formSearch(q)
@@ -131,16 +131,16 @@ func ForumViewSearch(q string) M.Page {
 }
 
 // permet d'afficher le formulaire de création d'une question du formulaire
-func ForumViewAdd() M.Page {
+func ForumViewAdd() Page {
 
 	log.Println("ForumAddView appelé")
 	// surcharge de la variable d'affichage
 	ForumTempl = "forum_add"
 
-	p := new(M.PageForum)
+	p := new(PageForum)
 	p.Title = "Titre du sujet"
 	p.MainClass = "nouveausujet"
-	p.Forums = make([]M.Forum, 2)
+	p.Forums = make([]Forum, 2)
 	p.Categories = forumGetAllCategories()
 
 	return p
@@ -162,9 +162,9 @@ func forumGetIdFromCatName(cat string) int64 {
 
 // permet de retourner toutes les catégories
 // permet aussi de créer les liens pour les catégories
-func forumGetAllCategories() []M.ForumCategory {
+func forumGetAllCategories() []ForumCategory {
 	db := connectToDatabase()
-	var cat []M.ForumCategory
+	var cat []ForumCategory
 	db.Find(&cat)
 
 	// create dynamic links
@@ -179,7 +179,7 @@ func forumGetAllCategories() []M.ForumCategory {
 
 // Permet de retrouver le nombre de réponses pour chaque post
 // Permet aussi de réduire la description du texte de desc à 250 caractères
-func forumInjectDataToDisplay(forums []M.Forum) []M.Forum {
+func forumInjectDataToDisplay(forums []Forum) []Forum {
 	lenForum := len(forums)
 
 	for i := 0; i < lenForum; i++ {
@@ -197,9 +197,9 @@ func forumInjectDataToDisplay(forums []M.Forum) []M.Forum {
 
 // permet de récupérer toute la listes des questions du forum
 // en fonction de la limite affichable par page
-func forumGetList() []M.Forum {
+func forumGetList() []Forum {
 	db := connectToDatabase()
-	var forums []M.Forum
+	var forums []Forum
 	db.Limit(maxElementsInPage).Where("is_online = ?", "1").Order("id desc").Find(&forums)
 	return forums
 }
@@ -207,17 +207,17 @@ func forumGetList() []M.Forum {
 // permet de récupérer toute la listes des questions du forum
 // avec les fonctions de pagination
 // en fonction de la limite affichable par page
-func forumGetListPaged(fromPage int64) []M.Forum {
+func forumGetListPaged(fromPage int64) []Forum {
 	db := connectToDatabase()
-	var forums []M.Forum
+	var forums []Forum
 	db.Limit(maxElementsInPage).Offset(int(fromPage)*maxElementsInPage).Where("is_online = ?", "1").Order("id desc").Find(&forums)
 	return forums
 }
 
 // permet de récupérer des questions du forum à partir de l'id de la catégorie
-func formusGetListFromCat(id int64) []M.Forum {
+func formusGetListFromCat(id int64) []Forum {
 	db := connectToDatabase()
-	var forums []M.Forum
+	var forums []Forum
 	db.Limit(maxElementsInPage).Where("is_online = ? and forum_category_id = ?", "1", Itoa(int(id))).Order("id desc").Find(&forums)
 	return forums
 }
@@ -225,9 +225,9 @@ func formusGetListFromCat(id int64) []M.Forum {
 // permet de récupérer une liste de questions du formulaire en fonction
 // de l'id de la catégorie sélectionnée
 // et de la page dans laquelle on est
-func formusGetListFromCatPaged(id int64, fromPage int64) []M.Forum {
+func formusGetListFromCatPaged(id int64, fromPage int64) []Forum {
 	db := connectToDatabase()
-	var forums []M.Forum
+	var forums []Forum
 	db.Limit(maxElementsInPage).Offset(int(fromPage)*maxElementsInPage).Where("is_online = ? and forum_category_id = ?", "1", Itoa(int(id))).Order("id desc").Find(&forums)
 	return forums
 }
@@ -235,7 +235,7 @@ func formusGetListFromCatPaged(id int64, fromPage int64) []M.Forum {
 // permet de récupérer le nombre de forums de question total de la base de donnée
 func forumCount() int {
 	db := connectToDatabase()
-	var forums []M.Forum
+	var forums []Forum
 	var num int
 	db.Where("is_online = ?", "1").Find(&forums).Count(&num)
 	return num
@@ -245,7 +245,7 @@ func forumCount() int {
 // en fonction de l'id de la catégorie
 func forumCountFromIdCat(id int64) int {
 	db := connectToDatabase()
-	var forums []M.Forum
+	var forums []Forum
 	var num int
 	db.Where("is_online = ? and forum_category_id = ?", "1", Itoa(int(id))).Find(&forums).Count(&num)
 	return num
@@ -253,10 +253,10 @@ func forumCountFromIdCat(id int64) int {
 
 // permet de récupérer les posts d'un forum
 // à partir de l'id d'un forum
-func forumGetPost(id int) []M.ForumPost {
+func forumGetPost(id int) []ForumPost {
 	idForum := Itoa(id)
 	db := connectToDatabase()
-	var posts []M.ForumPost
+	var posts []ForumPost
 	db.Where("is_online = ? and forum_id = ?", "1", idForum).Find(&posts)
 	return posts
 }
@@ -267,7 +267,7 @@ func forumCountPost(id int64) int64 {
 	i := int(id)
 	idForum := Itoa(i)
 	db := connectToDatabase()
-	var posts []M.ForumPost
+	var posts []ForumPost
 	var num int64
 	db.Where("is_online = ? and forum_id = ?", "1", idForum).Find(&posts).Count(&num)
 	return num
@@ -281,12 +281,12 @@ func connectToDatabase() gorm.DB {
 }
 
 // fonction pour créer la pagination
-func forumCreatePaginate() []M.Paginate {
+func forumCreatePaginate() []Paginate {
 	elTotal := forumCount()
 
 	nb := elTotal / maxElementsInPage
 	mf := int(math.Floor(float64(nb)))
-	p := make([]M.Paginate, nb)
+	p := make([]Paginate, nb)
 
 	for i := 0; i < mf; i++ {
 		t := Itoa(i + 1)
@@ -297,12 +297,12 @@ func forumCreatePaginate() []M.Paginate {
 }
 
 // fonction pour créer la pagination à partir d'une catégorie sélectionnée
-func forumCreatePaginateFromIdCat(id int64) []M.Paginate {
+func forumCreatePaginateFromIdCat(id int64) []Paginate {
 	elTotal := forumCountFromIdCat(id)
 
 	nb := elTotal / maxElementsInPage
 	mf := int(math.Floor(float64(nb)))
-	p := make([]M.Paginate, nb)
+	p := make([]Paginate, nb)
 
 	for i := 0; i < mf; i++ {
 		t := Itoa(i + 1)
@@ -329,7 +329,7 @@ func ForumValidateForm(r *http.Request) bool {
 // permet d'enregistrer les éléments du formulaire
 func ForumSaveForm(r *http.Request) {
 	db := connectToDatabase()
-	var f M.Forum
+	var f Forum
 	f.Title = r.PostFormValue("post-nom")
 	f.Text = r.PostFormValue("post-contenu")
 	f.ForumCategoryId, _ = ParseInt(r.PostFormValue("post-cat"), 0, 64)
@@ -338,9 +338,9 @@ func ForumSaveForm(r *http.Request) {
 }
 
 // fonction permetttant de rechercher dans les titres des questions
-func formSearch(s string) []M.Forum {
+func formSearch(s string) []Forum {
 	db := connectToDatabase()
-	var forums []M.Forum
+	var forums []Forum
 	db.Where("is_online = ? and title LIKE ? ", "1", "%"+s+"%").Or("is_online = ? and text LIKE ? ", "1", "%"+s+"%").Order("id desc").Find(&forums)
 	return forums
 }
