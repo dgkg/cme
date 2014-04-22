@@ -1,8 +1,7 @@
 package main
 
 import (
-	C "github.com/konginteractive/cme/controler"
-	M "github.com/konginteractive/cme/model"
+	. "github.com/konginteractive/cme/app"
 	//_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
 	//"github.com/jinzhu/gorm"
@@ -26,20 +25,20 @@ func main() {
 
 	// routages du forum
 	r.HandleFunc("/forum", ForumHandler)
-	r.HandleFunc("/forum/nouveau", ForumAddHandler)
-	r.HandleFunc("/forum/search", ForumSearchHandler)
-	r.HandleFunc("/forum/{category}", ForumCatHandler)
+	//r.HandleFunc("/forum/nouveau", ForumAddHandler)
+	//r.HandleFunc("/forum/search", ForumSearchHandler)
+	//r.HandleFunc("/forum/{category}", ForumCatHandler)
 
 	// routages des élèves
-	r.HandleFunc("/eleves", StudentHandler)
+	//r.HandleFunc("/eleves", StudentHandler)
 
 	// routage des tutoriels
-	r.HandleFunc("/tutoriels", TutoHandler)
-	r.HandleFunc("/tutoriel/nouveau", TutoAddHandler)
-	r.HandleFunc("/actualites", NewsHandler)
+	//r.HandleFunc("/tutoriels", TutoHandler)
+	//r.HandleFunc("/tutoriel/nouveau", TutoAddHandler)
+	//r.HandleFunc("/actualites", NewsHandler)
 
 	// routages des actualités
-	r.HandleFunc("/actualites", NewsHandler)
+	//r.HandleFunc("/actualites", NewsHandler)
 
 	//gestion des fichiers statiques
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
@@ -52,20 +51,24 @@ func main() {
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 
-	Render(w, "index", C.HomeView())
+	Render(w, "index", HomeView())
 }
 
 func ForumHandler(w http.ResponseWriter, r *http.Request) {
-
-	p := r.FormValue("p")
-	if p == "" {
-		Render(w, C.ForumTempl, C.ForumView())
-	} else {
-		Render(w, C.ForumTempl, C.ForumViewPaged(p))
-	}
+	var pf PageForum
+	Render(w, pf.ForumTempl, pf.View())
+	/*
+		p := r.FormValue("p")
+		if p == "" {
+			Render(w, C.ForumTempl, C.ForumView())
+		} else {
+			Render(w, C.ForumTempl, C.ForumViewPaged(p))
+		}
+	*/
 
 }
 
+/*
 func ForumSearchHandler(w http.ResponseWriter, r *http.Request) {
 	q := r.FormValue("q")
 	if q == "" {
@@ -116,7 +119,7 @@ func TutoAddHandler(w http.ResponseWriter, r *http.Request) {
 func NewsHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, C.NewsTempl, C.NewsView())
 }
-
+*/
 func Render(w http.ResponseWriter, tmpl string, p M.Page) {
 	w.Header().Add("Accept-Charset", "utf-8")
 	w.Header().Add("Content-Type", "text/html")
