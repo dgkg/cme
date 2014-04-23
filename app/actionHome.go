@@ -4,16 +4,16 @@ import (
 	"log"
 )
 
-var HomeTempl = "home"
-
-func (h PageHome) View() Page {
+func (ph PageHome) View() Page {
 
 	log.Println("Home appelé")
 
-	p := new(PageHome)
-	p.Title = "Coucouc de la forêt"
+	// surcharge de la variable d'affichage
+	Templ = "index"
 
-	p.MainClass = "accueil"
+	ph.Title = "Coucouc de la forêt"
+
+	ph.MainClass = "accueil"
 
 	/*
 		p.Images[0].Url = "http://placekitten.com/100/600"
@@ -22,6 +22,6 @@ func (h PageHome) View() Page {
 	// Works !!
 	//p.Images = []M.UserImage{{Url: "http://placekitten.com/600/600"}, {Url: "http://placekitten.com/600/300"}}
 	//connectToDatabase()
-	return p
+	return ph
 
 }

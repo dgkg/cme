@@ -81,6 +81,8 @@ func ForumAddHandler(w http.ResponseWriter, r *http.Request) {
 
 	f, v := pf.ValidateForm(r)
 
+	log.Print("attentions : " + f.Title)
+
 	if v {
 		log.Print("VALIDE!!")
 		f.Save()
@@ -91,6 +93,8 @@ func ForumAddHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, pf.ViewAdd())
 }
 func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
+	var pf PageForum
+
 	// récupère la catégorie sélectionnée
 	vars := mux.Vars(r)
 	category := vars["category"]
@@ -98,26 +102,30 @@ func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
 	p := r.FormValue("p")
 
 	if p == "" {
-		Render(w, C.FormViewCategory(category))
+		Render(w, pf.ViewCategory(category))
 	} else {
-		Render(w, C.FormViewCategoryPaged(category, p))
+		Render(w, pf.ViewCategoryPaged(category, p))
 	}
 }
 
 func StudentHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, C.UserView())
+	var pu PageUser
+	Render(w, pu.View())
 }
 
 func TutoHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, C.TutorialView())
+	var pt PageTutoriels
+	Render(w, pt.View())
 }
 
 func TutoAddHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, C.TutorialAddView())
+	var pt PageTutoriels
+	Render(w, pt.AddView())
 }
 
 func NewsHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, C.NewsView())
+	var pn PageNews
+	Render(w, pn.View())
 }
 
 func Render(w http.ResponseWriter, p Page) {

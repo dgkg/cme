@@ -11,6 +11,9 @@ var TutorialAddTempl = "tutorial_add"
 
 func (pt PageTutoriels) View() Page {
 
+	// surcharge de la variable d'affichage
+	Templ = "tutorial"
+
 	db, _ := gorm.Open("mysql", "root:root@tcp(127.0.0.1:8889)/cme_test?charset=utf8&parseTime=True")
 	//cme_test
 	db.SingularTable(true)
@@ -26,9 +29,8 @@ func (pt PageTutoriels) View() Page {
 
 	log.Println("Tutorials appelé")
 
-	p := new(PageTutoriels)
-	p.Title = "Tutoriels"
-	p.MainClass = "tutoriels"
+	pt.Title = "Tutoriels"
+	pt.MainClass = "tutoriels"
 
 	// Création des forums
 	/*
@@ -44,36 +46,38 @@ func (pt PageTutoriels) View() Page {
 	*/
 
 	// pagination
-	p.PagesList = make([]Paginate, 5)
+	pt.PagesList = make([]Paginate, 5)
 
-	p.PagesList[0].Title = "1"
-	p.PagesList[0].Url = "/tutoriels/page/1"
+	pt.PagesList[0].Title = "1"
+	pt.PagesList[0].Url = "/tutoriels/page/1"
 
-	p.PagesList[1].Title = "2"
-	p.PagesList[1].Url = "/tutoriels/page/2"
+	pt.PagesList[1].Title = "2"
+	pt.PagesList[1].Url = "/tutoriels/page/2"
 
-	p.PagesList[2].Title = "3"
-	p.PagesList[2].Url = "/tutoriels/page/3"
+	pt.PagesList[2].Title = "3"
+	pt.PagesList[2].Url = "/tutoriels/page/3"
 
-	p.PagesList[3].Title = "4"
-	p.PagesList[3].Url = "/tutoriels/page/4"
+	pt.PagesList[3].Title = "4"
+	pt.PagesList[3].Url = "/tutoriels/page/4"
 
-	p.PagesList[4].Title = "5"
-	p.PagesList[4].Url = "/tutoriels/page/5"
+	pt.PagesList[4].Title = "5"
+	pt.PagesList[4].Url = "/tutoriels/page/5"
 
-	return p
+	return pt
 }
 
 func (pt PageTutoriels) AddView() Page {
 
 	log.Println("TutoAddView appelé")
 
-	p := new(PageTutoriels)
-	p.Title = "Titre du tuto"
-	p.MainClass = "nouveaututo"
+	// surcharge de la variable d'affichage
+	Templ = "tutorial_add"
+
+	pt.Title = "Titre du tuto"
+	pt.MainClass = "nouveaututo"
 	//p.Forums = make([]M.Forum, 2)
 	//p.Forums[0].Title = "Test A"
 	//p.Forums[1].Title = "Test B"
 
-	return p
+	return pt
 }

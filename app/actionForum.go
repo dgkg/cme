@@ -81,7 +81,7 @@ func (pf PageForum) ViewCategory(cat string) Page {
 	pf.Categories = f.getAllCategories()
 	pf.PagesList = pf.createPaginateFromIdCat(idCat)
 
-	pf.forumInjectDataToDisplay(pf.Forums)
+	pf.injectDataToDisplay(pf.Forums)
 
 	return pf
 }
@@ -99,13 +99,13 @@ func (pf PageForum) ViewCategoryPaged(cat string, page string) Page {
 
 	pagePosition, _ := ParseInt(page, 0, 64)
 	// récupère l'id de la catégorie
-	idCat := forumGetIdFromCatName(cat)
+	idCat := f.getIdFromCatName(cat)
 
 	pf.Title = "Forum " + cat
 	pf.MainClass = "forum"
 	pf.Forums = f.getListFromCatPaged(idCat, pagePosition)
 	pf.Categories = f.getAllCategories()
-	pf.PagesList = pf.reatePaginateFromIdCat(idCat)
+	pf.PagesList = pf.createPaginateFromIdCat(idCat)
 
 	pf.injectDataToDisplay(pf.Forums)
 
@@ -128,13 +128,13 @@ func (pf PageForum) ViewSearch(q string) Page {
 	pf.Forums = f.search(q)
 	pf.Categories = f.getAllCategories()
 
-	if len(p.Forums) == 0 {
-		p.SearchText = q
+	if len(pf.Forums) == 0 {
+		pf.SearchText = q
 	}
 
 	pf.injectDataToDisplay(pf.Forums)
 
-	return p
+	return pf
 }
 
 // permet d'afficher le formulaire de création d'une question du formulaire
@@ -151,7 +151,7 @@ func (pf PageForum) ViewAdd() Page {
 	pf.Forums = make([]Forum, 1)
 	pf.Categories = f.getAllCategories()
 
-	return p
+	return pf
 }
 
 // permet de donner l'id d'une question à partir de son titre
@@ -259,7 +259,6 @@ func (f Forum) countFromIdCat(id int64) int {
 	return num
 }
 
-/*
 // permet de récupérer les posts d'un forum
 // à partir de l'id d'un forum
 func (f Forum) getPost(id int) []ForumPost {
@@ -269,7 +268,7 @@ func (f Forum) getPost(id int) []ForumPost {
 	db.Where("is_online = ? and forum_id = ?", "1", idForum).Find(&posts)
 	return posts
 }
-*/
+
 // permet de récupérer le nombre de posts d'un forum
 // à partir de l'id d'un forum
 func (f Forum) countPost(id int64) int64 {
@@ -307,7 +306,8 @@ func (pf PageForum) createPaginate() []Paginate {
 }
 
 // fonction pour créer la pagination à partir d'une catégorie sélectionnée
-func (f Forum) createPaginateFromIdCat(id int64) []Paginate {
+func (pf PageForum) createPaginateFromIdCat(id int64) []Paginate {
+	var f Forum
 	elTotal := f.countFromIdCat(id)
 
 	nb := elTotal / maxElementsInPage
@@ -330,6 +330,9 @@ func (pf PageForum) ValidateForm(r *http.Request) (f Forum, v bool) {
 	f.ForumCategoryId, _ = ParseInt(r.PostFormValue("post-cat"), 0, 64)
 	f.IsOnline = 1 // permet de mettre en ligne automatiquement la quesion
 
+	// on initialise v à true
+	v = true
+	// on vérifi les champs qui sont présents
 	if r.PostFormValue("post-nom") == "" {
 		v = false
 	}
@@ -342,7 +345,7 @@ func (pf PageForum) ValidateForm(r *http.Request) (f Forum, v bool) {
 }
 
 // permet d'enregistrer les éléments du formulaire
-func (f Forum) Save(r *http.Request) {
+func (f Forum) Save() {
 	db := connectToDatabase()
 	db.Save(&f)
 }
