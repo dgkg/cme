@@ -11,11 +11,3 @@ func connectToDatabase() gorm.DB {
 	db.SingularTable(true)
 	return db
 }
-
-/*
-func (db *DB)Close() error{
-   var err error
-   err = sql.Close()
-   return err
-}
-*/
