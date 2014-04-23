@@ -47,7 +47,7 @@ $(window).load(function() {
 	// Scroll vers le contenu
 	$(".btn").click(function() {
 	    $('html, body').animate({
-	        scrollTop: $(".header").offset().top
+	        scrollTop: $(".zone-membre").offset().top
 	    }, 750);
 	});
 

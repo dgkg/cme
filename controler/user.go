@@ -54,7 +54,9 @@ func UserView() M.Page {
 
 func UserFicheView() M.Page {
 
-	UserTempl = "student_fiche"
+	log.Println("Fiche d'étudiant appelé")
+
+	UserTempl = "user_fiche"
 	p := new(M.PageUser)
 	p.Title = "Nom de l'étudiant sélectionné"
 	p.MainClass = "eleve_fiche"

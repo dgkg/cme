@@ -1,3 +1,66 @@
+.zone-membre {
+    width: 100%;
+    height: 60px;
+    position: relative;
+    line-height: 60px;
+    vertical-align: middle;
+
+    .btn-connexion, .btn-inscription {
+        display: inline-block;
+        height: 40px;
+        width: 42%;
+        background-color: $btn-rouge;
+        line-height: 40px;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 16px;
+        text-decoration: none;
+        color: $quasi-blanc;
+        font-family: $titre-regular;
+        float: right;
+        margin-left: 4%;
+        margin-right: 4%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .btn-connexion:hover, .btn-inscription:hover {
+        background-color: $btn-rouge-over;
+        color: $quasi-blanc;
+    }
+
+    @media only screen 
+    and (min-device-width : 768px) {
+
+        .btn-connexion, .btn-inscription {
+            float: right;
+            width: auto;
+            background-color: transparent;
+            color: #6E7074;
+            margin: 0;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-right: 30px;
+            font-size: 14px;
+        }
+
+        .btn-connexion:hover, .btn-inscription:hover {
+            background-color: transparent;
+            color: $gris-texte;
+        }
+    }
+
+    @media only screen
+    and (min-width : 1224px) {
+
+        .btn-connexion {
+            margin-right: 0;
+            font-size: 16px;
+        }
+
+    }
+}
+
 .header {
     width: 100%;
     min-height: 20px;
