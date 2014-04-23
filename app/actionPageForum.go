@@ -8,6 +8,7 @@ import (
 	. "strconv"
 )
 
+// fonction public
 // permet d'afficher la liste des questions du forum
 func (pf PageForum) View() Page {
 
@@ -28,6 +29,7 @@ func (pf PageForum) View() Page {
 	return pf
 }
 
+// fonction public
 // permet d'afficher la liste des questions du forum
 // avec la fonction de pagination
 func (pf PageForum) ViewPaged(page string) Page {
@@ -51,6 +53,7 @@ func (pf PageForum) ViewPaged(page string) Page {
 	return pf
 }
 
+// fonction public
 // permet d'afficher la liste des questions du forum avec la catégorie correspondante
 func (pf PageForum) ViewCategory(cat string) Page {
 
@@ -74,6 +77,7 @@ func (pf PageForum) ViewCategory(cat string) Page {
 	return pf
 }
 
+// fonction public
 // permet d'afficher une liste de questions en fonction de
 // la catégorie sélectionnée
 // et de la page en cours sélectionnée
@@ -100,6 +104,7 @@ func (pf PageForum) ViewCategoryPaged(cat string, page string) Page {
 	return pf
 }
 
+// fonction public
 // permet d'afficher la recherche à partir d'un mot clef
 // va chercher dans les titres
 // et va chercher dans le texte du titre
@@ -125,6 +130,7 @@ func (pf PageForum) ViewSearch(q string) Page {
 	return pf
 }
 
+// fonction public
 // permet d'afficher le formulaire de création d'une question du formulaire
 func (pf PageForum) ViewAdd() Page {
 
@@ -142,58 +148,7 @@ func (pf PageForum) ViewAdd() Page {
 	return pf
 }
 
-// Permet de retrouver le nombre de réponses pour chaque post
-// Permet aussi de réduire la description du texte de desc à 250 caractères
-func (pf PageForum) injectDataToDisplay(forums []Forum) []Forum {
-	lenForum := len(forums)
-
-	for i := 0; i < lenForum; i++ {
-		id := forums[i].Id
-		// permet de réaliser des extraits si le texte est trop long
-		if len(forums[i].Text) > 250 {
-			text := forums[i].Text[0:250]
-			forums[i].Text = text
-		}
-		forums[i].PostNumb = forums[i].countPost(id) //////////////////////////////
-	}
-
-	return forums
-}
-
-// fonction pour créer la pagination
-func (pf PageForum) createPaginate() []Paginate {
-	var f Forum
-	elTotal := f.count()
-
-	nb := elTotal / maxElementsInPage
-	mf := int(math.Floor(float64(nb)))
-	p := make([]Paginate, nb)
-
-	for i := 0; i < mf; i++ {
-		t := Itoa(i + 1)
-		p[i].Title = t
-		p[i].Url = "?p=" + t
-	}
-	return p
-}
-
-// fonction pour créer la pagination à partir d'une catégorie sélectionnée
-func (pf PageForum) createPaginateFromIdCat(id int64) []Paginate {
-	var f Forum
-	elTotal := f.countFromIdCat(id)
-
-	nb := elTotal / maxElementsInPage
-	mf := int(math.Floor(float64(nb)))
-	p := make([]Paginate, nb)
-
-	for i := 0; i < mf; i++ {
-		t := Itoa(i + 1)
-		p[i].Title = t
-		p[i].Url = "?p=" + t
-	}
-	return p
-}
-
+// fonction public
 // permet de valider les éléments du formulaire
 func (pf PageForum) ValidateForm(r *http.Request) (f Forum, v bool) {
 
@@ -214,4 +169,59 @@ func (pf PageForum) ValidateForm(r *http.Request) (f Forum, v bool) {
 	}
 
 	return
+}
+
+// fonction privée
+// Permet de retrouver le nombre de réponses pour chaque post
+// Permet aussi de réduire la description du texte de desc à 250 caractères
+func (pf PageForum) injectDataToDisplay(forums []Forum) []Forum {
+	lenForum := len(forums)
+
+	for i := 0; i < lenForum; i++ {
+		id := forums[i].Id
+		// permet de réaliser des extraits si le texte est trop long
+		if len(forums[i].Text) > 250 {
+			text := forums[i].Text[0:250]
+			forums[i].Text = text
+		}
+		forums[i].PostNumb = forums[i].countPost(id) //////////////////////////////
+	}
+
+	return forums
+}
+
+// fonction privée
+// fonction pour créer la pagination
+func (pf PageForum) createPaginate() []Paginate {
+	var f Forum
+	elTotal := f.count()
+
+	nb := elTotal / maxElementsInPage
+	mf := int(math.Floor(float64(nb)))
+	p := make([]Paginate, nb)
+
+	for i := 0; i < mf; i++ {
+		t := Itoa(i + 1)
+		p[i].Title = t
+		p[i].Url = "?p=" + t
+	}
+	return p
+}
+
+// fonction privée
+// fonction pour créer la pagination à partir d'une catégorie sélectionnée
+func (pf PageForum) createPaginateFromIdCat(id int64) []Paginate {
+	var f Forum
+	elTotal := f.countFromIdCat(id)
+
+	nb := elTotal / maxElementsInPage
+	mf := int(math.Floor(float64(nb)))
+	p := make([]Paginate, nb)
+
+	for i := 0; i < mf; i++ {
+		t := Itoa(i + 1)
+		p[i].Title = t
+		p[i].Url = "?p=" + t
+	}
+	return p
 }

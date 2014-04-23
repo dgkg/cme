@@ -6,6 +6,13 @@ import (
 	"strings"
 )
 
+// fonction public
+// permet d'enregistrer les éléments du formulaire
+func (f Forum) Save() {
+	db := connectToDatabase()
+	db.Save(&f)
+}
+
 // permet de donner l'id d'une question à partir de son titre
 func (f Forum) getIdFromCatName(cat string) int64 {
 	catList := f.getAllCategories()
@@ -113,12 +120,6 @@ func (f Forum) countPost(id int64) int64 {
 	var num int64
 	db.Where("is_online = ? and forum_id = ?", "1", idForum).Find(&posts).Count(&num)
 	return num
-}
-
-// permet d'enregistrer les éléments du formulaire
-func (f Forum) Save() {
-	db := connectToDatabase()
-	db.Save(&f)
 }
 
 // fonction permetttant de rechercher dans les titres des questions
