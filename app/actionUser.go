@@ -17,15 +17,6 @@ func (pu PageUser) View() Page {
 	//cme_test
 	db.SingularTable(true)
 
-	//db.Find(&forum)
-
-	/////////////
-	/////////////
-	/////////////
-	/////////////
-	/////////////
-	/////////////
-
 	log.Println("Users appelé")
 
 	pu.Title = "Users"

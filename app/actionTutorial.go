@@ -18,32 +18,10 @@ func (pt PageTutoriels) View() Page {
 	//cme_test
 	db.SingularTable(true)
 
-	//db.Find(&forum)
-
-	/////////////
-	/////////////
-	/////////////
-	/////////////
-	/////////////
-	/////////////
-
 	log.Println("Tutorials appelé")
 
 	pt.Title = "Tutoriels"
 	pt.MainClass = "tutoriels"
-
-	// Création des forums
-	/*
-		p.News = make([]M.NewsViewHelper, 2)
-
-		p.News[0].Id = 1
-		p.News[0].Title = "Test A"
-		p.News[0].CategoryTitle = "Packaging"
-
-		p.News[1].Id = 2
-		p.News[1].Title = "Test B"
-		p.News[1].CategoryTitle = "Logiciel"
-	*/
 
 	// pagination
 	pt.PagesList = make([]Paginate, 5)
@@ -75,9 +53,6 @@ func (pt PageTutoriels) AddView() Page {
 
 	pt.Title = "Titre du tuto"
 	pt.MainClass = "nouveaututo"
-	//p.Forums = make([]M.Forum, 2)
-	//p.Forums[0].Title = "Test A"
-	//p.Forums[1].Title = "Test B"
 
 	return pt
 }

@@ -15,32 +15,10 @@ func (pn PageNews) View() Page {
 	//cme_test
 	db.SingularTable(true)
 
-	//db.Find(&forum)
-
-	/////////////
-	/////////////
-	/////////////
-	/////////////
-	/////////////
-	/////////////
-
 	log.Println("Forum appelé")
 
 	pn.Title = "News"
 	pn.MainClass = "actualites"
-
-	// Création des forums
-	/*
-		p.News = make([]M.NewsViewHelper, 2)
-
-		p.News[0].Id = 1
-		p.News[0].Title = "Test A"
-		p.News[0].CategoryTitle = "Packaging"
-
-		p.News[1].Id = 2
-		p.News[1].Title = "Test B"
-		p.News[1].CategoryTitle = "Logiciel"
-	*/
 
 	// pagination
 	pn.PagesList = make([]Paginate, 5)
