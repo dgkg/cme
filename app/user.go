@@ -7,6 +7,12 @@ import (
 	"time"
 )
 
+type PageUser struct {
+	PagesList []Paginate
+	Users     []UsersViewHelper
+	PageWeb
+}
+
 type User struct {
 	Id        int64
 	FirstName string `sql:"type:varchar(100);"`

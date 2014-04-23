@@ -6,6 +6,12 @@ import (
 	"log"
 )
 
+type PageTutoriels struct {
+	PagesList []Paginate
+	Tutoriels []TutorialsViewHelper
+	PageWeb
+}
+
 var TutorialTempl = "tutorial"
 var TutorialAddTempl = "tutorial_add"
 

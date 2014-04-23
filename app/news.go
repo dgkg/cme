@@ -6,6 +6,12 @@ import (
 	"log"
 )
 
+type PageNews struct {
+	PagesList []Paginate
+	News      []NewsViewHelper
+	PageWeb
+}
+
 func (pn PageNews) View() Page {
 
 	// surcharge de la variable d'affichage

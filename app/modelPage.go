@@ -26,33 +26,3 @@ type Paginate struct {
 	Title string
 	Url   string
 }
-
-type PageForum struct {
-	Categories []ForumCategory
-	PagesList  []Paginate
-	Forums     []Forum
-	PageWeb
-}
-
-type PageHome struct {
-	Images []UserImage
-	PageWeb
-}
-
-type PageNews struct {
-	PagesList []Paginate
-	News      []NewsViewHelper
-	PageWeb
-}
-
-type PageTutoriels struct {
-	PagesList []Paginate
-	Tutoriels []TutorialsViewHelper
-	PageWeb
-}
-
-type PageUser struct {
-	PagesList []Paginate
-	Users     []UsersViewHelper
-	PageWeb
-}

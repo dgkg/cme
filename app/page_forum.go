@@ -8,6 +8,13 @@ import (
 	. "strconv"
 )
 
+type PageForum struct {
+	Categories []ForumCategory
+	PagesList  []Paginate
+	Forums     []Forum
+	PageWeb
+}
+
 // fonction public
 // permet d'afficher la liste des questions du forum
 func (pf PageForum) View() Page {

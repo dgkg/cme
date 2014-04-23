@@ -4,6 +4,11 @@ import (
 	"log"
 )
 
+type PageHome struct {
+	Images []UserImage
+	PageWeb
+}
+
 func (ph PageHome) View() Page {
 
 	log.Println("Home appelé")
