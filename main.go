@@ -46,6 +46,9 @@ func main() {
 	//gestion des fichiers statiques
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
 
+	// rootage de la page connexion
+	r.HandleFunc("/connexion", ConnexionHandler)
+
 	http.Handle("/", r)
 	log.Println("Listening...")
 	http.ListenAndServe(":3000", nil)
@@ -126,6 +129,10 @@ func TutoAddHandler(w http.ResponseWriter, r *http.Request) {
 
 func NewsHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, C.NewsTempl, C.NewsView())
+}
+
+func ConnexionHandler(w http.ResponseWriter, r *http.Request) {
+	Render(w, C.ConnexionTempl, C.ConnexionView())
 }
 
 func Render(w http.ResponseWriter, tmpl string, p M.Page) {

@@ -56,3 +56,7 @@ type PageUser struct {
 	Users     []UsersViewHelper
 	PageWeb
 }
+
+type PageConn struct {
+	PageWeb
+}

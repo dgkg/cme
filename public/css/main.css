@@ -947,7 +947,7 @@ a:visited {
       margin-bottom: 30px;
       width: 320px; }
       .forum .body .categories form input {
-        height: 30px; }
+        margin-right: 0; }
     .forum .body .liste-posts .post {
       position: relative; }
       .forum .body .liste-posts .post h2 {
