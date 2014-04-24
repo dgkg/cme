@@ -18,13 +18,13 @@ type PageNews struct {
 
 func (pn PageNews) View() Page {
 
-	log.Println("Forum appelé")
+	log.Println("Actualités appelé")
 
 	// surcharge de la variable d'affichage
 	Templ = "news"
 
 	pn.Title = "News"
-	pn.MainClass = "actualites"
+	pn.MainClass = "news"
 
 	// pagination
 	pn.PagesList = make([]Paginate, 5)
