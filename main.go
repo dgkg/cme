@@ -1,8 +1,7 @@
 package main
 
 import (
-	C "github.com/konginteractive/cme/controler"
-	M "github.com/konginteractive/cme/model"
+	. "github.com/konginteractive/cme/app"
 	//_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
 	//"github.com/jinzhu/gorm"
@@ -44,7 +43,7 @@ func main() {
 	r.HandleFunc("/actualites", NewsHandler)
 
 	// rootage de la page connexion
-	r.HandleFunc("/connexion", ConnexionHandler)
+	//r.HandleFunc("/connexion", ConnexionHandler)
 
 	//gestion des fichiers statiques
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
@@ -56,44 +55,52 @@ func main() {
 }
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
-
-	Render(w, "index", C.HomeView())
+	var ph PageHome
+	Render(w, ph.View())
 }
 
 func ForumHandler(w http.ResponseWriter, r *http.Request) {
-
+	var pf PageForum
 	p := r.FormValue("p")
 	if p == "" {
-		Render(w, C.ForumTempl, C.ForumView())
+		Render(w, pf.View())
 	} else {
-		Render(w, C.ForumTempl, C.ForumViewPaged(p))
+		Render(w, pf.ViewPaged(p))
 	}
-
 }
 
 func ForumSearchHandler(w http.ResponseWriter, r *http.Request) {
+	var pf PageForum
+
 	q := r.FormValue("q")
 	if q == "" {
-		Render(w, C.ForumTempl, C.ForumView())
+		Render(w, pf.View())
 	} else {
-		Render(w, C.ForumTempl, C.ForumViewSearch(q))
+		Render(w, pf.ViewSearch(q))
 	}
 }
 
 func ForumAddHandler(w http.ResponseWriter, r *http.Request) {
-	isValid := C.ForumValidateForm(r)
 
-	if isValid {
+	var pf PageForum
+
+	f, v := pf.ValidateForm(r)
+
+	log.Print("attentions : " + f.Title)
+
+	if v {
 		log.Print("VALIDE!!")
-		C.ForumSaveForm(r)
+		f.Save()
 	} else {
 		log.Print("NON VALIDE!!")
 	}
 
-	Render(w, C.ForumTempl, C.ForumViewAdd())
+	Render(w, pf.ViewAdd())
 }
 
 func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
+	var pf PageForum
+
 	// récupère la catégorie sélectionnée
 	vars := mux.Vars(r)
 	category := vars["category"]
@@ -101,44 +108,52 @@ func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
 	p := r.FormValue("p")
 
 	if p == "" {
-		Render(w, C.ForumTempl, C.FormViewCategory(category))
+		Render(w, pf.ViewCategory(category))
 	} else {
-		Render(w, C.ForumTempl, C.FormViewCategoryPaged(category, p))
+		Render(w, pf.ViewCategoryPaged(category, p))
 	}
 }
 
 func ForumPostHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, C.ForumTempl, C.ForumViewPost())
+	//var fp PageForum
+	//Render(w, C.ForumTempl, C.ForumViewPost())
 }
 
 func StudentHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, C.UserTempl, C.UserView())
+	var pu PageUser
+	Render(w, pu.View())
 }
 
 func StudentFicheHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, C.UserTempl, C.UserFicheView())
+	//var pu PageUser
+	//Render(w, C.UserTempl, C.UserFicheView())
 }
 
 func TutoHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, C.TutorialTempl, C.TutorialView())
+	var pt PageTutoriels
+	Render(w, pt.View())
 }
 
 func TutoAddHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, C.TutorialAddTempl, C.TutorialAddView())
+	var pt PageTutoriels
+	Render(w, pt.AddView())
 }
 
 func NewsHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, C.NewsTempl, C.NewsView())
+	var pn PageNews
+	Render(w, pn.View())
 }
 
 func ConnexionHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, "connexion", C.ConnexionView())
+	var pc PageConnexion
+	Render(w, pc.View())
 }
 
-func Render(w http.ResponseWriter, tmpl string, p M.Page) {
+func Render(w http.ResponseWriter, p Page) {
+
 	w.Header().Add("Accept-Charset", "utf-8")
 	w.Header().Add("Content-Type", "text/html")
-	err := templates.ExecuteTemplate(w, tmpl, p)
+	err := templates.ExecuteTemplate(w, Templ, p)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
