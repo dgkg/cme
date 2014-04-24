@@ -17,3 +17,16 @@ type User struct {
 	UpdatedAt time.Time
 	Images    []UserImage
 }
+
+func (u User) getById() User {
+	var user User
+	user.Id = u.Id
+	db.Find(&user)
+	return user
+}
+
+/*
+func (u *User) getById() User {
+	return db.Find(&u)
+}
+*/

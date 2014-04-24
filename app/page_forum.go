@@ -200,7 +200,10 @@ func (pf PageForum) injectDataToDisplay(forums []Forum) []Forum {
 			text := forums[i].Text[0:250]
 			forums[i].Text = text
 		}
-		forums[i].PostNumb = forums[i].countPost(id) //////////////////////////////
+		// permet de compter ne nombres de réponses
+		forums[i].PostNumb = forums[i].countPost(id)
+		// permet de créer une url du lien
+		forums[i].Url = "/forum/post/" + Itoa(int(forums[i].Id))
 	}
 
 	return forums

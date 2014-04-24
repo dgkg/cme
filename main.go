@@ -117,8 +117,12 @@ func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ForumPostHandler(w http.ResponseWriter, r *http.Request) {
+
+	vars := mux.Vars(r)
+	id := vars["id"]
+
 	var pfp PageForumPost
-	Render(w, pfp.View())
+	Render(w, pfp.View(id))
 }
 
 func StudentHandler(w http.ResponseWriter, r *http.Request) {

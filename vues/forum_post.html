@@ -6,43 +6,43 @@
                 <div class="liste-post">
 
                     <div class="post">
-
-                            <h2>{{ .Title }}</h2>
+                            {{ if .Forum}}
+                            <h2>{{ .Forum.Title }}</h2>
 
                             <div class="post-contenu">
 
-                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
-                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
-                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
-                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                                {{ .Forum.Text }}
 
                             </div>
 
                             <div class="post-meta">
 
-                                <p class="post-date">1er avril 2014</p>
-                                <p class="post-auteur">Antoine Lord</p>
-                                <p class="post-resolu">Non résolu</p>
+                                <!-- <p class="post-date">1er avril 2014</p> -->
+                                <p class="post-date">{{.Forum.CreatedAtString}}</p>
+                                
+                                <p class="post-auteur">{{.Forum.UserName}}</p>
+                                {{if eq .Forum.IsSolved 1}}
+                                    <p class="post-resolu">Résolu</p>
+                                {{else}}
+                                    <p class="post-resolu">Non résolu</p>
+                                {{end}}
 
                             </div>
+                            {{end }}
 
                     </div>
 
-                    <div class="comm">
+                    {{ if .Forum.Posts}}
 
-                        <p class="comm-texte">Très cool!</p>
-                        <p class="comm-auteur">Henri Lepic</p>
-                        <p class="comm-date">2 avril 2014</p>
+                        {{ range .Forum.Posts }}
+                        <div class="comm">
+                            <p class="comm-texte">{{.Text}}</p>
+                            <p class="comm-auteur">{{.UserName}}</p>
+                            <p class="comm-date">{{.CreatedAtString}}</p>
+                        </div>
+                        {{end}}
 
-                    </div>
-
-                    <div class="comm">
-
-                        <p class="comm-texte">Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-                        <p class="comm-auteur">Henri Lepic</p>
-                        <p class="comm-date">2 avril 2014</p>
-
-                    </div>
+                    {{end}}
 
                 </div>
 

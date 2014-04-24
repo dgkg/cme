@@ -17,6 +17,9 @@ type Forum struct {
 	IsOnline        int64
 	PostNumb        int64  `sql:"-"` // Ignore this field
 	CategoryTitle   string `sql:"-"` // Ignore this field
+	Url             string `sql:"-"` // Ignore this field
+	UserName        string `sql:"-"` // Ignore this field
+	CreatedAtString string `sql:"-"` // Ignore this field
 	CreatedAt       time.Time
 	UpdatedAt       time.Time
 	Posts           []ForumPost
@@ -58,6 +61,13 @@ func (f Forum) getAllCategories() []ForumCategory {
 	}
 
 	return cat
+}
+
+// permet de récupérer toute la question du forum
+// en fonction de son id
+func (f Forum) getById() Forum {
+	db.Where("is_online = ? AND id = ?", "1", Itoa(int(f.Id))).Find(&f)
+	return f
 }
 
 // permet de récupérer toute la listes des questions du forum
@@ -118,11 +128,9 @@ func (f Forum) countFromIdCat(id int64) int {
 
 // permet de récupérer les posts d'un forum
 // à partir de l'id d'un forum
-func (f Forum) getPost(id int) []ForumPost {
-
-	idForum := Itoa(id)
+func (f Forum) getPost() []ForumPost {
 	var posts []ForumPost
-	db.Where("is_online = ? and forum_id = ?", "1", idForum).Find(&posts)
+	db.Where("is_online = ? and forum_id = ?", "1", Itoa(int(f.Id))).Find(&posts)
 	return posts
 }
 
