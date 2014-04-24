@@ -42,11 +42,11 @@ func main() {
 	// routages des actualités
 	r.HandleFunc("/actualites", NewsHandler)
 
-	//gestion des fichiers statiques
-	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
-
 	// rootage de la page connexion
 	//r.HandleFunc("/connexion", ConnexionHandler)
+
+	//gestion des fichiers statiques
+	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
 
 	http.Handle("/", r)
 	log.Println("Listening...")
