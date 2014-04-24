@@ -11,7 +11,8 @@ func ConnexionView() M.Page {
 
 	log.Println("Connexion appelé")
 
-	p := new(M.PageConn)
+	var p M.PageConn
+
 	p.Title = "Connexion"
 	p.MainClass = "connexion"
 
