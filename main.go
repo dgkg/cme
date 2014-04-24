@@ -43,7 +43,7 @@ func main() {
 	r.HandleFunc("/actualites", NewsHandler)
 
 	// rootage de la page connexion
-	//r.HandleFunc("/connexion", ConnexionHandler)
+	r.HandleFunc("/connexion", ConnexionHandler)
 
 	//gestion des fichiers statiques
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
@@ -125,8 +125,8 @@ func StudentHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func StudentFicheHandler(w http.ResponseWriter, r *http.Request) {
-	//var pu PageUser
-	//Render(w, C.UserTempl, C.UserFicheView())
+	var pu PageUser
+	Render(w, pu.ViewFiche())
 }
 
 func TutoHandler(w http.ResponseWriter, r *http.Request) {

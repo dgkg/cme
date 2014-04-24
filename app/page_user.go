@@ -39,3 +39,14 @@ func (pu PageUser) View() Page {
 
 	return pu
 }
+
+func (pu PageUser) ViewFiche() Page {
+
+	log.Println("Fiche appelé")
+
+	Templ = "user_fiche"
+	pu.Title = "Fiche de Henri Lepic"
+	pu.MainClass = "eleve_fiche"
+
+	return pu
+}
