@@ -1,0 +1,29 @@
+.connexion {
+  /* iPads (portrait) ----------- */
+  /* Desktops and laptops ----------- */ }
+  .connexion .message-accueil {
+    display: none; }
+  .connexion .body {
+    margin-right: 30px;
+    margin-left: 30px; }
+    .connexion .body hr {
+      clear: both;
+      margin-top: 30px;
+      margin-bottom: 30px; }
+    .connexion .body .connexion-form {
+      display: block;
+      width: 33%;
+      margin-right: auto;
+      margin-left: auto;
+      margin-top: 60px;
+      margin-bottom: 120px; }
+  @media only screen and (min-width: 1224px) {
+    .connexion #wrapper {
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-right: 0;
+      padding-left: 0; }
+    .connexion .body {
+      margin-left: 0;
+      margin-right: 0; } }

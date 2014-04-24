@@ -3,18 +3,26 @@
 {{template "header" .}}
             <div class="body">
 
-                <form class="pure-form pure-form-stacked connexion" method="POST" action="">
+                <form class="pure-form pure-form-aligned connexion-form" method="POST" action="">
 
                     <fieldset>
+
                         <legend>Connexion</legend>
 
-                        <label for="email">Courriel</label>
-                        <input id="email" type="email" placeholder="Courriel">
+                        <div class="pure-control-group">
+                            <label for="name">Courriel</label>
+                            <input id="name" type="text" placeholder="Courriel">
+                        </div>
 
-                        <label for="password">Mot de passe</label>
-                        <input id="password" type="password" placeholder="Mot de passe">
+                        <div class="pure-control-group">
+                            <label for="password">Mot de passe</label>
+                            <input id="password" type="password" placeholder="Mot de passe">
+                        </div>
 
-                        <button type="submit" class="pure-button pure-button-primary">Connexion</button>
+                        <div class="pure-controls">
+                            <button type="submit" class="pure-button pure-button-primary">Connexion</button>
+                        </div>
+
                     </fieldset>
 
                 </form>
