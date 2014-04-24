@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Jeu 17 Avril 2014 à 18:44
+-- Généré le: Jeu 24 Avril 2014 à 15:52
 -- Version du serveur: 5.5.29
 -- Version de PHP: 5.4.10
 
@@ -32,7 +32,7 @@ CREATE TABLE `forum` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
 
 --
 -- Contenu de la table `forum`
@@ -52,7 +52,12 @@ INSERT INTO `forum` (`id`, `user_id`, `forum_category_id`, `title`, `text`, `key
 (11, 0, 1, 'Titre K', 'objet K Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque eget lorem ut cursus. Sed erat neque, sodales sit amet auctor id, consequat vel erat. Phasellus urna ligula, egestas ut lacus non, dapibus eleifend nulla. Vestibulum accumsan tellus nibh, non rhoncus nisi dictum quis. Suspendisse lobortis eros ac lacus eleifend commodo. Suspendisse lacinia lacus id eros aliquet lacinia. Vestibulum vel ligula pellentesque tortor eleifend cursus id eget massa. Duis eleifend pharetra nunc, vel dignissim eros. Vestibulum sed bibendum erat.', '', 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (12, 0, 1, 'Titre L', 'objet L Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque eget lorem ut cursus. Sed erat neque, sodales sit amet auctor id, consequat vel erat. Phasellus urna ligula, egestas ut lacus non, dapibus eleifend nulla. Vestibulum accumsan tellus nibh, non rhoncus nisi dictum quis. Suspendisse lobortis eros ac lacus eleifend commodo. Suspendisse lacinia lacus id eros aliquet lacinia. Vestibulum vel ligula pellentesque tortor eleifend cursus id eget massa. Duis eleifend pharetra nunc, vel dignissim eros. Vestibulum sed bibendum erat.', '', 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (13, 0, 0, 'qsdfqsdf', '<p>qsdfqsdf</p>\r\n', '', 0, 0, '2014-04-17 16:08:30', '2014-04-17 16:08:30'),
-(14, 0, 2, 'Mon super titre', '<p>La question de la mort : &nbsp;Comment je fait pour r&eacute;cup&eacute;rer un post d&#39;un formulaire ?</p>\r\n', '', 0, 0, '2014-04-17 16:16:50', '2014-04-17 16:16:50');
+(14, 0, 2, 'Mon super titre', '<p>La question de la mort : &nbsp;Comment je fait pour r&eacute;cup&eacute;rer un post d&#39;un formulaire ?</p>\r\n', '', 0, 0, '2014-04-17 16:16:50', '2014-04-17 16:16:50'),
+(15, 0, 2, 'titi', '<p>coucou comment sa vas ?</p>\r\n', '', 0, 1, '2014-04-17 17:27:19', '2014-04-17 17:27:19'),
+(16, 0, 2, 'test coucou', '<p>ceci est un autre test&nbsp;</p>\r\n', '', 0, 1, '2014-04-22 09:03:38', '2014-04-22 09:03:38'),
+(17, 0, 1, 'coucou hu hu', '<p>ha ha ho ho</p>\r\n', '', 0, 1, '2014-04-23 08:49:23', '2014-04-23 08:49:23'),
+(18, 0, 3, 'qsfqsdfqs', '<p>sdfqsdfqsdf</p>\r\n', '', 0, 1, '2014-04-23 16:24:27', '2014-04-23 16:24:27'),
+(19, 0, 3, 'coucouc', '<p>hihi&nbsp;</p>\r\n', '', 0, 1, '2014-04-24 09:07:26', '2014-04-24 09:07:26');
 
 -- --------------------------------------------------------
 
@@ -186,7 +191,17 @@ CREATE TABLE `tutorial` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Contenu de la table `tutorial`
+--
+
+INSERT INTO `tutorial` (`id`, `user_id`, `tutorial_category_id`, `title`, `text`, `keywords`, `is_online`, `created_at`, `updated_at`) VALUES
+(1, 0, 1, 'Comment créer un effet néon sur du lettrage', 'Un petit tutoriel très simple qui explique comment générer un effet de lettrage néon, de style un peu rétro, avec les effets de Photoshop.', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 0, 2, 'Comment utiliser le Pathfinder dans Illustrator', 'Outil indispensable à tous les utilisateurs de Illustrator! Je vous explique ici comment maîtriser le Pathfinder.', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 0, 3, 'Comment générer du CSS avec SASS/SCSS dans Sublime Text 2', 'SASS/SCSS s''incruste dans les bonnes habitudes des intégrateurs de ce monde à cause de ses fonctionnalités très utiles. Je vous montre ici comment générer du CSS compressé à partir de SASS avec Sublime Text 2.', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, 0, 2, 'coucou voici mon super tuto', '<p>Illustrator est un outils super simpa super tuto hihi</p>\r\n', '', 1, '2014-04-24 13:47:11', '2014-04-24 13:47:11');
 
 -- --------------------------------------------------------
 
@@ -200,7 +215,16 @@ CREATE TABLE `tutorial_category` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf32 AUTO_INCREMENT=4 ;
+
+--
+-- Contenu de la table `tutorial_category`
+--
+
+INSERT INTO `tutorial_category` (`id`, `title`, `created_at`, `updated_at`) VALUES
+(1, 'Photoshop', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 'Illustator', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 'Sublime Text', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -291,4 +315,21 @@ CREATE TABLE `user_image_category` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+
+--
+-- Contenu de la table `user_image_category`
+--
+
+INSERT INTO `user_image_category` (`id`, `title`, `created_at`, `updated_at`) VALUES
+(1, ' GRAPHISME', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 'PACKAGING', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 'DESSINS ET CROQUIS', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, 'COULEUR', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, 'PERSPECTIVE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(6, 'ROUGH ET STORYBOARD', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(7, 'PUBLICITÉ', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(8, 'TYPOGRAPHIE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(9, 'IDENTITÉ VISUELLE', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(10, 'ÉDITION', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(11, 'PROJETS DE DIPLÔMES', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
