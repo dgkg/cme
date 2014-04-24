@@ -60,7 +60,7 @@
 	            margin-left: auto;
 	            margin-right: auto;
 	            width: 80%;
-	            height: 40px;
+	            height: 36px;
 	            padding: 2px;
 	            -webkit-border-radius:1px;
 	            -moz-border-radius:1px;
@@ -74,12 +74,19 @@
 	        	margin-bottom: 30px;
 
 	        	input {
+					margin-left: auto;
+					margin-right: auto;
 	        		display: block;
-	        		margin-right: auto;
-	        		margin-left: auto;
-	        		width: 80%;
-	        		height: 40px;
+	        		height: 36px;
+					width: 80%;
 	        	}
+
+				button {
+					margin-left: auto;
+					margin-right: auto;
+					display: block;
+					height: 36px;
+				}
 	        }
 		}
 
@@ -181,7 +188,7 @@
 	}
 
 	/* iPads (portrait) ----------- */
-    @media only screen 
+    @media only screen
     and (min-device-width : 768px) {
 
     	.body {
@@ -213,7 +220,7 @@
 				ul {
 	                display: block;
 	                padding: 0;
-	                width: 50%;
+	                width: 60%;
 	                float: left;
 	                margin: 0;
 
@@ -252,11 +259,20 @@
 	            	float: right;
 	            	margin: 0;
 	            	margin-bottom: 30px;
-	            	width: 320px;
+					width: 320px;
+
+
 
 		        	input {
-		        		margin-right: 0;
+						display: inline-block;
+		        		//margin-right: 0;
+						width: 200px;
 		        	}
+
+					button {
+						float: right;
+						display: inline-block;
+					}
 		        }
 			}
 
