@@ -22,14 +22,6 @@ type Forum struct {
 	Posts           []ForumPost
 }
 
-/*
-// Helper de vue
-type ForumViewHelper struct {
-	CategoryTitle string
-	Forum
-}
-*/
-
 // fonction public
 // permet d'enregistrer les éléments du formulaire
 func (f Forum) Save() {

@@ -8,7 +8,7 @@
 
                     <h1>Tutoriels</h1>
                     <p>Enseignez à vos pairs des compétences que vous maîtrisez déjà grâce à un tutoriel.</p>
-                    <a class="btn-nouv-publication" href="tutoriel/nouveau" rel="nofollow">Créer un tutoriel</a>
+                    <a class="btn-nouv-publication" href="/tutoriel/nouveau" rel="nofollow">Créer un tutoriel</a>
 
                 </div>
 
@@ -19,22 +19,20 @@
                     <h2>Catégories</h2>
                     <ul>
                         <li>Catégories  /</li>
-                        <li><a href="#">Web</a></li>
-                        <li><a href="#">Print</a></li>
-                        <li><a href="#">Rough</a></li>
-                        <li><a href="#">Cours</a></li>
-                        <li><a href="#">Autre</a></li>
+
+                        {{range .Categories}}
+                        <li><a href="{{.Url}}">{{.Title}}</a></li>
+                        {{end}}
+
                     </ul>
 
                     <select>
-                        <option>Web</option>
-                        <option>Print</option>
-                        <option>Rough</option>
-                        <option>Cours</option>
-                        <option>Autre</option>
+                        {{range .Categories}}
+                        <option value="{{ .Id }}">{{.Title}}</option>
+                        {{end}}
                     </select>
 
-                    <form><input type="text" placeholder="Recherche..."></form>
+                    <form class="pure-form" action="/tutoriel/search"><input name="q" type="text" placeholder="Recherche..."></form>
 
                     <select>
                         <option>Plus récents d'abord</option>
@@ -46,87 +44,48 @@
 
                 <hr>
 
+
                 <div class="liste-posts">
+                    {{if .Tutorials}}
+                        {{range .Tutorials}}
+                            <div class="post">
 
-                    <div class="post">
+                            <h2>{{.Title}}</h2>
+                            <p class="post-desc">{{.Text}}</p>
+                            <div class="post-meta">
+                                <p class="post-cat">{{.CategoryTitle}}</p>
+                                <img src="/img/ui/icone-reponse.png" alt="Nombre de réponses"><p>{{.PostNumb}}</p>
+                                <img src="/img/ui/icone-appreciations.png" alt="Nombre d'appréciations"><p>8</p>
+                            </div>
 
-                        <h2>Comment créer un effet néon sur du lettrage</h2>
-                        <p class="post-desc">Un petit tutoriel très simple qui explique comment générer un effet de lettrage néon, de style un peu rétro, avec les effets de Photoshop.</p>
-                        <div class="post-meta">
-                            <p class="post-cat">Photoshop</p>
-                            <img src="img/ui/icone-reponse.png" alt="Nombre de réponses"><p>0</p>
-                            <img src="img/ui/icone-non-resolu.png" alt="Statut de la publication"><p>Non résolu</p>
-                            <img src="img/ui/icone-appreciations.png" alt="Nombre d'appréciations"><p>8</p>
+                            <a class="btn-repondre" href="#">Répondre</a>
+
+                            <hr>
+
                         </div>
+                        {{end}}
+                    {{else}}
+                        <h2>Désolé nous n'avons pas trouvé de résultats à votre recherche</h2>
+                        <h3>Mot clef : {{.SearchText}}</h3>
+                        <img src="http://www.lorempixum.com/g/1200/800/" alt="" />
 
-                        <a class="btn-repondre" href="#">Répondre</a>
-
-                        <hr>
-
-                    </div>
-
-                    <div class="post">
-
-                        <h2>Comment utiliser le Pathfinder dans Illustrator</h2>
-                        <p class="post-desc">Outil indispensable à tous les utilisateurs de Illustrator! Je vous explique ici comment maîtriser le Pathfinder.</p>
-                        <div class="post-meta">
-                            <p class="post-cat">Illustator</p>
-                            <img src="img/ui/icone-reponse.png" alt="Nombre de réponses"><p>0</p>
-                            <img src="img/ui/icone-non-resolu.png" alt="Statut de la publication"><p>Non résolu</p>
-                            <img src="img/ui/icone-appreciations.png" alt="Nombre d'appréciations"><p>8</p>
-                        </div>
-
-                        <a class="btn-repondre" href="#">Répondre</a>
-
-                        <hr>
-
-                    </div>
-
-                    <div class="post">
-
-                        <h2>Comment générer du CSS avec SASS/SCSS dans Sublime Text 2</h2>
-                        <p class="post-desc">SASS/SCSS s'incruste dans les bonnes habitudes des intégrateurs de ce monde à cause de ses fonctionnalités très utiles. Je vous montre ici comment générer du CSS compressé à partir de SASS avec Sublime Text 2.</p>
-                        <div class="post-meta">
-                            <p class="post-cat">Sublime Text</p>
-                            <img src="img/ui/icone-reponse.png" alt="Nombre de réponses"><p>0</p>
-                            <img src="img/ui/icone-non-resolu.png" alt="Statut de la publication"><p>Non résolu</p>
-                            <img src="img/ui/icone-appreciations.png" alt="Nombre d'appréciations"><p>8</p>
-                        </div>
-
-                        <a class="btn-repondre" href="#">Répondre</a>
-
-                        <hr>
-
-                    </div>
+                    {{end}}
 
                 </div>
+
 
                 <div class="pagination">
 
                     <ul>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">6</a></li>
-                        <li><a href="#">7</a></li>
-                        <li><a href="#">8</a></li>
-                        <li><a href="#">9</a></li>
-                        <li><a href="#">10</a></li>
+                        {{range .PagesList}}
+                        <li><a href="{{.Url}}">{{.Title}}</a></li>
+                        {{end}}
                     </ul>
 
                     <select>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
+                        {{range .PagesList}}
+                        <option>{{.Title}}</option>
+                        {{end}}
                     </select>
 
                     <a class="btn-nav-suiv" href="#">Suivant</a>

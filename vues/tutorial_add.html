@@ -16,23 +16,16 @@
                     <form action="" method="POST">
 
                         <label class="label-tuto-nom" for="tuto-nom">Nom du tutoriel</label>
-                        <input type="text" id="tuto-nom" class="tuto-nom" name="tuto-nom">
+                        <input type="text" id="tuto-nom" class="tuto-nom" name="post-nom">
 
                         <label class="label-tuto-contenu" for="tuto-contenu">Contenu</label>
-                        <textarea id="tuto-contenu" name="tuto-contenu" class="tuto-contenu">
-
-                            <p>Écrivez votre tutoriel ici...</p>
-
-                        </textarea>
-
+                        <textarea id="tuto-contenu" name="post-contenu" class="tuto-contenu" placeholder="Écrivez votre tutoriel ici..."></textarea>
+                        
                         <label class="label-tuto-cat" for="tuto-cat">Catégorie du tutoriel</label>
-                        <select id="tuto-cat" class="tuto-cat">
-                            <option>Catégories</option>
-                            <option>Packaging</option>
-                            <option>Web</option>
-                            <option>Rough</option>
-                            <option>Cours</option>
-                            <option>Autre</option>
+                        <select id="post-cat" class="post-cat" name="post-cat">
+                            {{range .Categories}}
+                            <option value="{{ .Id }}">{{.Title}}</option>
+                            {{end}}
                         </select>
 
                         <input type="submit" class="btn-soumettre" value="Soumettre">

@@ -37,7 +37,9 @@ func main() {
 	// routage des tutoriels
 	r.HandleFunc("/tutoriels", TutoHandler)
 	r.HandleFunc("/tutoriel/nouveau", TutoAddHandler)
-	r.HandleFunc("/actualites", NewsHandler)
+	r.HandleFunc("/tutoriel/search", TutoSearchHandler)
+	r.HandleFunc("/tutoriel/{category}", TutoCatHandler)
+	r.HandleFunc("/tutoriel/post/{id:[0-9]+}", TutoPostHandler)
 
 	// routages des actualités
 	r.HandleFunc("/actualites", NewsHandler)
@@ -130,13 +132,65 @@ func StudentFicheHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func TutoHandler(w http.ResponseWriter, r *http.Request) {
-	var pt PageTutoriels
-	Render(w, pt.View())
+	var pt PageTutorial
+	p := r.FormValue("p")
+	if p == "" {
+		Render(w, pt.View())
+	} else {
+		Render(w, pt.ViewPaged(p))
+	}
 }
 
 func TutoAddHandler(w http.ResponseWriter, r *http.Request) {
-	var pt PageTutoriels
-	Render(w, pt.AddView())
+
+	var pt PageTutorial
+
+	t, v := pt.ValidateForm(r)
+
+	log.Print("attentions : " + t.Title)
+
+	if v {
+		log.Print("VALIDE!!")
+		t.Save()
+	} else {
+		log.Print("NON VALIDE!!")
+	}
+
+	Render(w, pt.ViewAdd())
+
+}
+
+func TutoCatHandler(w http.ResponseWriter, r *http.Request) {
+
+	var pt PageTutorial
+
+	// récupère la catégorie sélectionnée
+	vars := mux.Vars(r)
+	category := vars["category"]
+	// récupère la page en cours sélectionnée
+	p := r.FormValue("p")
+
+	if p == "" {
+		Render(w, pt.ViewCategory(category))
+	} else {
+		Render(w, pt.ViewCategoryPaged(category, p))
+	}
+}
+
+func TutoSearchHandler(w http.ResponseWriter, r *http.Request) {
+	var pt PageTutorial
+
+	q := r.FormValue("q")
+	if q == "" {
+		Render(w, pt.View())
+	} else {
+		Render(w, pt.ViewSearch(q))
+	}
+}
+
+func TutoPostHandler(w http.ResponseWriter, r *http.Request) {
+	//var fp PageForum
+	//Render(w, C.ForumTempl, C.ForumViewPost())
 }
 
 func NewsHandler(w http.ResponseWriter, r *http.Request) {
