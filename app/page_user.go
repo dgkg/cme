@@ -1,33 +1,20 @@
 package app
 
 import (
-	_ "github.com/go-sql-driver/mysql"
-	"github.com/jinzhu/gorm"
 	"log"
 )
 
-/*
-type UsersViewHelper struct {
-	User
-}
-*/
-
 type PageUser struct {
 	PagesList []Paginate
-	Users     []UsersViewHelper
 	PageWeb
 }
 
 func (pu PageUser) View() Page {
 
+	log.Println("Users appelé")
+
 	// surcharge de la variable d'affichage
 	Templ = "user"
-
-	db, _ := gorm.Open("mysql", "root:root@tcp(127.0.0.1:8889)/cme_test?charset=utf8&parseTime=True")
-	//cme_test
-	db.SingularTable(true)
-
-	log.Println("Users appelé")
 
 	pu.Title = "Users"
 	pu.MainClass = "eleves"

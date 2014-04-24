@@ -19,9 +19,10 @@ type PageForum struct {
 // permet d'afficher la liste des questions du forum
 func (pf PageForum) View() Page {
 
+	log.Println("ForumView appelé")
+
 	var f Forum
 
-	log.Println("ForumView appelé")
 	// surcharge de la variable d'affichage
 	Templ = "forum"
 
@@ -41,9 +42,10 @@ func (pf PageForum) View() Page {
 // avec la fonction de pagination
 func (pf PageForum) ViewPaged(page string) Page {
 
+	log.Println("ForumViewPaged appelé : " + page)
+
 	var f Forum
 
-	log.Println("ForumViewPaged appelé : " + page)
 	// surcharge de la variable d'affichage
 	Templ = "forum"
 
@@ -64,9 +66,10 @@ func (pf PageForum) ViewPaged(page string) Page {
 // permet d'afficher la liste des questions du forum avec la catégorie correspondante
 func (pf PageForum) ViewCategory(cat string) Page {
 
+	log.Println("ForumView appelé")
+
 	var f Forum
 
-	log.Println("ForumView appelé")
 	// surcharge de la variable d'affichage
 	Templ = "forum"
 
@@ -90,9 +93,10 @@ func (pf PageForum) ViewCategory(cat string) Page {
 // et de la page en cours sélectionnée
 func (pf PageForum) ViewCategoryPaged(cat string, page string) Page {
 
+	log.Println("ForumView appelé")
+
 	var f Forum
 
-	log.Println("ForumView appelé")
 	// surcharge de la variable d'affichage
 	Templ = "forum"
 
@@ -117,9 +121,10 @@ func (pf PageForum) ViewCategoryPaged(cat string, page string) Page {
 // et va chercher dans le texte du titre
 func (pf PageForum) ViewSearch(q string) Page {
 
+	log.Println("ForumViewSearch appelé")
+
 	var f Forum
 
-	log.Println("ForumViewSearch appelé")
 	// surcharge de la variable d'affichage
 	Templ = "forum"
 
@@ -141,9 +146,10 @@ func (pf PageForum) ViewSearch(q string) Page {
 // permet d'afficher le formulaire de création d'une question du formulaire
 func (pf PageForum) ViewAdd() Page {
 
+	log.Println("ViewAdd appelé")
+
 	var f Forum
 
-	log.Println("ForumAddView appelé")
 	// surcharge de la variable d'affichage
 	Templ = "forum_add"
 
@@ -158,6 +164,8 @@ func (pf PageForum) ViewAdd() Page {
 // fonction public
 // permet de valider les éléments du formulaire
 func (pf PageForum) ValidateForm(r *http.Request) (f Forum, v bool) {
+
+	log.Println("ValidateForm appelé")
 
 	f.Title = r.PostFormValue("post-nom")
 	f.Text = r.PostFormValue("post-contenu")
@@ -182,6 +190,7 @@ func (pf PageForum) ValidateForm(r *http.Request) (f Forum, v bool) {
 // Permet de retrouver le nombre de réponses pour chaque post
 // Permet aussi de réduire la description du texte de desc à 250 caractères
 func (pf PageForum) injectDataToDisplay(forums []Forum) []Forum {
+
 	lenForum := len(forums)
 
 	for i := 0; i < lenForum; i++ {

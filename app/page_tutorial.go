@@ -1,16 +1,12 @@
 package app
 
 import (
-	_ "github.com/go-sql-driver/mysql"
-	"github.com/jinzhu/gorm"
 	"log"
 )
 
-/*
 type TutorialsViewHelper struct {
 	Tutorial
 }
-*/
 
 type PageTutoriels struct {
 	PagesList []Paginate
@@ -20,14 +16,10 @@ type PageTutoriels struct {
 
 func (pt PageTutoriels) View() Page {
 
+	log.Println("Tutorials appelé")
+
 	// surcharge de la variable d'affichage
 	Templ = "tutorial"
-
-	db, _ := gorm.Open("mysql", "root:root@tcp(127.0.0.1:8889)/cme_test?charset=utf8&parseTime=True")
-	//cme_test
-	db.SingularTable(true)
-
-	log.Println("Tutorials appelé")
 
 	pt.Title = "Tutoriels"
 	pt.MainClass = "tutoriels"

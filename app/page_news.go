@@ -1,14 +1,14 @@
 package app
 
-import ()
+import (
+	"log"
+)
 
-/*
 // Helper de vue
 type NewsViewHelper struct {
 	CategoryTitle string
 	News
 }
-*/
 
 type PageNews struct {
 	PagesList []Paginate
@@ -18,14 +18,10 @@ type PageNews struct {
 
 func (pn PageNews) View() Page {
 
+	log.Println("Forum appelé")
+
 	// surcharge de la variable d'affichage
 	Templ = "news"
-
-	db, _ := gorm.Open("mysql", "root:root@tcp(127.0.0.1:8889)/cme_test?charset=utf8&parseTime=True")
-	//cme_test
-	db.SingularTable(true)
-
-	log.Println("Forum appelé")
 
 	pn.Title = "News"
 	pn.MainClass = "actualites"
