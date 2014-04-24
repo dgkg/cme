@@ -46,7 +46,7 @@ func main() {
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
 
 	// rootage de la page connexion
-	r.HandleFunc("/connexion", ConnexionHandler)
+	//r.HandleFunc("/connexion", ConnexionHandler)
 
 	http.Handle("/", r)
 	log.Println("Listening...")
@@ -115,7 +115,8 @@ func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ForumPostHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, C.ForumTempl, C.ForumViewPost())
+	//var fp PageForum
+	//Render(w, C.ForumTempl, C.ForumViewPost())
 }
 
 func StudentHandler(w http.ResponseWriter, r *http.Request) {
@@ -124,7 +125,8 @@ func StudentHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func StudentFicheHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, C.UserTempl, C.UserFicheView())
+	//var pu PageUser
+	//Render(w, C.UserTempl, C.UserFicheView())
 }
 
 func TutoHandler(w http.ResponseWriter, r *http.Request) {
@@ -142,15 +144,14 @@ func NewsHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, pn.View())
 }
 
-<<<<<<< HEAD
+/*
 func ConnexionHandler(w http.ResponseWriter, r *http.Request) {
-	Render(w, C.ConnexionTempl, C.ConnexionView())
-}
 
-func Render(w http.ResponseWriter, tmpl string, p M.Page) {
-=======
+	Render(w, C.ConnexionView())
+}
+*/
 func Render(w http.ResponseWriter, p Page) {
->>>>>>> refactoring_forum_controler
+
 	w.Header().Add("Accept-Charset", "utf-8")
 	w.Header().Add("Content-Type", "text/html")
 	err := templates.ExecuteTemplate(w, Templ, p)
