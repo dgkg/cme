@@ -144,12 +144,11 @@ func NewsHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, pn.View())
 }
 
-/*
 func ConnexionHandler(w http.ResponseWriter, r *http.Request) {
-
-	Render(w, C.ConnexionView())
+	var pc PageConnexion
+	Render(w, pc.View())
 }
-*/
+
 func Render(w http.ResponseWriter, p Page) {
 
 	w.Header().Add("Accept-Charset", "utf-8")

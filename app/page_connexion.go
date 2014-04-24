@@ -1,17 +1,21 @@
-package controler
+package app
 
 import (
 	"log"
 )
 
+type PageConnexion struct {
+	PageWeb
+}
+
 func (pc PageConnexion) View() Page {
 
 	log.Println("Connexion appelé")
 
-	var p M.PageConn
+	Templ = "connexion"
 
-	p.Title = "Connexion"
-	p.MainClass = "connexion"
+	pc.Title = "Connexion"
+	pc.MainClass = "connexion"
 
-	return p
+	return pc
 }
