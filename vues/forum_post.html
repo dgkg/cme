@@ -5,28 +5,42 @@
 
                 <div class="liste-post">
 
-                    <div class="post">  
-                        {{ if .Forums }}
-                            {{ range .Forums }}
+                    <div class="post">
+
                             <h2>{{ .Title }}</h2>
 
                             <div class="post-contenu">
 
-                                {{ .Text }}
+                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                                <p>Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
 
                             </div>
-                            
+
                             <div class="post-meta">
-                                <p class="post-date">{{ .CreatedAtString }}</p>
-                                {{if .Users}}
-                                    {{range .Users}}
-                                        <p class="post-auteur">{{ .FirstName}} {{ .LastName}}</p>
-                                    {{end}}
-                                {{end}}
+
+                                <p class="post-date">1er avril 2014</p>
+                                <p class="post-auteur">Antoine Lord</p>
+                                <p class="post-resolu">Non résolu</p>
+
                             </div>
 
-                            {{ end }}
-                        {{ end }}
+                    </div>
+
+                    <div class="comm">
+
+                        <p class="comm-texte">Très cool!</p>
+                        <p class="comm-auteur">Henri Lepic</p>
+                        <p class="comm-date">2 avril 2014</p>
+
+                    </div>
+
+                    <div class="comm">
+
+                        <p class="comm-texte">Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+                        <p class="comm-auteur">Henri Lepic</p>
+                        <p class="comm-date">2 avril 2014</p>
 
                     </div>
 

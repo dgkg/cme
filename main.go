@@ -117,8 +117,8 @@ func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ForumPostHandler(w http.ResponseWriter, r *http.Request) {
-	//var fp PageForum
-	//Render(w, C.ForumTempl, C.ForumViewPost())
+	var pfp PageForumPost
+	Render(w, pfp.View())
 }
 
 func StudentHandler(w http.ResponseWriter, r *http.Request) {
