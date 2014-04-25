@@ -5,9 +5,10 @@ import (
 	//_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
 	//"github.com/jinzhu/gorm"
-	"html/template"
 	"log"
 	"net/http"
+	// attention entre html/template et text/template le render est en autoescaping
+	"text/template"
 )
 
 var templates *template.Template
