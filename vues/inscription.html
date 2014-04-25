@@ -1,9 +1,9 @@
-{{ define "connexion" }}
+{{ define "inscription" }}
 <!DOCTYPE html>
 {{template "header" .}}
             <div class="body">
 
-                <h1>Connexion</h1>
+                <h1>Inscription</h1>
 
                 <hr>
 
@@ -12,13 +12,32 @@
                     <fieldset>
 
                         <div class="pure-control-group">
-                            <label for="name">Courriel</label>
-                            <input id="name" type="text" placeholder="Courriel">
+                            <label for="prenom">Votre prénom</label>
+                            <input id="prenom" type="text" placeholder="Prénom">
+                        </div>
+
+                        <div class="pure-control-group">
+                            <label for="name">Votre nom</label>
+                            <input id="name" type="text" placeholder="Nom">
+                        </div>
+
+                    </fieldset>
+
+                    <fieldset>
+
+                        <div class="pure-control-group">
+                            <label for="email">Courriel</label>
+                            <input id="email" type="text" placeholder="Courriel">
                         </div>
 
                         <div class="pure-control-group">
                             <label for="password">Mot de passe</label>
                             <input id="password" type="password" placeholder="Mot de passe">
+                        </div>
+
+                        <div class="pure-control-group">
+                            <label for="passwordconf">Confirmation</label>
+                            <input id="passwordconf" type="password" placeholder="Confirmation">
                         </div>
 
                         <div class="pure-controls">
@@ -33,9 +52,9 @@
 
                 <div class="info">
 
-                    <h2>Vous n'avez pas de compte?</h2>
-                    <p>Cliquez ici pour faire une demande d'admission.</p>
-                    <a class="pure-button" href="/inscription">Inscription</a>
+                    <h2>Vous avez déjà un compte ?</h2>
+                    <p>Cliquez ici pour vous connecter à votre compte.</p>
+                    <a class="pure-button" href="/connexion">Connexion</a>
 
                 </div>
 
