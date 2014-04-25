@@ -3,7 +3,7 @@
     .mosaique {
         height: 100vh;
         width: 100vw;
-    
+
     }
 
     .ecran-noir {
@@ -235,7 +235,7 @@
     }
 
     #qui-sommes-nous {
-        background: url('../img/qui_sommes_nous.jpg') no-repeat center center;
+        background: url('/img/qui_sommes_nous.jpg') no-repeat center center;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -243,7 +243,7 @@
     }
 
     #pq-une-asso {
-        background: url('../img/pq_une_asso.jpg') no-repeat center center;
+        background: url('/img/pq_une_asso.jpg') no-repeat center center;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -251,7 +251,7 @@
     }
 
     #insc {
-        background: url('../img/insc.jpg') no-repeat center center;
+        background: url('/img/insc.jpg') no-repeat center center;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -259,7 +259,7 @@
     }
 
     /* iPads (portrait and landscape) ----------- */
-    @media only screen 
+    @media only screen
     and (min-device-width : 768px) {
 
         .message-accueil {

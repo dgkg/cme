@@ -3,11 +3,13 @@
 {{template "header" .}}
             <div class="body">
 
+                <h1>Connexion</h1>
+
+                <hr>
+
                 <form class="pure-form pure-form-aligned connexion-form" method="POST" action="">
 
                     <fieldset>
-
-                        <legend>Connexion</legend>
 
                         <div class="pure-control-group">
                             <label for="name">Courriel</label>
@@ -28,6 +30,14 @@
                 </form>
 
                 <hr>
+
+                <div class="info">
+
+                    <h2>Vous n'avez pas de compte?</h2>
+                    <p>Cliquez ici pour faire une demande d'admission.</p>
+                    <a class="pure-button" href="#">Inscription</a>
+
+                </div>
 
                {{template "footer" .}}
             </div>
