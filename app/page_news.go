@@ -12,7 +12,7 @@ type NewsViewHelper struct {
 
 type PageNews struct {
 	PagesList []Paginate
-	News      []NewsViewHelper
+	News      []News
 	PageWeb
 }
 
@@ -25,6 +25,14 @@ func (pn PageNews) View() Page {
 
 	pn.Title = "News"
 	pn.MainClass = "news"
+
+	var n News
+
+	pn.News = n.getList()
+
+	// permet de convertir la date de la personne qui a posté la question
+	date := n.CreatedAt
+	n.CreatedAtString = date.Format(dateLayout)
 
 	// pagination
 	pn.PagesList = make([]Paginate, 5)
@@ -45,4 +53,8 @@ func (pn PageNews) View() Page {
 	pn.PagesList[4].Url = "/forum/page/5"
 
 	return pn
+}
+
+func getNews() {
+
 }

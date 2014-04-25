@@ -49,31 +49,29 @@
                 <div class="liste-posts">
                     {{if .Forums}}
                         {{range .Forums}}
+
                             <div class="post">
 
-                            <h2><a href="/forum/post/{{.Id}}">{{.Title}}</a></h2>
-                            <p class="post-desc">{{.Text}}</p>
-                            <div class="post-meta">
-                                <p class="post-cat">{{.CategoryTitle}}</p>
-                                <img src="/img/ui/icone-reponse.png" alt="Nombre de réponses"><p>{{.PostNumb}}</p>
+                                <h2><a href="/forum/post/{{.Id}}">{{.Title}}</a></h2>
+
+                                <p class="post-desc">{{.Text}}</p>
+
+                                <div class="post-meta">
+                                    <img src="/img/ui/icone-reponse.png" alt="Nombre de réponses"><p>{{.PostNumb}}</p>
 
 
-                                {{if eq .IsSolved 1 }}
-                                    <img src="/img/ui/icone-resolu.png" alt="Statut de la publication"><p>Résolu</p>
-                                {{else}}
-                                    <img src="/img/ui/icone-non-resolu.png" alt="Statut de la publication"><p>Non résolu</p>
-                                {{end}}
+                                    {{if eq .IsSolved 1 }}
+                                        <img src="/img/ui/icone-resolu.png" alt="Statut de la publication"><p>Résolu</p>
+                                    {{else}}
+                                        <img src="/img/ui/icone-non-resolu.png" alt="Statut de la publication"><p>Non résolu</p>
+                                    {{end}}
 
-                                <img src="/img/ui/icone-appreciations.png" alt="Nombre d'appréciations"><p>8</p>
+                                    <img src="/img/ui/icone-appreciations.png" alt="Nombre d'appréciations"><p>8</p>
+                                </div>
+
+                                <hr>
+
                             </div>
-
-
-                            <a class="btn-repondre" href="{{.Url}}">Répondre</a>
-
-
-                            <hr>
-
-                        </div>
                         {{end}}
                     {{else}}
                         <h2>Désolé nous n'avons pas trouvé de résultats à votre recherche</h2>

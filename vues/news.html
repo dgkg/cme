@@ -5,39 +5,32 @@
 
                 <div class="liste-actu">
 
-                    <div class="actu">
+                    {{if .News}}
+                        {{range .News}}
 
-                        <h2>Le CME se refait une beauté!</h2>
-                        <div class="actu-contenu">
+                            <div class="actu">
 
-                            <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec vero sum nescius esse utilitatem in historia, non modo voluptatem. At iam decimum annum in spelunca iacet. Hoc non est positum in nostra actione. Facillimum id quidem est, inquam. Nec vero sum nescius esse utilitatem in historia, non modo voluptatem. Duo Reges: constructio interrete.</p>
+                                <h2>{{.Title}}</h2>
+                                <div class="actu-contenu">
 
-                            <p>Portenta haec esse dicit, neque ea ratione ullo modo posse vivi; Dic in quovis conventu te omnia facere, ne doleas. Atque ab isto capite fluere necesse est omnem rationem bonorum et malorum. Quamquam in hac divisione rem ipsam prorsus probo, elegantiam desidero. Item de contrariis, a quibus ad genera formasque generum venerunt. Suo genere perveniant ad extremum;</p>
+                                    {{.Text}}
 
-                        </div>
+                                </div>
 
-                        <div class="actu-meta">
-                            <p class="actu-date">11 Avril 2014</p>
-                            <p class="actu-auteur">Henri Lepic</p>
-                        </div>
+                                <div class="actu-meta">
+                                    <p class="actu-date">{{.CreatedAtString}}</p>
+                                    <p class="actu-auteur">{{.UserId}}</p>
+                                </div>
 
-                    </div>
+                            </div>
+                        {{end}}
 
-                    <div class="actu">
+                        {{else}}
+                            <h2>Désolé nous n'avons pas trouvé de résultats à votre recherche</h2>
+                            <h3>Mot clef : {{.SearchText}}</h3>
+                            <img src="http://www.lorempixum.com/g/1200/800/" alt="" />
 
-                        <h2>Un super long titre sans signification qui est sur deux lignes pour tester le design</h2>
-                        <div class="actu-contenu">
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec vero sum nescius esse utilitatem in historia, non modo voluptatem. At iam decimum annum in spelunca iacet. Hoc non est positum in nostra actione. Facillimum id quidem est, inquam. Nec vero sum nescius esse utilitatem in historia, non modo voluptatem. Duo Reges: constructio interreteve.</p>
-
-                        </div>
-
-                        <div class="actu-meta">
-                            <p class="actu-date">11 Avril 2014</p>
-                            <p class="actu-auteur">Henri Lepic</p>
-                        </div>
-
-                    </div>
+                        {{end}}
 
                 </div>
 
