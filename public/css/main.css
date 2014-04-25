@@ -281,62 +281,66 @@ a:visited { color: #e11414; }
 /* line 79, pages/_eleves.scss */
 .eleves .body .liste-eleves .eleve { float: left; margin-right: 2%; margin-left: 2%; margin-bottom: 20px; width: 48%; }
 /* line 86, pages/_eleves.scss */
-.eleves .body .liste-eleves .eleve img { width: 100%; }
+.eleves .body .liste-eleves .eleve .etudiant-photo { width: 100%; }
 /* line 91, pages/_eleves.scss */
-.eleves .body .liste-eleves .eleve h2 { margin-top: 8px; font-size: 14px; }
-/* line 97, pages/_eleves.scss */
+.eleves .body .liste-eleves .eleve .etudiant-nom { font-size: 20px; color: #f9f9f9; }
+/* line 96, pages/_eleves.scss */
+.eleves .body .liste-eleves .eleve .hover-infos { padding: 20px; }
+/* line 99, pages/_eleves.scss */
+.eleves .body .liste-eleves .eleve .hover-infos .bio { color: #f9f9f9; }
+/* line 107, pages/_eleves.scss */
 .eleves .body .liste-eleves .eleve:nth-child(even) { margin-right: 0; }
-/* line 101, pages/_eleves.scss */
+/* line 111, pages/_eleves.scss */
 .eleves .body .liste-eleves .eleve:nth-child(odd) { margin-left: 0; }
-/* line 108, pages/_eleves.scss */
+/* line 118, pages/_eleves.scss */
 .eleves .body .pagination ul { display: none; }
-/* line 112, pages/_eleves.scss */
+/* line 122, pages/_eleves.scss */
 .eleves .body .pagination .btn-nav-suiv { display: none; }
-/* line 116, pages/_eleves.scss */
+/* line 126, pages/_eleves.scss */
 .eleves .body .pagination select { clear: both; display: block; margin-left: auto; margin-right: auto; width: 40%; height: 30px; padding: 2px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
-@media only screen and (min-device-width: 768px) { /* line 141, pages/_eleves.scss */
+@media only screen and (min-device-width: 768px) { /* line 151, pages/_eleves.scss */
   .eleves .body .entete h1, .eleves .body .entete p { float: left; }
-  /* line 145, pages/_eleves.scss */
+  /* line 155, pages/_eleves.scss */
   .eleves .body .entete p { clear: both; max-width: 320px; }
-  /* line 153, pages/_eleves.scss */
+  /* line 163, pages/_eleves.scss */
   .eleves .body .categories h2 { display: none; }
-  /* line 157, pages/_eleves.scss */
+  /* line 167, pages/_eleves.scss */
   .eleves .body .categories ul { display: block; padding: 0; width: 50%; float: left; margin: 0; }
-  /* line 164, pages/_eleves.scss */
-  .eleves .body .categories ul li { display: inline-block; font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; font-size: 20px; padding-right: 15px; line-height: 1.4em; color: #4A4A4A; float: left; }
   /* line 174, pages/_eleves.scss */
+  .eleves .body .categories ul li { display: inline-block; font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; font-size: 20px; padding-right: 15px; line-height: 1.4em; color: #4A4A4A; float: left; }
+  /* line 184, pages/_eleves.scss */
   .eleves .body .categories ul li a { color: #727272; text-decoration: none; }
-  /* line 179, pages/_eleves.scss */
+  /* line 189, pages/_eleves.scss */
   .eleves .body .categories ul li a:visited { color: #727272; text-decoration: none; }
-  /* line 185, pages/_eleves.scss */
+  /* line 195, pages/_eleves.scss */
   .eleves .body .categories ul li:first-child { margin-right: 20px; color: #262628; }
-  /* line 191, pages/_eleves.scss */
+  /* line 201, pages/_eleves.scss */
   .eleves .body .categories select { display: block; width: 20%; margin: 0; }
-  /* line 197, pages/_eleves.scss */
+  /* line 207, pages/_eleves.scss */
   .eleves .body .categories form { float: right; margin: 0; margin-bottom: 30px; width: 320px; }
-  /* line 205, pages/_eleves.scss */
+  /* line 215, pages/_eleves.scss */
   .eleves .body .categories form input { display: inline-block; width: 200px; }
-  /* line 211, pages/_eleves.scss */
+  /* line 221, pages/_eleves.scss */
   .eleves .body .categories form button { float: right; display: inline-block; }
-  /* line 220, pages/_eleves.scss */
+  /* line 230, pages/_eleves.scss */
   .eleves .body .liste-eleves .eleve { margin-right: 2%; margin-left: 2%; margin-bottom: 20px; width: 22%; }
-  /* line 227, pages/_eleves.scss */
+  /* line 237, pages/_eleves.scss */
   .eleves .body .liste-eleves .eleve:nth-child(even) { margin-right: 2%; }
-  /* line 231, pages/_eleves.scss */
+  /* line 241, pages/_eleves.scss */
   .eleves .body .liste-eleves .eleve:nth-child(odd) { margin-left: 2%; }
-  /* line 235, pages/_eleves.scss */
+  /* line 245, pages/_eleves.scss */
   .eleves .body .liste-eleves .eleve:nth-child(4n) { margin-right: 0; }
-  /* line 239, pages/_eleves.scss */
+  /* line 249, pages/_eleves.scss */
   .eleves .body .liste-eleves .eleve:nth-child(4n-3) { margin-left: 0; }
-  /* line 246, pages/_eleves.scss */
+  /* line 256, pages/_eleves.scss */
   .eleves .body .pagination ul { display: block; text-align: center; clear: both; padding: 0; margin-top: 40px; margin-bottom: 40px; }
-  /* line 254, pages/_eleves.scss */
-  .eleves .body .pagination ul li { display: inline-block; width: 30px; height: 30px; margin-right: 10px; font-size: 18px; font-family: "gt_pressura_regular", sans-serif; }
   /* line 264, pages/_eleves.scss */
+  .eleves .body .pagination ul li { display: inline-block; width: 30px; height: 30px; margin-right: 10px; font-size: 18px; font-family: "gt_pressura_regular", sans-serif; }
+  /* line 274, pages/_eleves.scss */
   .eleves .body .pagination select { display: none; } }
-@media only screen and (min-width: 1224px) { /* line 275, pages/_eleves.scss */
+@media only screen and (min-width: 1224px) { /* line 285, pages/_eleves.scss */
   .eleves #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 283, pages/_eleves.scss */
+  /* line 293, pages/_eleves.scss */
   .eleves .body { margin-left: 0; margin-right: 0; } }
 
 /* line 1, pages/_eleve_fiche.scss */

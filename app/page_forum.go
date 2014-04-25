@@ -153,7 +153,7 @@ func (pf PageForum) ViewAdd() Page {
 	// surcharge de la variable d'affichage
 	Templ = "forum_add"
 
-	pf.Title = "Titre du sujet"
+	pf.Title = "Créer un nouveau sujet"
 	pf.MainClass = "nouveausujet"
 	pf.Forums = make([]Forum, 1)
 	pf.Categories = f.getAllCategories()

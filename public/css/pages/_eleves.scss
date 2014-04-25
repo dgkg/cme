@@ -83,15 +83,25 @@
 				margin-bottom: 20px;
 				width: 48%;
 
-				img {
+				.etudiant-photo {
 					width: 100%;
 
 				}
 
-				h2 {
-					margin-top: 8px;
-					font-size: 14px;
+				.etudiant-nom {
+					font-size: 20px;
+					color: $quasi-blanc;
 				}
+
+				.hover-infos {
+					padding: 20px;
+
+					.bio {
+						color: $quasi-blanc;
+					}
+				}
+
+
 			}
 
 			.eleve:nth-child(even) {
