@@ -47,6 +47,11 @@ func main() {
 	// rootage de la page connexion
 	r.HandleFunc("/connexion", ConnexionHandler)
 
+	// Rootage des pages d'informations
+	r.HandleFunc("/qui-sommes-nous", QuiSommesNousHandler)
+	r.HandleFunc("/pourquoi-une-association", PourquoiUneAssoHandler)
+	r.HandleFunc("/connexion", ConnexionHandler)
+
 	//gestion des fichiers statiques
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
 
@@ -205,6 +210,16 @@ func NewsHandler(w http.ResponseWriter, r *http.Request) {
 func ConnexionHandler(w http.ResponseWriter, r *http.Request) {
 	var pc PageConnexion
 	Render(w, pc.View())
+}
+
+func QuiSommesNousHandler(w http.ResponseWriter, r *http.Request) {
+	var pqsn PageQuiSommesNous
+	Render(w, pqsn.View())
+}
+
+func PourquoiUneAssoHandler(w http.ResponseWriter, r *http.Request) {
+	var ppua PagePourquoiUneAsso
+	Render(w, ppua.View())
 }
 
 func Render(w http.ResponseWriter, p Page) {

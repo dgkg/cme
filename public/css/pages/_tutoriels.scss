@@ -70,17 +70,24 @@
 	        }
 
 	        form {
-	        	margin-top: 30px;
-	        	margin-bottom: 30px;
+				margin-top: 30px;
+				margin-bottom: 30px;
 
-	        	input {
-	        		display: block;
-	        		margin-right: auto;
-	        		margin-left: auto;
-	        		width: 80%;
-	        		height: 40px;
-	        	}
-	        }
+				input {
+					margin-left: auto;
+					margin-right: auto;
+					display: block;
+					height: 36px;
+					width: 80%;
+				}
+
+				button {
+					margin-left: auto;
+					margin-right: auto;
+					display: block;
+					height: 36px;
+				}
+			}
 		}
 
 		hr {
@@ -181,7 +188,7 @@
 	}
 
 	/* iPads (portrait) ----------- */
-    @media only screen 
+    @media only screen
     and (min-device-width : 768px) {
 
     	.body {
@@ -249,15 +256,24 @@
 	            }
 
 	            form {
-	            	float: right;
-	            	margin: 0;
-	            	margin-bottom: 30px;
-	            	width: 320px;
+					float: right;
+					margin: 0;
+					margin-bottom: 30px;
+					width: 320px;
 
-		        	input {
-		        		height: 30px;
-		        	}
-		        }
+
+
+					input {
+						display: inline-block;
+						//margin-right: 0;
+						width: 200px;
+					}
+
+					button {
+						float: right;
+						display: inline-block;
+					}
+				}
 			}
 
 			.liste-posts {

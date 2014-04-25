@@ -1,29 +1,29 @@
 /* HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
-/* line 7, inc/_html5boilerplate.scss */
+/* line 7, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_html5boilerplate.scss */
 html, button, input, select, textarea { color: #222; }
 
-/* line 11, inc/_html5boilerplate.scss */
+/* line 11, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_html5boilerplate.scss */
 html { font-size: 1em; line-height: 1.4; }
 
-/* line 16, inc/_html5boilerplate.scss */
+/* line 16, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_html5boilerplate.scss */
 ::-moz-selection { background: #b3d4fc; text-shadow: none; }
 
-/* line 21, inc/_html5boilerplate.scss */
+/* line 21, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_html5boilerplate.scss */
 ::selection { background: #b3d4fc; text-shadow: none; }
 
-/* line 26, inc/_html5boilerplate.scss */
+/* line 26, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_html5boilerplate.scss */
 hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
 
-/* line 38, inc/_html5boilerplate.scss */
+/* line 38, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_html5boilerplate.scss */
 audio, canvas, img, video { vertical-align: middle; }
 
-/* line 42, inc/_html5boilerplate.scss */
+/* line 42, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_html5boilerplate.scss */
 fieldset { border: 0; margin: 0; padding: 0; }
 
-/* line 48, inc/_html5boilerplate.scss */
+/* line 48, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_html5boilerplate.scss */
 textarea { resize: vertical; }
 
-/* line 52, inc/_html5boilerplate.scss */
+/* line 52, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_html5boilerplate.scss */
 .browsehappy { margin: 0.2em 0; background: #ccc; color: #000; padding: 0.2em 0; }
 
 /* ========================================================================== Author's custom styles ========================================================================== */
@@ -55,813 +55,862 @@ a:hover { color: #9c1111; }
 /* line 55, main.scss */
 a:visited { color: #e11414; }
 
-/* line 1, inc/_header.scss */
+/* line 1, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
 .zone-membre { width: 100%; height: 60px; position: relative; line-height: 60px; vertical-align: middle; }
-/* line 8, inc/_header.scss */
+/* line 8, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
 .zone-membre .btn-connexion, .zone-membre .btn-inscription { display: inline-block; height: 40px; width: 42%; background-color: #e11414; line-height: 40px; vertical-align: middle; text-align: center; font-size: 16px; text-decoration: none; color: #f9f9f9; font-family: "gt_pressura_regular", sans-serif; float: right; margin-left: 4%; margin-right: 4%; margin-top: 20px; margin-bottom: 20px; }
-/* line 27, inc/_header.scss */
+/* line 27, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
 .zone-membre .btn-connexion:hover, .zone-membre .btn-inscription:hover { background-color: #9c1111; color: #f9f9f9; }
-@media only screen and (min-device-width: 768px) { /* line 35, inc/_header.scss */
+@media only screen and (min-device-width: 768px) { /* line 35, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
   .zone-membre .btn-connexion, .zone-membre .btn-inscription { float: right; width: auto; background-color: transparent; color: #6E7074; margin: 0; margin-top: 10px; margin-bottom: 10px; margin-right: 30px; font-size: 14px; }
-  /* line 47, inc/_header.scss */
+  /* line 47, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
   .zone-membre .btn-connexion:hover, .zone-membre .btn-inscription:hover { background-color: transparent; color: #262628; } }
-@media only screen and (min-width: 1224px) { /* line 56, inc/_header.scss */
+@media only screen and (min-width: 1224px) { /* line 56, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
   .zone-membre .btn-connexion { margin-right: 0; font-size: 16px; } }
 
-/* line 64, inc/_header.scss */
+/* line 64, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
 .header { width: 100%; min-height: 20px; padding-top: 60px; padding-bottom: 60px; }
-/* line 70, inc/_header.scss */
+/* line 70, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
 .header #logo { display: block; margin-right: auto; margin-left: auto; width: 80px; height: auto; }
-/* line 78, inc/_header.scss */
+/* line 78, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
 .header .nav-mobile { padding: 0; }
-/* line 82, inc/_header.scss */
+/* line 82, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
 .header .nav-mobile li { display: inline-block; width: 100%; text-align: center; margin-bottom: 1.2em; font-family: "gt_pressura_regular", sans-serif; font-size: 20px; margin-left: auto; margin-right: auto; }
-/* line 93, inc/_header.scss */
+/* line 93, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
 .header .nav-mobile li:first-child { margin-top: 1.2em; }
-/* line 97, inc/_header.scss */
+/* line 97, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
 .header .nav-mobile li:last-child { margin-bottom: 0; }
-/* line 101, inc/_header.scss */
+/* line 101, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
 .header a { color: #262628; }
-/* line 105, inc/_header.scss */
+/* line 105, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
 .header a:hover { color: #e11414; }
-/* line 109, inc/_header.scss */
+/* line 109, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
 .header .nav1-ipad, .header .nav2-ipad { display: none; }
 
 /* iPads (portrait and landscape) ----------- */
-@media only screen and (min-device-width: 768px) { /* line 118, inc/_header.scss */
+@media only screen and (min-device-width: 768px) { /* line 118, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
   .header { position: relative; }
-  /* line 121, inc/_header.scss */
+  /* line 121, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
   .header #logo { display: block; position: absolute; width: 80px; height: auto; margin: auto; top: 0; left: 0; right: 0; bottom: 0; }
-  /* line 130, inc/_header.scss */
+  /* line 130, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
   .header .nav-mobile { display: none; }
-  /* line 134, inc/_header.scss */
+  /* line 134, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
   .header .nav1-ipad, .header .nav2-ipad { display: inline-block; position: absolute; padding: 0; list-style-type: none; vertical-align: middle; top: 40px; margin-right: 30px; margin-left: 30px; }
-  /* line 145, inc/_header.scss */
+  /* line 145, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
   .header .nav1-ipad { left: 0px; }
-  /* line 149, inc/_header.scss */
+  /* line 149, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
   .header .nav2-ipad { right: 0px; }
-  /* line 153, inc/_header.scss */
+  /* line 153, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
   .header .nav1-ipad li, .header .nav2-ipad li { display: inline-block; margin-bottom: 1.2em; font-family: "gt_pressura_regular", sans-serif; font-size: 20px; }
-  /* line 160, inc/_header.scss */
+  /* line 160, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
   .header .nav1-ipad li:first-child, .header .nav2-ipad li:first-child { margin-right: 40px; }
-  /* line 164, inc/_header.scss */
+  /* line 164, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
   .header .nav1-ipad li a, .header .nav2-ipad li a { vertical-align: middle; } }
 /* Desktops and laptops ----------- */
-@media only screen and (min-width: 1224px) { /* line 174, inc/_header.scss */
+@media only screen and (min-width: 1224px) { /* line 174, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
   .header { padding-top: 100px; padding-bottom: 100px; }
-  /* line 178, inc/_header.scss */
+  /* line 178, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
   .header .nav1-ipad, .header .nav2-ipad { margin-right: 0; margin-left: 0; top: 80px; }
-  /* line 184, inc/_header.scss */
+  /* line 184, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_header.scss */
   .header .nav1-ipad li, .header .nav2-ipad li { font-size: 22px; } }
-/* line 1, pages/_accueil.scss */
+/* line 1, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil { /* iPads (portrait and landscape) ----------- */ /* Desktops and laptops ----------- */ }
-/* line 3, pages/_accueil.scss */
+/* line 3, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .mosaique { height: 100vh; width: 100vw; }
-/* line 9, pages/_accueil.scss */
+/* line 9, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .ecran-noir { position: absolute; width: 100%; height: 100%; top: 0; left: 0; right: 0; bottom: 0; z-index: 998; background-color: black; opacity: 0.5; }
-/* line 19, pages/_accueil.scss */
+/* line 19, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .message-accueil { position: absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0; z-index: 999; width: 90%; height: 140px; background-color: #f9f9f9; line-height: 140px; display: table; }
-/* line 30, pages/_accueil.scss */
+/* line 30, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .message-accueil .logo { vertical-align: middle; margin-left: 20px; }
-/* line 35, pages/_accueil.scss */
+/* line 35, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .message-accueil .btn { display: inline-block; margin-left: 10%; }
-/* line 41, pages/_accueil.scss */
+/* line 41, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .body { margin-right: 30px; margin-left: 30px; }
-/* line 46, pages/_accueil.scss */
+/* line 46, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .categories { padding-bottom: 30px; }
-/* line 49, pages/_accueil.scss */
+/* line 49, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .categories ul { display: none; margin-left: auto; margin-right: auto; }
-/* line 55, pages/_accueil.scss */
+/* line 55, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .categories select { display: block; margin-left: auto; margin-right: auto; width: 70%; height: 40px; padding: 2px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
-/* line 72, pages/_accueil.scss */
+/* line 72, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .projets .img-projet { width: 100%; margin-right: auto; margin-left: auto; margin-bottom: 30px; }
-/* line 78, pages/_accueil.scss */
+/* line 78, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .projets .img-projet img { width: 100%; }
-/* line 82, pages/_accueil.scss */
+/* line 82, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .projets .img-projet .over-projet { padding: 30px; background-color: black; opacity: 0.8; }
-/* line 87, pages/_accueil.scss */
+/* line 87, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .projets .img-projet .over-projet h3, .accueil .projets .img-projet .over-projet p { color: #f9f9f9; margin: 0; }
-/* line 92, pages/_accueil.scss */
+/* line 92, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .projets .img-projet .over-projet h3 { font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; font-size: 20px; margin-bottom: 20px; }
-/* line 99, pages/_accueil.scss */
+/* line 99, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .projets .img-projet .over-projet p { font-size: 14px; margin-bottom: 20px; }
-/* line 104, pages/_accueil.scss */
+/* line 104, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .projets .img-projet .over-projet a { color: #e11414; }
-/* line 108, pages/_accueil.scss */
+/* line 108, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .projets .img-projet .over-projet a:hover { color: #9c1111; }
-/* line 115, pages/_accueil.scss */
+/* line 115, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .btn-plus-de-projets { display: block; width: 100%; height: 60px; background-color: #e11414; padding-top: 20px; padding-bottom: 20px; }
-/* line 123, pages/_accueil.scss */
+/* line 123, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .btn-plus-de-projets a { display: block; color: #f9f9f9; text-decoration: none; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; text-align: center; }
-/* line 132, pages/_accueil.scss */
+/* line 132, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .btn-plus-de-projets img { display: block; margin-top: 10px; margin-left: auto; margin-right: auto; width: 28px; height: auto; }
-/* line 142, pages/_accueil.scss */
+/* line 142, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .btn-plus-de-projets:hover { background-color: #9c1111; }
-/* line 146, pages/_accueil.scss */
+/* line 146, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil hr { margin-top: 30px; margin-bottom: 30px; }
-/* line 153, pages/_accueil.scss */
+/* line 153, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .actualites h2 { text-align: center; font-size: 26px; }
-/* line 158, pages/_accueil.scss */
+/* line 158, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .actualites .lien-toutes-actus { display: block; text-align: center; color: #e11414; text-decoration: none; text-transform: uppercase; font-family: "gt_pressura_regular", sans-serif; }
-/* line 167, pages/_accueil.scss */
+/* line 167, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .actualites .lien-toutes-actus:hover { color: #9c1111; }
-/* line 171, pages/_accueil.scss */
+/* line 171, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .actualites .actu { margin-top: 40px; }
-/* line 174, pages/_accueil.scss */
+/* line 174, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .actualites .actu h3 { font-size: 18px; text-transform: uppercase; }
-/* line 179, pages/_accueil.scss */
+/* line 179, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .actualites .actu p { font-size: 14px; }
-/* line 183, pages/_accueil.scss */
+/* line 183, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .actualites .actu a { color: #e11414; text-decoration: none; text-transform: uppercase; font-family: "gt_pressura_regular", sans-serif; }
-/* line 190, pages/_accueil.scss */
+/* line 190, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .actualites .actu a:hover { color: #9c1111; }
-/* line 198, pages/_accueil.scss */
+/* line 198, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .info-communaute .section-info { margin-top: 40px; }
-/* line 201, pages/_accueil.scss */
+/* line 201, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .info-communaute .section-info .img-section { width: 100%; height: 180px; margin-left: auto; margin-right: auto; position: relative; }
-/* line 208, pages/_accueil.scss */
+/* line 208, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .info-communaute .section-info .img-section h3 { display: block; text-align: center; text-transform: uppercase; color: #f9f9f9; font-size: 20px; margin: auto; position: absolute; top: 0; left: 0; bottom: 0; right: 0; line-height: 1.4em; height: 45px; }
-/* line 221, pages/_accueil.scss */
+/* line 221, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .info-communaute .section-info .img-section p { font-size: 14px; }
-/* line 226, pages/_accueil.scss */
+/* line 226, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .info-communaute .section-info a { font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; }
-/* line 231, pages/_accueil.scss */
+/* line 231, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil .info-communaute .section-info a:hover { color: #9c1111; }
-/* line 237, pages/_accueil.scss */
+/* line 237, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil #qui-sommes-nous { background: url("../img/qui_sommes_nous.jpg") no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
-/* line 245, pages/_accueil.scss */
+/* line 245, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil #pq-une-asso { background: url("../img/pq_une_asso.jpg") no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
-/* line 253, pages/_accueil.scss */
+/* line 253, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
 .accueil #insc { background: url("../img/insc.jpg") no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
-@media only screen and (min-device-width: 768px) { /* line 265, pages/_accueil.scss */
+@media only screen and (min-device-width: 768px) { /* line 265, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .message-accueil { position: absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0; z-index: 999; width: 90%; max-width: 420px; height: 140px; background-color: #f9f9f9; line-height: 140px; display: table; }
-  /* line 277, pages/_accueil.scss */
+  /* line 277, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .message-accueil .logo { vertical-align: middle; margin-left: 20px; }
-  /* line 282, pages/_accueil.scss */
+  /* line 282, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .message-accueil .btn { display: inline-block; margin-left: 20%; }
-  /* line 288, pages/_accueil.scss */
+  /* line 288, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .categories { padding-bottom: 40px; }
-  /* line 291, pages/_accueil.scss */
+  /* line 291, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .categories ul { display: block; margin-left: 60px; margin-right: 60px; padding: 0; }
-  /* line 298, pages/_accueil.scss */
+  /* line 298, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .categories ul li { display: inline-block; font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; font-size: 18px; padding-right: 15px; line-height: 1.4em; }
-  /* line 306, pages/_accueil.scss */
+  /* line 306, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .categories ul li a { color: #727272; text-decoration: none; }
-  /* line 311, pages/_accueil.scss */
+  /* line 311, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .categories ul li a:visited { color: #727272; text-decoration: none; }
-  /* line 317, pages/_accueil.scss */
+  /* line 317, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .categories ul li:first-child { margin-right: 20px; }
-  /* line 321, pages/_accueil.scss */
+  /* line 321, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .categories select { display: none; }
-  /* line 326, pages/_accueil.scss */
+  /* line 326, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .projets { display: block; width: 100%; position: relative; overflow: hidden; }
-  /* line 332, pages/_accueil.scss */
+  /* line 332, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .projets .img-projet { display: inline-block; width: 30.666666667%; float: left; }
-  /* line 339, pages/_accueil.scss */
+  /* line 339, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .btn-plus-de-projets { display: block; clear: both; max-width: 30.666666667%; margin-right: auto; margin-left: auto; margin-bottom: 30px; }
-  /* line 348, pages/_accueil.scss */
+  /* line 348, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil hr { clear: both; }
-  /* line 352, pages/_accueil.scss */
+  /* line 352, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .actualites { display: block; float: left; }
-  /* line 356, pages/_accueil.scss */
+  /* line 356, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .actualites .titre-section-actualite { display: block; width: 30.666666667%; float: left; margin-right: 2%; }
-  /* line 362, pages/_accueil.scss */
+  /* line 362, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .actualites .titre-section-actualite h2 { font-size: 28px; margin-top: 0; }
-  /* line 367, pages/_accueil.scss */
+  /* line 367, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .actualites .titre-section-actualite h2, .accueil .actualites .titre-section-actualite a { text-transform: uppercase; text-align: left; }
-  /* line 373, pages/_accueil.scss */
+  /* line 373, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .actualites .actu { display: block; max-width: 30.666666667%; float: left; margin-top: 0; margin-bottom: 40px; margin-right: 2%; margin-left: 2%; }
-  /* line 382, pages/_accueil.scss */
+  /* line 382, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .actualites .actu h3 { margin-top: 0; }
-  /* line 387, pages/_accueil.scss */
+  /* line 387, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .actualites .actu:first-child { margin-left: 0; }
-  /* line 391, pages/_accueil.scss */
+  /* line 391, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .actualites .actu:last-child { margin-right: 0; }
-  /* line 399, pages/_accueil.scss */
+  /* line 399, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .info-communaute .section-info { display: block; max-width: 30.666666667%; float: left; margin-top: 0; margin-bottom: 40px; margin-right: 2%; margin-left: 2%; }
-  /* line 409, pages/_accueil.scss */
+  /* line 409, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .info-communaute .section-info:first-child { margin-left: 0; }
-  /* line 413, pages/_accueil.scss */
+  /* line 413, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .info-communaute .section-info:last-child { margin-right: 0; } }
-@media only screen and (min-width: 1224px) { /* line 423, pages/_accueil.scss */
+@media only screen and (min-width: 1224px) { /* line 423, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 431, pages/_accueil.scss */
+  /* line 431, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .body { margin-left: 0; margin-right: 0; }
-  /* line 438, pages/_accueil.scss */
+  /* line 438, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .message-accueil .btn { margin-left: 25%; }
-  /* line 445, pages/_accueil.scss */
+  /* line 445, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil .categories ul li { padding-right: 30px; line-height: 1.6em; }
-  /* line 451, pages/_accueil.scss */
+  /* line 451, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_accueil.scss */
   .accueil hr { margin-top: 60px; margin-bottom: 60px; } }
 
-/* line 1, pages/_eleves.scss */
+/* line 1, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
 .eleves { /* iPads (portrait) ----------- */ /* Desktops and laptops ----------- */ }
-/* line 3, pages/_eleves.scss */
+/* line 3, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
 .eleves .message-accueil { display: none; }
-/* line 7, pages/_eleves.scss */
+/* line 7, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
 .eleves .body { margin-right: 30px; margin-left: 30px; }
-/* line 13, pages/_eleves.scss */
+/* line 13, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
 .eleves .body .entete h1 { text-transform: uppercase; }
-/* line 17, pages/_eleves.scss */
+/* line 17, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
 .eleves .body .entete p { font-size: 14px; }
-/* line 24, pages/_eleves.scss */
+/* line 24, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
 .eleves .body .categories h2 { text-align: center; margin-top: 30px; margin-bottom: 30px; font-size: 26px; text-transform: uppercase; }
-/* line 32, pages/_eleves.scss */
+/* line 32, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
 .eleves .body .categories ul { display: none; }
-/* line 36, pages/_eleves.scss */
-.eleves .body .categories select { display: block; margin-left: auto; margin-right: auto; width: 80%; height: 40px; padding: 2px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
-/* line 50, pages/_eleves.scss */
+/* line 36, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
+.eleves .body .categories select { display: block; margin-left: auto; margin-right: auto; width: 80%; height: 36px; padding: 2px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
+/* line 50, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
 .eleves .body .categories form { margin-top: 30px; margin-bottom: 30px; }
-/* line 54, pages/_eleves.scss */
-.eleves .body .categories form input { display: block; margin-right: auto; margin-left: auto; width: 80%; height: 40px; }
-/* line 64, pages/_eleves.scss */
+/* line 54, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
+.eleves .body .categories form input { margin-left: auto; margin-right: auto; display: block; height: 36px; width: 80%; }
+/* line 62, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
+.eleves .body .categories form button { margin-left: auto; margin-right: auto; display: block; height: 36px; }
+/* line 71, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
 .eleves .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
-/* line 72, pages/_eleves.scss */
+/* line 79, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
 .eleves .body .liste-eleves .eleve { float: left; margin-right: 2%; margin-left: 2%; margin-bottom: 20px; width: 48%; }
-/* line 79, pages/_eleves.scss */
+/* line 86, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
 .eleves .body .liste-eleves .eleve img { width: 100%; }
-/* line 84, pages/_eleves.scss */
+/* line 91, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
 .eleves .body .liste-eleves .eleve h2 { margin-top: 8px; font-size: 14px; }
-/* line 90, pages/_eleves.scss */
+/* line 97, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
 .eleves .body .liste-eleves .eleve:nth-child(even) { margin-right: 0; }
-/* line 94, pages/_eleves.scss */
+/* line 101, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
 .eleves .body .liste-eleves .eleve:nth-child(odd) { margin-left: 0; }
-/* line 101, pages/_eleves.scss */
+/* line 108, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
 .eleves .body .pagination ul { display: none; }
-/* line 105, pages/_eleves.scss */
+/* line 112, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
 .eleves .body .pagination .btn-nav-suiv { display: none; }
-/* line 109, pages/_eleves.scss */
+/* line 116, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
 .eleves .body .pagination select { clear: both; display: block; margin-left: auto; margin-right: auto; width: 40%; height: 30px; padding: 2px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
-@media only screen and (min-device-width: 768px) { /* line 134, pages/_eleves.scss */
+@media only screen and (min-device-width: 768px) { /* line 141, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
   .eleves .body .entete h1, .eleves .body .entete p { float: left; }
-  /* line 138, pages/_eleves.scss */
+  /* line 145, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
   .eleves .body .entete p { clear: both; max-width: 320px; }
-  /* line 146, pages/_eleves.scss */
+  /* line 153, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
   .eleves .body .categories h2 { display: none; }
-  /* line 150, pages/_eleves.scss */
+  /* line 157, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
   .eleves .body .categories ul { display: block; padding: 0; width: 50%; float: left; margin: 0; }
-  /* line 157, pages/_eleves.scss */
+  /* line 164, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
   .eleves .body .categories ul li { display: inline-block; font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; font-size: 20px; padding-right: 15px; line-height: 1.4em; color: #4A4A4A; float: left; }
-  /* line 167, pages/_eleves.scss */
+  /* line 174, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
   .eleves .body .categories ul li a { color: #727272; text-decoration: none; }
-  /* line 172, pages/_eleves.scss */
+  /* line 179, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
   .eleves .body .categories ul li a:visited { color: #727272; text-decoration: none; }
-  /* line 178, pages/_eleves.scss */
+  /* line 185, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
   .eleves .body .categories ul li:first-child { margin-right: 20px; color: #262628; }
-  /* line 184, pages/_eleves.scss */
+  /* line 191, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
   .eleves .body .categories select { display: block; width: 20%; margin: 0; }
-  /* line 190, pages/_eleves.scss */
+  /* line 197, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
   .eleves .body .categories form { float: right; margin: 0; margin-bottom: 30px; width: 320px; }
-  /* line 196, pages/_eleves.scss */
-  .eleves .body .categories form input { height: 30px; }
-  /* line 204, pages/_eleves.scss */
+  /* line 205, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
+  .eleves .body .categories form input { display: inline-block; width: 200px; }
+  /* line 211, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
+  .eleves .body .categories form button { float: right; display: inline-block; }
+  /* line 220, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
   .eleves .body .liste-eleves .eleve { margin-right: 2%; margin-left: 2%; margin-bottom: 20px; width: 22%; }
-  /* line 211, pages/_eleves.scss */
+  /* line 227, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
   .eleves .body .liste-eleves .eleve:nth-child(even) { margin-right: 2%; }
-  /* line 215, pages/_eleves.scss */
+  /* line 231, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
   .eleves .body .liste-eleves .eleve:nth-child(odd) { margin-left: 2%; }
-  /* line 219, pages/_eleves.scss */
+  /* line 235, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
   .eleves .body .liste-eleves .eleve:nth-child(4n) { margin-right: 0; }
-  /* line 223, pages/_eleves.scss */
+  /* line 239, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
   .eleves .body .liste-eleves .eleve:nth-child(4n-3) { margin-left: 0; }
-  /* line 230, pages/_eleves.scss */
+  /* line 246, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
   .eleves .body .pagination ul { display: block; text-align: center; clear: both; padding: 0; margin-top: 40px; margin-bottom: 40px; }
-  /* line 238, pages/_eleves.scss */
+  /* line 254, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
   .eleves .body .pagination ul li { display: inline-block; width: 30px; height: 30px; margin-right: 10px; font-size: 18px; font-family: "gt_pressura_regular", sans-serif; }
-  /* line 248, pages/_eleves.scss */
+  /* line 264, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
   .eleves .body .pagination select { display: none; } }
-@media only screen and (min-width: 1224px) { /* line 259, pages/_eleves.scss */
+@media only screen and (min-width: 1224px) { /* line 275, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
   .eleves #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 267, pages/_eleves.scss */
+  /* line 283, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleves.scss */
   .eleves .body { margin-left: 0; margin-right: 0; } }
 
-/* line 1, pages/_eleve_fiche.scss */
+/* line 1, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
 .eleve_fiche { /* iPads (portrait) ----------- */ /* Desktops and laptops ----------- */ }
-/* line 3, pages/_eleve_fiche.scss */
+/* line 3, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
 .eleve_fiche .message-accueil { display: none; }
-/* line 7, pages/_eleve_fiche.scss */
+/* line 7, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
 .eleve_fiche .body { margin-right: 30px; margin-left: 30px; }
-/* line 11, pages/_eleve_fiche.scss */
+/* line 11, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
 .eleve_fiche .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
-/* line 19, pages/_eleve_fiche.scss */
+/* line 19, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-fiche .etu-photo { width: 33%; height: auto; margin-left: auto; margin-right: auto; display: block; margin-bottom: 60px; }
-/* line 28, pages/_eleve_fiche.scss */
+/* line 28, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-fiche .etu-gradu { font-family: "gt_pressura_regular", sans-serif; }
-/* line 32, pages/_eleve_fiche.scss */
+/* line 32, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-fiche .etu-bio { margin-top: 30px; margin-bottom: 30px; }
-/* line 44, pages/_eleve_fiche.scss */
+/* line 44, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet { width: 100%; margin-right: auto; margin-left: auto; margin-bottom: 30px; }
-/* line 50, pages/_eleve_fiche.scss */
+/* line 50, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet img { width: 100%; }
-/* line 54, pages/_eleve_fiche.scss */
+/* line 54, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet { padding: 30px; background-color: black; opacity: 0.8; }
-/* line 59, pages/_eleve_fiche.scss */
+/* line 59, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet h3, .eleve_fiche .body .etu-projets .img-projet .over-projet p { color: #f9f9f9; margin: 0; }
-/* line 64, pages/_eleve_fiche.scss */
+/* line 64, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet h3 { font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; font-size: 20px; margin-bottom: 20px; }
-/* line 71, pages/_eleve_fiche.scss */
+/* line 71, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet p { font-size: 14px; margin-bottom: 20px; }
-/* line 76, pages/_eleve_fiche.scss */
+/* line 76, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet a { color: #e11414; }
-/* line 80, pages/_eleve_fiche.scss */
+/* line 80, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet a:hover { color: #9c1111; }
-@media only screen and (min-device-width: 768px) { /* line 94, pages/_eleve_fiche.scss */
+@media only screen and (min-device-width: 768px) { /* line 94, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-fiche { margin-top: 30px; }
-  /* line 97, pages/_eleve_fiche.scss */
+  /* line 97, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-fiche h1 { float: left; width: 65.3333334%; }
-  /* line 102, pages/_eleve_fiche.scss */
+  /* line 102, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-fiche .etu-photo { display: inline-block; width: 30.666666667%; float: left; margin: 0; margin-right: 4%; margin-bottom: 60px; }
-  /* line 111, pages/_eleve_fiche.scss */
+  /* line 111, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-fiche .etu-gradu { width: 65.3333334%; float: left; }
-  /* line 116, pages/_eleve_fiche.scss */
+  /* line 116, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-fiche .etu-bio { float: left; width: 65.3333334%; margin-top: 20px; margin-bottom: 20px; }
-  /* line 123, pages/_eleve_fiche.scss */
+  /* line 123, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-fiche .etu-social { width: 65.3333334%; float: left; }
-  /* line 131, pages/_eleve_fiche.scss */
+  /* line 131, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-projets .img-projet { display: inline-block; width: 30.666666667%; float: left; } }
-@media only screen and (min-width: 1224px) { /* line 145, pages/_eleve_fiche.scss */
+@media only screen and (min-width: 1224px) { /* line 145, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
   .eleve_fiche #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 153, pages/_eleve_fiche.scss */
+  /* line 153, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
   .eleve_fiche .body { margin-left: 0; margin-right: 0; }
-  /* line 159, pages/_eleve_fiche.scss */
+  /* line 159, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-fiche .etu-bio { max-width: 30.6666667%; } }
 
-/* line 1, pages/_forum.scss */
+/* line 1, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
 .forum { /* iPads (portrait) ----------- */ /* Desktops and laptops ----------- */ }
-/* line 3, pages/_forum.scss */
+/* line 3, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
 .forum .message-accueil { display: none; }
-/* line 7, pages/_forum.scss */
+/* line 7, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
 .forum .body { margin-right: 30px; margin-left: 30px; }
-/* line 13, pages/_forum.scss */
+/* line 13, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
 .forum .body .entete-forum h1 { text-transform: uppercase; }
-/* line 17, pages/_forum.scss */
+/* line 17, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
 .forum .body .entete-forum p { font-size: 14px; }
-/* line 21, pages/_forum.scss */
+/* line 21, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
 .forum .body .entete-forum .btn-nouv-publication { display: block; width: 100%; height: 30px; background-color: #e11414; padding-top: 15px; padding-bottom: 15px; color: #f9f9f9; text-decoration: none; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; text-align: center; line-height: 30px; vertical-align: middle; margin-top: 30px; margin-bottom: 30px; }
-/* line 39, pages/_forum.scss */
+/* line 39, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
 .forum .body .entete-forum .btn-nouv-publication:hover { background-color: #9c1111; }
-/* line 46, pages/_forum.scss */
+/* line 46, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
 .forum .body .categories h2 { text-align: center; margin-top: 30px; margin-bottom: 30px; font-size: 26px; text-transform: uppercase; }
-/* line 54, pages/_forum.scss */
+/* line 54, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
 .forum .body .categories ul { display: none; }
-/* line 58, pages/_forum.scss */
-.forum .body .categories select { display: block; margin-left: auto; margin-right: auto; width: 80%; height: 40px; padding: 2px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
-/* line 72, pages/_forum.scss */
+/* line 58, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
+.forum .body .categories select { display: block; margin-left: auto; margin-right: auto; width: 80%; height: 36px; padding: 2px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
+/* line 72, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
 .forum .body .categories form { margin-top: 30px; margin-bottom: 30px; }
-/* line 76, pages/_forum.scss */
-.forum .body .categories form input { display: block; margin-right: auto; margin-left: auto; width: 80%; height: 40px; }
-/* line 86, pages/_forum.scss */
+/* line 76, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
+.forum .body .categories form input { margin-left: auto; margin-right: auto; display: block; height: 36px; width: 80%; }
+/* line 84, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
+.forum .body .categories form button { margin-left: auto; margin-right: auto; display: block; height: 36px; }
+/* line 93, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
 .forum .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
-/* line 97, pages/_forum.scss */
+/* line 104, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
 .forum .body .liste-posts .post h2 { display: block; width: 100%; line-height: 1.4em; }
-/* line 103, pages/_forum.scss */
+/* line 110, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
+.forum .body .liste-posts .post a { text-decoration: none; }
+/* line 114, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
 .forum .body .liste-posts .post .post-meta { display: block; margin-bottom: 10px; margin-top: 20px; height: 24px; line-height: 30px; vertical-align: middle; }
-/* line 111, pages/_forum.scss */
+/* line 122, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
 .forum .body .liste-posts .post .post-meta img { float: left; margin-right: 6px; }
-/* line 116, pages/_forum.scss */
+/* line 127, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
 .forum .body .liste-posts .post .post-meta p { float: left; line-height: 20px; vertical-align: middle; margin: 0; margin-right: 16px; color: #4A4A4A; text-transform: uppercase; font-size: 14px; font-family: "gt_pressura_regular", sans-serif; }
-/* line 128, pages/_forum.scss */
+/* line 139, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
 .forum .body .liste-posts .post .post-meta .post-cat { float: right; margin: 0; }
-/* line 134, pages/_forum.scss */
+/* line 145, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
 .forum .body .liste-posts .post .btn-repondre { display: block; width: 80%; height: 20px; background-color: #e11414; padding-top: 10px; padding-bottom: 10px; color: #f9f9f9; text-decoration: none; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; text-align: center; line-height: 20px; vertical-align: middle; margin-top: 20px; margin-bottom: 20px; margin-left: auto; margin-right: auto; clear: both; }
-/* line 159, pages/_forum.scss */
+/* line 170, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
 .forum .body .pagination ul { display: none; }
-/* line 163, pages/_forum.scss */
+/* line 174, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
 .forum .body .pagination .btn-nav-suiv { display: none; }
-/* line 167, pages/_forum.scss */
+/* line 178, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
 .forum .body .pagination select { display: block; margin-left: auto; margin-right: auto; width: 40%; height: 30px; padding: 2px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
-@media only screen and (min-device-width: 768px) { /* line 191, pages/_forum.scss */
+@media only screen and (min-device-width: 768px) { /* line 202, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body .entete-forum h1, .forum .body .entete-forum p { float: left; }
-  /* line 195, pages/_forum.scss */
+  /* line 206, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body .entete-forum p { clear: both; max-width: 320px; }
-  /* line 200, pages/_forum.scss */
+  /* line 211, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body .entete-forum .btn-nouv-publication { max-width: 300px; float: right; margin: 0; }
-  /* line 209, pages/_forum.scss */
+  /* line 220, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body .categories h2 { display: none; }
-  /* line 213, pages/_forum.scss */
-  .forum .body .categories ul { display: block; padding: 0; width: 50%; float: left; margin: 0; }
-  /* line 220, pages/_forum.scss */
+  /* line 224, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
+  .forum .body .categories ul { display: block; padding: 0; width: 60%; float: left; margin: 0; }
+  /* line 231, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body .categories ul li { display: inline-block; font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; font-size: 20px; padding-right: 15px; line-height: 1.4em; color: #4A4A4A; float: left; }
-  /* line 230, pages/_forum.scss */
+  /* line 241, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body .categories ul li a { color: #727272; text-decoration: none; }
-  /* line 235, pages/_forum.scss */
+  /* line 246, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body .categories ul li a:visited { color: #727272; text-decoration: none; }
-  /* line 241, pages/_forum.scss */
+  /* line 252, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body .categories ul li:first-child { margin-right: 20px; color: #262628; }
-  /* line 247, pages/_forum.scss */
+  /* line 258, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body .categories select { display: none; }
-  /* line 251, pages/_forum.scss */
+  /* line 262, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body .categories form { float: right; margin: 0; margin-bottom: 30px; width: 320px; }
-  /* line 257, pages/_forum.scss */
-  .forum .body .categories form input { margin-right: 0; }
-  /* line 265, pages/_forum.scss */
+  /* line 270, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
+  .forum .body .categories form input { display: inline-block; width: 200px; }
+  /* line 276, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
+  .forum .body .categories form button { float: right; display: inline-block; }
+  /* line 285, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body .liste-posts .post { position: relative; }
-  /* line 268, pages/_forum.scss */
+  /* line 288, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body .liste-posts .post h2 { float: left; }
-  /* line 272, pages/_forum.scss */
+  /* line 292, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body .liste-posts .post .post-desc { max-width: 480px; float: left; clear: both; }
-  /* line 278, pages/_forum.scss */
+  /* line 298, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body .liste-posts .post .post-meta { position: absolute; width: 240px; right: 0; top: 10px; }
-  /* line 284, pages/_forum.scss */
+  /* line 304, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body .liste-posts .post .post-meta .post-cat { float: none; margin-bottom: 15px; font-size: 20px; text-transform: uppercase; }
-  /* line 291, pages/_forum.scss */
+  /* line 311, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body .liste-posts .post .post-meta img { clear: both; margin-bottom: 10px; }
-  /* line 297, pages/_forum.scss */
+  /* line 317, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body .liste-posts .post .btn-repondre { max-width: 140px; float: left; }
-  /* line 306, pages/_forum.scss */
+  /* line 326, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body .pagination ul { display: block; text-align: center; }
-  /* line 310, pages/_forum.scss */
+  /* line 330, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body .pagination ul li { display: inline-block; width: 30px; height: 30px; margin-right: 10px; font-size: 18px; font-family: "gt_pressura_regular", sans-serif; }
-  /* line 320, pages/_forum.scss */
+  /* line 340, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body .pagination select { display: none; } }
-@media only screen and (min-width: 1224px) { /* line 331, pages/_forum.scss */
+@media only screen and (min-width: 1224px) { /* line 351, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 339, pages/_forum.scss */
+  /* line 359, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum.scss */
   .forum .body { margin-left: 0; margin-right: 0; } }
 
-/* line 1, pages/_tutoriels.scss */
+/* line 1, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels { /* iPads (portrait) ----------- */ /* Desktops and laptops ----------- */ }
-/* line 3, pages/_tutoriels.scss */
+/* line 3, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels .message-accueil { display: none; }
-/* line 7, pages/_tutoriels.scss */
+/* line 7, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels .body { margin-right: 30px; margin-left: 30px; }
-/* line 13, pages/_tutoriels.scss */
+/* line 13, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels .body .entete-forum h1 { text-transform: uppercase; }
-/* line 17, pages/_tutoriels.scss */
+/* line 17, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels .body .entete-forum p { font-size: 14px; }
-/* line 21, pages/_tutoriels.scss */
+/* line 21, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels .body .entete-forum .btn-nouv-publication { display: block; width: 100%; height: 30px; background-color: #e11414; padding-top: 15px; padding-bottom: 15px; color: #f9f9f9; text-decoration: none; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; text-align: center; line-height: 30px; vertical-align: middle; margin-top: 30px; margin-bottom: 30px; }
-/* line 39, pages/_tutoriels.scss */
+/* line 39, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels .body .entete-forum .btn-nouv-publication:hover { background-color: #9c1111; }
-/* line 46, pages/_tutoriels.scss */
+/* line 46, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels .body .categories h2 { text-align: center; margin-top: 30px; margin-bottom: 30px; font-size: 26px; text-transform: uppercase; }
-/* line 54, pages/_tutoriels.scss */
+/* line 54, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels .body .categories ul { display: none; }
-/* line 58, pages/_tutoriels.scss */
+/* line 58, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels .body .categories select { display: block; margin-left: auto; margin-right: auto; width: 80%; height: 40px; padding: 2px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
-/* line 72, pages/_tutoriels.scss */
+/* line 72, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels .body .categories form { margin-top: 30px; margin-bottom: 30px; }
-/* line 76, pages/_tutoriels.scss */
-.tutoriels .body .categories form input { display: block; margin-right: auto; margin-left: auto; width: 80%; height: 40px; }
-/* line 86, pages/_tutoriels.scss */
+/* line 76, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
+.tutoriels .body .categories form input { margin-left: auto; margin-right: auto; display: block; height: 36px; width: 80%; }
+/* line 84, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
+.tutoriels .body .categories form button { margin-left: auto; margin-right: auto; display: block; height: 36px; }
+/* line 93, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
-/* line 97, pages/_tutoriels.scss */
+/* line 104, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels .body .liste-posts .post h2 { display: block; width: 100%; line-height: 1.4em; }
-/* line 103, pages/_tutoriels.scss */
+/* line 110, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels .body .liste-posts .post .post-meta { display: block; margin-bottom: 10px; margin-top: 20px; height: 24px; line-height: 30px; vertical-align: middle; }
-/* line 111, pages/_tutoriels.scss */
+/* line 118, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels .body .liste-posts .post .post-meta img { float: left; margin-right: 6px; }
-/* line 116, pages/_tutoriels.scss */
+/* line 123, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels .body .liste-posts .post .post-meta p { float: left; line-height: 20px; vertical-align: middle; margin: 0; margin-right: 16px; color: #4A4A4A; text-transform: uppercase; font-size: 14px; font-family: "gt_pressura_regular", sans-serif; }
-/* line 128, pages/_tutoriels.scss */
+/* line 135, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels .body .liste-posts .post .post-meta .post-cat { float: right; margin: 0; }
-/* line 134, pages/_tutoriels.scss */
+/* line 141, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels .body .liste-posts .post .btn-repondre { display: block; width: 80%; height: 20px; background-color: #e11414; padding-top: 10px; padding-bottom: 10px; color: #f9f9f9; text-decoration: none; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; text-align: center; line-height: 20px; vertical-align: middle; margin-top: 20px; margin-bottom: 20px; margin-left: auto; margin-right: auto; clear: both; }
-/* line 159, pages/_tutoriels.scss */
+/* line 166, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels .body .pagination ul { display: none; }
-/* line 163, pages/_tutoriels.scss */
+/* line 170, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels .body .pagination .btn-nav-suiv { display: none; }
-/* line 167, pages/_tutoriels.scss */
+/* line 174, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
 .tutoriels .body .pagination select { display: block; margin-left: auto; margin-right: auto; width: 40%; height: 30px; padding: 2px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
-@media only screen and (min-device-width: 768px) { /* line 191, pages/_tutoriels.scss */
+@media only screen and (min-device-width: 768px) { /* line 198, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .entete-forum h1, .tutoriels .body .entete-forum p { float: left; }
-  /* line 195, pages/_tutoriels.scss */
+  /* line 202, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .entete-forum p { clear: both; max-width: 320px; }
-  /* line 200, pages/_tutoriels.scss */
+  /* line 207, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .entete-forum .btn-nouv-publication { max-width: 300px; float: right; margin: 0; }
-  /* line 209, pages/_tutoriels.scss */
+  /* line 216, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .categories h2 { display: none; }
-  /* line 213, pages/_tutoriels.scss */
+  /* line 220, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .categories ul { display: block; padding: 0; width: 50%; float: left; margin: 0; }
-  /* line 220, pages/_tutoriels.scss */
+  /* line 227, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .categories ul li { display: inline-block; font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; font-size: 20px; padding-right: 15px; line-height: 1.4em; color: #4A4A4A; float: left; }
-  /* line 230, pages/_tutoriels.scss */
+  /* line 237, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .categories ul li a { color: #727272; text-decoration: none; }
-  /* line 235, pages/_tutoriels.scss */
+  /* line 242, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .categories ul li a:visited { color: #727272; text-decoration: none; }
-  /* line 241, pages/_tutoriels.scss */
+  /* line 248, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .categories ul li:first-child { margin-right: 20px; color: #262628; }
-  /* line 247, pages/_tutoriels.scss */
+  /* line 254, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .categories select { display: none; }
-  /* line 251, pages/_tutoriels.scss */
+  /* line 258, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .categories form { float: right; margin: 0; margin-bottom: 30px; width: 320px; }
-  /* line 257, pages/_tutoriels.scss */
-  .tutoriels .body .categories form input { height: 30px; }
-  /* line 265, pages/_tutoriels.scss */
+  /* line 266, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
+  .tutoriels .body .categories form input { display: inline-block; width: 200px; }
+  /* line 272, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
+  .tutoriels .body .categories form button { float: right; display: inline-block; }
+  /* line 281, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .liste-posts .post { position: relative; }
-  /* line 268, pages/_tutoriels.scss */
+  /* line 284, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .liste-posts .post h2 { float: left; width: auto; }
-  /* line 273, pages/_tutoriels.scss */
+  /* line 289, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .liste-posts .post .post-desc { max-width: 480px; float: left; clear: both; }
-  /* line 279, pages/_tutoriels.scss */
+  /* line 295, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .liste-posts .post .post-meta { position: absolute; width: 240px; right: 0; top: 10px; }
-  /* line 285, pages/_tutoriels.scss */
+  /* line 301, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .liste-posts .post .post-meta .post-cat { float: none; margin-bottom: 15px; font-size: 20px; text-transform: uppercase; }
-  /* line 292, pages/_tutoriels.scss */
+  /* line 308, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .liste-posts .post .post-meta img { clear: both; margin-bottom: 10px; }
-  /* line 298, pages/_tutoriels.scss */
+  /* line 314, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .liste-posts .post .btn-repondre { max-width: 140px; float: left; }
-  /* line 307, pages/_tutoriels.scss */
+  /* line 323, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .pagination ul { display: block; text-align: center; }
-  /* line 311, pages/_tutoriels.scss */
+  /* line 327, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .pagination ul li { display: inline-block; width: 30px; height: 30px; margin-right: 10px; font-size: 18px; font-family: "gt_pressura_regular", sans-serif; }
-  /* line 321, pages/_tutoriels.scss */
+  /* line 337, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body .pagination select { display: none; } }
-@media only screen and (min-width: 1224px) { /* line 332, pages/_tutoriels.scss */
+@media only screen and (min-width: 1224px) { /* line 348, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 340, pages/_tutoriels.scss */
+  /* line 356, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_tutoriels.scss */
   .tutoriels .body { margin-left: 0; margin-right: 0; } }
 
-/* line 1, pages/_actualites.scss */
+/* line 1, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
 .news { /* iPads (portrait) ----------- */ /* Desktops and laptops ----------- */ }
-/* line 3, pages/_actualites.scss */
+/* line 3, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
 .news .message-accueil { display: none; }
-/* line 7, pages/_actualites.scss */
+/* line 7, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
 .news .body { margin-right: 30px; margin-left: 30px; }
-/* line 11, pages/_actualites.scss */
+/* line 11, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
 .news .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
-/* line 22, pages/_actualites.scss */
+/* line 22, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
 .news .body .liste-actu .actu h2 { display: block; line-height: 1.4em; font-size: 28px; font-family: "gt_pressura_light", sans-serif; margin-right: auto; margin-left: auto; }
-/* line 33, pages/_actualites.scss */
+/* line 33, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
 .news .body .liste-actu .actu .actu-contenu p { font-size: 16px; line-height: 1.4em; font-family: "Georgia", sans-serif; color: #424245; }
-/* line 41, pages/_actualites.scss */
+/* line 41, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
 .news .body .liste-actu .actu .actu-meta { margin-bottom: 120px; }
-/* line 44, pages/_actualites.scss */
+/* line 44, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
 .news .body .liste-actu .actu .actu-meta p { font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; color: #515155; }
-/* line 50, pages/_actualites.scss */
+/* line 50, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
 .news .body .liste-actu .actu .actu-meta .actu-date { float: left; }
-/* line 54, pages/_actualites.scss */
+/* line 54, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
 .news .body .liste-actu .actu .actu-meta .actu-auteur { float: right; }
-/* line 61, pages/_actualites.scss */
+/* line 61, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
 .news .body .pagination { clear: both; }
-/* line 64, pages/_actualites.scss */
+/* line 64, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
 .news .body .pagination ul { display: none; }
-/* line 68, pages/_actualites.scss */
+/* line 68, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
 .news .body .pagination .btn-nav-suiv { display: none; }
-/* line 72, pages/_actualites.scss */
+/* line 72, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
 .news .body .pagination select { display: block; margin-left: auto; margin-right: auto; width: 40%; height: 30px; padding: 2px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
-@media only screen and (min-device-width: 768px) { /* line 96, pages/_actualites.scss */
+@media only screen and (min-device-width: 768px) { /* line 96, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
   .news .body .liste-actu .actu { clear: both; }
-  /* line 99, pages/_actualites.scss */
+  /* line 99, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
   .news .body .liste-actu .actu h2 { max-width: 60%; float: left; margin-left: 20%; margin-right: 20%; }
-  /* line 106, pages/_actualites.scss */
+  /* line 106, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
   .news .body .liste-actu .actu .actu-contenu { width: 60%; float: right; margin-right: 20%; margin-bottom: 60px; }
-  /* line 112, pages/_actualites.scss */
+  /* line 112, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
   .news .body .liste-actu .actu .actu-contenu p:first-child { margin-top: 0; }
-  /* line 117, pages/_actualites.scss */
+  /* line 117, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
   .news .body .liste-actu .actu .actu-meta { width: 20%; float: left; }
-  /* line 121, pages/_actualites.scss */
+  /* line 121, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
   .news .body .liste-actu .actu .actu-meta p { margin: 0; line-height: 2em; }
-  /* line 126, pages/_actualites.scss */
+  /* line 126, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
   .news .body .liste-actu .actu .actu-meta .actu-auteur { clear: both; float: left; }
-  /* line 136, pages/_actualites.scss */
+  /* line 136, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
   .news .body .pagination ul { display: block; text-align: center; padding: 0; }
-  /* line 141, pages/_actualites.scss */
+  /* line 141, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
   .news .body .pagination ul li { display: inline-block; width: 30px; height: 30px; margin-right: 10px; font-size: 18px; font-family: "gt_pressura_regular", sans-serif; }
-  /* line 151, pages/_actualites.scss */
+  /* line 151, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
   .news .body .pagination select { display: none; } }
-@media only screen and (min-width: 1224px) { /* line 162, pages/_actualites.scss */
+@media only screen and (min-width: 1224px) { /* line 162, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
   .news #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 170, pages/_actualites.scss */
+  /* line 170, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_actualites.scss */
   .news .body { margin-left: 0; margin-right: 0; } }
 
-/* line 1, pages/_nouveaututo.scss */
+/* line 1, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveaututo.scss */
 .nouveaututo { /* iPads (portrait) ----------- */ /* Desktops and laptops ----------- */ }
-/* line 3, pages/_nouveaututo.scss */
+/* line 3, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveaututo.scss */
 .nouveaututo .message-accueil { display: none; }
-/* line 7, pages/_nouveaututo.scss */
+/* line 7, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveaututo.scss */
 .nouveaututo .body { margin-right: 30px; margin-left: 30px; }
-/* line 13, pages/_nouveaututo.scss */
+/* line 13, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveaututo.scss */
 .nouveaututo .body .entete-tuto h1 { text-transform: uppercase; line-height: 1.4em; }
-/* line 18, pages/_nouveaututo.scss */
+/* line 18, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveaututo.scss */
 .nouveaututo .body .entete-tuto p { font-size: 14px; }
-/* line 23, pages/_nouveaututo.scss */
+/* line 23, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveaututo.scss */
 .nouveaututo .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
-/* line 29, pages/_nouveaututo.scss */
+/* line 29, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveaututo.scss */
 .nouveaututo .body input[type=text] { display: block; width: 100%; height: 40px; border: 1px solid darkgrey; padding-left: 10px; font-size: 16px; font-family: "Georgia", sans-serif; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */ -moz-box-sizing: border-box; /* Firefox, other Gecko */ box-sizing: border-box; /* Opera/IE 8+ */ }
-/* line 45, pages/_nouveaututo.scss */
+/* line 45, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveaututo.scss */
 .nouveaututo .body label { margin-top: 40px; display: block; font-size: 20px; font-family: "gt_pressura_regular", sans-serif; margin-bottom: 15px; }
-/* line 53, pages/_nouveaututo.scss */
+/* line 53, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveaututo.scss */
 .nouveaututo .body label:first-child { margin-top: 0; }
-/* line 57, pages/_nouveaututo.scss */
+/* line 57, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveaututo.scss */
 .nouveaututo .body .tuto-nom { width: 100%; height: 30px; }
-/* line 62, pages/_nouveaututo.scss */
+/* line 62, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveaututo.scss */
 .nouveaututo .body .tuto-contenu { margin-top: 20px; margin-bottom: 20px; min-height: 320px; }
-/* line 68, pages/_nouveaututo.scss */
+/* line 68, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveaututo.scss */
 .nouveaututo .body .tuto-cat { width: 300px; height: 35px; }
-/* line 72, pages/_nouveaututo.scss */
+/* line 72, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveaututo.scss */
 .nouveaututo .body .tuto-cat option { font-size: 14px; }
-/* line 77, pages/_nouveaututo.scss */
+/* line 77, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveaututo.scss */
 .nouveaututo .body .btn-soumettre { display: block; width: 100%; height: 60px; background-color: #e11414; color: #f9f9f9; text-decoration: none; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; text-align: center; line-height: 30px; vertical-align: middle; margin-top: 20px; margin-bottom: 20px; }
-@media only screen and (min-device-width: 768px) { /* line 100, pages/_nouveaututo.scss */
+@media only screen and (min-device-width: 768px) { /* line 100, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveaututo.scss */
   .nouveaututo .body .nouv-tuto { max-width: 80%; margin-right: auto; margin-left: auto; }
-  /* line 106, pages/_nouveaututo.scss */
+  /* line 106, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveaututo.scss */
   .nouveaututo .body .btn-soumettre { max-width: 280px; margin-left: auto; margin-right: auto; } }
-@media only screen and (min-width: 1224px) { /* line 118, pages/_nouveaututo.scss */
+@media only screen and (min-width: 1224px) { /* line 118, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveaututo.scss */
   .nouveaututo #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 126, pages/_nouveaututo.scss */
+  /* line 126, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveaututo.scss */
   .nouveaututo .body { margin-left: 0; margin-right: 0; }
-  /* line 130, pages/_nouveaututo.scss */
+  /* line 130, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_nouveaututo.scss */
   .nouveaututo .body .nouv-tuto { max-width: 70%; } }
 
-/* line 1, pages/_forum_add.scss */
+/* line 1, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_add.scss */
 .nouveausujet { /* iPads (portrait) ----------- */ /* Desktops and laptops ----------- */ }
-/* line 3, pages/_forum_add.scss */
+/* line 3, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_add.scss */
 .nouveausujet .message-accueil { display: none; }
-/* line 7, pages/_forum_add.scss */
+/* line 7, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_add.scss */
 .nouveausujet .body { margin-right: 30px; margin-left: 30px; }
-/* line 13, pages/_forum_add.scss */
+/* line 13, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_add.scss */
 .nouveausujet .body .entete-forum h1 { text-transform: uppercase; line-height: 1.4em; }
-/* line 18, pages/_forum_add.scss */
+/* line 18, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_add.scss */
 .nouveausujet .body .entete-forum p { font-size: 14px; }
-/* line 23, pages/_forum_add.scss */
+/* line 23, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_add.scss */
 .nouveausujet .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
-/* line 29, pages/_forum_add.scss */
+/* line 29, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_add.scss */
 .nouveausujet .body input[type=text] { display: block; width: 100%; height: 40px; border: 1px solid darkgrey; padding-left: 10px; font-size: 16px; font-family: "Georgia", sans-serif; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */ -moz-box-sizing: border-box; /* Firefox, other Gecko */ box-sizing: border-box; /* Opera/IE 8+ */ }
-/* line 45, pages/_forum_add.scss */
+/* line 45, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_add.scss */
 .nouveausujet .body label { margin-top: 40px; display: block; font-size: 20px; font-family: "gt_pressura_regular", sans-serif; margin-bottom: 15px; }
-/* line 53, pages/_forum_add.scss */
+/* line 53, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_add.scss */
 .nouveausujet .body label:first-child { margin-top: 0; }
-/* line 57, pages/_forum_add.scss */
+/* line 57, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_add.scss */
 .nouveausujet .body .post-nom { width: 100%; height: 30px; }
-/* line 62, pages/_forum_add.scss */
+/* line 62, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_add.scss */
 .nouveausujet .body .post-contenu { margin-top: 20px; margin-bottom: 20px; min-height: 320px; }
-/* line 68, pages/_forum_add.scss */
+/* line 68, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_add.scss */
 .nouveausujet .body .post-cat { width: 300px; height: 35px; }
-/* line 72, pages/_forum_add.scss */
+/* line 72, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_add.scss */
 .nouveausujet .body .post-cat option { font-size: 14px; }
-/* line 77, pages/_forum_add.scss */
+/* line 77, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_add.scss */
 .nouveausujet .body .btn-soumettre { display: block; width: 100%; height: 60px; background-color: #e11414; color: #f9f9f9; text-decoration: none; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; text-align: center; line-height: 30px; vertical-align: middle; margin-top: 20px; margin-bottom: 20px; }
-@media only screen and (min-device-width: 768px) { /* line 100, pages/_forum_add.scss */
+@media only screen and (min-device-width: 768px) { /* line 100, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_add.scss */
   .nouveausujet .body .nouv-post { max-width: 80%; margin-right: auto; margin-left: auto; }
-  /* line 106, pages/_forum_add.scss */
+  /* line 106, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_add.scss */
   .nouveausujet .body .btn-soumettre { max-width: 280px; margin-left: auto; margin-right: auto; } }
-@media only screen and (min-width: 1224px) { /* line 118, pages/_forum_add.scss */
+@media only screen and (min-width: 1224px) { /* line 118, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_add.scss */
   .nouveausujet #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 126, pages/_forum_add.scss */
+  /* line 126, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_add.scss */
   .nouveausujet .body { margin-left: 0; margin-right: 0; }
-  /* line 130, pages/_forum_add.scss */
+  /* line 130, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_add.scss */
   .nouveausujet .body .nouv-post { max-width: 70%; } }
 
-/* line 1, pages/_forum_post.scss */
+/* line 1, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
 .forum_post { /* iPads (portrait) ----------- */ /* Desktops and laptops ----------- */ }
-/* line 3, pages/_forum_post.scss */
+/* line 3, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
 .forum_post .message-accueil { display: none; }
-/* line 7, pages/_forum_post.scss */
+/* line 7, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
 .forum_post .body { margin-right: 30px; margin-left: 30px; }
-/* line 11, pages/_forum_post.scss */
+/* line 11, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
 .forum_post .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
-/* line 22, pages/_forum_post.scss */
+/* line 22, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
 .forum_post .body .liste-post .post h2 { display: block; line-height: 1.4em; font-size: 28px; font-family: "gt_pressura_light", sans-serif; margin-right: auto; margin-left: auto; }
-/* line 33, pages/_forum_post.scss */
+/* line 33, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
 .forum_post .body .liste-post .post .post-contenu p { font-size: 16px; line-height: 1.4em; font-family: "Georgia", sans-serif; color: #424245; }
-/* line 41, pages/_forum_post.scss */
+/* line 41, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
 .forum_post .body .liste-post .post .post-meta { margin-bottom: 120px; }
-/* line 44, pages/_forum_post.scss */
+/* line 44, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
 .forum_post .body .liste-post .post .post-meta p { font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; color: #515155; margin-top: 5px; margin-bottom: 5px; }
-/* line 52, pages/_forum_post.scss */
+/* line 52, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
 .forum_post .body .liste-post .post .post-meta .post-date { float: left; }
-/* line 56, pages/_forum_post.scss */
+/* line 56, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
 .forum_post .body .liste-post .post .post-meta .post-auteur { float: right; }
-/* line 60, pages/_forum_post.scss */
+/* line 60, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
 .forum_post .body .liste-post .post .post-meta .post-resolu { clear: left; float: left; }
-/* line 67, pages/_forum_post.scss */
+/* line 67, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
 .forum_post .body .liste-post .comm { display: block; padding: 14px; border: solid 1px #B8B8B8; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; margin-top: 20px; }
-/* line 76, pages/_forum_post.scss */
+/* line 76, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
 .forum_post .body .liste-post .comm .comm-texte { font-size: 14px; line-height: 1.4em; font-family: "Georgia", sans-serif; color: #424245; margin-top: 0px; }
-/* line 84, pages/_forum_post.scss */
+/* line 84, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
 .forum_post .body .liste-post .comm .comm-auteur { display: inline-block; text-transform: uppercase; color: grey; margin: 0; font-family: "gt_pressura_regular", sans-serif; }
-/* line 92, pages/_forum_post.scss */
+/* line 92, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
 .forum_post .body .liste-post .comm .comm-date { display: inline-block; color: grey; float: right; margin: 0; font-family: "gt_pressura_regular", sans-serif; }
-/* line 102, pages/_forum_post.scss */
+/* line 101, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
+.forum_post .body .liste-post .nouv-comm { display: block; padding: 14px; border: solid 1px #B8B8B8; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; margin-top: 20px; }
+/* line 110, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
+.forum_post .body .liste-post .nouv-comm p { margin: 0; margin-bottom: 10px; font-family: "gt_pressura_regular", sans-serif; }
+/* line 116, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
+.forum_post .body .liste-post .nouv-comm .form-nouv-comm { width: 100%; }
+/* line 119, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
+.forum_post .body .liste-post .nouv-comm .form-nouv-comm textarea { width: 100%; font-size: 14px; padding: 12px; margin-bottom: 10px; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; border: solid 1px #B8B8B8; min-height: 80px; overflow: auto; outline: none; }
+/* line 136, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
 .forum_post .body .pagination { clear: both; }
-/* line 105, pages/_forum_post.scss */
+/* line 139, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
 .forum_post .body .pagination ul { display: none; }
-/* line 109, pages/_forum_post.scss */
+/* line 143, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
 .forum_post .body .pagination .btn-nav-suiv { display: none; }
-/* line 113, pages/_forum_post.scss */
+/* line 147, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
 .forum_post .body .pagination select { display: block; margin-left: auto; margin-right: auto; width: 40%; height: 30px; padding: 2px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
-@media only screen and (min-device-width: 768px) { /* line 137, pages/_forum_post.scss */
+@media only screen and (min-device-width: 768px) { /* line 171, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
   .forum_post .body .liste-post .post { clear: both; }
-  /* line 140, pages/_forum_post.scss */
+  /* line 174, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
   .forum_post .body .liste-post .post h2 { max-width: 60%; float: left; margin-left: 20%; margin-right: 20%; }
-  /* line 147, pages/_forum_post.scss */
+  /* line 181, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
   .forum_post .body .liste-post .post .post-contenu { width: 60%; float: right; margin-right: 20%; margin-bottom: 60px; }
-  /* line 153, pages/_forum_post.scss */
+  /* line 187, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
   .forum_post .body .liste-post .post .post-contenu p:first-child { margin-top: 0; }
-  /* line 158, pages/_forum_post.scss */
+  /* line 192, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
   .forum_post .body .liste-post .post .post-meta { width: 20%; float: left; }
-  /* line 162, pages/_forum_post.scss */
+  /* line 196, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
   .forum_post .body .liste-post .post .post-meta p { margin: 0; line-height: 2em; }
-  /* line 167, pages/_forum_post.scss */
+  /* line 201, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
   .forum_post .body .liste-post .post .post-meta .post-auteur { clear: both; float: left; }
-  /* line 174, pages/_forum_post.scss */
+  /* line 208, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
   .forum_post .body .liste-post .comm { clear: both; max-width: 460px; margin-left: auto; margin-right: auto; }
-  /* line 184, pages/_forum_post.scss */
+  /* line 215, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
+  .forum_post .body .liste-post .nouv-comm { clear: both; max-width: 460px; margin-left: auto; margin-right: auto; }
+  /* line 225, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
   .forum_post .body .pagination ul { display: block; text-align: center; padding: 0; }
-  /* line 189, pages/_forum_post.scss */
+  /* line 230, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
   .forum_post .body .pagination ul li { display: inline-block; width: 30px; height: 30px; margin-right: 10px; font-size: 18px; font-family: "gt_pressura_regular", sans-serif; }
-  /* line 199, pages/_forum_post.scss */
+  /* line 240, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
   .forum_post .body .pagination select { display: none; } }
-@media only screen and (min-width: 1224px) { /* line 210, pages/_forum_post.scss */
+@media only screen and (min-width: 1224px) { /* line 251, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
   .forum_post #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 218, pages/_forum_post.scss */
+  /* line 259, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_forum_post.scss */
   .forum_post .body { margin-left: 0; margin-right: 0; } }
 
-/* line 1, pages/_connexion.scss */
+/* line 1, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_connexion.scss */
 .connexion { /* iPads (portrait) ----------- */ /* Desktops and laptops ----------- */ }
-/* line 3, pages/_connexion.scss */
+/* line 3, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_connexion.scss */
 .connexion .message-accueil { display: none; }
-/* line 7, pages/_connexion.scss */
+/* line 7, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_connexion.scss */
 .connexion .body { margin-right: 30px; margin-left: 30px; }
-/* line 11, pages/_connexion.scss */
+/* line 11, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_connexion.scss */
 .connexion .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
-/* line 17, pages/_connexion.scss */
+/* line 17, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_connexion.scss */
 .connexion .body .connexion-form { display: block; width: 33%; margin-right: auto; margin-left: auto; margin-top: 60px; margin-bottom: 120px; }
-@media only screen and (min-width: 1224px) { /* line 40, pages/_connexion.scss */
+@media only screen and (min-width: 1224px) { /* line 40, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_connexion.scss */
   .connexion #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 48, pages/_connexion.scss */
+  /* line 48, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_connexion.scss */
   .connexion .body { margin-left: 0; margin-right: 0; } }
 
-/* line 3, inc/_footer.scss */
+/* line 1, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_pageinfo.scss */
+.pageinfo { /* iPads (portrait) ----------- */ /* Desktops and laptops ----------- */ }
+/* line 3, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_pageinfo.scss */
+.pageinfo .message-accueil { display: none; }
+/* line 7, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_pageinfo.scss */
+.pageinfo .body { margin-right: 30px; margin-left: 30px; }
+/* line 11, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_pageinfo.scss */
+.pageinfo .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
+/* line 17, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_pageinfo.scss */
+.pageinfo .body h2 { display: block; line-height: 1.4em; font-size: 28px; font-family: "gt_pressura_light", sans-serif; margin-right: auto; margin-left: auto; }
+/* line 28, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_pageinfo.scss */
+.pageinfo .body .post-contenu p { font-size: 16px; line-height: 1.4em; font-family: "Georgia", sans-serif; color: #424245; }
+/* line 35, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_pageinfo.scss */
+.pageinfo .body .post-contenu .img-info { width: 100%; margin-bottom: 20px; }
+@media only screen and (min-device-width: 768px) { /* line 48, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_pageinfo.scss */
+  .pageinfo .body h2 { max-width: 60%; float: left; margin-left: 20%; margin-right: 20%; }
+  /* line 55, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_pageinfo.scss */
+  .pageinfo .body .post-contenu { width: 60%; float: right; margin-right: 20%; margin-bottom: 60px; }
+  /* line 61, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_pageinfo.scss */
+  .pageinfo .body .post-contenu p:first-child { margin-top: 0; } }
+@media only screen and (min-width: 1224px) { /* line 73, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_pageinfo.scss */
+  .pageinfo #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
+  /* line 81, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/pages/_pageinfo.scss */
+  .pageinfo .body { margin-left: 0; margin-right: 0; } }
+
+/* line 3, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_footer.scss */
 .footer img { display: block; margin-left: auto; margin-right: auto; }
-/* line 9, inc/_footer.scss */
+/* line 9, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_footer.scss */
 .footer ul { padding: 0; }
-/* line 13, inc/_footer.scss */
+/* line 13, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_footer.scss */
 .footer ul li { display: inline-block; width: 100%; text-align: center; margin-bottom: 1.2em; font-family: "gt_pressura_regular", sans-serif; font-size: 20px; margin-left: auto; margin-right: auto; }
-/* line 24, inc/_footer.scss */
+/* line 24, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_footer.scss */
 .footer ul li:first-child { margin-top: 1.2em; }
-/* line 28, inc/_footer.scss */
+/* line 28, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_footer.scss */
 .footer ul li:last-child { margin-bottom: 40px; }
-/* line 32, inc/_footer.scss */
+/* line 32, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_footer.scss */
 .footer p { text-align: center; font-size: 16px; font-family: "gt_pressura_regular", sans-serif; }
-/* line 38, inc/_footer.scss */
+/* line 38, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_footer.scss */
 .footer a { color: #262628; }
-/* line 42, inc/_footer.scss */
+/* line 42, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_footer.scss */
 .footer a:hover { color: #e11414; }
 
 /* iPads (portrait and landscape) ----------- */
-@media only screen and (min-device-width: 768px) { /* line 54, inc/_footer.scss */
+@media only screen and (min-device-width: 768px) { /* line 54, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_footer.scss */
   .footer img { display: block; margin: 0; float: left; margin-bottom: 40px; }
-  /* line 61, inc/_footer.scss */
+  /* line 61, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_footer.scss */
   .footer ul { padding: 0; float: right; }
-  /* line 66, inc/_footer.scss */
+  /* line 66, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_footer.scss */
   .footer ul li { display: inline; margin-bottom: 1.2em; margin-right: 30px; font-family: "gt_pressura_regular", sans-serif; font-size: 20px; list-style-type: none; }
-  /* line 75, inc/_footer.scss */
+  /* line 75, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_footer.scss */
   .footer p { font-size: 16px; font-family: "gt_pressura_regular", sans-serif; clear: both; text-align: left; text-transform: uppercase; margin-top: 20px; color: #262628; }
-  /* line 86, inc/_footer.scss */
+  /* line 86, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_footer.scss */
   .footer a { color: #262628; }
-  /* line 90, inc/_footer.scss */
+  /* line 90, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_footer.scss */
   .footer a:hover { color: #e11414; } }
 /* ========================================================================== Helper classes ========================================================================== */
-/* line 5, inc/_helper_print.scss */
+/* line 5, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_helper_print.scss */
 .ir { background-color: transparent; border: 0; overflow: hidden; *text-indent: -9999px; }
 
-/* line 12, inc/_helper_print.scss */
+/* line 12, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_helper_print.scss */
 .ir:before { content: ""; display: block; width: 0; height: 150%; }
 
-/* line 19, inc/_helper_print.scss */
+/* line 19, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_helper_print.scss */
 .hidden { display: none !important; visibility: hidden; }
 
-/* line 24, inc/_helper_print.scss */
+/* line 24, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_helper_print.scss */
 .visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
 
-/* line 36, inc/_helper_print.scss */
+/* line 36, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_helper_print.scss */
 .visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
 
-/* line 45, inc/_helper_print.scss */
+/* line 45, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_helper_print.scss */
 .invisible { visibility: hidden; }
 
-/* line 50, inc/_helper_print.scss */
+/* line 50, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_helper_print.scss */
 .clearfix:before, .clearfix:after { content: " "; display: table; }
 
-/* line 55, inc/_helper_print.scss */
+/* line 55, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_helper_print.scss */
 .clearfix:after { clear: both; }
 
-/* line 59, inc/_helper_print.scss */
+/* line 59, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_helper_print.scss */
 .clearfix { *zoom: 1; }
 
 /* ========================================================================== Print styles ========================================================================== */
-@media print { /* line 68, inc/_helper_print.scss */
+@media print { /* line 68, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_helper_print.scss */
   * { background: transparent !important; color: #000 !important; box-shadow: none !important; text-shadow: none !important; }
-  /* line 76, inc/_helper_print.scss */
+  /* line 76, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_helper_print.scss */
   a, a:visited { text-decoration: underline; }
-  /* line 80, inc/_helper_print.scss */
+  /* line 80, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_helper_print.scss */
   a[href]:after { content: " (" attr(href) ")"; }
-  /* line 84, inc/_helper_print.scss */
+  /* line 84, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_helper_print.scss */
   abbr[title]:after { content: " (" attr(title) ")"; }
-  /* line 90, inc/_helper_print.scss */
+  /* line 90, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_helper_print.scss */
   .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
-  /* line 95, inc/_helper_print.scss */
+  /* line 95, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_helper_print.scss */
   pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
-  /* line 100, inc/_helper_print.scss */
+  /* line 100, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_helper_print.scss */
   thead { display: table-header-group; }
-  /* line 105, inc/_helper_print.scss */
+  /* line 105, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_helper_print.scss */
   tr, img { page-break-inside: avoid; }
-  /* line 109, inc/_helper_print.scss */
+  /* line 109, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_helper_print.scss */
   img { max-width: 100% !important; }
   @page { margin: 0.5cm; }
-  /* line 119, inc/_helper_print.scss */
+  /* line 119, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_helper_print.scss */
   p, h2, h3 { orphans: 3; widows: 3; }
-  /* line 125, inc/_helper_print.scss */
+  /* line 125, /Users/antoinelord/go/src/github.com/konginteractive/cme/public/css/inc/_helper_print.scss */
   h2, h3 { page-break-after: avoid; } }

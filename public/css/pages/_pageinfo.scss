@@ -1,0 +1,86 @@
+.pageinfo {
+
+	.message-accueil {
+		display: none;
+	}
+
+	.body {
+		margin-right: 30px;
+		margin-left: 30px;
+
+		hr {
+			clear: both;
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+
+		h2 {
+			display: block;
+			line-height: 1.4em;
+			font-size: 28px;
+			font-family: $titre-light;
+			margin-right: auto;
+			margin-left: auto;
+		}
+
+		.post-contenu {
+
+			p {
+				font-size: 16px;
+				line-height: 1.4em;
+				font-family: $texte-regular;
+				color: #424245;
+			}
+
+			.img-info {
+				width: 100%;
+				margin-bottom: 20px;
+			}
+		}
+	}
+
+	/* iPads (portrait) ----------- */
+    @media only screen
+    and (min-device-width : 768px) {
+
+    	.body {
+
+			h2 {
+				max-width: 60%;
+				float: left;
+				margin-left: 20%;
+				margin-right: 20%;
+			}
+
+			.post-contenu {
+				width: 60%;
+				float: right;
+				margin-right: 20%;
+				margin-bottom: 60px;
+
+				p:first-child {
+					margin-top: 0;
+				}
+
+			}
+		}
+	}
+
+	/* Desktops and laptops ----------- */
+    @media only screen
+    and (min-width : 1224px) {
+
+        #wrapper {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        .body {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}

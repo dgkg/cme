@@ -31,7 +31,10 @@
                         {{end}}
                     </select>
 
-                    <form class="pure-form" action="/forum/search"><input name="q" type="text" placeholder="Recherche..."></form>
+                    <form class="pure-form">
+                        <input type="text" class="pure-input-rounded" placeholder="Recherche...">
+                        <button type="submit" class="pure-button">Rechercher</button>
+                    </form>
 
                     <select>
                         <option>Plus récents d'abord</option>
@@ -48,23 +51,25 @@
                         {{range .Forums}}
                             <div class="post">
 
-                            <h2>{{.Title}}</h2>
+                            <h2><a href="/forum/post/{{.Id}}">{{.Title}}</a></h2>
                             <p class="post-desc">{{.Text}}</p>
                             <div class="post-meta">
                                 <p class="post-cat">{{.CategoryTitle}}</p>
                                 <img src="/img/ui/icone-reponse.png" alt="Nombre de réponses"><p>{{.PostNumb}}</p>
-                                
+
 
                                 {{if eq .IsSolved 1 }}
                                     <img src="/img/ui/icone-resolu.png" alt="Statut de la publication"><p>Résolu</p>
                                 {{else}}
                                     <img src="/img/ui/icone-non-resolu.png" alt="Statut de la publication"><p>Non résolu</p>
                                 {{end}}
-                                
+
                                 <img src="/img/ui/icone-appreciations.png" alt="Nombre d'appréciations"><p>8</p>
                             </div>
 
+
                             <a class="btn-repondre" href="{{.Url}}">Répondre</a>
+
 
                             <hr>
 
@@ -96,8 +101,6 @@
                     <a class="btn-nav-suiv" href="#">Suivant</a>
 
                 </div>
-
-                <hr>
 
                 {{template "footer" .}}
             </div>
