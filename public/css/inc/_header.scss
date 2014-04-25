@@ -5,7 +5,7 @@
     line-height: 60px;
     vertical-align: middle;
 
-    .btn-connexion, .btn-inscription {
+    .btn-connexion, .btn-inscription, .btn-moncompte {
         display: inline-block;
         height: 40px;
         width: 42%;
@@ -29,13 +29,14 @@
         color: $quasi-blanc;
     }
 
-    @media only screen 
+    @media only screen
     and (min-device-width : 768px) {
 
-        .btn-connexion, .btn-inscription {
+        .btn-connexion, .btn-inscription, .btn-moncompte {
             float: right;
             width: auto;
-            background-color: transparent;
+            padding: 10px;
+            background-color: $quasi-blanc;
             color: #6E7074;
             margin: 0;
             margin-top: 10px;
@@ -44,16 +45,17 @@
             font-size: 14px;
         }
 
-        .btn-connexion:hover, .btn-inscription:hover {
-            background-color: transparent;
+        .btn-connexion:hover, .btn-inscription:hover, .btn-moncompte:hover {
+            background-color: $quasi-blanc;
             color: $gris-texte;
+            border: 1px solid $gris-texte;
         }
     }
 
     @media only screen
     and (min-width : 1224px) {
 
-        .btn-connexion {
+        .btn-connexion, .btn-inscription, .btn-moncompte {
             margin-right: 0;
             font-size: 16px;
         }
@@ -112,7 +114,7 @@
 }
 
 /* iPads (portrait and landscape) ----------- */
-    @media only screen 
+    @media only screen
     and (min-device-width : 768px) {
 
     .header {
