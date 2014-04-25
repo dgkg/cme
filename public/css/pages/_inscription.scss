@@ -24,11 +24,15 @@
 
 		.connexion-form {
 			display: block;
-			width: 70%;
+			width: 90%;
 			margin-right: auto;
 			margin-left: auto;
 			margin-top: 45px;
 			margin-bottom: 45px;
+
+			input, button {
+				width: 100%;
+			}
 		}
 	}
 
@@ -45,7 +49,7 @@
 			}
 
 			.connexion-form {
-				width: 380px;
+				width: 320px;
 				margin-left: auto;
 				margin-right: auto;
 			}
