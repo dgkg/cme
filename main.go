@@ -46,11 +46,11 @@ func main() {
 
 	// rootage de la page connexion
 	r.HandleFunc("/connexion", ConnexionHandler)
+	r.HandleFunc("/inscription", InscriptionHandler)
 
 	// Rootage des pages d'informations
 	r.HandleFunc("/qui-sommes-nous", QuiSommesNousHandler)
 	r.HandleFunc("/pourquoi-une-association", PourquoiUneAssoHandler)
-	r.HandleFunc("/connexion", ConnexionHandler)
 
 	//gestion des fichiers statiques
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
@@ -210,6 +210,11 @@ func NewsHandler(w http.ResponseWriter, r *http.Request) {
 func ConnexionHandler(w http.ResponseWriter, r *http.Request) {
 	var pc PageConnexion
 	Render(w, pc.View())
+}
+
+func InscriptionHandler(w http.ResponseWriter, r *http.Request) {
+	var pi PageInscription
+	Render(w, pi.View())
 }
 
 func QuiSommesNousHandler(w http.ResponseWriter, r *http.Request) {

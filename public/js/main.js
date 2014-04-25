@@ -15,6 +15,8 @@ $(window).load(function() {
 	var viewportWidth = $(window).width();
 	var viewportHeight = $(window).height();
 
+	$(".mosaique").height(viewportHeight);
+
 	// Ajuster le nombre de projets à afficher selon la taille de l'écran
 	if(viewportWidth > 1000) {
 		for (var i = 22; i >= 1; i--) {
@@ -95,16 +97,16 @@ function initierMosaique() {
 		margins: 0,
 		lastRow: 'justify',
 		sizeRangeSuffixes: {
-			'lt100':'', 
-			'lt240':'', 
-			'lt320':'', 
-			'lt500':'', 
-			'lt640':'', 
+			'lt100':'',
+			'lt240':'',
+			'lt320':'',
+			'lt500':'',
+			'lt640':'',
 			'lt1024':''},
 	});
 
 	$(".mosaique").justifiedGallery().on('jg.complete', function (e) {
-		
+
 		if( $(".mosaique").css('height') != viewportHeight ) {
 			$(".mosaique").height(viewportHeight);
 		}

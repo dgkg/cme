@@ -3,31 +3,35 @@
 {{template "header" .}}
             <div class="body">
 
+                <h1>Connexion</h1>
+
+                <hr>
+
                 <form class="pure-form pure-form-aligned connexion-form" method="POST" action="">
 
-                    <fieldset>
+                        <fieldset class="pure-group">
+                            <input type="text" class="pure-input-1-2" placeholder="Courriel">
+                            <input type="text" class="pure-input-1-2" placeholder="Mot de passe">
+                        </fieldset>
 
-                        <legend>Connexion</legend>
-
-                        <div class="pure-control-group">
-                            <label for="name">Courriel</label>
-                            <input id="name" type="text" placeholder="Courriel">
-                        </div>
-
-                        <div class="pure-control-group">
-                            <label for="password">Mot de passe</label>
-                            <input id="password" type="password" placeholder="Mot de passe">
-                        </div>
-
-                        <div class="pure-controls">
-                            <button type="submit" class="pure-button pure-button-primary">Connexion</button>
-                        </div>
+                        <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Connexion</button>
 
                     </fieldset>
+
+                    <p>Vous avez oublié votre mot de passe?</p>
+                    <a href="#">Cliquez ici pour le récupérer</a>
 
                 </form>
 
                 <hr>
+
+                <div class="info">
+
+                    <h2>Vous n'avez pas de compte?</h2>
+                    <p>Cliquez ici pour faire une demande d'admission.</p>
+                    <a class="pure-button" href="/inscription">Inscription</a>
+
+                </div>
 
                {{template "footer" .}}
             </div>

@@ -1,0 +1,91 @@
+{{ define "inscription" }}
+<!DOCTYPE html>
+{{template "header" .}}
+            <div class="body">
+
+                <h1>Inscription</h1>
+
+                <hr>
+
+                <form class="pure-form pure-form-aligned connexion-form" method="POST" action="">
+
+                    <h2>Informations personnelles</h2>
+
+                    <fieldset class="pure-group">
+                        <input type="text" class="pure-input-1-2" placeholder="Prénom">
+                        <input type="text" class="pure-input-1-2" placeholder="Nom">
+                    </fieldset>
+
+                    <fieldset>
+                        <input type="email" class="pure-input-1-2" placeholder="Email">
+                    </fieldset>
+
+                    <h2>Créer un mot de passe</h2>
+
+                    <fieldset class="pure-group">
+                        <input type="text" class="pure-input-1-2" placeholder="Mot de passe">
+                        <input type="text" class="pure-input-1-2" placeholder="Confirmation">
+                    </fieldset>
+
+                    <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Inscription</button>
+
+                    <!-- <fieldset>
+
+                        <div class="pure-control-group">
+                            <label for="prenom">Votre prénom</label>
+                            <input id="prenom" type="text" placeholder="Prénom">
+                        </div>
+
+                        <div class="pure-control-group">
+                            <label for="name">Votre nom</label>
+                            <input id="name" type="text" placeholder="Nom">
+                        </div>
+
+                    </fieldset>
+
+                    <fieldset>
+
+                        <div class="pure-control-group">
+                            <label for="email">Courriel</label>
+                            <input id="email" type="text" placeholder="Courriel">
+                        </div>
+
+                        <div class="pure-control-group">
+                            <label for="password">Mot de passe</label>
+                            <input id="password" type="password" placeholder="Mot de passe">
+                        </div>
+
+                        <div class="pure-control-group">
+                            <label for="passwordconf">Confirmation</label>
+                            <input id="passwordconf" type="password" placeholder="Confirmation">
+                        </div>
+
+                        <div class="pure-controls">
+                            <button type="submit" class="pure-button pure-button-primary">Connexion</button>
+                        </div>
+
+                    </fieldset> -->
+
+                </form>
+
+                <hr>
+
+                <div class="info">
+
+                    <h2>Vous avez déjà un compte ?</h2>
+                    <p>Cliquez ici pour vous connecter à votre compte.</p>
+                    <a class="pure-button" href="/connexion">Connexion</a>
+
+                </div>
+
+               {{template "footer" .}}
+            </div>
+        </div>
+
+        <!-- <script type="text/javascript" src="/js/jquery-1.11.0.min.js"></script> -->
+        <!-- <script type="text/javascript" src="/js/jquery.justifiedGallery.js"></script> -->
+        <!-- <script type="text/javascript" src="/js/jquery.contenthover.min.js"></script> -->
+        <!-- <script type="text/javascript" src="/js/main.js"></script> -->
+    </body>
+</html>
+{{ end }}
