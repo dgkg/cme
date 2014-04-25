@@ -52,6 +52,10 @@
             display: none;
             margin-left: auto;
             margin-right: auto;
+
+            .active {
+                color: #e11414;
+            }
         }
 
         select {
