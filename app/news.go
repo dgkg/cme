@@ -7,6 +7,7 @@ import (
 type News struct {
 	Id             int64
 	UserId         int64
+	UserName	   string `sql:"-"` // Ignore this field
 	NewsCategoryId int64
 	Title          string `sql:"type:varchar(100);"`
 	Text           string

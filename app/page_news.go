@@ -30,9 +30,7 @@ func (pn PageNews) View() Page {
 
 	pn.News = n.getList()
 
-	// permet de convertir la date de la personne qui a posté la question
-	date := n.CreatedAt
-	n.CreatedAtString = date.Format(dateLayout)
+	pn.injectDataToDisplay()
 
 	// pagination
 	pn.PagesList = make([]Paginate, 5)
@@ -53,6 +51,23 @@ func (pn PageNews) View() Page {
 	pn.PagesList[4].Url = "/forum/page/5"
 
 	return pn
+}
+
+func (pn *PageNews) injectDataToDisplay() {
+
+	// permet de récupérer le nom prénom de la personne qui a posté la question
+	var u User
+
+	// permet de convertir la date de la personne qui a posté la question
+	for key, _ := range pn.News {
+		t := pn.News[key].CreatedAt
+		pn.News[key].CreatedAtString = t.Format(dateLayout)
+
+		u.Id = pn.News[key].UserId
+		u = u.getById()
+		pn.News[key].UserName = u.FirstName + " " + u.LastName
+		log.Println(u.FirstName)
+	}
 }
 
 func getNews() {
