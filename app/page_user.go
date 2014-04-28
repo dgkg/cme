@@ -37,6 +37,8 @@ func (pu PageUser) View() Page {
 	pu.PagesList[4].Title = "5"
 	pu.PagesList[4].Url = "/eleves/page/5"
 
+	pu.RenderHtml = true
+
 	return pu
 }
 
@@ -47,6 +49,8 @@ func (pu PageUser) ViewFiche() Page {
 	Templ = "user_fiche"
 	pu.Title = "Fiche de Henri Lepic"
 	pu.MainClass = "eleve_fiche"
+
+	pu.RenderHtml = true
 
 	return pu
 }

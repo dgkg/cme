@@ -16,6 +16,7 @@ func (ppua PagePourquoiUneAsso) View() Page {
 
 	ppua.Title = "Pourquoi une association?"
 	ppua.MainClass = "pageinfo"
+	ppua.RenderHtml = true
 
 	return ppua
 }

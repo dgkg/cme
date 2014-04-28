@@ -51,6 +51,7 @@ func (pn PageNews) View() Page {
 
 	pn.PagesList[4].Title = "5"
 	pn.PagesList[4].Url = "/forum/page/5"
+	pn.RenderHtml = false
 
 	return pn
 }

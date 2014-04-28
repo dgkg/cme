@@ -32,6 +32,7 @@ func (pfp PageForumPost) View(id string) Page {
 	pfp.Forum.Id = idForm
 	pfp.Forum = pfp.Forum.getById() //pfp.Forum.getPost(idForm)
 	pfp.Forum.Posts = pfp.Forum.getPost()
+	pfp.RenderHtml = false
 	pfp.injectDataToDisplay()
 
 	log.Println("le titre du post est : " + pfp.Forum.Title)

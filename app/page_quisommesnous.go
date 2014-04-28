@@ -16,6 +16,7 @@ func (pqsn PageQuiSommesNous) View() Page {
 
 	pqsn.Title = "Qui sommes-nous?"
 	pqsn.MainClass = "pageinfo"
+	ppua.RenderHtml = false
 
 	return pqsn
 }

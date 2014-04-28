@@ -12,6 +12,7 @@ type PageWeb struct {
 	MainClass     string
 	SearchText    string // permet de récupérer dans une vue le(s) mot(s) clefs recherchés
 	Logge         bool
+	RenderHtml    bool
 	Menu
 }
 

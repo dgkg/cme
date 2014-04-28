@@ -17,5 +17,7 @@ func (pc PageConnexion) View() Page {
 	pc.Title = "Connexion"
 	pc.MainClass = "connexion"
 
+	pc.RenderHtml = false
+
 	return pc
 }

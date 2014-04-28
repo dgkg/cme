@@ -1,20 +1,21 @@
 package main
 
 import (
-	. "github.com/konginteractive/cme/app"
-	//_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
-	//"github.com/jinzhu/gorm"
+	. "github.com/konginteractive/cme/app"
 	"log"
 	"net/http"
 	// attention entre html/template et text/template le render est en autoescaping
-	"text/template"
+	htmlTempl "html/template"
+	textTempl "text/template"
 )
 
-var templates *template.Template
+var templatesHtml *htmlTempl.Template
+var templatesText *textTempl.Template
 
 func init() {
-	templates = template.Must(template.ParseGlob("./vues/*"))
+	templatesHtml = htmlTempl.Must(htmlTempl.ParseGlob("./vues/*"))
+	templatesText = textTempl.Must(textTempl.ParseGlob("./vues/*"))
 }
 
 func main() {
@@ -232,7 +233,13 @@ func Render(w http.ResponseWriter, p Page) {
 
 	w.Header().Add("Accept-Charset", "utf-8")
 	w.Header().Add("Content-Type", "text/html")
-	err := templates.ExecuteTemplate(w, Templ, p)
+	if p.RenderHtml = true{
+		htmlTempl.Template
+		err := templatesHtml.ExecuteTemplate(w, Templ, p)	
+	}else{
+		err := templatesText.ExecuteTemplate(w, Templ, p)
+	}
+	
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}

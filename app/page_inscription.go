@@ -16,6 +16,6 @@ func (pi PageInscription) View() Page {
 
 	pi.Title = "Inscription"
 	pi.MainClass = "inscription"
-
+	pi.RenderHtml = false
 	return pi
 }

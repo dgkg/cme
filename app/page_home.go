@@ -19,6 +19,6 @@ func (ph PageHome) View() Page {
 	ph.Title = "Coucouc de la forêt"
 
 	ph.MainClass = "accueil"
-
+	ph.RenderHtml = true
 	return ph
 }
