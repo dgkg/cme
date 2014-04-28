@@ -5,6 +5,7 @@ import (
 	. "github.com/konginteractive/cme/app"
 	"log"
 	"net/http"
+
 	// attention entre html/template et text/template le render est en autoescaping
 	htmlTempl "html/template"
 	textTempl "text/template"
@@ -233,13 +234,15 @@ func Render(w http.ResponseWriter, p Page) {
 
 	w.Header().Add("Accept-Charset", "utf-8")
 	w.Header().Add("Content-Type", "text/html")
-	if p.RenderHtml = true{
-		htmlTempl.Template
-		err := templatesHtml.ExecuteTemplate(w, Templ, p)	
-	}else{
-		err := templatesText.ExecuteTemplate(w, Templ, p)
+
+	var err error
+	// permet d'afficher avec le rendu html ou non
+	if p.IsHtmlRender() == false {
+		err = templatesHtml.ExecuteTemplate(w, Templ, p)
+	} else {
+		err = templatesText.ExecuteTemplate(w, Templ, p)
 	}
-	
+
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}

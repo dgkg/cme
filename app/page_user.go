@@ -54,3 +54,9 @@ func (pu PageUser) ViewFiche() Page {
 
 	return pu
 }
+
+// fonction permettant de savoir si le rendu passe par l'html ou non
+// permet de faire fonctionner avec l'interface de type Page
+func (p PageUser) IsHtmlRender() bool {
+	return p.RenderHtml
+}

@@ -1,6 +1,7 @@
 package app
 
 type Page interface {
+	IsHtmlRender() bool
 }
 
 type PageWeb struct {
@@ -14,6 +15,12 @@ type PageWeb struct {
 	Logge         bool
 	RenderHtml    bool
 	Menu
+}
+
+// fonction permettant de savoir si le rendu passe par l'html ou non
+// permet de faire fonctionner avec l'interface de type Page
+func (p *PageWeb) IsHtmlRender() bool {
+	return p.RenderHtml
 }
 
 type Keyword struct {

@@ -32,7 +32,7 @@ func (pfp PageForumPost) View(id string) Page {
 	pfp.Forum.Id = idForm
 	pfp.Forum = pfp.Forum.getById() //pfp.Forum.getPost(idForm)
 	pfp.Forum.Posts = pfp.Forum.getPost()
-	pfp.RenderHtml = false
+	pfp.RenderHtml = true
 	pfp.injectDataToDisplay()
 
 	log.Println("le titre du post est : " + pfp.Forum.Title)
@@ -70,4 +70,10 @@ func (pfp *PageForumPost) injectDataToDisplay() {
 		pfp.Forum.Posts[i].CreatedAtString = t.Format(dateLayout)
 
 	}
+}
+
+// fonction permettant de savoir si le rendu passe par l'html ou non
+// permet de faire fonctionner avec l'interface de type Page
+func (p PageForumPost) IsHtmlRender() bool {
+	return p.RenderHtml
 }

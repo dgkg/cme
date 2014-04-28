@@ -21,3 +21,9 @@ func (pc PageConnexion) View() Page {
 
 	return pc
 }
+
+// fonction permettant de savoir si le rendu passe par l'html ou non
+// permet de faire fonctionner avec l'interface de type Page
+func (p PageConnexion) IsHtmlRender() bool {
+	return p.RenderHtml
+}

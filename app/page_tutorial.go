@@ -30,7 +30,7 @@ func (pt PageTutorial) View() Page {
 	pt.Tutorials = t.getList()
 	pt.Categories = t.getAllCategories()
 	pt.PagesList = pt.createPaginate()
-
+	pt.RenderHtml = false
 	pt.injectDataToDisplay(pt.Tutorials)
 
 	return pt
@@ -55,7 +55,7 @@ func (pt PageTutorial) ViewPaged(page string) Page {
 	pt.Tutorials = t.getListPaged(pagePosition)
 	pt.Categories = t.getAllCategories()
 	pt.PagesList = pt.createPaginate()
-
+	pt.RenderHtml = true
 	pt.injectDataToDisplay(pt.Tutorials)
 
 	return pt
@@ -80,7 +80,7 @@ func (pt PageTutorial) ViewCategory(cat string) Page {
 	pt.Tutorials = t.getListFromCat(idCat)
 	pt.Categories = t.getAllCategories()
 	pt.PagesList = pt.createPaginateFromIdCat(idCat)
-
+	pt.RenderHtml = true
 	pt.injectDataToDisplay(pt.Tutorials)
 
 	return pt
@@ -108,7 +108,7 @@ func (pt PageTutorial) ViewCategoryPaged(cat string, page string) Page {
 	pt.Tutorials = t.getListFromCatPaged(idCat, pagePosition)
 	pt.Categories = t.getAllCategories()
 	pt.PagesList = pt.createPaginateFromIdCat(idCat)
-
+	pt.RenderHtml = true
 	pt.injectDataToDisplay(pt.Tutorials)
 
 	return pt
@@ -131,7 +131,7 @@ func (pt PageTutorial) ViewSearch(q string) Page {
 	pt.MainClass = "tutoriels"
 	pt.Tutorials = t.search(q)
 	pt.Categories = t.getAllCategories()
-
+	pt.RenderHtml = true
 	if len(pt.Tutorials) == 0 {
 		pt.SearchText = q
 	}
@@ -156,7 +156,7 @@ func (pt PageTutorial) ViewAdd() Page {
 	pt.MainClass = "nouveaututo"
 	pt.Tutorials = make([]Tutorial, 1)
 	pt.Categories = t.getAllCategories()
-
+	pt.RenderHtml = true
 	return pt
 }
 
@@ -241,4 +241,10 @@ func (pt PageTutorial) createPaginateFromIdCat(id int64) []Paginate {
 		p[i].Url = "?p=" + t
 	}
 	return p
+}
+
+// fonction permettant de savoir si le rendu passe par l'html ou non
+// permet de faire fonctionner avec l'interface de type Page
+func (p PageTutorial) IsHtmlRender() bool {
+	return p.RenderHtml
 }
