@@ -173,17 +173,6 @@ func (pf PageForum) ValidateForm(r *http.Request) (f Forum, v bool) {
 	f.ForumCategoryId, _ = ParseInt(r.PostFormValue("post-cat"), 0, 64)
 	f.IsOnline = 1 // permet de mettre en ligne automatiquement la quesion
 
-	// on initialise v à true
-	v = true
-	// on vérifi les champs qui sont présents
-	if r.PostFormValue("post-nom") == "" {
-		v = false
-	}
-
-	if r.PostFormValue("post-contenu") == "" {
-		v = false
-	}
-
 	return
 }
 

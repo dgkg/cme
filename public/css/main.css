@@ -712,15 +712,17 @@ a:visited { color: #e11414; }
 .nouveausujet .body .post-cat option { font-size: 14px; }
 /* line 77, pages/_forum_add.scss */
 .nouveausujet .body .btn-soumettre { display: block; width: 100%; height: 60px; background-color: #e11414; color: #f9f9f9; text-decoration: none; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; text-align: center; line-height: 30px; vertical-align: middle; margin-top: 20px; margin-bottom: 20px; }
-@media only screen and (min-device-width: 768px) { /* line 100, pages/_forum_add.scss */
+/* line 95, pages/_forum_add.scss */
+.nouveausujet .body .msg-erreur .form-error { width: 100%; height: 40px; background-color: #E81313; line-height: 40px; vertical-align: middle; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; padding-left: 15px; margin-bottom: 20px; color: #f9f9f9; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
+@media only screen and (min-device-width: 768px) { /* line 119, pages/_forum_add.scss */
   .nouveausujet .body .nouv-post { max-width: 80%; margin-right: auto; margin-left: auto; }
-  /* line 106, pages/_forum_add.scss */
+  /* line 125, pages/_forum_add.scss */
   .nouveausujet .body .btn-soumettre { max-width: 280px; margin-left: auto; margin-right: auto; } }
-@media only screen and (min-width: 1224px) { /* line 118, pages/_forum_add.scss */
+@media only screen and (min-width: 1224px) { /* line 137, pages/_forum_add.scss */
   .nouveausujet #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 126, pages/_forum_add.scss */
+  /* line 145, pages/_forum_add.scss */
   .nouveausujet .body { margin-left: 0; margin-right: 0; }
-  /* line 130, pages/_forum_add.scss */
+  /* line 149, pages/_forum_add.scss */
   .nouveausujet .body .nouv-post { max-width: 70%; } }
 
 /* line 1, pages/_forum_post.scss */
@@ -812,13 +814,17 @@ a:visited { color: #e11414; }
 .connexion .body .connexion-form { display: block; width: 90%; margin-right: auto; margin-left: auto; margin-top: 45px; margin-bottom: 45px; }
 /* line 33, pages/_connexion.scss */
 .connexion .body .connexion-form input, .connexion .body .connexion-form button { width: 100%; }
-@media only screen and (min-device-width: 768px) { /* line 45, pages/_connexion.scss */
+/* line 40, pages/_connexion.scss */
+.connexion .body .msg-erreur .form-error { width: 100%; height: 40px; background-color: #E81313; line-height: 40px; vertical-align: middle; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; padding-left: 15px; margin-bottom: 20px; color: #f9f9f9; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
+@media only screen and (min-device-width: 768px) { /* line 64, pages/_connexion.scss */
   .connexion .body .info { max-width: 320px; margin-left: auto; margin-right: auto; }
-  /* line 51, pages/_connexion.scss */
+  /* line 70, pages/_connexion.scss */
+  .connexion .body .msg-erreur { width: 320px; margin-left: auto; margin-right: auto; }
+  /* line 76, pages/_connexion.scss */
   .connexion .body .connexion-form { width: 320px; margin-left: auto; margin-right: auto; } }
-@media only screen and (min-width: 1224px) { /* line 64, pages/_connexion.scss */
+@media only screen and (min-width: 1224px) { /* line 89, pages/_connexion.scss */
   .connexion #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 72, pages/_connexion.scss */
+  /* line 97, pages/_connexion.scss */
   .connexion .body { margin-left: 0; margin-right: 0; } }
 
 /* line 1, pages/_inscription.scss */
@@ -835,13 +841,17 @@ a:visited { color: #e11414; }
 .inscription .body .connexion-form { display: block; width: 90%; margin-right: auto; margin-left: auto; margin-top: 45px; margin-bottom: 45px; }
 /* line 33, pages/_inscription.scss */
 .inscription .body .connexion-form input, .inscription .body .connexion-form button { width: 100%; }
-@media only screen and (min-device-width: 768px) { /* line 45, pages/_inscription.scss */
+/* line 40, pages/_inscription.scss */
+.inscription .body .msg-erreur .form-error { width: 100%; height: 40px; background-color: #E81313; line-height: 40px; vertical-align: middle; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; padding-left: 15px; margin-bottom: 20px; color: #f9f9f9; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
+@media only screen and (min-device-width: 768px) { /* line 64, pages/_inscription.scss */
   .inscription .body .info { max-width: 320px; margin-left: auto; margin-right: auto; }
-  /* line 51, pages/_inscription.scss */
+  /* line 70, pages/_inscription.scss */
+  .inscription .body .msg-erreur { width: 320px; margin-left: auto; margin-right: auto; }
+  /* line 76, pages/_inscription.scss */
   .inscription .body .connexion-form { width: 320px; margin-left: auto; margin-right: auto; } }
-@media only screen and (min-width: 1224px) { /* line 64, pages/_inscription.scss */
+@media only screen and (min-width: 1224px) { /* line 89, pages/_inscription.scss */
   .inscription #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 72, pages/_inscription.scss */
+  /* line 97, pages/_inscription.scss */
   .inscription .body { margin-left: 0; margin-right: 0; } }
 
 /* line 1, pages/_pageinfo.scss */
