@@ -7,9 +7,10 @@ CKEDITOR.replace( 'post-contenu', {
 $(window).load(function() {
 
     //$('form').submit(alert("Bonjour"));
-    $('form').submit(function(e) {
+
+    /* $('form').submit(function(e) {
         console.log($data);
-    });
+    }); */
 
     var $zoneMsgErreur = $('.msg-erreur');
 
