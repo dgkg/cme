@@ -17,7 +17,7 @@
 
                     </div>
 
-                    <form class="pure-form">
+                    <form class="pure-form" method="POST">
 
                         <label class="label-post-nom" for="post-nom">Nom du sujet</label>
                         <input type="text" id="post-nom" class="post-nom" name="post-nom" data-validation="required" data-validation-error-msg="Veuillez saisir le nom du sujet.">
@@ -31,7 +31,7 @@
                         </select>
 
                         <label class="label-post-contenu" for="post-contenu">Contenu</label>
-                        <input id="post-contenu" name="postcontenu" class="post-contenu" data-validation="required" data-validation-error-msg="Veuillez écrire le contenu de votre sujet.">
+                        <textarea id="post-contenu" name="postcontenu" class="post-contenu" data-validation="required" data-validation-error-msg="Veuillez écrire le contenu de votre sujet."></textarea>
 
                         <input type="submit" class="btn-soumettre" value="Soumettre">
 
@@ -45,6 +45,7 @@
 
         <script type="text/javascript" src="/js/vendor/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="/js/vendor/ckeditor.js"></script>
+        <script type="text/javascript" src="/js/vendor/adapters/jquery.js"></script>
         <script type="text/javascript" src="/js/vendor/form-validator/jquery.form-validator.min.js"></script>
         <script type="text/javascript" src="/js/forum_add.js"></script>
     </body>

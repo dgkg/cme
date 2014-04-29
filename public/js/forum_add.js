@@ -1,9 +1,3 @@
-CKEDITOR.replace( 'post-contenu', {
-
-    //var data = CKEDITOR.instances.post-contenu.getData();
-
-});
-
 $(window).load(function() {
 
     //$('form').submit(alert("Bonjour"));
@@ -11,6 +5,12 @@ $(window).load(function() {
     /* $('form').submit(function(e) {
         console.log($data);
     }); */
+
+    //log.console(contenu);
+
+    $('.post-contenu').ckeditor();
+
+    var editeur = $('.post-contenu');
 
     var $zoneMsgErreur = $('.msg-erreur');
 
