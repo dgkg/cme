@@ -155,7 +155,7 @@ func (pf PageForum) ViewAdd() Page {
 	Templ = "forum_add"
 
 	pf.Title = "Créer un nouveau sujet"
-	pf.MainClass = "nouveausujet"
+	pf.MainClass = "forum_add"
 	pf.Forums = make([]Forum, 1)
 	pf.Categories = f.getAllCategories()
 	pf.RenderHtml = true

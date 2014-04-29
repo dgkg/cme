@@ -645,93 +645,103 @@ a:visited { color: #e11414; }
   /* line 170, pages/_actualites.scss */
   .news .body { margin-left: 0; margin-right: 0; } }
 
-/* line 1, pages/_nouveaututo.scss */
-.nouveaututo { /* iPads (portrait) ----------- */ /* Desktops and laptops ----------- */ }
-/* line 3, pages/_nouveaututo.scss */
-.nouveaututo .message-accueil { display: none; }
-/* line 7, pages/_nouveaututo.scss */
-.nouveaututo .body { margin-right: 30px; margin-left: 30px; }
-/* line 13, pages/_nouveaututo.scss */
-.nouveaututo .body .entete-tuto h1 { text-transform: uppercase; line-height: 1.4em; }
-/* line 18, pages/_nouveaututo.scss */
-.nouveaututo .body .entete-tuto p { font-size: 14px; }
-/* line 23, pages/_nouveaututo.scss */
-.nouveaututo .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
-/* line 29, pages/_nouveaututo.scss */
-.nouveaututo .body input[type=text] { display: block; width: 100%; height: 40px; border: 1px solid darkgrey; padding-left: 10px; font-size: 16px; font-family: "Georgia", sans-serif; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */ -moz-box-sizing: border-box; /* Firefox, other Gecko */ box-sizing: border-box; /* Opera/IE 8+ */ }
-/* line 45, pages/_nouveaututo.scss */
-.nouveaututo .body label { margin-top: 40px; display: block; font-size: 20px; font-family: "gt_pressura_regular", sans-serif; margin-bottom: 15px; }
-/* line 53, pages/_nouveaututo.scss */
-.nouveaututo .body label:first-child { margin-top: 0; }
-/* line 57, pages/_nouveaututo.scss */
-.nouveaututo .body .tuto-nom { width: 100%; height: 30px; }
-/* line 62, pages/_nouveaututo.scss */
-.nouveaututo .body .tuto-contenu { margin-top: 20px; margin-bottom: 20px; min-height: 320px; }
-/* line 68, pages/_nouveaututo.scss */
-.nouveaututo .body .tuto-cat { width: 300px; height: 35px; }
-/* line 72, pages/_nouveaututo.scss */
-.nouveaututo .body .tuto-cat option { font-size: 14px; }
-/* line 77, pages/_nouveaututo.scss */
-.nouveaututo .body .btn-soumettre { display: block; width: 100%; height: 60px; background-color: #e11414; color: #f9f9f9; text-decoration: none; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; text-align: center; line-height: 30px; vertical-align: middle; margin-top: 20px; margin-bottom: 20px; }
-@media only screen and (min-device-width: 768px) { /* line 100, pages/_nouveaututo.scss */
-  .nouveaututo .body .nouv-tuto { max-width: 80%; margin-right: auto; margin-left: auto; }
-  /* line 106, pages/_nouveaututo.scss */
-  .nouveaututo .body .btn-soumettre { max-width: 280px; margin-left: auto; margin-right: auto; } }
-@media only screen and (min-width: 1224px) { /* line 118, pages/_nouveaututo.scss */
-  .nouveaututo #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 126, pages/_nouveaututo.scss */
-  .nouveaututo .body { margin-left: 0; margin-right: 0; }
-  /* line 130, pages/_nouveaututo.scss */
-  .nouveaututo .body .nouv-tuto { max-width: 70%; } }
+/* line 1, pages/_tutorial_add.scss */
+.tutorial_add { /* iPads (portrait) ----------- */ /* Desktops and laptops ----------- */ }
+/* line 3, pages/_tutorial_add.scss */
+.tutorial_add .message-accueil { display: none; }
+/* line 7, pages/_tutorial_add.scss */
+.tutorial_add .body { margin-right: 30px; margin-left: 30px; }
+/* line 13, pages/_tutorial_add.scss */
+.tutorial_add .body .entete-forum h1 { text-transform: uppercase; line-height: 1.4em; }
+/* line 18, pages/_tutorial_add.scss */
+.tutorial_add .body .entete-forum p { font-size: 14px; }
+/* line 23, pages/_tutorial_add.scss */
+.tutorial_add .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
+/* line 29, pages/_tutorial_add.scss */
+.tutorial_add .body input[type=text] { display: block; width: 100%; height: 40px; border: 1px solid darkgrey; padding-left: 10px; font-size: 16px; font-family: "Georgia", sans-serif; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */ -moz-box-sizing: border-box; /* Firefox, other Gecko */ box-sizing: border-box; /* Opera/IE 8+ */ }
+/* line 45, pages/_tutorial_add.scss */
+.tutorial_add .body label { margin-top: 40px; display: block; font-size: 20px; font-family: "gt_pressura_regular", sans-serif; margin-bottom: 15px; }
+/* line 53, pages/_tutorial_add.scss */
+.tutorial_add .body label:first-child { margin-top: 0; }
+/* line 57, pages/_tutorial_add.scss */
+.tutorial_add .body .tuto-nom { width: 100%; height: 30px; }
+/* line 62, pages/_tutorial_add.scss */
+.tutorial_add .body .tuto-contenu { margin-top: 20px; margin-bottom: 20px; min-height: 320px; }
+/* line 68, pages/_tutorial_add.scss */
+.tutorial_add .body .sec-tuto-cat, .tutorial_add .body .sec-tuto-etat { width: 100%; margin-top: 20px; margin-bottom: 20px; }
+/* line 73, pages/_tutorial_add.scss */
+.tutorial_add .body .sec-tuto-cat .tuto-cat, .tutorial_add .body .sec-tuto-cat .tuto-etat, .tutorial_add .body .sec-tuto-etat .tuto-cat, .tutorial_add .body .sec-tuto-etat .tuto-etat { width: 100%; height: 35px; }
+/* line 77, pages/_tutorial_add.scss */
+.tutorial_add .body .sec-tuto-cat .tuto-cat option, .tutorial_add .body .sec-tuto-cat .tuto-etat option, .tutorial_add .body .sec-tuto-etat .tuto-cat option, .tutorial_add .body .sec-tuto-etat .tuto-etat option { font-size: 14px; }
+/* line 83, pages/_tutorial_add.scss */
+.tutorial_add .body .btn-soumettre { display: block; width: 100%; height: 60px; background-color: #e11414; color: #f9f9f9; text-decoration: none; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; text-align: center; line-height: 30px; vertical-align: middle; margin-top: 20px; margin-bottom: 20px; }
+/* line 101, pages/_tutorial_add.scss */
+.tutorial_add .body .msg-erreur .form-error { width: 100%; height: 40px; background-color: #E81313; line-height: 40px; vertical-align: middle; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; padding-left: 15px; margin-bottom: 20px; color: #f9f9f9; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
+@media only screen and (min-device-width: 768px) { /* line 125, pages/_tutorial_add.scss */
+  .tutorial_add .body .nouv-tuto { max-width: 80%; margin-right: auto; margin-left: auto; }
+  /* line 131, pages/_tutorial_add.scss */
+  .tutorial_add .body .btn-soumettre { max-width: 280px; margin-left: auto; margin-right: auto; }
+  /* line 137, pages/_tutorial_add.scss */
+  .tutorial_add .body .sec-tuto-cat, .tutorial_add .body .sec-tuto-etat { width: 46%; float: left; margin-right: 4%; margin-top: 20px; margin-bottom: 20px; }
+  /* line 144, pages/_tutorial_add.scss */
+  .tutorial_add .body .sec-tuto-cat .tuto-cat, .tutorial_add .body .sec-tuto-cat .tuto-etat, .tutorial_add .body .sec-tuto-etat .tuto-cat, .tutorial_add .body .sec-tuto-etat .tuto-etat { width: 100%; }
+  /* line 149, pages/_tutorial_add.scss */
+  .tutorial_add .body .sec-tuto-etat { margin-right: 0; } }
+@media only screen and (min-width: 1224px) { /* line 159, pages/_tutorial_add.scss */
+  .tutorial_add #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
+  /* line 167, pages/_tutorial_add.scss */
+  .tutorial_add .body { margin-left: 0; margin-right: 0; }
+  /* line 171, pages/_tutorial_add.scss */
+  .tutorial_add .body .nouv-tuto { max-width: 70%; } }
 
 /* line 1, pages/_forum_add.scss */
-.nouveausujet { /* iPads (portrait) ----------- */ /* Desktops and laptops ----------- */ }
+.forum_add { /* iPads (portrait) ----------- */ /* Desktops and laptops ----------- */ }
 /* line 3, pages/_forum_add.scss */
-.nouveausujet .message-accueil { display: none; }
+.forum_add .message-accueil { display: none; }
 /* line 7, pages/_forum_add.scss */
-.nouveausujet .body { margin-right: 30px; margin-left: 30px; }
+.forum_add .body { margin-right: 30px; margin-left: 30px; }
 /* line 13, pages/_forum_add.scss */
-.nouveausujet .body .entete-forum h1 { text-transform: uppercase; line-height: 1.4em; }
+.forum_add .body .entete-forum h1 { text-transform: uppercase; line-height: 1.4em; }
 /* line 18, pages/_forum_add.scss */
-.nouveausujet .body .entete-forum p { font-size: 14px; }
+.forum_add .body .entete-forum p { font-size: 14px; }
 /* line 23, pages/_forum_add.scss */
-.nouveausujet .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
+.forum_add .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
 /* line 29, pages/_forum_add.scss */
-.nouveausujet .body input[type=text] { display: block; width: 100%; height: 40px; border: 1px solid darkgrey; padding-left: 10px; font-size: 16px; font-family: "Georgia", sans-serif; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */ -moz-box-sizing: border-box; /* Firefox, other Gecko */ box-sizing: border-box; /* Opera/IE 8+ */ }
+.forum_add .body input[type=text] { display: block; width: 100%; height: 40px; border: 1px solid darkgrey; padding-left: 10px; font-size: 16px; font-family: "Georgia", sans-serif; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */ -moz-box-sizing: border-box; /* Firefox, other Gecko */ box-sizing: border-box; /* Opera/IE 8+ */ }
 /* line 45, pages/_forum_add.scss */
-.nouveausujet .body label { margin-top: 40px; display: block; font-size: 20px; font-family: "gt_pressura_regular", sans-serif; margin-bottom: 15px; }
+.forum_add .body label { margin-top: 40px; display: block; font-size: 20px; font-family: "gt_pressura_regular", sans-serif; margin-bottom: 15px; }
 /* line 53, pages/_forum_add.scss */
-.nouveausujet .body label:first-child { margin-top: 0; }
+.forum_add .body label:first-child { margin-top: 0; }
 /* line 57, pages/_forum_add.scss */
-.nouveausujet .body .post-nom { width: 100%; height: 30px; }
+.forum_add .body .post-nom { width: 100%; height: 30px; }
 /* line 62, pages/_forum_add.scss */
-.nouveausujet .body .post-contenu { margin-top: 20px; margin-bottom: 20px; min-height: 320px; }
+.forum_add .body .post-contenu { margin-top: 20px; margin-bottom: 20px; min-height: 320px; }
 /* line 68, pages/_forum_add.scss */
-.nouveausujet .body .sec-post-cat, .nouveausujet .body .sec-post-etat { width: 100%; margin-top: 20px; margin-bottom: 20px; }
+.forum_add .body .sec-post-cat, .forum_add .body .sec-post-etat { width: 100%; margin-top: 20px; margin-bottom: 20px; }
 /* line 73, pages/_forum_add.scss */
-.nouveausujet .body .sec-post-cat .post-cat, .nouveausujet .body .sec-post-cat .post-etat, .nouveausujet .body .sec-post-etat .post-cat, .nouveausujet .body .sec-post-etat .post-etat { width: 100%; height: 35px; }
+.forum_add .body .sec-post-cat .post-cat, .forum_add .body .sec-post-cat .post-etat, .forum_add .body .sec-post-etat .post-cat, .forum_add .body .sec-post-etat .post-etat { width: 100%; height: 35px; }
 /* line 77, pages/_forum_add.scss */
-.nouveausujet .body .sec-post-cat .post-cat option, .nouveausujet .body .sec-post-cat .post-etat option, .nouveausujet .body .sec-post-etat .post-cat option, .nouveausujet .body .sec-post-etat .post-etat option { font-size: 14px; }
+.forum_add .body .sec-post-cat .post-cat option, .forum_add .body .sec-post-cat .post-etat option, .forum_add .body .sec-post-etat .post-cat option, .forum_add .body .sec-post-etat .post-etat option { font-size: 14px; }
 /* line 83, pages/_forum_add.scss */
-.nouveausujet .body .btn-soumettre { display: block; width: 100%; height: 60px; background-color: #e11414; color: #f9f9f9; text-decoration: none; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; text-align: center; line-height: 30px; vertical-align: middle; margin-top: 20px; margin-bottom: 20px; }
+.forum_add .body .btn-soumettre { display: block; width: 100%; height: 60px; background-color: #e11414; color: #f9f9f9; text-decoration: none; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; text-align: center; line-height: 30px; vertical-align: middle; margin-top: 20px; margin-bottom: 20px; }
 /* line 101, pages/_forum_add.scss */
-.nouveausujet .body .msg-erreur .form-error { width: 100%; height: 40px; background-color: #E81313; line-height: 40px; vertical-align: middle; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; padding-left: 15px; margin-bottom: 20px; color: #f9f9f9; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
+.forum_add .body .msg-erreur .form-error { width: 100%; height: 40px; background-color: #E81313; line-height: 40px; vertical-align: middle; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; padding-left: 15px; margin-bottom: 20px; color: #f9f9f9; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
 @media only screen and (min-device-width: 768px) { /* line 125, pages/_forum_add.scss */
-  .nouveausujet .body .nouv-post { max-width: 80%; margin-right: auto; margin-left: auto; }
+  .forum_add .body .nouv-post { max-width: 80%; margin-right: auto; margin-left: auto; }
   /* line 131, pages/_forum_add.scss */
-  .nouveausujet .body .btn-soumettre { max-width: 280px; margin-left: auto; margin-right: auto; }
+  .forum_add .body .btn-soumettre { max-width: 280px; margin-left: auto; margin-right: auto; }
   /* line 137, pages/_forum_add.scss */
-  .nouveausujet .body .sec-post-cat, .nouveausujet .body .sec-post-etat { width: 46%; float: left; margin-right: 4%; margin-top: 20px; margin-bottom: 20px; }
+  .forum_add .body .sec-post-cat, .forum_add .body .sec-post-etat { width: 46%; float: left; margin-right: 4%; margin-top: 20px; margin-bottom: 20px; }
   /* line 144, pages/_forum_add.scss */
-  .nouveausujet .body .sec-post-cat .post-cat, .nouveausujet .body .sec-post-cat .post-etat, .nouveausujet .body .sec-post-etat .post-cat, .nouveausujet .body .sec-post-etat .post-etat { width: 100%; }
+  .forum_add .body .sec-post-cat .post-cat, .forum_add .body .sec-post-cat .post-etat, .forum_add .body .sec-post-etat .post-cat, .forum_add .body .sec-post-etat .post-etat { width: 100%; }
   /* line 149, pages/_forum_add.scss */
-  .nouveausujet .body .sec-post-etat { margin-right: 0; } }
+  .forum_add .body .sec-post-etat { margin-right: 0; } }
 @media only screen and (min-width: 1224px) { /* line 159, pages/_forum_add.scss */
-  .nouveausujet #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
+  .forum_add #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
   /* line 167, pages/_forum_add.scss */
-  .nouveausujet .body { margin-left: 0; margin-right: 0; }
+  .forum_add .body { margin-left: 0; margin-right: 0; }
   /* line 171, pages/_forum_add.scss */
-  .nouveausujet .body .nouv-post { max-width: 70%; } }
+  .forum_add .body .nouv-post { max-width: 70%; } }
 
 /* line 1, pages/_forum_post.scss */
 .forum_post { /* iPads (portrait) ----------- */ /* Desktops and laptops ----------- */ }

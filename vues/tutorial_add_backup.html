@@ -1,4 +1,4 @@
-{{ define "tutorial_add" }}
+{{ define "tutorial_add_backup" }}
 {{template "header" .}}
 
             <div class="body">
@@ -20,7 +20,7 @@
 
                         <label class="label-tuto-contenu" for="tuto-contenu">Contenu</label>
                         <textarea id="tuto-contenu" name="post-contenu" class="tuto-contenu" placeholder="Écrivez votre tutoriel ici..."></textarea>
-                        
+
                         <label class="label-tuto-cat" for="tuto-cat">Catégorie du tutoriel</label>
                         <select id="post-cat" class="post-cat" name="post-cat">
                             {{range .Categories}}
