@@ -15,7 +15,7 @@ type PageForumPost struct {
 
 // fonction public
 // permet d'afficher une question avec la liste des réponses
-func (pfp PageForumPost) View(id string) Page {
+func (pfp *PageForumPost) View(id string) {
 
 	log.Println("Forum Post appelé")
 
@@ -37,7 +37,6 @@ func (pfp PageForumPost) View(id string) Page {
 
 	log.Println("le titre du post est : " + pfp.Forum.Title)
 
-	return pfp
 }
 
 // fonction privée
@@ -76,4 +75,14 @@ func (pfp *PageForumPost) injectDataToDisplay() {
 // permet de faire fonctionner avec l'interface de type Page
 func (p PageForumPost) IsHtmlRender() bool {
 	return p.RenderHtml
+}
+
+// permet d'injecter des donnés de cession dans l'utilisateur loggé
+func (p *PageForumPost) SetSessionData(u User) (v bool) {
+	if u.Id != 0 && u.FirstName != "" {
+		p.SessIsLogged = true
+		p.SessNameUser = u.FirstName
+		v = true
+	}
+	return
 }

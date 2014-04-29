@@ -14,9 +14,14 @@ type PageTutorial struct {
 	PageWeb
 }
 
+// fonction pour permettre de créer une page
+func CreatePageTutorial() *PageTutorial {
+	return new(PageTutorial)
+}
+
 // fonction public
 // permet d'afficher la liste des tutoriels
-func (pt PageTutorial) View() Page {
+func (pt *PageTutorial) View() {
 
 	log.Println("ForumView appelé")
 
@@ -33,13 +38,12 @@ func (pt PageTutorial) View() Page {
 	pt.RenderHtml = false
 	pt.injectDataToDisplay(pt.Tutorials)
 
-	return pt
 }
 
 // fonction public
 // permet d'afficher la liste des tutoriels
 // avec la fonction de pagination
-func (pt PageTutorial) ViewPaged(page string) Page {
+func (pt *PageTutorial) ViewPaged(page string) {
 
 	log.Println("ForumViewPaged appelé : " + page)
 
@@ -58,12 +62,11 @@ func (pt PageTutorial) ViewPaged(page string) Page {
 	pt.RenderHtml = true
 	pt.injectDataToDisplay(pt.Tutorials)
 
-	return pt
 }
 
 // fonction public
 // permet d'afficher la liste des tutoriels avec la catégorie correspondante
-func (pt PageTutorial) ViewCategory(cat string) Page {
+func (pt *PageTutorial) ViewCategory(cat string) {
 
 	log.Println("ForumView appelé")
 
@@ -83,14 +86,13 @@ func (pt PageTutorial) ViewCategory(cat string) Page {
 	pt.RenderHtml = true
 	pt.injectDataToDisplay(pt.Tutorials)
 
-	return pt
 }
 
 // fonction public
 // permet d'afficher une liste tutoriels en fonction de
 // la catégorie sélectionnée
 // et de la page en cours sélectionnée
-func (pt PageTutorial) ViewCategoryPaged(cat string, page string) Page {
+func (pt *PageTutorial) ViewCategoryPaged(cat string, page string) {
 
 	log.Println("ForumView appelé")
 
@@ -110,15 +112,13 @@ func (pt PageTutorial) ViewCategoryPaged(cat string, page string) Page {
 	pt.PagesList = pt.createPaginateFromIdCat(idCat)
 	pt.RenderHtml = true
 	pt.injectDataToDisplay(pt.Tutorials)
-
-	return pt
 }
 
 // fonction public
 // permet d'afficher la recherche à partir d'un mot clef
 // va chercher dans les titres
 // et va chercher dans le texte du titre
-func (pt PageTutorial) ViewSearch(q string) Page {
+func (pt *PageTutorial) ViewSearch(q string) {
 
 	log.Println("ForumViewSearch appelé")
 
@@ -138,12 +138,11 @@ func (pt PageTutorial) ViewSearch(q string) Page {
 
 	pt.injectDataToDisplay(pt.Tutorials)
 
-	return pt
 }
 
 // fonction public
 // permet d'afficher le formulaire de création d'un tutoriel
-func (pt PageTutorial) ViewAdd() Page {
+func (pt *PageTutorial) ViewAdd() {
 
 	log.Println("ViewAdd appelé")
 
@@ -157,7 +156,6 @@ func (pt PageTutorial) ViewAdd() Page {
 	pt.Tutorials = make([]Tutorial, 1)
 	pt.Categories = t.getAllCategories()
 	pt.RenderHtml = true
-	return pt
 }
 
 // fonction public
@@ -247,4 +245,14 @@ func (pt PageTutorial) createPaginateFromIdCat(id int64) []Paginate {
 // permet de faire fonctionner avec l'interface de type Page
 func (p PageTutorial) IsHtmlRender() bool {
 	return p.RenderHtml
+}
+
+// permet d'injecter des donnés de cession dans l'utilisateur loggé
+func (p *PageTutorial) SetSessionData(u User) (v bool) {
+	if u.Id != 0 && u.FirstName != "" {
+		p.SessIsLogged = true
+		p.SessNameUser = u.FirstName
+		v = true
+	}
+	return
 }

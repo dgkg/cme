@@ -9,7 +9,12 @@ type PageUser struct {
 	PageWeb
 }
 
-func (pu PageUser) View() Page {
+// fonction pour permettre de créer une page
+func CreatePageUser() *PageUser {
+	return new(PageUser)
+}
+
+func (pu *PageUser) View() {
 
 	log.Println("Users appelé")
 
@@ -39,10 +44,9 @@ func (pu PageUser) View() Page {
 
 	pu.RenderHtml = true
 
-	return pu
 }
 
-func (pu PageUser) ViewFiche() Page {
+func (pu *PageUser) ViewFiche() {
 
 	log.Println("Fiche appelé")
 
@@ -51,12 +55,20 @@ func (pu PageUser) ViewFiche() Page {
 	pu.MainClass = "eleve_fiche"
 
 	pu.RenderHtml = true
-
-	return pu
 }
 
 // fonction permettant de savoir si le rendu passe par l'html ou non
 // permet de faire fonctionner avec l'interface de type Page
 func (p PageUser) IsHtmlRender() bool {
 	return p.RenderHtml
+}
+
+// permet d'injecter des donnés de cession dans l'utilisateur loggé
+func (p *PageUser) SetSessionData(u User) (v bool) {
+	if u.Id != 0 && u.FirstName != "" {
+		p.SessIsLogged = true
+		p.SessNameUser = u.FirstName
+		v = true
+	}
+	return
 }

@@ -16,9 +16,14 @@ type PageForum struct {
 	PageWeb
 }
 
+// fonction pour permettre de créer une page
+func CreatePageForm() *PageForum {
+	return new(PageForum)
+}
+
 // fonction public
 // permet d'afficher la liste des questions du forum
-func (pf PageForum) View() Page {
+func (pf *PageForum) View() {
 
 	log.Println("ForumView appelé")
 
@@ -35,13 +40,12 @@ func (pf PageForum) View() Page {
 	pf.RenderHtml = true
 	pf.injectDataToDisplay(pf.Forums)
 
-	return pf
 }
 
 // fonction public
 // permet d'afficher la liste des questions du forum
 // avec la fonction de pagination
-func (pf PageForum) ViewPaged(page string) Page {
+func (pf *PageForum) ViewPaged(page string) {
 
 	log.Println("ForumViewPaged appelé : " + page)
 
@@ -60,12 +64,11 @@ func (pf PageForum) ViewPaged(page string) Page {
 	pf.RenderHtml = true
 	pf.injectDataToDisplay(pf.Forums)
 
-	return pf
 }
 
 // fonction public
 // permet d'afficher la liste des questions du forum avec la catégorie correspondante
-func (pf PageForum) ViewCategory(cat string) Page {
+func (pf *PageForum) ViewCategory(cat string) {
 
 	log.Println("ForumView appelé")
 
@@ -85,14 +88,13 @@ func (pf PageForum) ViewCategory(cat string) Page {
 	pf.RenderHtml = true
 	pf.injectDataToDisplay(pf.Forums)
 
-	return pf
 }
 
 // fonction public
 // permet d'afficher une liste de questions en fonction de
 // la catégorie sélectionnée
 // et de la page en cours sélectionnée
-func (pf PageForum) ViewCategoryPaged(cat string, page string) Page {
+func (pf *PageForum) ViewCategoryPaged(cat string, page string) {
 
 	log.Println("ForumView appelé")
 
@@ -113,14 +115,13 @@ func (pf PageForum) ViewCategoryPaged(cat string, page string) Page {
 	pf.RenderHtml = true
 	pf.injectDataToDisplay(pf.Forums)
 
-	return pf
 }
 
 // fonction public
 // permet d'afficher la recherche à partir d'un mot clef
 // va chercher dans les titres
 // et va chercher dans le texte du titre
-func (pf PageForum) ViewSearch(q string) Page {
+func (pf *PageForum) ViewSearch(q string) {
 
 	log.Println("ForumViewSearch appelé")
 
@@ -137,15 +138,13 @@ func (pf PageForum) ViewSearch(q string) Page {
 	if len(pf.Forums) == 0 {
 		pf.SearchText = q
 	}
-
 	pf.injectDataToDisplay(pf.Forums)
 
-	return pf
 }
 
 // fonction public
 // permet d'afficher le formulaire de création d'une question du formulaire
-func (pf PageForum) ViewAdd() Page {
+func (pf *PageForum) ViewAdd() {
 
 	log.Println("ViewAdd appelé")
 
@@ -159,7 +158,7 @@ func (pf PageForum) ViewAdd() Page {
 	pf.Forums = make([]Forum, 1)
 	pf.Categories = f.getAllCategories()
 	pf.RenderHtml = true
-	return pf
+
 }
 
 // fonction public
@@ -250,4 +249,14 @@ func (pf PageForum) createPaginateFromIdCat(id int64) []Paginate {
 // permet de faire fonctionner avec l'interface de type Page
 func (p PageForum) IsHtmlRender() bool {
 	return p.RenderHtml
+}
+
+// permet d'injecter des donnés de cession dans l'utilisateur loggé
+func (p *PageForum) SetSessionData(u User) (v bool) {
+	if u.Id != 0 && u.FirstName != "" {
+		p.SessIsLogged = true
+		p.SessNameUser = u.FirstName
+		v = true
+	}
+	return
 }

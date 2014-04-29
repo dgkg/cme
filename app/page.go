@@ -2,11 +2,14 @@ package app
 
 type Page interface {
 	IsHtmlRender() bool
+	SetSessionData(u User) (v bool)
 }
 
 type PageWeb struct {
 	Title         string
 	Keywords      []Keyword
+	SessNameUser  string
+	SessIsLogged  bool
 	VarSessServer string
 	VarSessCookie string
 	VarFlash      string
@@ -21,6 +24,15 @@ type PageWeb struct {
 // permet de faire fonctionner avec l'interface de type Page
 func (p *PageWeb) IsHtmlRender() bool {
 	return p.RenderHtml
+}
+
+func (p *PageWeb) SetSessionData(u User) (v bool) {
+	if u.Id != 0 && u.FirstName != "" {
+		p.SessIsLogged = true
+		p.SessNameUser = u.FirstName
+		v = true
+	}
+	return
 }
 
 type Keyword struct {

@@ -16,7 +16,12 @@ type PageNews struct {
 	PageWeb
 }
 
-func (pn PageNews) View() Page {
+// fonction pour permettre de créer une page
+func CreatePageNews() *PageNews {
+	return new(PageNews)
+}
+
+func (pn *PageNews) View() {
 
 	log.Println("Actualités appelé")
 
@@ -51,7 +56,6 @@ func (pn PageNews) View() Page {
 	pn.PagesList[4].Url = "/forum/page/5"
 	pn.RenderHtml = false
 
-	return pn
 }
 
 func (pn *PageNews) injectDataToDisplay() {
@@ -79,4 +83,14 @@ func getNews() {
 // permet de faire fonctionner avec l'interface de type Page
 func (p PageNews) IsHtmlRender() bool {
 	return p.RenderHtml
+}
+
+// permet d'injecter des donnés de cession dans l'utilisateur loggé
+func (p *PageNews) SetSessionData(u User) (v bool) {
+	if u.Id != 0 && u.FirstName != "" {
+		p.SessIsLogged = true
+		p.SessNameUser = u.FirstName
+		v = true
+	}
+	return
 }

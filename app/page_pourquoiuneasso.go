@@ -8,7 +8,12 @@ type PagePourquoiUneAsso struct {
 	PageWeb
 }
 
-func (ppua PagePourquoiUneAsso) View() Page {
+// fonction pour permettre de créer une page
+func CreatePagePourquoiUneAsso() *PagePourquoiUneAsso {
+	return new(PagePourquoiUneAsso)
+}
+
+func (ppua *PagePourquoiUneAsso) View() {
 
 	log.Println("Pourquoi une association? appelé")
 
@@ -18,11 +23,20 @@ func (ppua PagePourquoiUneAsso) View() Page {
 	ppua.MainClass = "pageinfo"
 	ppua.RenderHtml = true
 
-	return ppua
 }
 
 // fonction permettant de savoir si le rendu passe par l'html ou non
 // permet de faire fonctionner avec l'interface de type Page
 func (p PagePourquoiUneAsso) IsHtmlRender() bool {
 	return p.RenderHtml
+}
+
+// permet d'injecter des donnés de cession dans l'utilisateur loggé
+func (p *PagePourquoiUneAsso) SetSessionData(u User) (v bool) {
+	if u.Id != 0 && u.FirstName != "" {
+		p.SessIsLogged = true
+		p.SessNameUser = u.FirstName
+		v = true
+	}
+	return
 }
