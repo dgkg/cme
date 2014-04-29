@@ -707,22 +707,30 @@ a:visited { color: #e11414; }
 /* line 62, pages/_forum_add.scss */
 .nouveausujet .body .post-contenu { margin-top: 20px; margin-bottom: 20px; min-height: 320px; }
 /* line 68, pages/_forum_add.scss */
-.nouveausujet .body .post-cat { width: 300px; height: 35px; }
-/* line 72, pages/_forum_add.scss */
-.nouveausujet .body .post-cat option { font-size: 14px; }
+.nouveausujet .body .sec-post-cat, .nouveausujet .body .sec-post-etat { width: 100%; margin-top: 20px; margin-bottom: 20px; }
+/* line 73, pages/_forum_add.scss */
+.nouveausujet .body .sec-post-cat .post-cat, .nouveausujet .body .sec-post-cat .post-etat, .nouveausujet .body .sec-post-etat .post-cat, .nouveausujet .body .sec-post-etat .post-etat { width: 100%; height: 35px; }
 /* line 77, pages/_forum_add.scss */
+.nouveausujet .body .sec-post-cat .post-cat option, .nouveausujet .body .sec-post-cat .post-etat option, .nouveausujet .body .sec-post-etat .post-cat option, .nouveausujet .body .sec-post-etat .post-etat option { font-size: 14px; }
+/* line 83, pages/_forum_add.scss */
 .nouveausujet .body .btn-soumettre { display: block; width: 100%; height: 60px; background-color: #e11414; color: #f9f9f9; text-decoration: none; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; text-align: center; line-height: 30px; vertical-align: middle; margin-top: 20px; margin-bottom: 20px; }
-/* line 95, pages/_forum_add.scss */
+/* line 101, pages/_forum_add.scss */
 .nouveausujet .body .msg-erreur .form-error { width: 100%; height: 40px; background-color: #E81313; line-height: 40px; vertical-align: middle; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; padding-left: 15px; margin-bottom: 20px; color: #f9f9f9; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
-@media only screen and (min-device-width: 768px) { /* line 119, pages/_forum_add.scss */
+@media only screen and (min-device-width: 768px) { /* line 125, pages/_forum_add.scss */
   .nouveausujet .body .nouv-post { max-width: 80%; margin-right: auto; margin-left: auto; }
-  /* line 125, pages/_forum_add.scss */
-  .nouveausujet .body .btn-soumettre { max-width: 280px; margin-left: auto; margin-right: auto; } }
-@media only screen and (min-width: 1224px) { /* line 137, pages/_forum_add.scss */
-  .nouveausujet #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 145, pages/_forum_add.scss */
-  .nouveausujet .body { margin-left: 0; margin-right: 0; }
+  /* line 131, pages/_forum_add.scss */
+  .nouveausujet .body .btn-soumettre { max-width: 280px; margin-left: auto; margin-right: auto; }
+  /* line 137, pages/_forum_add.scss */
+  .nouveausujet .body .sec-post-cat, .nouveausujet .body .sec-post-etat { width: 46%; float: left; margin-right: 4%; margin-top: 20px; margin-bottom: 20px; }
+  /* line 144, pages/_forum_add.scss */
+  .nouveausujet .body .sec-post-cat .post-cat, .nouveausujet .body .sec-post-cat .post-etat, .nouveausujet .body .sec-post-etat .post-cat, .nouveausujet .body .sec-post-etat .post-etat { width: 100%; }
   /* line 149, pages/_forum_add.scss */
+  .nouveausujet .body .sec-post-etat { margin-right: 0; } }
+@media only screen and (min-width: 1224px) { /* line 159, pages/_forum_add.scss */
+  .nouveausujet #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
+  /* line 167, pages/_forum_add.scss */
+  .nouveausujet .body { margin-left: 0; margin-right: 0; }
+  /* line 171, pages/_forum_add.scss */
   .nouveausujet .body .nouv-post { max-width: 70%; } }
 
 /* line 1, pages/_forum_post.scss */

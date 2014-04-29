@@ -22,13 +22,23 @@
                         <label class="label-post-nom" for="post-nom">Nom du sujet</label>
                         <input type="text" id="post-nom" class="post-nom" name="post-nom" data-validation="required" data-validation-error-msg="Veuillez saisir le nom du sujet.">
 
-                        <label class="label-post-cat" for="post-cat">Catégorie</label>
-                        <select id="post-cat" class="post-cat" name="post-cat">
-                            <option value="-1">Catégorie</option>
-                            {{range .Categories}}
-                            <option value="{{ .Id }}">{{.Title}}</option>
-                            {{end}}
-                        </select>
+                        <div class="sec-post-cat">
+                            <label class="label-post-cat" for="post-cat">Catégorie</label>
+                            <select id="post-cat" class="post-cat" name="post-cat">
+                                <option value="-1">Catégorie</option>
+                                {{range .Categories}}
+                                <option value="{{ .Id }}">{{.Title}}</option>
+                                {{end}}
+                            </select>
+                        </div>
+
+                        <div class="sec-post-etat">
+                            <label class="label-post-etat" for="post-etat">État du problème</label>
+                            <select id="post-etat" class="post-etat" name="post-etat">
+                                <option value="1">Résolu</option>
+                                <option value="2">Non résolu</option>
+                            </select>
+                        </div>
 
                         <label class="label-post-contenu" for="post-contenu">Contenu</label>
                         <textarea id="post-contenu" name="postcontenu" class="post-contenu" data-validation="required" data-validation-error-msg="Veuillez écrire le contenu de votre sujet."></textarea>
