@@ -1,0 +1,63 @@
+{{ define "tutorial_add" }}
+{{template "header" .}}
+
+            <div class="body">
+
+                <div class="entete-tuto">
+
+                    <h1>Créer un nouveau tutoriel</h1>
+
+                </div>
+
+                <hr>
+
+                <div class="nouv-tuto">
+
+                    <div class="msg-erreur">
+
+                    </div>
+
+                    <form class="pure-form" method="tuto">
+
+                        <label class="label-tuto-nom" for="tuto-nom">Nom du sujet</label>
+                        <input type="text" id="tuto-nom" class="tuto-nom" name="tuto-nom" data-validation="required" data-validation-error-msg="Veuillez saisir le nom du sujet.">
+
+                        <div class="sec-tuto-cat">
+                            <label class="label-tuto-cat" for="tuto-cat">Catégorie</label>
+                            <select id="tuto-cat" class="tuto-cat" name="tuto-cat">
+                                <option value="-1">Catégorie</option>
+                                {{range .Categories}}
+                                <option value="{{ .Id }}">{{.Title}}</option>
+                                {{end}}
+                            </select>
+                        </div>
+
+                        <div class="sec-tuto-etat">
+                            <label class="label-tuto-etat" for="tuto-etat">État du problème</label>
+                            <select id="tuto-etat" class="tuto-etat" name="tuto-etat">
+                                <option value="1">Résolu</option>
+                                <option value="2">Non résolu</option>
+                            </select>
+                        </div>
+
+                        <label class="label-tuto-contenu" for="tuto-contenu">Contenu</label>
+                        <textarea id="tuto-contenu" name="tutocontenu" class="tuto-contenu" data-validation="required" data-validation-error-msg="Veuillez écrire le contenu de votre sujet."></textarea>
+
+                        <input type="submit" class="btn-soumettre" value="Soumettre">
+
+                    </form>
+
+                </div>
+
+                {{template "footer" .}}
+            </div>
+        </div>
+
+        <script type="text/javascript" src="/js/vendor/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="/js/vendor/ckeditor.js"></script>
+        <script type="text/javascript" src="/js/vendor/adapters/jquery.js"></script>
+        <script type="text/javascript" src="/js/vendor/form-validator/jquery.form-validator.min.js"></script>
+        <script type="text/javascript" src="/js/tutorial_add.js"></script>
+    </body>
+</html>
+{{ end }}

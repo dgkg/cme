@@ -50,6 +50,7 @@ func main() {
 	// rootage de la page connexion
 	r.HandleFunc("/connexion", ConnexionHandler)
 	r.HandleFunc("/inscription", InscriptionHandler)
+	r.HandleFunc("/mon-compte", MonCompteHandler)
 
 	// Rootage des pages d'informations
 	r.HandleFunc("/qui-sommes-nous", QuiSommesNousHandler)
@@ -218,6 +219,11 @@ func ConnexionHandler(w http.ResponseWriter, r *http.Request) {
 func InscriptionHandler(w http.ResponseWriter, r *http.Request) {
 	var pi PageInscription
 	Render(w, pi.View())
+}
+
+func MonCompteHandler(w http.ResponseWriter, r *http.Request) {
+	var pc PageCompte
+	Render(w, pc.View())
 }
 
 func QuiSommesNousHandler(w http.ResponseWriter, r *http.Request) {

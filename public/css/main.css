@@ -396,6 +396,61 @@ a:visited { color: #e11414; }
   /* line 159, pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-fiche .etu-bio { max-width: 30.6666667%; } }
 
+/* line 1, pages/_user_compte.scss */
+.user_compte { /* iPads (portrait) ----------- */ /* Desktops and laptops ----------- */ }
+/* line 3, pages/_user_compte.scss */
+.user_compte .message-accueil { display: none; }
+/* line 7, pages/_user_compte.scss */
+.user_compte .body { margin-right: 30px; margin-left: 30px; }
+/* line 11, pages/_user_compte.scss */
+.user_compte .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
+/* line 17, pages/_user_compte.scss */
+.user_compte .body h2 { display: block; line-height: 1.4em; font-size: 28px; font-family: "gt_pressura_light", sans-serif; margin-right: auto; margin-left: auto; }
+/* line 28, pages/_user_compte.scss */
+.user_compte .body .formulaire p { font-size: 16px; line-height: 1.4em; font-family: "Georgia", sans-serif; color: #424245; }
+/* line 35, pages/_user_compte.scss */
+.user_compte .body .formulaire .img-info { width: 100%; margin-bottom: 20px; }
+/* line 40, pages/_user_compte.scss */
+.user_compte .body .formulaire .section { max-width: 100%; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; background-color: #EDEDED; border: 1px solid #D4D2D2; padding: 15px; margin-bottom: 20px; /* .gradu {
+	border: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+} */ }
+/* line 50, pages/_user_compte.scss */
+.user_compte .body .formulaire .section h3 { margin: 0; margin-bottom: 10px; font-size: 20px; }
+/* line 56, pages/_user_compte.scss */
+.user_compte .body .formulaire .section h4 { margin: 0; margin-bottom: 10px; margin-top: 20px; font-size: 14px; text-transform: uppercase; }
+/* line 64, pages/_user_compte.scss */
+.user_compte .body .formulaire .section input { margin-bottom: 8px; margin-top: 12px; }
+/* line 69, pages/_user_compte.scss */
+.user_compte .body .formulaire .section input:last-child { margin-bottom: 0; }
+/* line 73, pages/_user_compte.scss */
+.user_compte .body .formulaire .section input[type=file] { max-width: 100%; }
+/* line 77, pages/_user_compte.scss */
+.user_compte .body .formulaire .section textarea { width: 100%; height: 80px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; border: 1px solid #D4D2D2; }
+/* line 86, pages/_user_compte.scss */
+.user_compte .body .formulaire .section .custom-upload { width: 100%; height: 30px; }
+/* line 91, pages/_user_compte.scss */
+.user_compte .body .formulaire .section p { font-size: 14px; margin-bottom: 14px; margin-top: 8px; }
+/* line 99, pages/_user_compte.scss */
+.user_compte .body .formulaire .section .form-social label img { width: 24px; height: 24px; }
+/* line 104, pages/_user_compte.scss */
+.user_compte .body .formulaire .section .form-social input[type=text] { max-width: 100%; height: 30px; border: 1px solid #D4D2D2; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; padding-left: 5px; }
+/* line 122, pages/_user_compte.scss */
+.user_compte .body .formulaire .section .gradu { display: block; width: 100%; height: 30px; }
+/* line 127, pages/_user_compte.scss */
+.user_compte .body .formulaire .section .gradu option { height: 20px; }
+@media only screen and (min-device-width: 768px) { /* line 141, pages/_user_compte.scss */
+  .user_compte .body h2 { max-width: 60%; float: left; margin-left: 20%; margin-right: 20%; }
+  /* line 148, pages/_user_compte.scss */
+  .user_compte .body .formulaire { width: 60%; float: right; margin-right: 20%; margin-bottom: 60px; }
+  /* line 154, pages/_user_compte.scss */
+  .user_compte .body .formulaire p:first-child { margin-top: 0; } }
+@media only screen and (min-width: 1224px) { /* line 166, pages/_user_compte.scss */
+  .user_compte #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
+  /* line 174, pages/_user_compte.scss */
+  .user_compte .body { margin-left: 0; margin-right: 0; } }
+
 /* line 1, pages/_forum.scss */
 .forum { /* iPads (portrait) ----------- */ /* Desktops and laptops ----------- */ }
 /* line 3, pages/_forum.scss */
