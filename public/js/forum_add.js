@@ -8,6 +8,11 @@ $(window).load(function() {
 
     //log.console(contenu);
 
+    /* $('#submit').click(function(e){
+          // do whatever actions you need here
+          e.preventDefault();
+    }); */
+
     $('.post-contenu').ckeditor();
 
     var editeur = $('.post-contenu');
@@ -17,5 +22,12 @@ $(window).load(function() {
     $.validate({
         errorMessagePosition: $zoneMsgErreur,
         validateOnBlur: false,
+        onSuccess : function() {
+            afficherSucces();
+        }
     });
 });
+
+function afficherSucces() {
+    $('.msg-succes').show();
+}

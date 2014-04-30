@@ -802,25 +802,33 @@ a:visited { color: #e11414; }
 /* line 77, pages/_forum_add.scss */
 .forum_add .body .sec-post-cat .post-cat option, .forum_add .body .sec-post-cat .post-etat option, .forum_add .body .sec-post-etat .post-cat option, .forum_add .body .sec-post-etat .post-etat option { font-size: 14px; }
 /* line 83, pages/_forum_add.scss */
-.forum_add .body .btn-soumettre { display: block; width: 100%; height: 60px; background-color: #e11414; color: #f9f9f9; text-decoration: none; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; text-align: center; line-height: 30px; vertical-align: middle; margin-top: 20px; margin-bottom: 20px; }
-/* line 101, pages/_forum_add.scss */
+.forum_add .body .btn-soumettre { display: block; width: 250%; height: 48px; background-color: #4A90E2; color: #f9f9f9; text-decoration: none; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; text-align: center; line-height: 48px; vertical-align: middle; margin-top: 20px; margin-bottom: 20px; border: 1px solid #3878C3; border-radius: 6px; -webkit-border-radius: 6px; -moz-border-radius: 6px; }
+/* line 105, pages/_forum_add.scss */
 .forum_add .body .msg-erreur .form-error { width: 100%; height: 40px; background-color: #E81313; line-height: 40px; vertical-align: middle; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; padding-left: 15px; margin-bottom: 20px; color: #f9f9f9; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
-@media only screen and (min-device-width: 768px) { /* line 125, pages/_forum_add.scss */
+/* line 122, pages/_forum_add.scss */
+.forum_add .body .msg-succes { width: 100%; min-height: 40px; background-color: #74B727; vertical-align: middle; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; border: 1px solid #5E9420; padding-left: 15px; padding-top: 15px; margin-bottom: 20px; color: #f9f9f9; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; display: none; }
+/* line 140, pages/_forum_add.scss */
+.forum_add .body .msg-succes h2 { font-size: 18px; margin-top: 0; margin-bottom: 5px; }
+/* line 146, pages/_forum_add.scss */
+.forum_add .body .msg-succes p { margin-top: 5px; }
+/* line 150, pages/_forum_add.scss */
+.forum_add .body .msg-succes a { margin-bottom: 15px; margin-top: 10px; color: #262628; }
+@media only screen and (min-device-width: 768px) { /* line 164, pages/_forum_add.scss */
   .forum_add .body .nouv-post { max-width: 80%; margin-right: auto; margin-left: auto; }
-  /* line 131, pages/_forum_add.scss */
+  /* line 170, pages/_forum_add.scss */
   .forum_add .body .btn-soumettre { max-width: 280px; margin-left: auto; margin-right: auto; }
-  /* line 137, pages/_forum_add.scss */
+  /* line 176, pages/_forum_add.scss */
   .forum_add .body .sec-post-cat, .forum_add .body .sec-post-etat { width: 46%; float: left; margin-right: 4%; margin-top: 20px; margin-bottom: 20px; }
-  /* line 144, pages/_forum_add.scss */
+  /* line 183, pages/_forum_add.scss */
   .forum_add .body .sec-post-cat .post-cat, .forum_add .body .sec-post-cat .post-etat, .forum_add .body .sec-post-etat .post-cat, .forum_add .body .sec-post-etat .post-etat { width: 100%; }
-  /* line 149, pages/_forum_add.scss */
+  /* line 188, pages/_forum_add.scss */
   .forum_add .body .sec-post-etat { margin-right: 0; } }
-@media only screen and (min-width: 1224px) { /* line 159, pages/_forum_add.scss */
+@media only screen and (min-width: 1224px) { /* line 198, pages/_forum_add.scss */
   .forum_add #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 167, pages/_forum_add.scss */
+  /* line 206, pages/_forum_add.scss */
   .forum_add .body { margin-left: 0; margin-right: 0; }
-  /* line 171, pages/_forum_add.scss */
-  .forum_add .body .nouv-post { max-width: 70%; } }
+  /* line 210, pages/_forum_add.scss */
+  .forum_add .body .nouv-post { max-width: 58%; } }
 
 /* line 1, pages/_forum_post.scss */
 .forum_post { /* iPads (portrait) ----------- */ /* Desktops and laptops ----------- */ }
