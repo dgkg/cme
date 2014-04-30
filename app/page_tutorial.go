@@ -151,8 +151,8 @@ func (pt *PageTutorial) ViewAdd() {
 	// surcharge de la variable d'affichage
 	Templ = "tutorial_add"
 
-	pt.Title = "Titre du sujet"
-	pt.MainClass = "nouveaututo"
+	pt.Title = "Créer un nouveau tutoriel"
+	pt.MainClass = "tutorial_add"
 	pt.Tutorials = make([]Tutorial, 1)
 	pt.Categories = t.getAllCategories()
 	pt.RenderHtml = true

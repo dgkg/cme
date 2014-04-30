@@ -154,7 +154,7 @@ func (pf *PageForum) ViewAdd() {
 	Templ = "forum_add"
 
 	pf.Title = "Créer un nouveau sujet"
-	pf.MainClass = "nouveausujet"
+	pf.MainClass = "forum_add"
 	pf.Forums = make([]Forum, 1)
 	pf.Categories = f.getAllCategories()
 	pf.RenderHtml = true
@@ -171,17 +171,6 @@ func (pf PageForum) ValidateForm(r *http.Request) (f Forum, v bool) {
 	f.Text = r.PostFormValue("post-contenu")
 	f.ForumCategoryId, _ = ParseInt(r.PostFormValue("post-cat"), 0, 64)
 	f.IsOnline = 1 // permet de mettre en ligne automatiquement la quesion
-
-	// on initialise v à true
-	v = true
-	// on vérifi les champs qui sont présents
-	if r.PostFormValue("post-nom") == "" {
-		v = false
-	}
-
-	if r.PostFormValue("post-contenu") == "" {
-		v = false
-	}
 
 	return
 }

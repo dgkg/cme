@@ -13,22 +13,35 @@
 
                 <div class="nouv-post">
 
-                    <form class="pure-form" action="" method="POST">
+                    <div class="msg-erreur">
+
+                    </div>
+
+                    <form class="pure-form" method="POST">
 
                         <label class="label-post-nom" for="post-nom">Nom du sujet</label>
-                        <input type="text" id="post-nom" class="post-nom" name="post-nom">
+                        <input type="text" id="post-nom" class="post-nom" name="post-nom" data-validation="required" data-validation-error-msg="Veuillez saisir le nom du sujet.">
+
+                        <div class="sec-post-cat">
+                            <label class="label-post-cat" for="post-cat">Catégorie</label>
+                            <select id="post-cat" class="post-cat" name="post-cat">
+                                <option value="-1">Catégorie</option>
+                                {{range .Categories}}
+                                <option value="{{ .Id }}">{{.Title}}</option>
+                                {{end}}
+                            </select>
+                        </div>
+
+                        <div class="sec-post-etat">
+                            <label class="label-post-etat" for="post-etat">État du problème</label>
+                            <select id="post-etat" class="post-etat" name="post-etat">
+                                <option value="1">Résolu</option>
+                                <option value="2">Non résolu</option>
+                            </select>
+                        </div>
 
                         <label class="label-post-contenu" for="post-contenu">Contenu</label>
-                        <textarea id="post-contenu" name="post-contenu" class="post-contenu">
-
-                        </textarea>
-
-                        <label class="label-post-cat" for="post-cat">Catégorie du sujet</label>
-                        <select id="post-cat" class="post-cat" name="post-cat">
-                            {{range .Categories}}
-                            <option value="{{ .Id }}">{{.Title}}</option>
-                            {{end}}
-                        </select>
+                        <textarea id="post-contenu" name="postcontenu" class="post-contenu" data-validation="required" data-validation-error-msg="Veuillez écrire le contenu de votre sujet."></textarea>
 
                         <input type="submit" class="btn-soumettre" value="Soumettre">
 
@@ -42,12 +55,9 @@
 
         <script type="text/javascript" src="/js/vendor/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="/js/vendor/ckeditor.js"></script>
-        <script type="text/javascript">
-            CKEDITOR.replace( 'post-contenu', {
-
-            });
-        </script>
-        <!-- <script src="/js/main.js"></script> -->
+        <script type="text/javascript" src="/js/vendor/adapters/jquery.js"></script>
+        <script type="text/javascript" src="/js/vendor/form-validator/jquery.form-validator.min.js"></script>
+        <script type="text/javascript" src="/js/forum_add.js"></script>
     </body>
 </html>
 {{ end }}

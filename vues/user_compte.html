@@ -1,0 +1,121 @@
+{{ define "user_compte" }}
+<!DOCTYPE html>
+{{template "header" .}}
+            <div class="body">
+
+                <div class="post">
+
+                        <h2>Votre compte</h2>
+
+                        <div class="formulaire">
+
+                            <div class="section profil">
+
+                                <h3>Profil</h3>
+
+                                <h4>Photo</h4>
+
+                                <p>Pour modifier votre photo de profil, utilisez le bouton ci-dessous.</p>
+
+                                <form class="form-photo" method="POST">
+                                    <input class="custom-upload" type="file" value="Choisir une photo">
+                                    <input class="pure-button pure-button-primary" type="submit" value="Soumettre">
+                                </form>
+
+                                <h4>Biographie</h4>
+
+                                <p>Modifiez ici votre biographie publique.</p>
+
+                                <form class="form-bio" method="POST">
+
+                                    <!-- <label for="bio">Biographie</label> -->
+                                    <textarea class=""></textarea>
+                                    <input class="pure-button pure-button-primary" type="submit" value="Soumettre">
+
+                                </form>
+
+                                <h4>Réseaux sociaux</h4>
+
+                                <p>Affichez sur votre profil les réseaux sociaux sur lesquels vous êtes actifs.</p>
+
+                                <p>Entrez ci-dessous votre nom d'utilisateur pour chaque service.</p>
+
+                                <form class="form-social" method="POST">
+
+                                    <!-- <label for="facebook"><img src="#" alt="Facebook"></label> -->
+                                    <input type="text" name="facebook" placeholder="Facebook">
+
+                                    <!-- <label for="twitter"><img src="#" alt="Twitter"></label> -->
+                                    <input type="text" name="twitter" placeholder="Twitter">
+
+                                    <!-- <label for="linkedin"><img src="#" alt="LinkedIn"></label> -->
+                                    <input type="text" name="linkedin" placeholder="LinkedIn">
+
+                                    <input class="pure-button pure-button-primary" type="submit" value="Soumettre">
+
+                                </form>
+
+                                <h4>Graduation</h4>
+
+                                <p>Sélectionnez l'année de votre graduation.</p>
+
+                                <form class="form-gradu" method="POST">
+
+                                    <select class="gradu">
+                                        <option>2014</option>
+                                        <option>2013</option>
+                                        <option>2012</option>
+                                        <option>2011</option>
+                                        <option>2010</option>
+                                        <option>2009</option>
+                                        <option>2008</option>
+                                        <option>2007</option>
+                                        <option>2006</option>
+                                        <option>2005</option>
+                                        <option>2004</option>
+                                        <option>2003</option>
+                                        <option>2002</option>
+                                        <option>2001</option>
+                                        <option>2000</option>
+                                    </select>
+
+                                    <input class="pure-button pure-button-primary" type="submit" value="Soumettre">
+
+                                </form>
+
+                            </div>
+
+                            <div class="section projets">
+
+                                <h3>Projets</h3>
+
+                                <p>Pour modifier votre photo de profil, utilisez le bouton ci-dessous.</p>
+
+                                <button>Changer ma photo</button>
+
+                            </div>
+
+                            <div class="section compte">
+
+                                <h3>Compte</h3>
+
+                                <p>Pour modifier votre photo de profil, utilisez le bouton ci-dessous.</p>
+
+                                <button>Changer ma photo</button>
+
+                            </div>
+
+                        </div>
+                </div>
+
+               {{template "footer" .}}
+            </div>
+        </div>
+
+        <!-- <script type="text/javascript" src="/js/jquery-1.11.0.min.js"></script> -->
+        <!-- <script type="text/javascript" src="/js/jquery.justifiedGallery.js"></script> -->
+        <!-- <script type="text/javascript" src="/js/jquery.contenthover.min.js"></script> -->
+        <!-- <script type="text/javascript" src="/js/main.js"></script> -->
+    </body>
+</html>
+{{ end }}

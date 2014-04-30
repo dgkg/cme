@@ -62,6 +62,7 @@ func main() {
 	r.HandleFunc("/get-connexion", ConnexionGet)
 
 	r.HandleFunc("/inscription", InscriptionHandler)
+	r.HandleFunc("/mon-compte", MonCompteHandler)
 
 	// Rootage des pages d'informations
 	r.HandleFunc("/qui-sommes-nous", QuiSommesNousHandler)
@@ -352,6 +353,11 @@ func InscriptionHandler(w http.ResponseWriter, r *http.Request) {
 	var p Page
 	p = pi
 	Render(w, p, r)
+}
+
+func MonCompteHandler(w http.ResponseWriter, r *http.Request) {
+	var pc PageCompte
+	Render(w, pc.View())
 }
 
 // affichage de la page qui sommes nous

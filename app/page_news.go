@@ -28,7 +28,7 @@ func (pn *PageNews) View() {
 	// surcharge de la variable d'affichage
 	Templ = "news"
 
-	pn.Title = "News"
+	pn.Title = "Actualités du CME"
 	pn.MainClass = "news"
 
 	var n News

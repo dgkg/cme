@@ -7,11 +7,17 @@
 
                 <hr>
 
+                <div class="msg-erreur">
+
+
+
+                </div>
+
                 <form class="pure-form pure-form-aligned connexion-form" method="POST" action="">
 
                         <fieldset class="pure-group">
-                            <input type="text" class="pure-input-1-2" placeholder="Courriel">
-                            <input type="text" class="pure-input-1-2" placeholder="Mot de passe">
+                            <input type="text" class="pure-input-1-2" placeholder="Courriel" data-validation="email" data-validation-error-msg="Adresse courriel invalide.">
+                            <input type="password" class="pure-input-1-2" placeholder="Mot de passe"  data-validation="required" data-validation-error-msg="Saisissez votre mot de passe.">
                         </fieldset>
 
                         <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Connexion</button>
@@ -37,10 +43,9 @@
             </div>
         </div>
 
-        <!-- <script type="text/javascript" src="/js/jquery-1.11.0.min.js"></script> -->
-        <!-- <script type="text/javascript" src="/js/jquery.justifiedGallery.js"></script> -->
-        <!-- <script type="text/javascript" src="/js/jquery.contenthover.min.js"></script> -->
-        <!-- <script type="text/javascript" src="/js/main.js"></script> -->
+        <script type="text/javascript" src="/js/vendor/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="/js/vendor/form-validator/jquery.form-validator.min.js"></script>
+        <script type="text/javascript" src="/js/connexion.js"></script>
     </body>
 </html>
 {{ end }}
