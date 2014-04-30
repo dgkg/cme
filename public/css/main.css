@@ -289,60 +289,64 @@ a:visited { color: #e11414; }
 /* line 96, pages/_eleves.scss */
 .eleves .body .liste-eleves .eleve .hover-infos { padding: 20px; }
 /* line 99, pages/_eleves.scss */
-.eleves .body .liste-eleves .eleve .hover-infos .bio { color: #f9f9f9; }
-/* line 107, pages/_eleves.scss */
+.eleves .body .liste-eleves .eleve .hover-infos h2 { margin-top: 0; }
+/* line 103, pages/_eleves.scss */
+.eleves .body .liste-eleves .eleve .hover-infos .bio { color: #f9f9f9; font-size: 12px; }
+/* line 112, pages/_eleves.scss */
 .eleves .body .liste-eleves .eleve:nth-child(even) { margin-right: 0; }
-/* line 111, pages/_eleves.scss */
+/* line 116, pages/_eleves.scss */
 .eleves .body .liste-eleves .eleve:nth-child(odd) { margin-left: 0; }
-/* line 118, pages/_eleves.scss */
+/* line 123, pages/_eleves.scss */
 .eleves .body .pagination ul { display: none; }
-/* line 122, pages/_eleves.scss */
+/* line 127, pages/_eleves.scss */
 .eleves .body .pagination .btn-nav-suiv { display: none; }
-/* line 126, pages/_eleves.scss */
+/* line 131, pages/_eleves.scss */
 .eleves .body .pagination select { clear: both; display: block; margin-left: auto; margin-right: auto; width: 40%; height: 30px; padding: 2px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
-@media only screen and (min-device-width: 768px) { /* line 151, pages/_eleves.scss */
+@media only screen and (min-device-width: 768px) { /* line 156, pages/_eleves.scss */
   .eleves .body .entete h1, .eleves .body .entete p { float: left; }
-  /* line 155, pages/_eleves.scss */
+  /* line 160, pages/_eleves.scss */
   .eleves .body .entete p { clear: both; max-width: 320px; }
-  /* line 163, pages/_eleves.scss */
+  /* line 168, pages/_eleves.scss */
   .eleves .body .categories h2 { display: none; }
-  /* line 167, pages/_eleves.scss */
+  /* line 172, pages/_eleves.scss */
   .eleves .body .categories ul { display: block; padding: 0; width: 50%; float: left; margin: 0; }
-  /* line 174, pages/_eleves.scss */
+  /* line 179, pages/_eleves.scss */
   .eleves .body .categories ul li { display: inline-block; font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; font-size: 20px; padding-right: 15px; line-height: 1.4em; color: #4A4A4A; float: left; }
-  /* line 184, pages/_eleves.scss */
-  .eleves .body .categories ul li a { color: #727272; text-decoration: none; }
   /* line 189, pages/_eleves.scss */
+  .eleves .body .categories ul li a { color: #727272; text-decoration: none; }
+  /* line 194, pages/_eleves.scss */
   .eleves .body .categories ul li a:visited { color: #727272; text-decoration: none; }
-  /* line 195, pages/_eleves.scss */
+  /* line 200, pages/_eleves.scss */
   .eleves .body .categories ul li:first-child { margin-right: 20px; color: #262628; }
-  /* line 201, pages/_eleves.scss */
+  /* line 206, pages/_eleves.scss */
   .eleves .body .categories select { display: block; width: 20%; margin: 0; }
-  /* line 207, pages/_eleves.scss */
+  /* line 212, pages/_eleves.scss */
   .eleves .body .categories form { float: right; margin: 0; margin-bottom: 30px; width: 320px; }
-  /* line 215, pages/_eleves.scss */
+  /* line 220, pages/_eleves.scss */
   .eleves .body .categories form input { display: inline-block; width: 200px; }
-  /* line 221, pages/_eleves.scss */
+  /* line 226, pages/_eleves.scss */
   .eleves .body .categories form button { float: right; display: inline-block; }
-  /* line 230, pages/_eleves.scss */
+  /* line 235, pages/_eleves.scss */
   .eleves .body .liste-eleves .eleve { margin-right: 2%; margin-left: 2%; margin-bottom: 20px; width: 22%; }
-  /* line 237, pages/_eleves.scss */
-  .eleves .body .liste-eleves .eleve:nth-child(even) { margin-right: 2%; }
   /* line 241, pages/_eleves.scss */
+  .eleves .body .liste-eleves .eleve .hover-info { display: none; }
+  /* line 246, pages/_eleves.scss */
+  .eleves .body .liste-eleves .eleve:nth-child(even) { margin-right: 2%; }
+  /* line 250, pages/_eleves.scss */
   .eleves .body .liste-eleves .eleve:nth-child(odd) { margin-left: 2%; }
-  /* line 245, pages/_eleves.scss */
+  /* line 254, pages/_eleves.scss */
   .eleves .body .liste-eleves .eleve:nth-child(4n) { margin-right: 0; }
-  /* line 249, pages/_eleves.scss */
+  /* line 258, pages/_eleves.scss */
   .eleves .body .liste-eleves .eleve:nth-child(4n-3) { margin-left: 0; }
-  /* line 256, pages/_eleves.scss */
+  /* line 265, pages/_eleves.scss */
   .eleves .body .pagination ul { display: block; text-align: center; clear: both; padding: 0; margin-top: 40px; margin-bottom: 40px; }
-  /* line 264, pages/_eleves.scss */
+  /* line 273, pages/_eleves.scss */
   .eleves .body .pagination ul li { display: inline-block; width: 30px; height: 30px; margin-right: 10px; font-size: 18px; font-family: "gt_pressura_regular", sans-serif; }
-  /* line 274, pages/_eleves.scss */
+  /* line 283, pages/_eleves.scss */
   .eleves .body .pagination select { display: none; } }
-@media only screen and (min-width: 1224px) { /* line 285, pages/_eleves.scss */
+@media only screen and (min-width: 1224px) { /* line 294, pages/_eleves.scss */
   .eleves #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 293, pages/_eleves.scss */
+  /* line 302, pages/_eleves.scss */
   .eleves .body { margin-left: 0; margin-right: 0; } }
 
 /* line 1, pages/_eleve_fiche.scss */
