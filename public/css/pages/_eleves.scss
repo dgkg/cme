@@ -96,8 +96,13 @@
 				.hover-infos {
 					padding: 20px;
 
+					h2 {
+						margin-top: 0;
+					}
+
 					.bio {
 						color: $quasi-blanc;
+						font-size: 12px;
 					}
 				}
 
@@ -232,6 +237,10 @@
 					margin-left: 2%;
 					margin-bottom: 20px;
 					width: 22%;
+
+					.hover-info {
+						display: none;
+					}
 				}
 
 				.eleve:nth-child(even) {
