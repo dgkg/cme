@@ -354,47 +354,57 @@ a:visited { color: #e11414; }
 /* line 11, pages/_eleve_fiche.scss */
 .eleve_fiche .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
 /* line 19, pages/_eleve_fiche.scss */
-.eleve_fiche .body .etu-fiche .etu-photo { width: 33%; height: auto; margin-left: auto; margin-right: auto; display: block; margin-bottom: 60px; }
-/* line 28, pages/_eleve_fiche.scss */
+.eleve_fiche .body .etu-fiche .container-img { width: 120px; height: 120px; margin-left: auto; margin-right: auto; overflow: hidden; border-radius: 60px; -webkit-border-radius: 60px; -moz-border-radius: 60px; }
+/* line 29, pages/_eleve_fiche.scss */
+.eleve_fiche .body .etu-fiche .container-img .etu-photo { max-width: 100%; height: auto; margin-left: auto; margin-right: auto; margin-bottom: 60px; }
+/* line 40, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-fiche .etu-gradu { font-family: "gt_pressura_regular", sans-serif; }
-/* line 32, pages/_eleve_fiche.scss */
-.eleve_fiche .body .etu-fiche .etu-bio { margin-top: 30px; margin-bottom: 30px; }
 /* line 44, pages/_eleve_fiche.scss */
+.eleve_fiche .body .etu-fiche .etu-bio { margin-top: 30px; margin-bottom: 30px; }
+/* line 56, pages/_eleve_fiche.scss */
+.eleve_fiche .body .etu-projets h2 { display: block; font-size: 26px; margin-top: 30px; margin-bottom: 24px; }
+/* line 63, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet { width: 100%; margin-right: auto; margin-left: auto; margin-bottom: 30px; }
-/* line 50, pages/_eleve_fiche.scss */
+/* line 69, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet img { width: 100%; }
-/* line 54, pages/_eleve_fiche.scss */
+/* line 73, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet { padding: 30px; background-color: black; opacity: 0.8; }
-/* line 59, pages/_eleve_fiche.scss */
+/* line 78, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet h3, .eleve_fiche .body .etu-projets .img-projet .over-projet p { color: #f9f9f9; margin: 0; }
-/* line 64, pages/_eleve_fiche.scss */
+/* line 83, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet h3 { font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; font-size: 20px; margin-bottom: 20px; }
-/* line 71, pages/_eleve_fiche.scss */
+/* line 90, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet p { font-size: 14px; margin-bottom: 20px; }
-/* line 76, pages/_eleve_fiche.scss */
+/* line 95, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet a { color: #e11414; }
-/* line 80, pages/_eleve_fiche.scss */
+/* line 99, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet a:hover { color: #9c1111; }
-@media only screen and (min-device-width: 768px) { /* line 94, pages/_eleve_fiche.scss */
-  .eleve_fiche .body .etu-fiche { margin-top: 30px; }
-  /* line 97, pages/_eleve_fiche.scss */
-  .eleve_fiche .body .etu-fiche h1 { float: left; width: 65.3333334%; }
-  /* line 102, pages/_eleve_fiche.scss */
-  .eleve_fiche .body .etu-fiche .etu-photo { display: inline-block; width: 30.666666667%; float: left; margin: 0; margin-right: 4%; margin-bottom: 60px; }
-  /* line 111, pages/_eleve_fiche.scss */
-  .eleve_fiche .body .etu-fiche .etu-gradu { width: 65.3333334%; float: left; }
-  /* line 116, pages/_eleve_fiche.scss */
-  .eleve_fiche .body .etu-fiche .etu-bio { float: left; width: 65.3333334%; margin-top: 20px; margin-bottom: 20px; }
-  /* line 123, pages/_eleve_fiche.scss */
-  .eleve_fiche .body .etu-fiche .etu-social { width: 65.3333334%; float: left; }
-  /* line 131, pages/_eleve_fiche.scss */
+@media only screen and (min-device-width: 768px) { /* line 113, pages/_eleve_fiche.scss */
+  .eleve_fiche .body .etu-fiche { margin-top: 30px; text-align: center; width: 60%; margin-left: auto; margin-right: auto; }
+  /* line 120, pages/_eleve_fiche.scss */
+  .eleve_fiche .body .etu-fiche h1 { display: block; margin-left: auto; margin-right: auto; }
+  /* line 126, pages/_eleve_fiche.scss */
+  .eleve_fiche .body .etu-fiche .container-img { width: 120px; border-radius: 80px; -webkit-border-radius: 80px; -moz-border-radius: 80px; }
+  /* line 132, pages/_eleve_fiche.scss */
+  .eleve_fiche .body .etu-fiche .container-img .etu-photo { width: 100%; margin-right: auto; margin-left: auto; }
+  /* line 139, pages/_eleve_fiche.scss */
+  .eleve_fiche .body .etu-fiche .etu-gradu { margin-left: auto; margin-right: auto; }
+  /* line 144, pages/_eleve_fiche.scss */
+  .eleve_fiche .body .etu-fiche .etu-bio { margin-top: 20px; margin-bottom: 20px; margin-left: auto; margin-right: auto; }
+  /* line 151, pages/_eleve_fiche.scss */
+  .eleve_fiche .body .etu-fiche .etu-social { display: inline-block; padding: 8px; margin-left: 10px; border: 1px solid #D4D2D2; }
+  /* line 158, pages/_eleve_fiche.scss */
+  .eleve_fiche .body .etu-fiche .etu-social:hover { background-color: #EDEDED; }
+  /* line 165, pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-projets .img-projet { display: inline-block; width: 30.666666667%; float: left; } }
-@media only screen and (min-width: 1224px) { /* line 145, pages/_eleve_fiche.scss */
+@media only screen and (min-width: 1224px) { /* line 179, pages/_eleve_fiche.scss */
   .eleve_fiche #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 153, pages/_eleve_fiche.scss */
+  /* line 187, pages/_eleve_fiche.scss */
   .eleve_fiche .body { margin-left: 0; margin-right: 0; }
-  /* line 159, pages/_eleve_fiche.scss */
-  .eleve_fiche .body .etu-fiche .etu-bio { max-width: 30.6666667%; } }
+  /* line 191, pages/_eleve_fiche.scss */
+  .eleve_fiche .body .etu-fiche { max-width: 40%; }
+  /* line 197, pages/_eleve_fiche.scss */
+  .eleve_fiche .body .etu-projets h2 { margin-top: 30px; margin-bottom: 24px; } }
 
 /* line 1, pages/_user_compte.scss */
 .user_compte { /* iPads (portrait) ----------- */ /* Desktops and laptops ----------- */ }
@@ -411,15 +421,11 @@ a:visited { color: #e11414; }
 /* line 35, pages/_user_compte.scss */
 .user_compte .body .formulaire .img-info { width: 100%; margin-bottom: 20px; }
 /* line 40, pages/_user_compte.scss */
-.user_compte .body .formulaire .section { max-width: 100%; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; background-color: #EDEDED; border: 1px solid #D4D2D2; padding: 15px; margin-bottom: 20px; /* .gradu {
-	border: 0;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-} */ }
+.user_compte .body .formulaire .section { max-width: 100%; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; background-color: #EDEDED; border: 1px solid #D4D2D2; padding: 15px; margin-bottom: 20px; }
 /* line 50, pages/_user_compte.scss */
 .user_compte .body .formulaire .section h3 { margin: 0; margin-bottom: 10px; font-size: 20px; }
 /* line 56, pages/_user_compte.scss */
-.user_compte .body .formulaire .section h4 { margin: 0; margin-bottom: 10px; margin-top: 20px; font-size: 14px; text-transform: uppercase; }
+.user_compte .body .formulaire .section h4 { margin: 0; margin-bottom: 10px; margin-top: 24px; font-size: 14px; text-transform: uppercase; }
 /* line 64, pages/_user_compte.scss */
 .user_compte .body .formulaire .section input { margin-bottom: 8px; margin-top: 12px; }
 /* line 69, pages/_user_compte.scss */
@@ -432,23 +438,37 @@ a:visited { color: #e11414; }
 .user_compte .body .formulaire .section .custom-upload { width: 100%; height: 30px; }
 /* line 91, pages/_user_compte.scss */
 .user_compte .body .formulaire .section p { font-size: 14px; margin-bottom: 14px; margin-top: 8px; }
-/* line 99, pages/_user_compte.scss */
-.user_compte .body .formulaire .section .form-social label img { width: 24px; height: 24px; }
-/* line 104, pages/_user_compte.scss */
-.user_compte .body .formulaire .section .form-social input[type=text] { max-width: 100%; height: 30px; border: 1px solid #D4D2D2; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; padding-left: 5px; }
-/* line 122, pages/_user_compte.scss */
+/* line 97, pages/_user_compte.scss */
+.user_compte .body .formulaire .section input[type=text] { width: 100%; height: 30px; border: 1px solid #D4D2D2; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
+/* line 108, pages/_user_compte.scss */
+.user_compte .body .formulaire .section input[type=text]::-webkit-input-placeholder { /* WebKit browsers */ padding-left: 5px; }
+/* line 111, pages/_user_compte.scss */
+.user_compte .body .formulaire .section input[type=text]:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ padding-left: 5px; }
+/* line 114, pages/_user_compte.scss */
+.user_compte .body .formulaire .section input[type=text]::-moz-placeholder { /* Mozilla Firefox 19+ */ padding-left: 5px; }
+/* line 117, pages/_user_compte.scss */
+.user_compte .body .formulaire .section input[type=text]:-ms-input-placeholder { /* Internet Explorer 10+ */ padding-left: 5px; }
+/* line 121, pages/_user_compte.scss */
 .user_compte .body .formulaire .section .gradu { display: block; width: 100%; height: 30px; }
-/* line 127, pages/_user_compte.scss */
+/* line 126, pages/_user_compte.scss */
 .user_compte .body .formulaire .section .gradu option { height: 20px; }
-@media only screen and (min-device-width: 768px) { /* line 141, pages/_user_compte.scss */
-  .user_compte .body h2 { max-width: 60%; float: left; margin-left: 20%; margin-right: 20%; }
-  /* line 148, pages/_user_compte.scss */
-  .user_compte .body .formulaire { width: 60%; float: right; margin-right: 20%; margin-bottom: 60px; }
-  /* line 154, pages/_user_compte.scss */
-  .user_compte .body .formulaire p:first-child { margin-top: 0; } }
-@media only screen and (min-width: 1224px) { /* line 166, pages/_user_compte.scss */
+/* line 131, pages/_user_compte.scss */
+.user_compte .body .formulaire .section a { color: #f9f9f9; }
+/* line 135, pages/_user_compte.scss */
+.user_compte .body .formulaire .section .supp-compte { margin-top: 20px; }
+/* line 139, pages/_user_compte.scss */
+.user_compte .body .formulaire .section .button-error { background: #ca3c3c; /* this is a maroon */ }
+@media only screen and (min-device-width: 768px) { /* line 152, pages/_user_compte.scss */
+  .user_compte .body h2 { max-width: 45%; }
+  /* line 156, pages/_user_compte.scss */
+  .user_compte .body .formulaire { width: 45%; margin-right: auto; margin-left: auto; margin-bottom: 60px; }
+  /* line 162, pages/_user_compte.scss */
+  .user_compte .body .formulaire p:first-child { margin-top: 0; }
+  /* line 166, pages/_user_compte.scss */
+  .user_compte .body .formulaire .section { margin-bottom: 40px; } }
+@media only screen and (min-width: 1224px) { /* line 178, pages/_user_compte.scss */
   .user_compte #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 174, pages/_user_compte.scss */
+  /* line 186, pages/_user_compte.scss */
   .user_compte .body { margin-left: 0; margin-right: 0; } }
 
 /* line 1, pages/_forum.scss */

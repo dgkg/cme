@@ -16,14 +16,26 @@
 
 		.etu-fiche {
 
-			.etu-photo {
-				width: 33%;
-				height: auto;
+			.container-img {
+				width: 120px;
+				height: 120px;
 				margin-left: auto;
 				margin-right: auto;
-				display: block;
-				margin-bottom: 60px;
+				overflow: hidden;
+				border-radius: 60px;
+				-webkit-border-radius: 60px;
+				-moz-border-radius: 60px;
+
+				.etu-photo {
+					max-width: 100%;
+					height: auto;
+					margin-left: auto;
+					margin-right: auto;
+					margin-bottom: 60px;
+				}
 			}
+
+
 
 			.etu-gradu {
 				font-family: $titre-regular;
@@ -40,6 +52,13 @@
 		}
 
 		.etu-projets {
+
+			h2 {
+				display: block;
+				font-size: 26px;
+				margin-top: 30px;
+				margin-bottom: 24px;
+			}
 
 	        .img-projet {
 	            width: 100%;
@@ -86,44 +105,59 @@
 	}
 
 	/* iPads (portrait) ----------- */
-    @media only screen 
+    @media only screen
     and (min-device-width : 768px) {
 
     .body {
 
     	.etu-fiche {
     		margin-top: 30px;
+			text-align: center;
+			width: 60%;
+			margin-left: auto;
+			margin-right: auto;
 
     		h1 {
-    			float: left;
-    			width: 65.3333334%;
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
     		}
 
-    		.etu-photo {
-    			display: inline-block;
-                width: 30.666666667%;
-                float: left;
-    			margin: 0;
-    			margin-right: 4%;
-    			margin-bottom: 60px;
-    		}
+			.container-img {
+				width: 120px;
+				border-radius: 80px;
+				-webkit-border-radius: 80px;
+				-moz-border-radius: 80px;
+
+				.etu-photo {
+					width: 100%;
+					margin-right: auto;
+					margin-left: auto;
+				}
+			}
 
     		.etu-gradu {
-    			width: 65.3333334%;
-    			float: left;
+				margin-left: auto;
+				margin-right: auto;
     		}
 
     		.etu-bio {
-    			float: left;
-    			width: 65.3333334%;
     			margin-top: 20px;
     			margin-bottom: 20px;
+				margin-left: auto;
+				margin-right: auto;
     		}
 
     		.etu-social {
-    			width: 65.3333334%;
-    			float: left;
+				display: inline-block;
+				padding: 8px;
+				margin-left: 10px;
+				border: 1px solid #D4D2D2;
     		}
+
+			.etu-social:hover {
+				background-color: #EDEDED;
+			}
     	}
 
     	.etu-projets {
@@ -155,11 +189,16 @@
             margin-right: 0;
 
             .etu-fiche {
-
-            	.etu-bio {
-            		max-width: 30.6666667%;
-            	}
+				max-width: 40%;
             }
+
+			.etu-projets {
+
+				h2 {
+					margin-top: 30px;
+					margin-bottom: 24px;
+				}
+			}
         }
     }
 }

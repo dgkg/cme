@@ -89,9 +89,9 @@
 
                                 <h3>Projets</h3>
 
-                                <p>Pour modifier votre photo de profil, utilisez le bouton ci-dessous.</p>
+                                <p>Pour ajouter ou supprimer une image de projet, cliquez sur le bouton ci-dessous.</p>
 
-                                <button>Changer ma photo</button>
+                                <a class="pure-button pure-button-primary" href="#">Modifier mes projets</a>
 
                             </div>
 
@@ -101,7 +101,15 @@
 
                                 <p>Pour modifier votre photo de profil, utilisez le bouton ci-dessous.</p>
 
-                                <button>Changer ma photo</button>
+                                <form class="form-compte" method="POST">
+
+                                    <input type="text" name="nomutilisateur" placeholder="Nom d'utilisateur">
+
+                                    <input class="pure-button pure-button-primary" type="submit" value="Soumettre">
+
+                                </form>
+
+                                <a class="pure-button button-error supp-compte" href="#">Supprimer mon compte</a>
 
                             </div>
 
