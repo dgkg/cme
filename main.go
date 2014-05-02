@@ -401,17 +401,21 @@ func Render(w http.ResponseWriter, p Page, r *http.Request) {
 	w.Header().Add("Accept-Charset", "utf-8")
 	w.Header().Add("Content-Type", "text/html")
 
-	session, _ := store.Get(r, "cme_connecte")
+	session, err := store.Get(r, "cme_connecte")
+	log.Println("--------Cession value -------------")
 	log.Println(session.Values["id"])
+	log.Println("-------- end Cession value end -------------")
 
-	var u User
-	//u.Id = int64(int(session.Values["id"]))
-	//u.FirstName = string(session.Values["name"])
-	u.Id = 2
-	u.FirstName = "Antoine"
-	p.SetSessionData(u)
+	if err == nil {
+		var u User
+		//u.Id = int64(int(session.Values["id"]))
+		//u.FirstName = session.Values["name"]
+		u.Id = 2
+		u.FirstName = "Antoine"
+		p.SetSessionData(u)
+	}
 
-	var err error
+	//var err error
 	// permet d'afficher avec le rendu html ou non
 	if p.IsHtmlRender() == false {
 		err = templatesHtml.ExecuteTemplate(w, Templ, p)
