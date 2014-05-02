@@ -79,10 +79,14 @@ func main() {
 
 // affichage de la home
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	/*
-		var ph PageHome
-		Render(w, ph.View(), r)
-	*/
+	ph := new(PageHome)
+	ph.View()
+
+	//insersion dans l'interface Page
+	var p Page
+	p = ph
+	Render(w, p, r)
+
 }
 
 // affichage du forum
@@ -356,8 +360,15 @@ func InscriptionHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func MonCompteHandler(w http.ResponseWriter, r *http.Request) {
-	var pc PageCompte
-	Render(w, pc.View())
+
+	pc := new(PageCompte)
+	pc.View()
+
+	//insersion dans l'interface Page
+	var p Page
+	p = pc
+	Render(w, p, r)
+
 }
 
 // affichage de la page qui sommes nous
