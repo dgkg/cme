@@ -1,17 +1,17 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.7
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
--- Client: localhost
--- Généré le: Ven 25 Avril 2014 à 10:50
--- Version du serveur: 5.5.29
--- Version de PHP: 5.4.10
+-- Client :  localhost:8889
+-- Généré le :  Ven 02 Mai 2014 à 19:07
+-- Version du serveur :  5.5.34
+-- Version de PHP :  5.5.10
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Base de données: `cme_test`
+-- Base de données :  `cme_test`
 --
 
 -- --------------------------------------------------------
@@ -32,7 +32,7 @@ CREATE TABLE `forum` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
 
 --
 -- Contenu de la table `forum`
@@ -57,7 +57,8 @@ INSERT INTO `forum` (`id`, `user_id`, `forum_category_id`, `title`, `text`, `key
 (16, 1, 2, 'test coucou', '<p>ceci est un autre test&nbsp;</p>\r\n', '', 0, 1, '2014-04-22 09:03:38', '2014-04-22 09:03:38'),
 (17, 1, 1, 'coucou hu hu', '<p>ha ha ho ho</p>\r\n', '', 0, 1, '2014-04-23 08:49:23', '2014-04-23 08:49:23'),
 (18, 1, 3, 'qsfqsdfqs', '<p>sdfqsdfqsdf</p>\r\n', '', 0, 1, '2014-04-23 16:24:27', '2014-04-23 16:24:27'),
-(19, 1, 3, 'coucouc', '<p>hihi&nbsp;</p>\r\n', '', 0, 1, '2014-04-24 09:07:26', '2014-04-24 09:07:26');
+(19, 1, 3, 'coucouc', '<p>hihi&nbsp;</p>\r\n', '', 0, 1, '2014-04-24 09:07:26', '2014-04-24 09:07:26'),
+(20, 0, 4, 'test ma publication', '<p>coucou test&nbsp;</p>\r\n', '', 0, 1, '2014-04-28 16:09:56', '2014-04-28 16:09:56');
 
 -- --------------------------------------------------------
 
@@ -268,12 +269,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `text`, `email`, `pass`, `keywords`, `is_online`, `created_at`, `updated_at`) VALUES
-(1, 'Damien', 'Weil', 'texte de Damien Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet rhoncus augue, at mollis lacus. Phasellus eget consequat tellus. Donec sed turpis nunc. Nam id dolor porttitor, tristique tortor eget, iaculis sem. Donec nec tincidunt erat. Curabitur volutpat convallis porttitor. Nunc eleifend sem sem, quis ultricies augue porttitor ac. Nullam vitae ante nunc. Suspendisse nisi augue, condimentum eu nulla a, cursus condimentum mauris. Integer tristique pharetra tempor. Donec pharetra vestibulum risus sit amet dictum.', 'damien.weil@gmail.com', '', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 'René', 'Grossi', 'texte de rené Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet rhoncus augue, at mollis lacus. Phasellus eget consequat tellus. Donec sed turpis nunc. Nam id dolor porttitor, tristique tortor eget, iaculis sem. Donec nec tincidunt erat. Curabitur volutpat convallis porttitor. Nunc eleifend sem sem, quis ultricies augue porttitor ac. Nullam vitae ante nunc. Suspendisse nisi augue, condimentum eu nulla a, cursus condimentum mauris. Integer tristique pharetra tempor. Donec pharetra vestibulum risus sit amet dictum.', 'rene.grossi@gmail.com', '', '', 1, '2014-04-07 16:35:14', '2014-04-07 16:35:14'),
-(3, 'Antoine', 'Chameau', 'texte d''antoine Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet rhoncus augue, at mollis lacus. Phasellus eget consequat tellus. Donec sed turpis nunc. Nam id dolor porttitor, tristique tortor eget, iaculis sem. Donec nec tincidunt erat. Curabitur volutpat convallis porttitor. Nunc eleifend sem sem, quis ultricies augue porttitor ac. Nullam vitae ante nunc. Suspendisse nisi augue, condimentum eu nulla a, cursus condimentum mauris. Integer tristique pharetra tempor. Donec pharetra vestibulum risus sit amet dictum.', 'antoine.chameau@gmail.com', '', '', 1, '2014-04-07 16:35:38', '2014-04-07 16:35:38'),
-(4, 'Henri', 'Lepic', 'texte d''Henri Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet rhoncus augue, at mollis lacus. Phasellus eget consequat tellus. Donec sed turpis nunc. Nam id dolor porttitor, tristique tortor eget, iaculis sem. Donec nec tincidunt erat. Curabitur volutpat convallis porttitor. Nunc eleifend sem sem, quis ultricies augue porttitor ac. Nullam vitae ante nunc. Suspendisse nisi augue, condimentum eu nulla a, cursus condimentum mauris. Integer tristique pharetra tempor. Donec pharetra vestibulum risus sit amet dictum.', 'henrilepic@gmail.com', '', '', 1, '2014-04-07 16:36:41', '2014-04-07 16:36:41'),
-(5, 'Amélie', 'Lepic', 'texte Amélie Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet rhoncus augue, at mollis lacus. Phasellus eget consequat tellus. Donec sed turpis nunc. Nam id dolor porttitor, tristique tortor eget, iaculis sem. Donec nec tincidunt erat. Curabitur volutpat convallis porttitor. Nunc eleifend sem sem, quis ultricies augue porttitor ac. Nullam vitae ante nunc. Suspendisse nisi augue, condimentum eu nulla a, cursus condimentum mauris. Integer tristique pharetra tempor. Donec pharetra vestibulum risus sit amet dictum.', 'amelie.lepic@gmail.com', '', '', 0, '2014-04-07 17:04:15', '2014-04-07 17:04:15'),
-(6, 'Hugues', 'Lepic', 'texte d''hugues Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet rhoncus augue, at mollis lacus. Phasellus eget consequat tellus. Donec sed turpis nunc. Nam id dolor porttitor, tristique tortor eget, iaculis sem. Donec nec tincidunt erat. Curabitur volutpat convallis porttitor. Nunc eleifend sem sem, quis ultricies augue porttitor ac. Nullam vitae ante nunc. Suspendisse nisi augue, condimentum eu nulla a, cursus condimentum mauris. Integer tristique pharetra tempor. Donec pharetra vestibulum risus sit amet dictum.', 'h.lepic@gmail.com', '', '', 1, '2014-04-07 17:08:35', '2014-04-07 17:08:35');
+(1, 'Damien', 'Weil', 'texte de Damien Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet rhoncus augue, at mollis lacus. Phasellus eget consequat tellus. Donec sed turpis nunc. Nam id dolor porttitor, tristique tortor eget, iaculis sem. Donec nec tincidunt erat. Curabitur volutpat convallis porttitor. Nunc eleifend sem sem, quis ultricies augue porttitor ac. Nullam vitae ante nunc. Suspendisse nisi augue, condimentum eu nulla a, cursus condimentum mauris. Integer tristique pharetra tempor. Donec pharetra vestibulum risus sit amet dictum.', 'damien.weil@gmail.com', 'damien1', '', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 'René', 'Grossi', 'texte de rené Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet rhoncus augue, at mollis lacus. Phasellus eget consequat tellus. Donec sed turpis nunc. Nam id dolor porttitor, tristique tortor eget, iaculis sem. Donec nec tincidunt erat. Curabitur volutpat convallis porttitor. Nunc eleifend sem sem, quis ultricies augue porttitor ac. Nullam vitae ante nunc. Suspendisse nisi augue, condimentum eu nulla a, cursus condimentum mauris. Integer tristique pharetra tempor. Donec pharetra vestibulum risus sit amet dictum.', 'rene.grossi@gmail.com', 'rene2', '', 1, '2014-04-07 16:35:14', '2014-04-07 16:35:14'),
+(3, 'Antoine', 'Chameau', 'texte d''antoine Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet rhoncus augue, at mollis lacus. Phasellus eget consequat tellus. Donec sed turpis nunc. Nam id dolor porttitor, tristique tortor eget, iaculis sem. Donec nec tincidunt erat. Curabitur volutpat convallis porttitor. Nunc eleifend sem sem, quis ultricies augue porttitor ac. Nullam vitae ante nunc. Suspendisse nisi augue, condimentum eu nulla a, cursus condimentum mauris. Integer tristique pharetra tempor. Donec pharetra vestibulum risus sit amet dictum.', 'antoine.chameau@gmail.com', 'coucou', '', 1, '2014-04-07 16:35:38', '2014-04-07 16:35:38'),
+(4, 'Henri', 'Lepic', 'texte d''Henri Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet rhoncus augue, at mollis lacus. Phasellus eget consequat tellus. Donec sed turpis nunc. Nam id dolor porttitor, tristique tortor eget, iaculis sem. Donec nec tincidunt erat. Curabitur volutpat convallis porttitor. Nunc eleifend sem sem, quis ultricies augue porttitor ac. Nullam vitae ante nunc. Suspendisse nisi augue, condimentum eu nulla a, cursus condimentum mauris. Integer tristique pharetra tempor. Donec pharetra vestibulum risus sit amet dictum.', 'henrilepic@gmail.com', 'ritoon', '', 1, '2014-04-07 16:36:41', '2014-04-07 16:36:41'),
+(5, 'Amélie', 'Lepic', 'texte Amélie Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet rhoncus augue, at mollis lacus. Phasellus eget consequat tellus. Donec sed turpis nunc. Nam id dolor porttitor, tristique tortor eget, iaculis sem. Donec nec tincidunt erat. Curabitur volutpat convallis porttitor. Nunc eleifend sem sem, quis ultricies augue porttitor ac. Nullam vitae ante nunc. Suspendisse nisi augue, condimentum eu nulla a, cursus condimentum mauris. Integer tristique pharetra tempor. Donec pharetra vestibulum risus sit amet dictum.', 'amelie.lepic@gmail.com', 'amèle', '', 0, '2014-04-07 17:04:15', '2014-04-07 17:04:15'),
+(6, 'Hugues', 'Lepic', 'texte d''hugues Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet rhoncus augue, at mollis lacus. Phasellus eget consequat tellus. Donec sed turpis nunc. Nam id dolor porttitor, tristique tortor eget, iaculis sem. Donec nec tincidunt erat. Curabitur volutpat convallis porttitor. Nunc eleifend sem sem, quis ultricies augue porttitor ac. Nullam vitae ante nunc. Suspendisse nisi augue, condimentum eu nulla a, cursus condimentum mauris. Integer tristique pharetra tempor. Donec pharetra vestibulum risus sit amet dictum.', 'h.lepic@gmail.com', 'hugo', '', 1, '2014-04-07 17:08:35', '2014-04-07 17:08:35');
 
 -- --------------------------------------------------------
 
