@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	. "github.com/konginteractive/cme/app"
@@ -310,8 +309,35 @@ func NewsHandler(w http.ResponseWriter, r *http.Request) {
 // affichage de la connexion
 func ConnexionHandler(w http.ResponseWriter, r *http.Request) {
 
+	var u User
+	var connected bool
+
+	u.Email = r.PostFormValue("login")
+	u.Pass = r.PostFormValue("pass")
+
+	if u.Email != "" && u.Pass != "" {
+		connected, _ = u.LoginPassExist()
+	}
+
 	pc := new(PageConnexion)
 	pc.View()
+
+	if connected {
+		session, _ := store.Get(r, "cme_connecte")
+		// Set some session values.
+		session.Values["id"] = u.Id
+		session.Values["name"] = u.LastName
+		session.Options = &sessions.Options{
+			MaxAge:   86400 * 7,
+			HttpOnly: true,
+		}
+		// Save it.
+		session.Save(r, w)
+		// Set data into current page
+		pc.SessIdUser = u.Id
+		pc.SessNameUser = u.LastName
+		pc.SessIsLogged = true
+	}
 
 	//insersion dans l'interface Page
 	var p Page
@@ -338,9 +364,10 @@ func ConnexionPostHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ConnexionGet(w http.ResponseWriter, r *http.Request) {
-	session, _ := store.Get(r, "cme_connecte")
 
-	fmt.Fprintf(w, "Hi there, I love %s!", session.Values["name"])
+	//session, _ := store.Get(r, "cme_connecte")
+
+	//fmt.Fprintf(w, "Hi there, I love %s!", session.Values["name"])
 
 	// permet d'afficher quelque chose
 	//var pc PageConnexion
@@ -402,16 +429,11 @@ func Render(w http.ResponseWriter, p Page, r *http.Request) {
 	w.Header().Add("Content-Type", "text/html")
 
 	session, err := store.Get(r, "cme_connecte")
-	log.Println("--------Cession value -------------")
-	log.Println(session.Values["id"])
-	log.Println("-------- end Cession value end -------------")
 
-	if err == nil {
+	if err == nil && session.Values["id"] != nil {
 		var u User
-		//u.Id = int64(int(session.Values["id"]))
-		//u.FirstName = session.Values["name"]
-		u.Id = 2
-		u.FirstName = "Antoine"
+		u.Id = session.Values["id"].(int64)
+		u.FirstName = session.Values["name"].(string)
 		p.SetSessionData(u)
 	}
 

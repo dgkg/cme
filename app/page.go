@@ -8,6 +8,7 @@ type Page interface {
 type PageWeb struct {
 	Title         string
 	Keywords      []Keyword
+	SessIdUser    int64
 	SessNameUser  string
 	SessIsLogged  bool
 	VarSessServer string

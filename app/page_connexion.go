@@ -31,7 +31,7 @@ func (p *PageConnexion) Connect(login string, pass string) (u User, err error) {
 
 	u.Email = login
 	u.Pass = pass
-	u, err = u.serchUserLoginAndPass()
+	//u, err = u.serchUserLoginAndPass()
 
 	if err == nil && u.Id != 0 {
 
