@@ -177,20 +177,33 @@
 
                     <div class="titre-section-actualite">
                         <h2>Actualités</h2>
-                        <a class="lien-toutes-actus" href="#">Toutes les actualités</a>
+                        <a class="lien-toutes-actus" href="/actualites">Toutes les actualités</a>
                     </div>
 
-                    <div class="actu">
-                        <h3>Titre de l'actualité qui devrait normalement être sur deux lignes</h3>
-                        <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                        <a href="#">Lire la suite</a>
-                    </div>
+                    {{if .News}}
+                        {{range .News}}
 
-                    <div class="actu">
-                        <h3>Titre de l'actualité</h3>
-                        <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                        <a href="#">Lire la suite</a>
-                    </div>
+                        <div class="actu">
+                            <h3>{{.Title}}</h3>
+                            <p>{{.Text}}</p>
+                            <a href="#">Lire la suite</a>
+                        </div>
+
+                        {{end}}
+                    {{else}}
+                        <div class="actu">Aucune actualités</h3>
+                            <p></p>
+                            <a href="#"></a>
+                        </div>
+
+                        <div class="actu">
+                            <h3></h3>
+                            <p></p>
+                            <a href="#"></a>
+                        </div>
+
+                    {{end}}
+
 
                 </div>
 

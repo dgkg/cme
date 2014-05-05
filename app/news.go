@@ -24,6 +24,6 @@ type News struct {
 func (n News) getList() []News {
 
 	var news []News
-	db.Limit(maxElementsInPage).Where("is_online = ?", "1").Order("id desc").Find(&news)
+	db.Limit(2).Where("is_online = ?", "1").Order("id desc").Find(&news)
 	return news
 }

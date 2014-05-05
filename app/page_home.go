@@ -6,6 +6,7 @@ import (
 
 type PageHome struct {
 	Images []UserImage
+	News []News
 	PageWeb
 }
 
@@ -16,15 +17,18 @@ func CreatePageHome() *PageHome {
 
 func (ph *PageHome) View() {
 
-	log.Println("Home appelé")
+	log.Println("Accueil appelé")
 
 	// surcharge de la variable d'affichage
 	Templ = "index"
 
-	ph.Title = "Coucouc de la forêt"
+	ph.Title = "Accueil | Communauté Maryse-Éloy"
 
 	ph.MainClass = "accueil"
 	ph.RenderHtml = true
+
+	var n News
+	ph.News = n.getList()
 }
 
 // fonction permettant de savoir si le rendu passe par l'html ou non
