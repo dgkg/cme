@@ -136,6 +136,7 @@ func ForumAddHandler(w http.ResponseWriter, r *http.Request) {
 	//insersion dans l'interface Page
 	var p Page
 	p = pf
+	pf.ViewAdd()
 	Render(w, p, r)
 }
 
