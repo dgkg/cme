@@ -8,10 +8,9 @@ $(window).load(function() {
 
     //log.console(contenu);
 
-    /* $('#submit').click(function(e){
-          // do whatever actions you need here
+    $('.nouv-post-form').submit(function(e){
           e.preventDefault();
-    }); */
+    });
 
     $('.post-contenu').ckeditor();
 
@@ -23,8 +22,22 @@ $(window).load(function() {
         errorMessagePosition: $zoneMsgErreur,
         validateOnBlur: false,
         onSuccess : function() {
-            afficherSucces();
+            //afficherSucces();
         }
+    });
+
+    $( ".nouv-post-form" ).submit(function( event ) {
+
+        // Get some values from elements on the page:
+        var $form = $( this );
+
+        // Send the data using post
+        var posting = $.post( "/submitForm", $form.serialize() );
+
+        // Put the results in a div
+        posting.done(function( data ) {
+            afficherSucces();
+        });
     });
 });
 
