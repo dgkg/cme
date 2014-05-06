@@ -7,6 +7,7 @@ import (
 type PageHome struct {
 	Images []UserImage
 	News []News
+	Projets []UserImage
 	PageWeb
 }
 
@@ -23,6 +24,10 @@ func (ph *PageHome) View() {
 	Templ = "index"
 
 	ph.Title = "Accueil | Communauté Maryse-Éloy"
+
+	var uimg UserImage
+
+	ph.Projets = uimg.getProjets()
 
 	ph.MainClass = "accueil"
 	ph.RenderHtml = true

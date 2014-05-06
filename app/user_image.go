@@ -1,6 +1,7 @@
 package app
 
 import (
+	//"fmt"
 	"time"
 )
 
@@ -13,6 +14,14 @@ type UserImage struct {
 	Description         string
 	IsFeatured          int64
 	IsOnline            int64
+	Year				int64
+	Month               int64
 	CreatedAt           time.Time
 	UpdatedAt           time.Time
+}
+
+func (u UserImage) getProjets() []UserImage {
+	var images []UserImage
+	db.Limit(12).Where("is_online = ?", "1").Order("id desc").Find(&images)
+	return images
 }
