@@ -22,10 +22,10 @@ type News struct {
 
 // permet de récupérer toute la listes des questions du forum
 // en fonction de la limite affichable par page
-func (n News) getList() []News {
+func (n News) getList(numbElements int) []News {
 
 	var news []News
-	db.Limit(2).Where("is_online = ?", "1").Order("id desc").Find(&news)
+	db.Limit(numbElements).Where("is_online = ?", "1").Order("id desc").Find(&news)
 	return news
 }
 

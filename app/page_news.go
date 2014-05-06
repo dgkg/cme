@@ -36,7 +36,7 @@ func (pn *PageNews) View() {
 
 	var n News
 
-	pn.News = n.getList()
+	pn.News = n.getList(10)
 	pn.PagesList = pn.createPaginate()
 	pn.injectDataToDisplay()
 	pn.RenderHtml = false
@@ -80,7 +80,7 @@ func (pn *PageNews) injectDataToDisplay() {
 		u.Id = pn.News[key].UserId
 		u = u.getById()
 		pn.News[key].UserName = u.FirstName + " " + u.LastName
-		log.Println(u.FirstName)
+		//log.Println(u.FirstName)
 	}
 }
 
