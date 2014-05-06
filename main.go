@@ -52,6 +52,7 @@ func main() {
 
 	// routages des actualités
 	r.HandleFunc("/actualites", NewsHandler)
+	r.HandleFunc("/actualite/{name:[a-z-]+}", NewsUniqueHandler)
 
 	// rootage de la page connexion
 	r.HandleFunc("/connexion", ConnexionHandler)
@@ -297,6 +298,24 @@ func TutoPostHandler(w http.ResponseWriter, r *http.Request) {
 
 // affichage de la liste des news
 func NewsHandler(w http.ResponseWriter, r *http.Request) {
+
+	pn := new(PageNews)
+
+	value := r.FormValue("p")
+	if value == "" {
+		pn.View()
+	} else {
+		pn.ViewPaged(value)
+	}
+
+	//insersion dans l'interface Page
+	var p Page
+	p = pn
+	Render(w, p, r)
+}
+
+// affichage d'une news unique
+func NewsUniqueHandler(w http.ResponseWriter, r *http.Request) {
 
 	pn := new(PageNews)
 

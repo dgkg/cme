@@ -36,7 +36,7 @@ func (pn *PageNews) View() {
 
 	var n News
 
-	pn.News = n.getList(10)
+	pn.News = n.getList(3)
 	pn.PagesList = pn.createPaginate()
 	pn.injectDataToDisplay()
 	pn.RenderHtml = false
@@ -84,7 +84,22 @@ func (pn *PageNews) injectDataToDisplay() {
 	}
 }
 
-func getNews() {
+/* func getNews() {
+
+} */
+
+func (pn *PageNews) ViewActu() {
+
+	log.Println("Actualité unique appelé")
+
+	// surcharge de la variable d'affichage
+	Templ = "news-unique"
+
+	pn.Title = "Nom de l'article | Actualités de CME"
+	pn.MainClass = "news-unique"
+
+	pn.injectDataToDisplay()
+	pn.RenderHtml = false
 
 }
 

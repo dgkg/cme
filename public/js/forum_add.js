@@ -8,9 +8,9 @@ $(window).load(function() {
 
     //log.console(contenu);
 
-    $('.nouv-post-form').submit(function(e){
+    /* $('.nouv-post-form').submit(function(e){
           e.preventDefault();
-    });
+    }); */
 
     $('.post-contenu').ckeditor();
 
@@ -22,11 +22,14 @@ $(window).load(function() {
         errorMessagePosition: $zoneMsgErreur,
         validateOnBlur: false,
         onSuccess : function() {
-            //afficherSucces();
+            afficherSucces();
         }
     });
 
     $( ".nouv-post-form" ).submit(function( event ) {
+
+        //Ne pas rafraîchir la page
+        event.preventDefault();
 
         // Get some values from elements on the page:
         var $form = $( this );
@@ -34,8 +37,9 @@ $(window).load(function() {
         // Send the data using post
         var posting = $.post( "/submitForm", $form.serialize() );
 
-        // Put the results in a div
+        // Afficher la confirmation
         posting.done(function( data ) {
+            alert("La page /submitForm n'existe pas.");
             afficherSucces();
         });
     });
