@@ -299,7 +299,13 @@ func TutoPostHandler(w http.ResponseWriter, r *http.Request) {
 func NewsHandler(w http.ResponseWriter, r *http.Request) {
 
 	pn := new(PageNews)
-	pn.View()
+
+	value := r.FormValue("p")
+	if value == "" {
+		pn.View()
+	} else {
+		pn.ViewPaged(value)
+	}
 
 	//insersion dans l'interface Page
 	var p Page

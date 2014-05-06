@@ -2,6 +2,8 @@ package app
 
 import (
 	"log"
+	"math"
+	. "strconv"
 )
 
 // Helper de vue
@@ -11,8 +13,9 @@ type NewsViewHelper struct {
 }
 
 type PageNews struct {
-	PagesList []Paginate
-	News      []News
+	Categories []NewsCategory
+	PagesList  []Paginate
+	News       []News
 	PageWeb
 }
 
@@ -28,33 +31,39 @@ func (pn *PageNews) View() {
 	// surcharge de la variable d'affichage
 	Templ = "news"
 
-	pn.Title = "Actualités du CME"
+	pn.Title = "Actualités de CME"
 	pn.MainClass = "news"
 
 	var n News
 
 	pn.News = n.getList()
-
+	pn.PagesList = pn.createPaginate()
 	pn.injectDataToDisplay()
-
-	// pagination
-	pn.PagesList = make([]Paginate, 5)
-
-	pn.PagesList[0].Title = "1"
-	pn.PagesList[0].Url = "/forum/page/1"
-
-	pn.PagesList[1].Title = "2"
-	pn.PagesList[1].Url = "/forum/page/2"
-
-	pn.PagesList[2].Title = "3"
-	pn.PagesList[2].Url = "/forum/page/3"
-
-	pn.PagesList[3].Title = "4"
-	pn.PagesList[3].Url = "/forum/page/4"
-
-	pn.PagesList[4].Title = "5"
-	pn.PagesList[4].Url = "/forum/page/5"
 	pn.RenderHtml = false
+
+}
+
+// fonction public
+// permet d'afficher la liste des questions du forum
+// avec la fonction de pagination
+func (pn *PageNews) ViewPaged(page string) {
+
+	log.Println("ViewPaged appelé : " + page)
+
+	var n News
+
+	// surcharge de la variable d'affichage
+	Templ = "news"
+
+	pagePosition, _ := ParseInt(page, 0, 64)
+
+	pn.Title = "Actualités de CME"
+	pn.MainClass = "news"
+	pn.News = n.getListPaged(pagePosition)
+	pn.Categories = n.getAllCategories()
+	pn.PagesList = pn.createPaginate()
+	pn.RenderHtml = true
+	pn.injectDataToDisplay()
 
 }
 
@@ -77,6 +86,24 @@ func (pn *PageNews) injectDataToDisplay() {
 
 func getNews() {
 
+}
+
+// fonction privée
+// fonction pour créer la pagination
+func (pn PageNews) createPaginate() []Paginate {
+	var n News
+	elTotal := n.count()
+
+	nb := elTotal / maxElementsInPage
+	mf := int(math.Floor(float64(nb)))
+	p := make([]Paginate, nb)
+
+	for i := 0; i < mf; i++ {
+		t := Itoa(i + 1)
+		p[i].Title = t
+		p[i].Url = "?p=" + t
+	}
+	return p
 }
 
 // fonction permettant de savoir si le rendu passe par l'html ou non

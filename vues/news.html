@@ -39,29 +39,15 @@
                 <div class="pagination">
 
                     <ul>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">6</a></li>
-                        <li><a href="#">7</a></li>
-                        <li><a href="#">8</a></li>
-                        <li><a href="#">9</a></li>
-                        <li><a href="#">10</a></li>
+                        {{range .PagesList}}
+                        <li><a href="{{.Url}}">{{.Title}}</a></li>
+                        {{end}}
                     </ul>
 
                     <select>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
+                        {{range .PagesList}}
+                        <option>{{.Title}}</option>
+                        {{end}}
                     </select>
 
                     <a class="btn-nav-suiv" href="#">Suivant</a>
