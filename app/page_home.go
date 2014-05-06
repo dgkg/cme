@@ -28,7 +28,7 @@ func (ph *PageHome) View() {
 	ph.RenderHtml = true
 
 	var n News
-	ph.News = n.getList()
+	ph.News = n.getList(2)
 }
 
 // fonction permettant de savoir si le rendu passe par l'html ou non

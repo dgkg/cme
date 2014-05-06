@@ -14,6 +14,9 @@ type User struct {
 	Email     string
 	Pass      string
 	Keywords  string
+	Facebook  string
+	Twitter   string
+	LinkedIn  string
 	IsOnline  int64
 	CreatedAt time.Time
 	UpdatedAt time.Time
