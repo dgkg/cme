@@ -143,6 +143,21 @@ func (t Tutorial) search(s string) []Tutorial {
 	db.Where("is_online = ? and title LIKE ? ", "1", "%"+s+"%").Or("is_online = ? and text LIKE ? ", "1", "%"+s+"%").Order("id desc").Find(&tutorials)
 	return tutorials
 }
+func (t *Tutorial) getTitle() string {
+	t.getData()
+	return t.Title
+}
+func (t *Tutorial) getData() {
+	if t.Id != 0 {
+		db.Where("is_online = ? and id = ?", "1", Itoa(int(t.Id))).Find(&t)
+	}
+}
+func (t *Tutorial) getCatTitle() string {
+	var tc TutorialCategory
+	tc.Id = t.TutorialCategoryId
+
+	return tc.getTitle()
+}
 
 //
 //

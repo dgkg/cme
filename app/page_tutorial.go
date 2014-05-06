@@ -198,6 +198,7 @@ func (pt PageTutorial) injectDataToDisplay(tutorials []Tutorial) []Tutorial {
 			tutorials[i].Text = text
 		}
 		tutorials[i].PostNumb = tutorials[i].countPost(id)
+		tutorials[i].CategoryTitle = tutorials[i].getCatTitle()
 	}
 
 	return tutorials
