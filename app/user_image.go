@@ -12,6 +12,7 @@ type UserImage struct {
 	Title               string `sql:"type:varchar(100);"`
 	Url                 string `sql:"type:varchar(200);"`
 	Description         string
+	DescriptionCourte   string
 	IsFeatured          int64
 	IsOnline            int64
 	Year				int64
@@ -20,8 +21,19 @@ type UserImage struct {
 	UpdatedAt           time.Time
 }
 
-func (u UserImage) getProjets() []UserImage {
+func (u UserImage) getProjets(nbProjets int) []UserImage {
+
+	// Récupérer les images
 	var images []UserImage
-	db.Limit(12).Where("is_online = ?", "1").Order("id desc").Find(&images)
+	db.Limit(nbProjets).Where("is_online = ?", "1").Order("id desc").Find(&images)
+
 	return images
+}
+
+func (u UserImage) getDescCourte() string {
+	var descCourte string
+
+	u.DescriptionCourte = u.Description[0:150]
+
+	return descCourte
 }

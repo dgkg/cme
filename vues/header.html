@@ -32,14 +32,15 @@
             </div>
 
             <div class="zone-membre">
+                <p>Bonjour [utilisateurconnecté], bienvenue sur CME.</p>
 
-                    <a class="btn-moncompte" href="/mon-compte">Mon compte</a>
-                    {{if .SessIsLogged}}
-                        <a class="btn-connexion" href="">Bonjour {{.SessNameUser}}</a>
-                    {{else}}
-                        <a class="btn-connexion" href="/connexion">Se connecter</a>
-                    {{end}}
-                </div>
+                <a class="btn-moncompte" href="/mon-compte">Mon compte</a>
+                {{if .SessIsLogged}}
+                    <a class="btn-connexion" href="">Bonjour {{.SessNameUser}}</a>
+                {{else}}
+                    <a class="btn-connexion" href="/connexion">Se connecter</a>
+                {{end}}
+            </div>
 
             <div class="header">
 

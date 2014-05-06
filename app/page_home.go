@@ -27,7 +27,9 @@ func (ph *PageHome) View() {
 
 	var uimg UserImage
 
-	ph.Projets = uimg.getProjets()
+	ph.Projets = uimg.getProjets(20)
+
+	//uimg.getDescCourte()
 
 	ph.MainClass = "accueil"
 	ph.RenderHtml = true
