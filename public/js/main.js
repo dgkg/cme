@@ -21,20 +21,20 @@ $(window).load(function() {
 	if(viewportWidth > 1000) {
 		for (var i = 22; i >= 1; i--) {
 			var strTableau = arrProjets.length - 1;
-			strProjetsAAjouter  += '<a href="#"><img src="img/projets/2014/04/17/prj_' + arrProjets[strTableau] + '.jpg" alt="Image de projet"></a>';
+			strProjetsAAjouter  += '<a href="#"><img src="img/projets/mosaique/prj_' + arrProjets[strTableau] + '.jpg" alt="Image de projet"></a>';
 			arrProjets.pop();
 		}
 	} else {
 		if (viewportWidth > 768 && viewportWidth < 1000 ) {
 			for (var i = 16; i >= 1; i--) {
 				var strTableau = arrProjets.length - 1;
-				strProjetsAAjouter  += '<a href="#"><img src="img/projets/2014/04/17/prj_' + arrProjets[strTableau] + '.jpg" alt="Image de projet"></a>';
+				strProjetsAAjouter  += '<a href="#"><img src="img/projets/mosaique/prj_' + arrProjets[strTableau] + '.jpg" alt="Image de projet"></a>';
 				arrProjets.pop();
 			}
 		} else {
 			for (var i = 7; i >= 1; i--) {
 				var strTableau = arrProjets.length - 1;
-				strProjetsAAjouter  += '<a href="#"><img src="img/projets/2014/04/17/prj_' + arrProjets[strTableau] + '.jpg" alt="Image de projet"></a>';
+				strProjetsAAjouter  += '<a href="#"><img src="img/projets/mosaique/prj_' + arrProjets[strTableau] + '.jpg" alt="Image de projet"></a>';
 				arrProjets.pop();
 			}
 		}

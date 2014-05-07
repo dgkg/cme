@@ -38,131 +38,20 @@
 
                 <div class="projets" >
 
-                    <div class="img-projet">
-                        <img class="img-du-projet" src="http://placehold.it/320x400">
-                        <div class="over-projet">
-                            <h3>Nom du projet</h3>
-                            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                            <a href="#">Voir le projet</a>
-                        </div>
-                    </div>
+                    {{if .Projets}}
+                        {{range .Projets}}
 
-                    <div class="img-projet">
-                        <img class="img-du-projet" src="http://placehold.it/320x400">
-                        <div class="over-projet">
-                            <h3>Nom du projet</h3>
-                            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                            <a href="#">Voir le projet</a>
-                        </div>
-                    </div>
+                            <div class="img-projet">
+                                <img class="img-du-projet" src="/img/projets/{{.Year}}/{{.Month}}/prj_{{.Id}}.jpg">
+                                <div class="over-projet">
+                                    <h3>{{.Title}}</h3>
+                                    <p>{{.DescriptionCourte}}</p>
+                                    <a href="{{.Url}}">Voir le projet</a>
+                                </div>
+                            </div>
 
-                    <div class="img-projet">
-                        <img class="img-du-projet" src="http://placehold.it/320x400">
-                        <div class="over-projet">
-                            <h3>Nom du projet</h3>
-                            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                            <a href="#">Voir le projet</a>
-                        </div>
-                    </div>
-
-                    <div class="img-projet">
-                        <img class="img-du-projet" src="http://placehold.it/320x400">
-                        <div class="over-projet">
-                            <h3>Nom du projet</h3>
-                            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                            <a href="#">Voir le projet</a>
-                        </div>
-                    </div>
-
-                    <div class="img-projet">
-                        <img class="img-du-projet" src="http://placehold.it/420x400">
-                        <div class="over-projet">
-                            <h3>Nom du projet</h3>
-                            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                            <a href="#">Voir le projet</a>
-                        </div>
-                    </div>
-
-                    <div class="img-projet">
-                        <img class="img-du-projet" src="http://placehold.it/220x400">
-                        <div class="over-projet">
-                            <h3>Nom du projet</h3>
-                            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                            <a href="#">Voir le projet</a>
-                        </div>
-                    </div>
-
-                    <div class="img-projet">
-                        <img class="img-du-projet" src="http://placehold.it/320x400">
-                        <div class="over-projet">
-                            <h3>Nom du projet</h3>
-                            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                            <a href="#">Voir le projet</a>
-                        </div>
-                    </div>
-
-                    <div class="img-projet">
-                        <img class="img-du-projet" src="http://placehold.it/420x400">
-                        <div class="over-projet">
-                            <h3>Nom du projet</h3>
-                            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                            <a href="#">Voir le projet</a>
-                        </div>
-                    </div>
-
-                    <div class="img-projet">
-                        <img class="img-du-projet" src="http://placehold.it/220x400">
-                        <div class="over-projet">
-                            <h3>Nom du projet</h3>
-                            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                            <a href="#">Voir le projet</a>
-                        </div>
-                    </div>
-
-                    <div class="img-projet">
-                        <img class="img-du-projet" src="http://placehold.it/320x400">
-                        <div class="over-projet">
-                            <h3>Nom du projet</h3>
-                            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                            <a href="#">Voir le projet</a>
-                        </div>
-                    </div>
-
-                    <div class="img-projet">
-                        <img class="img-du-projet" src="http://placehold.it/320x400">
-                        <div class="over-projet">
-                            <h3>Nom du projet</h3>
-                            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                            <a href="#">Voir le projet</a>
-                        </div>
-                    </div>
-
-                    <div class="img-projet">
-                        <img class="img-du-projet" src="http://placehold.it/420x400">
-                        <div class="over-projet">
-                            <h3>Nom du projet</h3>
-                            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                            <a href="#">Voir le projet</a>
-                        </div>
-                    </div>
-
-                    <div class="img-projet">
-                        <img class="img-du-projet" src="http://placehold.it/320x400">
-                        <div class="over-projet">
-                            <h3>Nom du projet</h3>
-                            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                            <a href="#">Voir le projet</a>
-                        </div>
-                    </div>
-
-                    <div class="img-projet">
-                        <img class="img-du-projet" src="http://placehold.it/420x400">
-                        <div class="over-projet">
-                            <h3>Nom du projet</h3>
-                            <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                            <a href="#">Voir le projet</a>
-                        </div>
-                    </div>
+                        {{end}}
+                    {{end}}
 
                 </div>
 
