@@ -29,11 +29,3 @@ func (u UserImage) getProjets(nbProjets int) []UserImage {
 
 	return images
 }
-
-func (u UserImage) getDescCourte() string {
-	var descCourte string
-
-	u.DescriptionCourte = u.Description[0:150]
-
-	return descCourte
-}
