@@ -2,13 +2,25 @@ package app
 
 import (
 	"log"
+	"net/http"
 )
 
 type PageHome struct {
-	Images []UserImage
-	News []News
+	Images  []UserImage
+	News    []News
 	Projets []UserImage
 	PageWeb
+}
+
+// affichage de la home
+func HomeHandler(w http.ResponseWriter, r *http.Request) {
+	ph := new(PageHome)
+	ph.View()
+
+	//insersion dans l'interface Page
+	var p Page
+	p = ph
+	Render(w, p, r)
 }
 
 // fonction pour permettre de créer une page

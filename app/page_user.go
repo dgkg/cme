@@ -1,12 +1,38 @@
 package app
 
 import (
+	//"github.com/gorilla/mux"
 	"log"
+	"net/http"
 )
 
 type PageUser struct {
 	PagesList []Paginate
 	PageWeb
+}
+
+// affichage de la liste des étudants
+func StudentHandler(w http.ResponseWriter, r *http.Request) {
+
+	pu := new(PageUser)
+	pu.View()
+
+	//insersion dans l'interface Page
+	var p Page
+	p = pu
+	Render(w, p, r)
+}
+
+// affichage de la fiche étudiant
+func StudentFicheHandler(w http.ResponseWriter, r *http.Request) {
+
+	pu := new(PageUser)
+	pu.ViewFiche()
+
+	//insersion dans l'interface Page
+	var p Page
+	p = pu
+	Render(w, p, r)
 }
 
 // fonction pour permettre de créer une page

@@ -116,9 +116,9 @@ func (t Tutorial) countFromIdCat(id int64) int {
 
 // permet de récupérer les posts d'un tutoriel
 // à partir de l'id d'un tutoriel
-func (t Tutorial) getPost(id int) []TutorialPost {
+func (t Tutorial) getPost() []TutorialPost {
 
-	idTutorial := Itoa(id)
+	idTutorial := Itoa(int(t.Id))
 	var posts []TutorialPost
 	db.Where("is_online = ? and tutorial_id = ?", "1", idTutorial).Find(&posts)
 	return posts

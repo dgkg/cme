@@ -1,0 +1,67 @@
+{{ define "tutorial_single" }}
+<!DOCTYPE html>
+{{template "header" .}}
+            <div class="body">
+
+                <div class="liste-post">
+
+                    <div class="post">
+                            {{ if .Tutorial}}
+                            <h2>{{ .Tutorial.Title }}</h2>
+
+                            <div class="post-contenu">
+
+                                {{ .Tutorial.Text }}
+
+                            </div>
+
+                            <div class="post-meta">
+
+                                <!-- <p class="post-date">1er avril 2014</p> -->
+                                <p class="post-date">{{.Tutorial.CreatedAtString}}</p>
+                                
+                                <p class="post-auteur">{{.Tutorial.UserName}}</p>
+
+                            </div>
+                            {{end }}
+
+                    </div>
+
+                    {{ if .Tutorial.Posts}}
+
+                        {{ range .Tutorial.Posts }}
+                        <div class="comm">
+                            <p class="comm-texte">{{.Text}}</p>
+                            <p class="comm-auteur">{{.UserName}}</p>
+                            <p class="comm-date">{{.CreatedAtString}}</p>
+                        </div>
+                        {{end}}
+
+                    {{end}}
+
+                    <div class="nouv-comm">
+
+                        <p>Nouveau commentaire</p>
+
+                        <form class="form-nouv-comm" method="POST" action="">
+
+                            <textarea></textarea>
+                            <button type="submit" class="pure-button pure-button-primary">Envoyer</button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+               {{template "footer" .}}
+            </div>
+        </div>
+
+        <!-- <script type="text/javascript" src="/js/jquery-1.11.0.min.js"></script> -->
+        <!-- <script type="text/javascript" src="/js/jquery.justifiedGallery.js"></script> -->
+        <!-- <script type="text/javascript" src="/js/jquery.contenthover.min.js"></script> -->
+        <!-- <script type="text/javascript" src="/js/main.js"></script> -->
+    </body>
+</html>
+{{ end }}

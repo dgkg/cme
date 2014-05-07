@@ -3,6 +3,7 @@ package app
 import (
 	"log"
 	"math"
+	"net/http"
 	. "strconv"
 )
 
@@ -17,6 +18,42 @@ type PageNews struct {
 	PagesList  []Paginate
 	News       []News
 	PageWeb
+}
+
+// affichage de la liste des news
+func NewsHandler(w http.ResponseWriter, r *http.Request) {
+
+	pn := new(PageNews)
+
+	value := r.FormValue("p")
+	if value == "" {
+		pn.View()
+	} else {
+		pn.ViewPaged(value)
+	}
+
+	//insersion dans l'interface Page
+	var p Page
+	p = pn
+	Render(w, p, r)
+}
+
+// affichage d'une news unique
+func NewsUniqueHandler(w http.ResponseWriter, r *http.Request) {
+
+	pn := new(PageNews)
+
+	value := r.FormValue("p")
+	if value == "" {
+		pn.View()
+	} else {
+		pn.ViewPaged(value)
+	}
+
+	//insersion dans l'interface Page
+	var p Page
+	p = pn
+	Render(w, p, r)
 }
 
 // fonction pour permettre de créer une page

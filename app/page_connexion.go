@@ -1,11 +1,81 @@
 package app
 
 import (
+	"github.com/gorilla/sessions"
 	"log"
+	"net/http"
 )
 
 type PageConnexion struct {
 	PageWeb
+}
+
+// affichage de la connexion
+func ConnexionHandler(w http.ResponseWriter, r *http.Request) {
+
+	var u User
+	var connected bool
+
+	u.Email = r.PostFormValue("login")
+	u.Pass = r.PostFormValue("pass")
+
+	if u.Email != "" && u.Pass != "" {
+		connected, _ = u.LoginPassExist()
+	}
+
+	pc := new(PageConnexion)
+	pc.View()
+
+	if connected {
+		session, _ := store.Get(r, "cme_connecte")
+		// Set some session values.
+		session.Values["id"] = u.Id
+		session.Values["name"] = u.LastName
+		session.Options = &sessions.Options{
+			MaxAge:   86400 * 7,
+			HttpOnly: true,
+		}
+		// Save it.
+		session.Save(r, w)
+		// Set data into current page
+		pc.SessIdUser = u.Id
+		pc.SessNameUser = u.LastName
+		pc.SessIsLogged = true
+	}
+
+	//insersion dans l'interface Page
+	var p Page
+	p = pc
+	Render(w, p, r)
+
+}
+
+func ConnexionPostHandler(w http.ResponseWriter, r *http.Request) {
+
+	// Get a session. We're ignoring the error resulted from decoding an
+	// existing session: Get() always returns a session, even if empty.
+	session, _ := store.Get(r, "cme_connecte")
+	// Set some session values.
+	session.Values["name"] = "Antoine"
+	session.Values["id"] = 1
+	session.Options = &sessions.Options{
+		MaxAge:   86400 * 7,
+		HttpOnly: true,
+	}
+
+	// Save it.
+	session.Save(r, w)
+}
+
+func ConnexionGet(w http.ResponseWriter, r *http.Request) {
+
+	//session, _ := store.Get(r, "cme_connecte")
+
+	//fmt.Fprintf(w, "Hi there, I love %s!", session.Values["name"])
+
+	// permet d'afficher quelque chose
+	//var pc PageConnexion
+	//Render(w, pc.View())
 }
 
 // fonction pour permettre de créer une page
