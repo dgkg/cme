@@ -7,6 +7,7 @@ import (
 	"math"
 	"net/http"
 	. "strconv"
+	"fmt"
 )
 
 type PageForum struct {
@@ -108,17 +109,29 @@ func ForumPostHandler(w http.ResponseWriter, r *http.Request) {
 // données dans la BD
 func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 
-	var f Forum
+	// Validation des données
+	// Si un des variables est vide, la func retourne un "error"
+	// ce qui fait afficher une message d'erreur
+	if (r.PostFormValue("titre_post") == "" ||
+		r.PostFormValue("resolu_post") == "" ||
+		r.PostFormValue("categorie_post") == "" ||
+		r.PostFormValue("contenu_post") == "") {
 
-	isSolved, _ := ParseInt(r.PostFormValue("resolu_post"), 0, 64)
-	idCat, _ := ParseInt(r.PostFormValue("categorie_post"), 0, 64)
+		fmt.Fprint(w, "error")
+	} else {
 
-	f.Title = r.PostFormValue("titre_post")
-	f.ForumCategoryId = idCat
-	f.IsSolved = isSolved
-	f.Text = r.PostFormValue("contenu_post")
-	f.IsOnline = 1
-	f.Save()
+		var f Forum
+
+		isSolved, _ := ParseInt(r.PostFormValue("resolu_post"), 0, 64)
+		idCat, _ := ParseInt(r.PostFormValue("categorie_post"), 0, 64)
+
+		f.Title = r.PostFormValue("titre_post")
+		f.ForumCategoryId = idCat
+		f.IsSolved = isSolved
+		f.Text = r.PostFormValue("contenu_post")
+		f.IsOnline = 1
+		f.Save()
+	}
 }
 
 // fonction pour permettre de créer une page
