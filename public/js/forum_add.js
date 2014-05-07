@@ -45,7 +45,9 @@ $(window).load(function() {
 
 function afficherSucces() {
     $('.msg-succes').show();
+    $('.nouv-post-form').hide();
     $('html, body').animate({
         scrollTop: $(".msg-succes").offset().top
     }, 750);
+
 }

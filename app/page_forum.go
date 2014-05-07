@@ -8,6 +8,7 @@ import (
 	"net/http"
 	. "strconv"
 	"fmt"
+	"github.com/kennygrant/sanitize"
 )
 
 type PageForum struct {
@@ -304,7 +305,7 @@ func (pf PageForum) injectDataToDisplay(forums []Forum) []Forum {
 		id := forums[i].Id
 		// permet de réaliser des extraits si le texte est trop long
 		if len(forums[i].Text) > 250 {
-			text := forums[i].Text[0:250]
+			text := "<p>" + sanitize.HTML(forums[i].Text[0:250]) + "</p>"
 			forums[i].Text = text
 		}
 		// permet de compter ne nombres de réponses
