@@ -7,6 +7,7 @@ import (
 	"math"
 	"net/http"
 	. "strconv"
+	"fmt"
 )
 
 type PageForum struct {
@@ -102,6 +103,35 @@ func ForumPostHandler(w http.ResponseWriter, r *http.Request) {
 	var p Page
 	p = pfp
 	Render(w, p, r)
+}
+
+// Réception du POST envoyé en AJAX et ajout des
+// données dans la BD
+func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
+
+	// Validation des données
+	// Si un des variables est vide, la func retourne un "error"
+	// ce qui fait afficher une message d'erreur
+	if (r.PostFormValue("titre_post") == "" ||
+		r.PostFormValue("resolu_post") == "" ||
+		r.PostFormValue("categorie_post") == "" ||
+		r.PostFormValue("contenu_post") == "") {
+
+		fmt.Fprint(w, "error")
+	} else {
+
+		var f Forum
+
+		isSolved, _ := ParseInt(r.PostFormValue("resolu_post"), 0, 64)
+		idCat, _ := ParseInt(r.PostFormValue("categorie_post"), 0, 64)
+
+		f.Title = r.PostFormValue("titre_post")
+		f.ForumCategoryId = idCat
+		f.IsSolved = isSolved
+		f.Text = r.PostFormValue("contenu_post")
+		f.IsOnline = 1
+		f.Save()
+	}
 }
 
 // fonction pour permettre de créer une page

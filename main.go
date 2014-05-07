@@ -51,6 +51,9 @@ func main() {
 	r.HandleFunc("/qui-sommes-nous", QuiSommesNousHandler)
 	r.HandleFunc("/pourquoi-une-association", PourquoiUneAssoHandler)
 
+	// AJAX
+	r.HandleFunc("/forum/nouveau/submitform", SubmitFormHandler)
+
 	//gestion des fichiers statiques
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
 
