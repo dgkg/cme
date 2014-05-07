@@ -1,17 +1,5 @@
 $(window).load(function() {
 
-    //$('form').submit(alert("Bonjour"));
-
-    /* $('form').submit(function(e) {
-        console.log($data);
-    }); */
-
-    //log.console(contenu);
-
-    /* $('.nouv-post-form').submit(function(e){
-          e.preventDefault();
-    }); */
-
     $('.post-contenu').ckeditor();
 
     var editeur = $('.post-contenu');
@@ -22,7 +10,7 @@ $(window).load(function() {
         errorMessagePosition: $zoneMsgErreur,
         validateOnBlur: false,
         onSuccess : function() {
-            afficherSucces();
+            //afficherSucces();
         }
     });
 
@@ -31,16 +19,25 @@ $(window).load(function() {
         //Ne pas rafraîchir la page
         event.preventDefault();
 
-        // Get some values from elements on the page:
-        var $form = $( this );
+        // Récupération des données saisies dans la page
+        var $val_titre_post = $('#post-nom').val();
+        var $val_categorie_post = $('#post-cat').val();
+        var $val_resolu_post = $('#post-etat').val();
+        var $val_contenu_post = $('#post-contenu').val();
 
-        // Send the data using post
-        var posting = $.post( "/submitForm", $form.serialize() );
+        // Envois des données en AJAX
+        var posting = $.post( "/forum/nouveau/submitform", {
+            titre_post : $val_titre_post,
+            categorie_post : $val_categorie_post,
+            resolu_post : $val_resolu_post,
+            contenu_post: $val_contenu_post
+        }, function(data, status){
 
-        // Afficher la confirmation
-        posting.done(function( data ) {
-            alert("La page /submitForm n'existe pas.");
-            afficherSucces();
+            if (data != "error") {
+                afficherSucces();
+            } else {
+                alert("Une erreur est survenue. Veuillez réessayer.");
+            };
         });
     });
 });

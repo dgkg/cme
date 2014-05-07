@@ -6,6 +6,7 @@ import (
 	. "github.com/konginteractive/cme/app"
 	"log"
 	"net/http"
+	. "strconv"
 
 	// attention entre html/template et text/template le render est en autoescaping
 	htmlTempl "html/template"
@@ -67,6 +68,9 @@ func main() {
 	// Rootage des pages d'informations
 	r.HandleFunc("/qui-sommes-nous", QuiSommesNousHandler)
 	r.HandleFunc("/pourquoi-une-association", PourquoiUneAssoHandler)
+
+	// AJAX
+	r.HandleFunc("/forum/nouveau/submitform", SubmitFormHandler)
 
 	//gestion des fichiers statiques
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
@@ -446,6 +450,23 @@ func PourquoiUneAssoHandler(w http.ResponseWriter, r *http.Request) {
 	var p Page
 	p = ppua
 	Render(w, p, r)
+}
+
+// Réception du POST envoyé en AJAX et ajout des
+// données dans la BD
+func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
+
+	var f Forum
+
+	isSolved, _ := ParseInt(r.PostFormValue("resolu_post"), 0, 64)
+	idCat, _ := ParseInt(r.PostFormValue("categorie_post"), 0, 64)
+
+	f.Title = r.PostFormValue("titre_post")
+	f.ForumCategoryId = idCat
+	f.IsSolved = isSolved
+	f.Text = r.PostFormValue("contenu_post")
+	f.IsOnline = 1
+	f.Save()
 }
 
 // fonction permettant de rendu des pages en fonction du type HTML ou TXT
