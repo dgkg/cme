@@ -2,7 +2,7 @@ package app
 
 import (
 	_ "github.com/go-sql-driver/mysql"
-
+	"github.com/gorilla/mux"
 	"log"
 	"math"
 	"net/http"
@@ -14,6 +14,94 @@ type PageForum struct {
 	PagesList  []Paginate
 	Forums     []Forum
 	PageWeb
+}
+
+// affichage du forum
+func ForumHandler(w http.ResponseWriter, r *http.Request) {
+
+	pf := new(PageForum)
+
+	value := r.FormValue("p")
+	if value == "" {
+		pf.View()
+	} else {
+		pf.ViewPaged(value)
+	}
+
+	//insersion dans l'interface Page
+	var p Page
+	p = pf
+	Render(w, p, r)
+
+}
+
+// affichage de la recherche dans le forum
+func ForumSearchHandler(w http.ResponseWriter, r *http.Request) {
+	pf := new(PageForum)
+	q := r.FormValue("q")
+	if q == "" {
+		pf.View()
+	} else {
+		pf.ViewSearch(q)
+	}
+
+	//insersion dans l'interface Page
+	var p Page
+	p = pf
+	Render(w, p, r)
+}
+
+// affichage du formulaire du forum
+func ForumAddHandler(w http.ResponseWriter, r *http.Request) {
+	pf := new(PageForum)
+	f, v := pf.ValidateForm(r)
+	if v {
+		log.Print("VALIDE!!")
+		f.Save()
+	} else {
+		log.Print("NON VALIDE!!")
+	}
+	//insersion dans l'interface Page
+	var p Page
+	p = pf
+	pf.ViewAdd()
+	Render(w, p, r)
+}
+
+// affichage d'une catégorie dans le forum
+func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
+	pf := new(PageForum)
+
+	// récupère la catégorie sélectionnée
+	vars := mux.Vars(r)
+	category := vars["category"]
+	// récupère la page en cours sélectionnée
+	value := r.FormValue("p")
+
+	if value == "" {
+		pf.ViewCategory(category)
+	} else {
+		pf.ViewCategoryPaged(category, value)
+	}
+	//insersion dans l'interface Page
+	var p Page
+	p = pf
+	Render(w, p, r)
+}
+
+// affichage d'une question du forum
+func ForumPostHandler(w http.ResponseWriter, r *http.Request) {
+
+	vars := mux.Vars(r)
+	id := vars["id"]
+
+	pfp := new(PageForumPost)
+	pfp.View(id)
+
+	//insersion dans l'interface Page
+	var p Page
+	p = pfp
+	Render(w, p, r)
 }
 
 // fonction pour permettre de créer une page

@@ -2,10 +2,23 @@ package app
 
 import (
 	"log"
+	"net/http"
 )
 
 type PageInscription struct {
 	PageWeb
+}
+
+// affichage du formulaire d'inscription
+func InscriptionHandler(w http.ResponseWriter, r *http.Request) {
+
+	pi := new(PageInscription)
+	pi.View()
+
+	//insersion dans l'interface Page
+	var p Page
+	p = pi
+	Render(w, p, r)
 }
 
 // fonction pour permettre de créer une page

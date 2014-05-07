@@ -6,10 +6,7 @@ import (
 )
 
 type PageForumPost struct {
-	//PagesList []Paginate
-	//News      []NewsViewHelper
 	Forum Forum
-
 	PageWeb
 }
 

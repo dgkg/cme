@@ -2,10 +2,23 @@ package app
 
 import (
 	"log"
+	"net/http"
 )
 
 type PageCompte struct {
 	PageWeb
+}
+
+func MonCompteHandler(w http.ResponseWriter, r *http.Request) {
+
+	pc := new(PageCompte)
+	pc.View()
+
+	//insersion dans l'interface Page
+	var p Page
+	p = pc
+	Render(w, p, r)
+
 }
 
 func (pc *PageCompte) View() {

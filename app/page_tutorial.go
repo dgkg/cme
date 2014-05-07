@@ -1,6 +1,7 @@
 package app
 
 import (
+	"github.com/gorilla/mux"
 	"log"
 	"math"
 	"net/http"
@@ -12,6 +13,101 @@ type PageTutorial struct {
 	PagesList  []Paginate
 	Tutorials  []Tutorial
 	PageWeb
+}
+
+// affichage de la liste des tutos
+func TutoHandler(w http.ResponseWriter, r *http.Request) {
+
+	pt := new(PageTutorial)
+	value := r.FormValue("p")
+
+	if value == "" {
+		pt.View()
+	} else {
+		pt.ViewPaged(value)
+	}
+
+	//insersion dans l'interface Page
+	var p Page
+	p = pt
+	Render(w, p, r)
+}
+
+// affichage du formulaire d'ajout d'un tuto
+func TutoAddHandler(w http.ResponseWriter, r *http.Request) {
+
+	pt := new(PageTutorial)
+
+	t, v := pt.ValidateForm(r)
+
+	if v {
+		log.Print("VALIDE!!")
+		t.Save()
+	} else {
+		log.Print("NON VALIDE!!")
+	}
+
+	pt.ViewAdd()
+
+	//insersion dans l'interface Page
+	var p Page
+	p = pt
+	Render(w, p, r)
+}
+
+// affichage d'une catégorie d'un tutoriel
+func TutoCatHandler(w http.ResponseWriter, r *http.Request) {
+	pt := new(PageTutorial)
+
+	// récupère la catégorie sélectionnée
+	vars := mux.Vars(r)
+	category := vars["category"]
+	// récupère la page en cours sélectionnée
+	value := r.FormValue("p")
+
+	if value == "" {
+		pt.ViewCategory(category)
+	} else {
+		pt.ViewCategoryPaged(category, value)
+	}
+
+	//insersion dans l'interface Page
+	var p Page
+	p = pt
+	Render(w, p, r)
+}
+
+// affichage de la recherche de tutos
+func TutoSearchHandler(w http.ResponseWriter, r *http.Request) {
+	pt := new(PageTutorial)
+
+	q := r.FormValue("q")
+	if q == "" {
+		pt.View()
+	} else {
+		pt.ViewSearch(q)
+	}
+
+	//insersion dans l'interface Page
+	var p Page
+	p = pt
+	Render(w, p, r)
+}
+
+// affichage d'un tuto
+func TutoPostHandler(w http.ResponseWriter, r *http.Request) {
+	/*
+		vars := mux.Vars(r)
+		id := vars["id"]
+	*/
+	tp := new(PageTutorial)
+	tp.View()
+
+	//insersion dans l'interface Page
+	var p Page
+	p = tp
+	Render(w, p, r)
+
 }
 
 // fonction pour permettre de créer une page

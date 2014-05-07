@@ -1,6 +1,7 @@
 package app
 
 import (
+	. "strconv"
 	"time"
 )
 
@@ -12,4 +13,10 @@ type TutorialPost struct {
 	IsOline    int64
 	CreatedAt  time.Time
 	UpdatedAt  time.Time
+}
+
+func (t *TutorialPost) getData() {
+	if t.Id != 0 {
+		db.Where("id=?", Itoa(int(t.Id))).Find(&t)
+	}
 }

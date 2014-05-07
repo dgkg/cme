@@ -2,10 +2,23 @@ package app
 
 import (
 	"log"
+	"net/http"
 )
 
 type PagePourquoiUneAsso struct {
 	PageWeb
+}
+
+// affichage de la page pourquoi une association
+func PourquoiUneAssoHandler(w http.ResponseWriter, r *http.Request) {
+
+	ppua := new(PagePourquoiUneAsso)
+	ppua.View()
+
+	//insersion dans l'interface Page
+	var p Page
+	p = ppua
+	Render(w, p, r)
 }
 
 // fonction pour permettre de créer une page

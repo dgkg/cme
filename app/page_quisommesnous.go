@@ -2,10 +2,23 @@ package app
 
 import (
 	"log"
+	"net/http"
 )
 
 type PageQuiSommesNous struct {
 	PageWeb
+}
+
+// affichage de la page qui sommes nous
+func QuiSommesNousHandler(w http.ResponseWriter, r *http.Request) {
+
+	pqsn := new(PageQuiSommesNous)
+	pqsn.View()
+
+	//insersion dans l'interface Page
+	var p Page
+	p = pqsn
+	Render(w, p, r)
 }
 
 // fonction pour permettre de créer une page
