@@ -16,7 +16,7 @@ type NewsViewHelper struct {
 type PageNews struct {
 	Categories []NewsCategory
 	PagesList  []Paginate
-	News       []News
+	News
 	PageWeb
 }
 

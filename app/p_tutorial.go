@@ -6,7 +6,7 @@ import (
 	. "strconv"
 )
 
-type PageTutorialSingle struct {
+type PageTutorial struct {
 	Tutorial Tutorial
 	PageWeb
 }
@@ -34,7 +34,7 @@ func TutoPostHandler(w http.ResponseWriter, r *http.Request) {
 
 // fonction public
 // permet d'afficher la liste des tutoriels
-func (pts *PageTutorialSingle) View(idTuto string) {
+func (pts *PageTutorial) View(idTuto string) {
 
 	log.Println("ViewSingle appelé")
 	log.Println("Id appelé : " + Itoa(int(pts.Tutorial.Id)))
