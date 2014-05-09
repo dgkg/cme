@@ -4,6 +4,7 @@ import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
+	"github.com/kennygrant/sanitize"
 	"log"
 	"math"
 	"net/http"
@@ -239,7 +240,7 @@ func (pf PageForum) injectDataToDisplay(forums []Forum) []Forum {
 		id := forums[i].Id
 		// permet de réaliser des extraits si le texte est trop long
 		if len(forums[i].Text) > 250 {
-			text := forums[i].Text[0:250]
+			text := "<p>" + sanitize.HTML(forums[i].Text[0:250]) + "</p>"
 			forums[i].Text = text
 		}
 		// permet de compter ne nombres de réponses

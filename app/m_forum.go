@@ -153,16 +153,3 @@ func (f Forum) search(s string) []Forum {
 	db.Where("is_online = ? and title LIKE ? ", "1", "%"+s+"%").Or("is_online = ? and text LIKE ? ", "1", "%"+s+"%").Order("id desc").Find(&forums)
 	return forums
 }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-// END ♥ allez hop au travail !
