@@ -26,7 +26,15 @@ type User struct {
 // fonction public
 // permet d'enregistrer les éléments du formulaire
 func (u User) Save() {
+	log.Println(u)
 	db.Save(&u)
+}
+
+func (u User) getById() User {
+	var user User
+	user.Id = u.Id
+	db.Find(&user)
+	return user
 }
 
 // fonction permettant de retourner un utilisateur

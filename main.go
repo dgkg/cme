@@ -26,7 +26,7 @@ func main() {
 	// routages des élèves
 	r.HandleFunc("/eleves", StudentHandler)
 	r.HandleFunc("/eleves/2014/henrilepic", StudentFicheHandler)
-	//r.HandleFunc("/eleves/2014/henrilepic/{name:[a-z-]+}", ProjetHandler)		
+	//r.HandleFunc("/eleves/2014/henrilepic/{name:[a-z-]+}", ProjetHandler)
 
 	// routage des tutoriels
 	r.HandleFunc("/tutoriels", TutoHandler)
@@ -55,6 +55,7 @@ func main() {
 
 	// AJAX
 	r.HandleFunc("/forum/nouveau/submitform", SubmitFormHandler)
+	r.HandleFunc("/inscription/submitform", InscFormHandler)
 
 	//gestion des fichiers statiques
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
