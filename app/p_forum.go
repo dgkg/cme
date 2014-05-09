@@ -5,6 +5,8 @@ import (
 	"log"
 	"net/http"
 	. "strconv"
+	"fmt"
+	"github.com/kennygrant/sanitize"
 )
 
 type PageForumPost struct {
@@ -71,8 +73,39 @@ func (pfp *PageForumPost) View() {
 	// surcharge de la variable d'affichage
 	Templ = "forum_post"
 
+<<<<<<< HEAD
 	pfp.Title = "Titre du post! Woohoo!"
 	pfp.MainClass = "forum_post"
+=======
+// fonction privée
+// Permet de retrouver le nombre de réponses pour chaque post
+// Permet aussi de réduire la description du texte de desc à 250 caractères
+func (pf PageForum) injectDataToDisplay(forums []Forum) []Forum {
+
+	lenForum := len(forums)
+
+	for i := 0; i < lenForum; i++ {
+		id := forums[i].Id
+		// permet de réaliser des extraits si le texte est trop long
+		if len(forums[i].Text) > 250 {
+			text := "<p>" + sanitize.HTML(forums[i].Text[0:250]) + "</p>"
+			forums[i].Text = text
+		}
+		// permet de compter ne nombres de réponses
+		forums[i].PostNumb = forums[i].countPost(id)
+		// permet de créer une url du lien
+		forums[i].Url = "/forum/post/" + Itoa(int(forums[i].Id))
+	}
+
+	return forums
+}
+
+// fonction privée
+// fonction pour créer la pagination
+func (pf PageForum) createPaginate() []Paginate {
+	var f Forum
+	elTotal := f.count()
+>>>>>>> 379c500647dbf68e211d395d74721833a6926cea
 
 	pfp.Forum = pfp.Forum.getById()
 	pfp.Forum.Posts = pfp.Forum.getPost()
