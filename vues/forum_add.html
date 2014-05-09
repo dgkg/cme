@@ -5,7 +5,7 @@
 
                 <div class="entete-forum">
 
-                    <h1>Créer un nouveau sujet</h1>
+                    <h1>{{.Title}}</h1>
 
                 </div>
 
@@ -28,14 +28,24 @@
                     <form class="pure-form nouv-post-form" action="" method="POST">
 
                         <label class="label-post-nom" for="post-nom">Nom du sujet</label>
-                        <input type="text" id="post-nom" class="post-nom" name="post-nom" data-validation="required" data-validation-error-msg="Veuillez saisir le nom du sujet.">
+                        <input type="text" id="post-nom" class="post-nom" name="post-nom" data-validation="required" data-validation-error-msg="Veuillez saisir le nom du sujet." value="{{.Forum.Title}}">
 
                         <div class="sec-post-cat">
                             <label class="label-post-cat" for="post-cat">Catégorie</label>
                             <select id="post-cat" class="post-cat" name="post-cat">
-                                <option value="-1">Catégorie</option>
+
+                                {{if eq .Forum.Id 0}}
+                                    
+                                {{else}}
+                                    <option value="-1">Catégorie</option>
+                                {{end}}
+
                                 {{range .Categories}}
-                                <option value="{{ .Id }}">{{.Title}}</option>
+                                    {{if eq .Categories.Id .Forum.ForumCategoryId}}
+                                        <option value="{{ .Id }}" selected>{{.Title}}</option>
+                                    {{else}}
+                                        <option value="{{ .Id }}">{{.Title}}</option>
+                                    {{end}}
                                 {{end}}
                             </select>
                         </div>

@@ -21,6 +21,7 @@ func main() {
 	r.HandleFunc("/forum/search", ForumSearchHandler)
 	r.HandleFunc("/forum/{category}", ForumCatHandler)
 	r.HandleFunc("/forum/post/{id:[0-9]+}", ForumPostHandler)
+	r.HandleFunc("/forum/post/edit/{id:[0-9]+}", ForumEditHandler)
 
 	// routages des élèves
 	r.HandleFunc("/eleves", StudentHandler)

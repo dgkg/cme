@@ -6,13 +6,14 @@
                 <div class="liste-post">
 
                     <div class="post">
+
                             {{ if .Forum}}
                             <h2>{{ .Forum.Title }}</h2>
 
+                            <a href="/forum/post/edit/{{.Forum.Id}}">editer</a>
+                            
                             <div class="post-contenu">
-
                                 {{ .Forum.Text }}
-
                             </div>
 
                             <div class="post-meta">
