@@ -158,16 +158,3 @@ func (t *Tutorial) getCatTitle() string {
 
 	return tc.getTitle()
 }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-// END ♥ allez hop au travail !
