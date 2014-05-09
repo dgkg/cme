@@ -64,8 +64,45 @@ func (u *User) LoginPassExist() (v bool, err error) {
 	return
 }
 
-/*
-func (u *User) getById() User {
-	return db.Find(&u)
+func (u User) getById() User {
+	var user User
+	user.Id = u.Id
+	db.Find(&user)
+	return user
 }
-*/
+
+// permet de récupérer toute la listes des questions du forum
+// en fonction de la limite affichable par page
+func (u User) getList() []User {
+
+	var users []User
+	db.Limit(maxElementsInPage).Where("is_online = ?", "1").Order("id desc").Find(&users)
+	return users
+}
+
+// permet de récupérer toute la listes des questions du forum
+// avec les fonctions de pagination
+// en fonction de la limite affichable par page
+func (u User) getListPaged(fromPage int64) []User {
+
+	var users []User
+	db.Limit(maxElementsInPage).Offset(int(fromPage)*maxElementsInPage).Where("is_online = ?", "1").Order("id desc").Find(&users)
+	return users
+}
+
+// permet de récupérer le nombre de forums de question total de la base de donnée
+func (u User) count() int {
+
+	var users []User
+	var num int
+	db.Where("is_online = ?", "1").Find(&users).Count(&num)
+	return num
+}
+
+// fonction permetttant de rechercher dans les titres des questions
+func (u User) search(s string) []User {
+
+	var users []User
+	db.Where("is_online = ? and first_name LIKE ? ", "1", "%"+s+"%").Or("is_online = ? and last_name LIKE ? ", "1", "%"+s+"%").Order("id desc").Find(&users)
+	return users
+}

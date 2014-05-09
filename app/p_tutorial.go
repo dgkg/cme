@@ -1,13 +1,15 @@
 package app
 
 import (
+	"github.com/gorilla/mux"
 	"log"
 	"net/http"
 	. "strconv"
 )
 
-type PageTutorialSingle struct {
-	Tutorial Tutorial
+type PageTutorial struct {
+	Categories []TutorialCategory
+	Tutorial   Tutorial
 	PageWeb
 }
 
@@ -18,12 +20,12 @@ func CreatePageTutorial() *PageTutorial {
 
 // affichage d'un tuto
 func TutoPostHandler(w http.ResponseWriter, r *http.Request) {
-	/*
-		vars := mux.Vars(r)
-		id := vars["id"]
-	*/
+
+	vars := mux.Vars(r)
+	id := vars["id"]
+
 	tp := new(PageTutorial)
-	tp.View()
+	tp.View(id)
 
 	//insersion dans l'interface Page
 	var p Page
@@ -34,7 +36,7 @@ func TutoPostHandler(w http.ResponseWriter, r *http.Request) {
 
 // fonction public
 // permet d'afficher la liste des tutoriels
-func (pts *PageTutorialSingle) View(idTuto string) {
+func (pts *PageTutorial) View(idTuto string) {
 
 	log.Println("ViewSingle appelé")
 	log.Println("Id appelé : " + Itoa(int(pts.Tutorial.Id)))

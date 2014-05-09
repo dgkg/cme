@@ -8,7 +8,7 @@ import (
 	. "strconv"
 )
 
-type PageTutorial struct {
+type PageTutorialList struct {
 	Categories []TutorialCategory
 	PagesList  []Paginate
 	Tutorials  []Tutorial
@@ -18,7 +18,7 @@ type PageTutorial struct {
 // affichage de la liste des tutos
 func TutoHandler(w http.ResponseWriter, r *http.Request) {
 
-	pt := new(PageTutorial)
+	pt := new(PageTutorialList)
 	value := r.FormValue("p")
 
 	if value == "" {
@@ -35,7 +35,7 @@ func TutoHandler(w http.ResponseWriter, r *http.Request) {
 
 // affichage d'une catégorie d'un tutoriel
 func TutoCatHandler(w http.ResponseWriter, r *http.Request) {
-	pt := new(PageTutorial)
+	pt := new(PageTutorialList)
 
 	// récupère la catégorie sélectionnée
 	vars := mux.Vars(r)
@@ -57,7 +57,7 @@ func TutoCatHandler(w http.ResponseWriter, r *http.Request) {
 
 // affichage de la recherche de tutos
 func TutoSearchHandler(w http.ResponseWriter, r *http.Request) {
-	pt := new(PageTutorial)
+	pt := new(PageTutorialList)
 
 	q := r.FormValue("q")
 	if q == "" {
@@ -74,7 +74,7 @@ func TutoSearchHandler(w http.ResponseWriter, r *http.Request) {
 
 // fonction public
 // permet d'afficher la liste des tutoriels
-func (pt *PageTutorial) View() {
+func (pt *PageTutorialList) View() {
 
 	log.Println("ForumView appelé")
 
@@ -96,7 +96,7 @@ func (pt *PageTutorial) View() {
 // fonction public
 // permet d'afficher la liste des tutoriels
 // avec la fonction de pagination
-func (pt *PageTutorial) ViewPaged(page string) {
+func (pt *PageTutorialList) ViewPaged(page string) {
 
 	log.Println("ForumViewPaged appelé : " + page)
 
@@ -119,7 +119,7 @@ func (pt *PageTutorial) ViewPaged(page string) {
 
 // fonction public
 // permet d'afficher la liste des tutoriels avec la catégorie correspondante
-func (pt *PageTutorial) ViewCategory(cat string) {
+func (pt *PageTutorialList) ViewCategory(cat string) {
 
 	log.Println("ForumView appelé")
 
@@ -145,7 +145,7 @@ func (pt *PageTutorial) ViewCategory(cat string) {
 // permet d'afficher une liste tutoriels en fonction de
 // la catégorie sélectionnée
 // et de la page en cours sélectionnée
-func (pt *PageTutorial) ViewCategoryPaged(cat string, page string) {
+func (pt *PageTutorialList) ViewCategoryPaged(cat string, page string) {
 
 	log.Println("ForumView appelé")
 
@@ -171,7 +171,7 @@ func (pt *PageTutorial) ViewCategoryPaged(cat string, page string) {
 // permet d'afficher la recherche à partir d'un mot clef
 // va chercher dans les titres
 // et va chercher dans le texte du titre
-func (pt *PageTutorial) ViewSearch(q string) {
+func (pt *PageTutorialList) ViewSearch(q string) {
 
 	log.Println("ForumViewSearch appelé")
 
@@ -196,7 +196,7 @@ func (pt *PageTutorial) ViewSearch(q string) {
 // fonction privée
 // Permet de retrouver le nombre de réponses pour chaque post
 // Permet aussi de réduire la description du texte de desc à 250 caractères
-func (pt PageTutorial) injectDataToDisplay(tutorials []Tutorial) []Tutorial {
+func (pt PageTutorialList) injectDataToDisplay(tutorials []Tutorial) []Tutorial {
 
 	lenTuto := len(tutorials)
 
@@ -216,7 +216,7 @@ func (pt PageTutorial) injectDataToDisplay(tutorials []Tutorial) []Tutorial {
 
 // fonction privée
 // fonction pour créer la pagination
-func (pt PageTutorial) createPaginate() []Paginate {
+func (pt PageTutorialList) createPaginate() []Paginate {
 
 	var t Tutorial
 
@@ -236,7 +236,7 @@ func (pt PageTutorial) createPaginate() []Paginate {
 
 // fonction privée
 // fonction pour créer la pagination à partir d'une catégorie sélectionnée
-func (pt PageTutorial) createPaginateFromIdCat(id int64) []Paginate {
+func (pt PageTutorialList) createPaginateFromIdCat(id int64) []Paginate {
 	var f Forum
 	elTotal := f.countFromIdCat(id)
 
@@ -254,12 +254,12 @@ func (pt PageTutorial) createPaginateFromIdCat(id int64) []Paginate {
 
 // fonction permettant de savoir si le rendu passe par l'html ou non
 // permet de faire fonctionner avec l'interface de type Page
-func (p PageTutorial) IsHtmlRender() bool {
+func (p PageTutorialList) IsHtmlRender() bool {
 	return p.RenderHtml
 }
 
 // permet d'injecter des donnés de cession dans l'utilisateur loggé
-func (p *PageTutorial) SetSessionData(u User) (v bool) {
+func (p *PageTutorialList) SetSessionData(u User) (v bool) {
 	if u.Id != 0 && u.FirstName != "" {
 		p.SessIsLogged = true
 		p.SessNameUser = u.FirstName

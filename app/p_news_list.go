@@ -7,10 +7,17 @@ import (
 	. "strconv"
 )
 
+type PageNewsList struct {
+	Categories []NewsCategory
+	PagesList  []Paginate
+	News       []News
+	PageWeb
+}
+
 // affichage de la liste des news
 func NewsHandler(w http.ResponseWriter, r *http.Request) {
 
-	pn := new(PageNews)
+	pn := new(PageNewsList)
 
 	value := r.FormValue("p")
 	if value == "" {
@@ -25,7 +32,7 @@ func NewsHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, p, r)
 }
 
-func (pn *PageNews) View() {
+func (pn *PageNewsList) View() {
 
 	log.Println("Actualités appelé")
 
@@ -47,7 +54,7 @@ func (pn *PageNews) View() {
 // fonction public
 // permet d'afficher la liste des questions du forum
 // avec la fonction de pagination
-func (pn *PageNews) ViewPaged(page string) {
+func (pn *PageNewsList) ViewPaged(page string) {
 
 	log.Println("ViewPaged appelé : " + page)
 
@@ -68,7 +75,7 @@ func (pn *PageNews) ViewPaged(page string) {
 
 }
 
-func (pn *PageNews) injectDataToDisplay() {
+func (pn *PageNewsList) injectDataToDisplay() {
 
 	// permet de récupérer le nom prénom de la personne qui a posté la question
 	var u User
@@ -87,7 +94,7 @@ func (pn *PageNews) injectDataToDisplay() {
 
 // fonction privée
 // fonction pour créer la pagination
-func (pn PageNews) createPaginate() []Paginate {
+func (pn PageNewsList) createPaginate() []Paginate {
 	var n News
 	elTotal := n.count()
 

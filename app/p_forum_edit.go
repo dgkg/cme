@@ -13,7 +13,7 @@ func ForumEditHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id := vars["id"]
 
-	pf := new(PageForumPost)
+	pf := new(PageForum)
 	pf.ViewEdit(id)
 
 	//insersion dans l'interface Page
@@ -24,7 +24,7 @@ func ForumEditHandler(w http.ResponseWriter, r *http.Request) {
 
 // fonction public
 // permet d'afficher une question avec la liste des réponses
-func (pfp *PageForumPost) ViewEdit(id string) {
+func (pfp *PageForum) ViewEdit(id string) {
 
 	log.Println("ViewEdit appelé")
 
