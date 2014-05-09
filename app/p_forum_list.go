@@ -1,7 +1,6 @@
 package app
 
 import (
-	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
 	"github.com/kennygrant/sanitize"
@@ -11,7 +10,7 @@ import (
 	. "strconv"
 )
 
-type PageForum struct {
+type PageForumList struct {
 	Categories []ForumCategory
 	PagesList  []Paginate
 	Forums     []Forum
@@ -21,7 +20,7 @@ type PageForum struct {
 // affichage du forum
 func ForumHandler(w http.ResponseWriter, r *http.Request) {
 
-	pf := new(PageForum)
+	pf := new(PageForumList)
 
 	value := r.FormValue("p")
 	if value == "" {
@@ -39,7 +38,7 @@ func ForumHandler(w http.ResponseWriter, r *http.Request) {
 
 // affichage de la recherche dans le forum
 func ForumSearchHandler(w http.ResponseWriter, r *http.Request) {
-	pf := new(PageForum)
+	pf := new(PageForumList)
 	q := r.FormValue("q")
 	if q == "" {
 		pf.View()
@@ -55,7 +54,7 @@ func ForumSearchHandler(w http.ResponseWriter, r *http.Request) {
 
 // affichage d'une catégorie dans le forum
 func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
-	pf := new(PageForum)
+	pf := new(PageForumList)
 
 	// récupère la catégorie sélectionnée
 	vars := mux.Vars(r)
@@ -74,35 +73,6 @@ func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, p, r)
 }
 
-// Réception du POST envoyé en AJAX et ajout des
-// données dans la BD
-func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
-
-	// Validation des données
-	// Si un des variables est vide, la func retourne un "error"
-	// ce qui fait afficher une message d'erreur
-	if r.PostFormValue("titre_post") == "" ||
-		r.PostFormValue("resolu_post") == "" ||
-		r.PostFormValue("categorie_post") == "" ||
-		r.PostFormValue("contenu_post") == "" {
-
-		fmt.Fprint(w, "error")
-	} else {
-
-		var f Forum
-
-		isSolved, _ := ParseInt(r.PostFormValue("resolu_post"), 0, 64)
-		idCat, _ := ParseInt(r.PostFormValue("categorie_post"), 0, 64)
-
-		f.Title = r.PostFormValue("titre_post")
-		f.ForumCategoryId = idCat
-		f.IsSolved = isSolved
-		f.Text = r.PostFormValue("contenu_post")
-		f.IsOnline = 1
-		f.Save()
-	}
-}
-
 // fonction pour permettre de créer une page
 func CreatePageForm() *PageForum {
 	return new(PageForum)
@@ -110,7 +80,7 @@ func CreatePageForm() *PageForum {
 
 // fonction public
 // permet d'afficher la liste des questions du forum
-func (pf *PageForum) View() {
+func (pf *PageForumList) View() {
 
 	log.Println("ForumView appelé")
 
@@ -132,7 +102,7 @@ func (pf *PageForum) View() {
 // fonction public
 // permet d'afficher la liste des questions du forum
 // avec la fonction de pagination
-func (pf *PageForum) ViewPaged(page string) {
+func (pf *PageForumList) ViewPaged(page string) {
 
 	log.Println("ForumViewPaged appelé : " + page)
 
@@ -155,7 +125,7 @@ func (pf *PageForum) ViewPaged(page string) {
 
 // fonction public
 // permet d'afficher la liste des questions du forum avec la catégorie correspondante
-func (pf *PageForum) ViewCategory(cat string) {
+func (pf *PageForumList) ViewCategory(cat string) {
 
 	log.Println("ForumView appelé")
 
@@ -181,7 +151,7 @@ func (pf *PageForum) ViewCategory(cat string) {
 // permet d'afficher une liste de questions en fonction de
 // la catégorie sélectionnée
 // et de la page en cours sélectionnée
-func (pf *PageForum) ViewCategoryPaged(cat string, page string) {
+func (pf *PageForumList) ViewCategoryPaged(cat string, page string) {
 
 	log.Println("ForumView appelé")
 
@@ -208,7 +178,7 @@ func (pf *PageForum) ViewCategoryPaged(cat string, page string) {
 // permet d'afficher la recherche à partir d'un mot clef
 // va chercher dans les titres
 // et va chercher dans le texte du titre
-func (pf *PageForum) ViewSearch(q string) {
+func (pf *PageForumList) ViewSearch(q string) {
 
 	log.Println("ForumViewSearch appelé")
 
@@ -232,7 +202,7 @@ func (pf *PageForum) ViewSearch(q string) {
 // fonction privée
 // Permet de retrouver le nombre de réponses pour chaque post
 // Permet aussi de réduire la description du texte de desc à 250 caractères
-func (pf PageForum) injectDataToDisplay(forums []Forum) []Forum {
+func (pf PageForumList) injectDataToDisplay(forums []Forum) []Forum {
 
 	lenForum := len(forums)
 
@@ -254,7 +224,7 @@ func (pf PageForum) injectDataToDisplay(forums []Forum) []Forum {
 
 // fonction privée
 // fonction pour créer la pagination
-func (pf PageForum) createPaginate() []Paginate {
+func (pf PageForumList) createPaginate() []Paginate {
 	var f Forum
 	elTotal := f.count()
 
@@ -272,7 +242,7 @@ func (pf PageForum) createPaginate() []Paginate {
 
 // fonction privée
 // fonction pour créer la pagination à partir d'une catégorie sélectionnée
-func (pf PageForum) createPaginateFromIdCat(id int64) []Paginate {
+func (pf PageForumList) createPaginateFromIdCat(id int64) []Paginate {
 	var f Forum
 	elTotal := f.countFromIdCat(id)
 
@@ -290,12 +260,12 @@ func (pf PageForum) createPaginateFromIdCat(id int64) []Paginate {
 
 // fonction permettant de savoir si le rendu passe par l'html ou non
 // permet de faire fonctionner avec l'interface de type Page
-func (p PageForum) IsHtmlRender() bool {
+func (p PageForumList) IsHtmlRender() bool {
 	return p.RenderHtml
 }
 
 // permet d'injecter des donnés de cession dans l'utilisateur loggé
-func (p *PageForum) SetSessionData(u User) (v bool) {
+func (p *PageForumList) SetSessionData(u User) (v bool) {
 	if u.Id != 0 && u.FirstName != "" {
 		p.SessIsLogged = true
 		p.SessNameUser = u.FirstName

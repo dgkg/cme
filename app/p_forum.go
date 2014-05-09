@@ -1,14 +1,14 @@
 package app
 
 import (
-	"fmt"
+	//"fmt"
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
 	. "strconv"
 )
 
-type PageForumPost struct {
+type PageForum struct {
 	Categories []ForumCategory
 	Forum      Forum
 	PageWeb
@@ -36,7 +36,7 @@ func ForumPostHandler(w http.ResponseWriter, r *http.Request) {
 // Permet aussi de convertir la date de création
 // Permet de récupérer le nom de l'utilisateur qui a posté une réponse
 // Permet de convertir la date du post de l'utilisateur qui a posté une réponse
-func (pfp *PageForumPost) injectDataToDisplay() {
+func (pfp *PageForum) injectDataToDisplay() {
 
 	// permet de récupérer le nom prénom de la personne qui a posté la question
 	var u User
@@ -65,7 +65,7 @@ func (pfp *PageForumPost) injectDataToDisplay() {
 
 // fonction public
 // permet d'afficher une question avec la liste des réponses
-func (pfp *PageForumPost) View() {
+func (pfp *PageForum) View() {
 
 	log.Println("Forum Post appelé")
 
@@ -85,12 +85,12 @@ func (pfp *PageForumPost) View() {
 
 // fonction permettant de savoir si le rendu passe par l'html ou non
 // permet de faire fonctionner avec l'interface de type Page
-func (p PageForumPost) IsHtmlRender() bool {
+func (p PageForum) IsHtmlRender() bool {
 	return p.RenderHtml
 }
 
 // permet d'injecter des donnés de cession dans l'utilisateur loggé
-func (p *PageForumPost) SetSessionData(u User) (v bool) {
+func (p *PageForum) SetSessionData(u User) (v bool) {
 	if u.Id != 0 && u.FirstName != "" {
 		p.SessIsLogged = true
 		p.SessNameUser = u.FirstName
