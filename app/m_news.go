@@ -20,6 +20,12 @@ type News struct {
 	Posts           []NewsPost
 }
 
+// fonction public
+// permet d'enregistrer les éléments du formulaire
+func (n News) Save() {
+	db.Save(&n)
+}
+
 // permet de récupérer toute la listes des questions du forum
 // en fonction de la limite affichable par page
 func (n News) getList(numbElements int) []News {
