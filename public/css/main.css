@@ -496,84 +496,86 @@ a:visited { color: #e11414; }
 /* line 54, pages/_forum.scss */
 .forum .body .categories ul { display: none; }
 /* line 58, pages/_forum.scss */
+.forum .body .categories ul li a { color: #727272; text-decoration: none; }
+/* line 63, pages/_forum.scss */
+.forum .body .categories ul li a:visited { color: #727272; text-decoration: none; }
+/* line 68, pages/_forum.scss */
+.forum .body .categories ul li .selected { color: #E11414; }
+/* line 74, pages/_forum.scss */
 .forum .body .categories select { display: block; margin-left: auto; margin-right: auto; width: 80%; height: 36px; padding: 2px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
-/* line 72, pages/_forum.scss */
+/* line 88, pages/_forum.scss */
 .forum .body .categories form { margin-top: 30px; margin-bottom: 30px; }
-/* line 76, pages/_forum.scss */
+/* line 92, pages/_forum.scss */
 .forum .body .categories form input { margin-left: auto; margin-right: auto; display: block; height: 36px; width: 80%; }
-/* line 84, pages/_forum.scss */
+/* line 100, pages/_forum.scss */
 .forum .body .categories form button { margin-left: auto; margin-right: auto; display: block; height: 36px; }
-/* line 93, pages/_forum.scss */
+/* line 109, pages/_forum.scss */
 .forum .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
-/* line 104, pages/_forum.scss */
+/* line 120, pages/_forum.scss */
 .forum .body .liste-posts .post h2 { display: block; width: 100%; line-height: 1.4em; }
-/* line 110, pages/_forum.scss */
+/* line 126, pages/_forum.scss */
 .forum .body .liste-posts .post a { text-decoration: none; }
-/* line 114, pages/_forum.scss */
+/* line 130, pages/_forum.scss */
 .forum .body .liste-posts .post .post-meta { display: block; margin-bottom: 10px; margin-top: 20px; height: 24px; line-height: 30px; vertical-align: middle; }
-/* line 122, pages/_forum.scss */
+/* line 138, pages/_forum.scss */
 .forum .body .liste-posts .post .post-meta img { float: left; margin-right: 6px; }
-/* line 127, pages/_forum.scss */
+/* line 143, pages/_forum.scss */
 .forum .body .liste-posts .post .post-meta p { float: left; line-height: 20px; vertical-align: middle; margin: 0; margin-right: 16px; color: #4A4A4A; text-transform: uppercase; font-size: 14px; font-family: "gt_pressura_regular", sans-serif; }
-/* line 139, pages/_forum.scss */
+/* line 155, pages/_forum.scss */
 .forum .body .liste-posts .post .post-meta .post-cat { float: right; margin: 0; }
-/* line 145, pages/_forum.scss */
+/* line 161, pages/_forum.scss */
 .forum .body .liste-posts .post .btn-repondre { display: block; width: 80%; height: 20px; background-color: #e11414; padding-top: 10px; padding-bottom: 10px; color: #f9f9f9; text-decoration: none; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; text-align: center; line-height: 20px; vertical-align: middle; margin-top: 20px; margin-bottom: 20px; margin-left: auto; margin-right: auto; clear: both; }
-/* line 170, pages/_forum.scss */
+/* line 186, pages/_forum.scss */
 .forum .body .pagination ul { display: none; }
-/* line 174, pages/_forum.scss */
+/* line 190, pages/_forum.scss */
 .forum .body .pagination .btn-nav-suiv { display: none; }
-/* line 178, pages/_forum.scss */
+/* line 194, pages/_forum.scss */
 .forum .body .pagination select { display: block; margin-left: auto; margin-right: auto; width: 40%; height: 30px; padding: 2px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
-@media only screen and (min-device-width: 768px) { /* line 202, pages/_forum.scss */
+@media only screen and (min-device-width: 768px) { /* line 218, pages/_forum.scss */
   .forum .body .entete-forum h1, .forum .body .entete-forum p { float: left; }
-  /* line 206, pages/_forum.scss */
+  /* line 222, pages/_forum.scss */
   .forum .body .entete-forum p { clear: both; max-width: 320px; }
-  /* line 211, pages/_forum.scss */
+  /* line 227, pages/_forum.scss */
   .forum .body .entete-forum .btn-nouv-publication { max-width: 300px; float: right; margin: 0; }
-  /* line 220, pages/_forum.scss */
+  /* line 236, pages/_forum.scss */
   .forum .body .categories h2 { display: none; }
-  /* line 224, pages/_forum.scss */
+  /* line 240, pages/_forum.scss */
   .forum .body .categories ul { display: block; padding: 0; width: 60%; float: left; margin: 0; }
-  /* line 231, pages/_forum.scss */
+  /* line 247, pages/_forum.scss */
   .forum .body .categories ul li { display: inline-block; font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; font-size: 20px; padding-right: 15px; line-height: 1.4em; color: #4A4A4A; float: left; }
-  /* line 241, pages/_forum.scss */
-  .forum .body .categories ul li a { color: #727272; text-decoration: none; }
-  /* line 246, pages/_forum.scss */
-  .forum .body .categories ul li a:visited { color: #727272; text-decoration: none; }
-  /* line 252, pages/_forum.scss */
+  /* line 260, pages/_forum.scss */
   .forum .body .categories ul li:first-child { margin-right: 20px; color: #262628; }
-  /* line 258, pages/_forum.scss */
+  /* line 266, pages/_forum.scss */
   .forum .body .categories select { display: none; }
-  /* line 262, pages/_forum.scss */
-  .forum .body .categories form { float: right; margin: 0; margin-bottom: 30px; width: 320px; }
   /* line 270, pages/_forum.scss */
+  .forum .body .categories form { float: right; margin: 0; margin-bottom: 30px; width: 320px; }
+  /* line 278, pages/_forum.scss */
   .forum .body .categories form input { display: inline-block; width: 200px; }
-  /* line 276, pages/_forum.scss */
+  /* line 284, pages/_forum.scss */
   .forum .body .categories form button { float: right; display: inline-block; }
-  /* line 285, pages/_forum.scss */
+  /* line 293, pages/_forum.scss */
   .forum .body .liste-posts .post { position: relative; }
-  /* line 288, pages/_forum.scss */
+  /* line 296, pages/_forum.scss */
   .forum .body .liste-posts .post h2 { float: left; }
-  /* line 292, pages/_forum.scss */
+  /* line 300, pages/_forum.scss */
   .forum .body .liste-posts .post .post-desc { max-width: 480px; float: left; clear: both; }
-  /* line 298, pages/_forum.scss */
+  /* line 306, pages/_forum.scss */
   .forum .body .liste-posts .post .post-meta { position: absolute; width: 240px; right: 0; top: 10px; }
-  /* line 304, pages/_forum.scss */
+  /* line 312, pages/_forum.scss */
   .forum .body .liste-posts .post .post-meta .post-cat { float: none; margin-bottom: 15px; font-size: 20px; text-transform: uppercase; }
-  /* line 311, pages/_forum.scss */
+  /* line 319, pages/_forum.scss */
   .forum .body .liste-posts .post .post-meta img { clear: both; margin-bottom: 10px; }
-  /* line 317, pages/_forum.scss */
+  /* line 325, pages/_forum.scss */
   .forum .body .liste-posts .post .btn-repondre { max-width: 140px; float: left; }
-  /* line 326, pages/_forum.scss */
+  /* line 334, pages/_forum.scss */
   .forum .body .pagination ul { display: block; text-align: center; }
-  /* line 330, pages/_forum.scss */
+  /* line 338, pages/_forum.scss */
   .forum .body .pagination ul li { display: inline-block; width: 30px; height: 30px; margin-right: 10px; font-size: 18px; font-family: "gt_pressura_regular", sans-serif; }
-  /* line 340, pages/_forum.scss */
+  /* line 348, pages/_forum.scss */
   .forum .body .pagination select { display: none; } }
-@media only screen and (min-width: 1224px) { /* line 351, pages/_forum.scss */
+@media only screen and (min-width: 1224px) { /* line 359, pages/_forum.scss */
   .forum #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 359, pages/_forum.scss */
+  /* line 367, pages/_forum.scss */
   .forum .body { margin-left: 0; margin-right: 0; } }
 
 /* line 1, pages/_tutoriels.scss */

@@ -2,6 +2,8 @@ package app
 
 import (
 	//"fmt"
+	. "strconv"
+	"strings"
 	"time"
 )
 
@@ -73,7 +75,7 @@ func (ui UserImage) getAllCategories() []UserImageCategory {
 // permet de récupérer toute la question du forum
 // en fonction de son id
 func (ui UserImage) getById() UserImage {
-	db.Where("is_online = ? AND id = ?", "1", Itoa(int(f.Id))).Find(&ui)
+	db.Where("is_online = ? AND id = ?", "1", Itoa(int(ui.Id))).Find(&ui)
 	return ui
 }
 

@@ -92,7 +92,7 @@ func (pf *PageForumList) View() {
 	pf.Title = "Forum"
 	pf.MainClass = "forum"
 	pf.Forums = f.getList()
-	pf.Categories = f.getAllCategories()
+	pf.Categories = f.getAllCategories(0)
 	pf.PagesList = pf.createPaginate()
 	pf.RenderHtml = true
 	pf.injectDataToDisplay(pf.Forums)
@@ -116,7 +116,7 @@ func (pf *PageForumList) ViewPaged(page string) {
 	pf.Title = "Forum"
 	pf.MainClass = "forum"
 	pf.Forums = f.getListPaged(pagePosition)
-	pf.Categories = f.getAllCategories()
+	pf.Categories = f.getAllCategories(0)
 	pf.PagesList = pf.createPaginate()
 	pf.RenderHtml = true
 	pf.injectDataToDisplay(pf.Forums)
@@ -140,7 +140,7 @@ func (pf *PageForumList) ViewCategory(cat string) {
 	pf.Title = "Forum " + cat
 	pf.MainClass = "forum"
 	pf.Forums = f.getListFromCat(idCat)
-	pf.Categories = f.getAllCategories()
+	pf.Categories = f.getAllCategories(idCat)
 	pf.PagesList = pf.createPaginateFromIdCat(idCat)
 	pf.RenderHtml = true
 	pf.injectDataToDisplay(pf.Forums)
@@ -167,7 +167,7 @@ func (pf *PageForumList) ViewCategoryPaged(cat string, page string) {
 	pf.Title = "Forum " + cat
 	pf.MainClass = "forum"
 	pf.Forums = f.getListFromCatPaged(idCat, pagePosition)
-	pf.Categories = f.getAllCategories()
+	pf.Categories = f.getAllCategories(idCat)
 	pf.PagesList = pf.createPaginateFromIdCat(idCat)
 	pf.RenderHtml = true
 	pf.injectDataToDisplay(pf.Forums)
@@ -190,7 +190,7 @@ func (pf *PageForumList) ViewSearch(q string) {
 	pf.Title = "Forum Rechercher"
 	pf.MainClass = "forum"
 	pf.Forums = f.search(q)
-	pf.Categories = f.getAllCategories()
+	pf.Categories = f.getAllCategories(0)
 	pf.RenderHtml = true
 	if len(pf.Forums) == 0 {
 		pf.SearchText = q

@@ -20,7 +20,13 @@
                         <li>Catégories  /</li>
 
                         {{range .Categories}}
-                        <li><a href="{{.Url}}">{{.Title}}</a></li>
+                        <li>
+                            {{if eq .IsSelected true}}
+                                <a href="{{.Url}}" class="selected">{{.Title}}</a>
+                            {{else}}
+                                <a href="{{.Url}}">{{.Title}}</a>
+                            {{end}}
+                        </li>
                         {{end}}
 
                     </ul>

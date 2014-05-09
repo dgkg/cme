@@ -53,8 +53,24 @@
 
 			ul {
 				display: none;
-			}
 
+				li {
+					a {
+	                    color: #727272;
+	                    text-decoration: none;
+	                }
+
+	                a:visited {
+	                    color: #727272;
+	                    text-decoration: none;
+	                }
+
+	                .selected {
+						color:#E11414;
+					}
+				}
+			}
+			
 			select {
 	            display: block;
 	            margin-left: auto;
@@ -238,15 +254,7 @@
 		                color: #4A4A4A;
 		                float: left;
 
-		                a {
-		                    color: #727272;
-		                    text-decoration: none;
-		                }
-
-		                a:visited {
-		                    color: #727272;
-		                    text-decoration: none;
-		                }
+		         
 		            }
 
 		            li:first-child {

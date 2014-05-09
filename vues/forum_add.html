@@ -34,6 +34,9 @@
                             <label class="label-post-cat" for="post-cat">Catégorie</label>
                             <select id="post-cat" class="post-cat" name="post-cat">
 
+
+                                {{$idCatSelected := .Forum.ForumCategoryId}}
+
                                 {{if eq .Forum.Id 0}}
                                     
                                 {{else}}
@@ -41,7 +44,7 @@
                                 {{end}}
 
                                 {{range .Categories}}
-                                    {{if eq .Categories.Id .Forum.ForumCategoryId}}
+                                    {{if eq .Id $idCatSelected}}
                                         <option value="{{ .Id }}" selected>{{.Title}}</option>
                                     {{else}}
                                         <option value="{{ .Id }}">{{.Title}}</option>
@@ -53,13 +56,18 @@
                         <div class="sec-post-etat">
                             <label class="label-post-etat" for="post-etat">État du problème</label>
                             <select id="post-etat" class="post-etat" name="post-etat">
-                                <option value="1">Résolu</option>
+                            {{ if eq .Forum.IsSolved 1}}
+                                <option value="1" selected>Résolu</option>
                                 <option value="0">Non résolu</option>
+                            {{else}}
+                                <option value="1">Résolu</option>
+                                <option value="0" selected>Non résolu</option>
+                            {{end}}
                             </select>
                         </div>
 
                         <label class="label-post-contenu" for="post-contenu">Contenu</label>
-                        <textarea id="post-contenu" name="postcontenu" class="post-contenu" data-validation="required" data-validation-error-msg="Veuillez écrire le contenu de votre sujet."></textarea>
+                        <textarea id="post-contenu" name="postcontenu" class="post-contenu" data-validation="required" data-validation-error-msg="Veuillez écrire le contenu de votre sujet.">{{.Forum.Text}}</textarea>
 
                         <input id="submit" type="submit" class="btn-soumettre" value="Soumettre">
 

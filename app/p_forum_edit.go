@@ -36,7 +36,7 @@ func (pfp *PageForum) ViewEdit(id string) {
 	pfp.MainClass = "forum_add"
 	pfp.Forum.Id, _ = ParseInt(id, 0, 64)
 	pfp.Forum = pfp.Forum.getById()
-	pfp.Categories = f.getAllCategories()
+	pfp.Categories = f.getAllCategories(0)
 
 	pfp.Title = "Éditer : " + pfp.Forum.Title
 

@@ -30,13 +30,6 @@ func (u User) Save() {
 	db.Save(&u)
 }
 
-func (u User) getById() User {
-	var user User
-	user.Id = u.Id
-	db.Find(&user)
-	return user
-}
-
 // fonction permettant de retourner un utilisateur
 // en fonction de son login et son mot de passe
 // retourne un utilisateur si trouvé

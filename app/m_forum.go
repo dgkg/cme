@@ -34,7 +34,7 @@ func (f Forum) Save() {
 // permet de donner l'id d'une question à partir de son titre
 func (f Forum) getIdFromCatName(cat string) int64 {
 
-	catList := f.getAllCategories()
+	catList := f.getAllCategories(0)
 	lenCat := len(cat)
 	for i := 0; i < lenCat; i++ {
 		// vérifie si la cat est celle cherchée
@@ -48,7 +48,7 @@ func (f Forum) getIdFromCatName(cat string) int64 {
 
 // permet de retourner toutes les catégories
 // permet aussi de créer les liens pour les catégories
-func (f Forum) getAllCategories() []ForumCategory {
+func (f Forum) getAllCategories(id int64) []ForumCategory {
 
 	var cat []ForumCategory
 	db.Find(&cat)
@@ -56,10 +56,15 @@ func (f Forum) getAllCategories() []ForumCategory {
 	// create dynamic links
 	lenCat := len(cat)
 	for i := 0; i < lenCat; i++ {
-		//cat[i].Url = "/forum/categorie/" + strings.ToLower(cat[i].Title) + "/" + Itoa(int(cat[i].Id))
+		// permet de créer un lien url
 		cat[i].Url = "/forum/" + strings.ToLower(cat[i].Title)
+		// permet de créer la sélection d'un élément
+		if cat[i].Id == id {
+			cat[i].IsSelected = true
+		} else {
+			cat[i].IsSelected = false
+		}
 	}
-
 	return cat
 }
 
