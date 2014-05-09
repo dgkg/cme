@@ -11,18 +11,6 @@ type PageUser struct {
 	PageWeb
 }
 
-// affichage de la liste des étudants
-func StudentHandler(w http.ResponseWriter, r *http.Request) {
-
-	pu := new(PageUser)
-	pu.View()
-
-	//insersion dans l'interface Page
-	var p Page
-	p = pu
-	Render(w, p, r)
-}
-
 // affichage de la fiche étudiant
 func StudentFicheHandler(w http.ResponseWriter, r *http.Request) {
 
@@ -38,38 +26,6 @@ func StudentFicheHandler(w http.ResponseWriter, r *http.Request) {
 // fonction pour permettre de créer une page
 func CreatePageUser() *PageUser {
 	return new(PageUser)
-}
-
-func (pu *PageUser) View() {
-
-	log.Println("Users appelé")
-
-	// surcharge de la variable d'affichage
-	Templ = "user"
-
-	pu.Title = "Users"
-	pu.MainClass = "eleves"
-
-	// pagination
-	pu.PagesList = make([]Paginate, 5)
-
-	pu.PagesList[0].Title = "1"
-	pu.PagesList[0].Url = "/eleves/page/1"
-
-	pu.PagesList[1].Title = "2"
-	pu.PagesList[1].Url = "/eleves/page/2"
-
-	pu.PagesList[2].Title = "3"
-	pu.PagesList[2].Url = "/eleves/page/3"
-
-	pu.PagesList[3].Title = "4"
-	pu.PagesList[3].Url = "/eleves/page/4"
-
-	pu.PagesList[4].Title = "5"
-	pu.PagesList[4].Url = "/eleves/page/5"
-
-	pu.RenderHtml = true
-
 }
 
 func (pu *PageUser) ViewFiche() {
