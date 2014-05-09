@@ -7,20 +7,8 @@ import (
 )
 
 type PageUser struct {
-	PagesList []Paginate
+	User
 	PageWeb
-}
-
-// affichage de la fiche étudiant
-func StudentFicheHandler(w http.ResponseWriter, r *http.Request) {
-
-	pu := new(PageUser)
-	pu.ViewFiche()
-
-	//insersion dans l'interface Page
-	var p Page
-	p = pu
-	Render(w, p, r)
 }
 
 // fonction pour permettre de créer une page
@@ -28,7 +16,19 @@ func CreatePageUser() *PageUser {
 	return new(PageUser)
 }
 
-func (pu *PageUser) ViewFiche() {
+// affichage de la fiche étudiant
+func StudentFicheHandler(w http.ResponseWriter, r *http.Request) {
+
+	pu := new(PageUser)
+	pu.View()
+
+	//insersion dans l'interface Page
+	var p Page
+	p = pu
+	Render(w, p, r)
+}
+
+func (pu *PageUser) View() {
 
 	log.Println("Fiche appelé")
 

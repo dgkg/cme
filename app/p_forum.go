@@ -21,7 +21,7 @@ func ForumPostHandler(w http.ResponseWriter, r *http.Request) {
 	id := vars["id"]
 	log.Println("Id appelé : " + id)
 
-	pfp := new(PageForumPost)
+	pfp := new(PageForum)
 	pfp.Forum.Id, _ = ParseInt(id, 0, 64)
 	pfp.View()
 

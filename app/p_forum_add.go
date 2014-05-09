@@ -38,7 +38,6 @@ func (pf *PageForum) ViewAdd() {
 
 	pf.Title = "Créer un nouveau sujet"
 	pf.MainClass = "forum_add"
-	pf.Forum = make([]Forum, 1)
 	pf.Categories = f.getAllCategories()
 	pf.RenderHtml = true
 

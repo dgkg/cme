@@ -30,12 +30,7 @@ func NewsUniqueHandler(w http.ResponseWriter, r *http.Request) {
 
 	pn := new(PageNews)
 
-	value := r.FormValue("p")
-	if value == "" {
-		pn.View()
-	} else {
-		pn.ViewPaged(value)
-	}
+	pn.View()
 
 	//insersion dans l'interface Page
 	var p Page
@@ -43,17 +38,17 @@ func NewsUniqueHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, p, r)
 }
 
-func (pn *PageNews) ViewActu() {
+func (pn *PageNews) View() {
 
 	log.Println("Actualité unique appelé")
 
 	// surcharge de la variable d'affichage
 	Templ = "news-unique"
 
-	pn.Title = "Nom de l'article | Actualités de CME"
+	pn.PageWeb.Title = "Nom de l'article | Actualités de CME"
 	pn.MainClass = "news-unique"
 
-	pn.injectDataToDisplay()
+	//pn.injectDataToDisplay()
 	pn.RenderHtml = false
 
 }

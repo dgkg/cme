@@ -43,7 +43,6 @@ func (pt *PageTutorial) ViewAdd() {
 
 	pt.Title = "Créer un nouveau tutoriel"
 	pt.MainClass = "tutorial_add"
-	pt.Tutorials = make([]Tutorial, 1)
 	pt.Categories = t.getAllCategories()
 	pt.RenderHtml = true
 }
