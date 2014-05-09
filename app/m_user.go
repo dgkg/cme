@@ -23,6 +23,13 @@ type User struct {
 	Images    []UserImage
 }
 
+// fonction public
+// permet d'enregistrer les éléments du formulaire
+func (u User) Save() {
+	log.Println(u)
+	db.Save(&u)
+}
+
 func (u User) getById() User {
 	var user User
 	user.Id = u.Id

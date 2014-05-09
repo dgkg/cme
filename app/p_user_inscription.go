@@ -1,6 +1,7 @@
 package app
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 )
@@ -19,6 +20,32 @@ func InscriptionHandler(w http.ResponseWriter, r *http.Request) {
 	var p Page
 	p = pi
 	Render(w, p, r)
+}
+
+// Réception du POST envoyé en AJAX et ajout des
+// données dans la BD
+func InscFormHandler(w http.ResponseWriter, r *http.Request) {
+
+	// Validation des données
+	// Si un des variables est vide, la func retourne un "error"
+	// ce qui fait afficher une message d'erreur
+	if r.PostFormValue("prenom") == "" ||
+		r.PostFormValue("nom") == "" ||
+		r.PostFormValue("email") == "" ||
+		r.PostFormValue("mdp") == "" {
+
+		fmt.Fprint(w, "error")
+	} else {
+
+		var u User
+
+		u.FirstName = r.PostFormValue("prenom")
+		u.LastName = r.PostFormValue("nom")
+		u.Email = r.PostFormValue("email")
+		u.Pass = r.PostFormValue("mdp")
+		u.IsOnline = 1
+		u.Save()
+	}
 }
 
 // fonction pour permettre de créer une page
