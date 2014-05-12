@@ -8,6 +8,7 @@ import (
 	"math"
 	"net/http"
 	. "strconv"
+	//"regexp"
 )
 
 type PageForumList struct {
@@ -207,12 +208,19 @@ func (pf PageForumList) injectDataToDisplay(forums []Forum) []Forum {
 	lenForum := len(forums)
 
 	for i := 0; i < lenForum; i++ {
+
 		id := forums[i].Id
+
 		// permet de réaliser des extraits si le texte est trop long
-		if len(forums[i].Text) > 250 {
-			text := "<p>" + sanitize.HTML(forums[i].Text[0:250]) + "</p>"
-			forums[i].Text = text
+		extrait := sanitize.HTML(forums[i].Text)
+
+		if len(extrait) > 250 {
+
+			extrait = extrait[0:250]
 		}
+
+		forums[i].Text = "<p>" + extrait + "</p>"
+
 		// permet de compter ne nombres de réponses
 		forums[i].PostNumb = forums[i].countPost(id)
 		// permet de créer une url du lien

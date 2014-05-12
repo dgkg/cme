@@ -10,8 +10,6 @@
                             {{ if .Forum}}
                             <h2>{{ .Forum.Title }}</h2>
 
-                            <a href="/forum/post/edit/{{.Forum.Id}}">editer</a>
-                            
                             <div class="post-contenu">
                                 {{ .Forum.Text }}
                             </div>
@@ -20,13 +18,15 @@
 
                                 <!-- <p class="post-date">1er avril 2014</p> -->
                                 <p class="post-date">{{.Forum.CreatedAtString}}</p>
-                                
+
                                 <p class="post-auteur">{{.Forum.UserName}}</p>
                                 {{if eq .Forum.IsSolved 1}}
                                     <p class="post-resolu">Résolu</p>
                                 {{else}}
                                     <p class="post-resolu">Non résolu</p>
                                 {{end}}
+
+                                <p><a class="pure-button post-editer" href="/forum/post/edit/{{.Forum.Id}}">Éditer</a></p>
 
                             </div>
                             {{end }}
@@ -43,7 +43,7 @@
                         </div>
                         {{end}}
 
-                    {{end}}
+                    {{end}} 
 
                     <div class="nouv-comm">
 

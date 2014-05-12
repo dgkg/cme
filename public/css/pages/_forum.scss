@@ -70,7 +70,7 @@
 					}
 				}
 			}
-			
+
 			select {
 	            display: block;
 	            margin-left: auto;
@@ -161,17 +161,17 @@
 				.btn-repondre {
 					display: block;
 		            width: 80%;
-		            height: 20px;
-		            background-color: $btn-rouge;
-		            padding-top: 10px;
-		            padding-bottom: 10px;
-		            color: $quasi-blanc;
-		            text-decoration: none;
+		            //height: 20px;
+		            //background-color: $btn-rouge;
+		            //padding-top: 10px;
+		            //padding-bottom: 10px;
+		            //color: $quasi-blanc;
+		            //text-decoration: none;
 	                font-family: $titre-regular;
-	                font-size: 16px;
-	                text-align: center;
-	                line-height: 20px;
-	                vertical-align: middle;
+	                //font-size: 16px;
+	                //text-align: center;
+	                //line-height: 20px;
+	                //vertical-align: middle;
 	                margin-top: 20px;
 	                margin-bottom: 20px;
 	                margin-left: auto;
@@ -254,7 +254,7 @@
 		                color: #4A4A4A;
 		                float: left;
 
-		         
+
 		            }
 
 		            li:first-child {
@@ -325,6 +325,8 @@
 					.btn-repondre {
 						max-width: 140px;
 						float: left;
+						clear: left;
+						margin-bottom: 30px;
 					}
 				}
 			}
