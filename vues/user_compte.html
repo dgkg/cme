@@ -9,6 +9,13 @@
 
                         <div class="formulaire">
 
+                            <div class="msg-succes">
+                                <h3>Succès!</h3>
+                                <p>Vos modifications ont été appliquées avec succès.</p>
+                            </div>
+
+                            <div class="msg-erreur"></div>
+
                             <div class="section profil">
 
                                 <h3>Profil</h3>
@@ -18,9 +25,11 @@
                                 <p>Pour modifier votre photo de profil, utilisez le bouton ci-dessous.</p>
 
                                 <form class="form-photo" method="POST">
-                                    <input class="custom-upload" type="file" value="Choisir une photo">
+                                    <input class="photo-upload" type="file" data-validation-allowing="jpg, png, gif" data-validation-max-size="2M" data-validation-error-msg="Votre photo doit être au formet JPG, PNG ou GIF et faire moins de 4 Mo." value="Choisir une photo">
                                     <input class="pure-button pure-button-primary" type="submit" value="Soumettre">
                                 </form>
+
+                                <hr>
 
                                 <h4>Biographie</h4>
 
@@ -34,26 +43,30 @@
 
                                 </form>
 
+                                <hr>
+
                                 <h4>Réseaux sociaux</h4>
 
                                 <p>Affichez sur votre profil les réseaux sociaux sur lesquels vous êtes actifs.</p>
 
-                                <p>Entrez ci-dessous votre nom d'utilisateur pour chaque service.</p>
+                                <p>Entrez ci-dessous l'adresse URL complète de votre profil pour chaque service.</p>
 
                                 <form class="form-social" method="POST">
 
-                                    <!-- <label for="facebook"><img src="#" alt="Facebook"></label> -->
-                                    <input type="text" name="facebook" placeholder="Facebook">
+                                    <label for="facebook">Facebook</label>
+                                    <input id="url-facebook" type="text" name="facebook" placeholder="ex: http://facebook.com/votrenom" data-validation="url" data-validation-optional="true" data-validation-error-msg="L'URL de votre profil Facebook est invalide.">
 
-                                    <!-- <label for="twitter"><img src="#" alt="Twitter"></label> -->
-                                    <input type="text" name="twitter" placeholder="Twitter">
+                                    <label for="twitter">Twitter</label>
+                                    <input id="url-twitter" type="text" name="twitter" placeholder="ex: http://twitter.com/votrenom" data-validation="url" data-validation-optional="true" data-validation-error-msg="L'URL de votre profil Twitter est invalide.">
 
-                                    <!-- <label for="linkedin"><img src="#" alt="LinkedIn"></label> -->
-                                    <input type="text" name="linkedin" placeholder="LinkedIn">
+                                    <label for="linkedin">LinkedIn</label>
+                                    <input id="url-linkedin" type="text" name="linkedin" placeholder="ex: http://linkedin.com/votrenom" data-validation="url" data-validation-optional="true"  data-validation-error-msg="L'URL de votre profil LinkedIn est invalide.">
 
                                     <input class="pure-button pure-button-primary" type="submit" value="Soumettre">
 
                                 </form>
+
+                                <hr>
 
                                 <h4>Graduation</h4>
 
@@ -89,7 +102,9 @@
 
                                 <h3>Compte</h3>
 
-                                <p>Pour modifier votre photo de profil, utilisez le bouton ci-dessous.</p>
+                                <h4>Nom d'utilisateur</h4>
+
+                                <p>Vous pouvez modifier votre nom d'utilisateur grâce à ce champ.</p>
 
                                 <form class="form-compte" method="POST">
 
@@ -97,6 +112,12 @@
                                     <input class="pure-button pure-button-primary" type="submit" value="Soumettre">
 
                                 </form>
+
+                                <hr>
+
+                                <h4>Suppression du compte</h4>
+
+                                <p>Cliquez ici pour supprimer entièrement et définitivement votre compte.</p>
 
                                 <a class="pure-button button-error supp-compte" href="#">Supprimer mon compte</a>
 
@@ -109,10 +130,9 @@
             </div>
         </div>
 
-        <!-- <script type="text/javascript" src="/js/jquery-1.11.0.min.js"></script> -->
-        <!-- <script type="text/javascript" src="/js/jquery.justifiedGallery.js"></script> -->
-        <!-- <script type="text/javascript" src="/js/jquery.contenthover.min.js"></script> -->
-        <!-- <script type="text/javascript" src="/js/main.js"></script> -->
+        <script type="text/javascript" src="/js/vendor/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="/js/vendor/form-validator/jquery.form-validator.min.js"></script>
+        <script type="text/javascript" src="/js/mon_compte.js"></script>
     </body>
 </html>
 {{ end }}
