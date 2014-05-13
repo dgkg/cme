@@ -56,6 +56,7 @@ func main() {
 	// AJAX
 	r.HandleFunc("/forum/nouveau/submitform", SubmitFormHandler)
 	r.HandleFunc("/inscription/submitform", InscFormHandler)
+	r.HandleFunc("/forum/post/nouvcomm", ForumNouvCommHandler)
 
 	//gestion des fichiers statiques
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))

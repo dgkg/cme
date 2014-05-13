@@ -1,11 +1,12 @@
 package app
 
 import (
-	//"fmt"
+	"fmt"
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
 	. "strconv"
+	"github.com/kennygrant/sanitize"
 )
 
 type PageForum struct {
@@ -29,6 +30,41 @@ func ForumPostHandler(w http.ResponseWriter, r *http.Request) {
 	var p Page
 	p = pfp
 	Render(w, p, r)
+}
+
+func ForumNouvCommHandler(w http.ResponseWriter, r *http.Request) {
+
+	// Validation des données
+	// Si une des variables est vide, la func retourne un "error"
+	// ce qui fait afficher un message d'erreur
+	if  r.PostFormValue("val_commentaire") == "" ||
+		r.PostFormValue("val_post_id") == "" ||
+		r.PostFormValue("val_auteur_id") == "" {
+
+		fmt.Fprint(w, "error")
+	} else {
+
+		var fp ForumPost
+		//var u User
+
+		forumId, _ := ParseInt(r.PostFormValue("val_post_id"), 0, 64)
+		auteurId, _ := ParseInt(r.PostFormValue("val_auteur_id"), 0, 64)
+
+		fp.ForumId = forumId
+		fp.UserId = auteurId
+		fp.Text = sanitize.HTML(r.PostFormValue("val_commentaire"))
+		fp.IsOnline = 1
+		fp.Save()
+
+		// String qui contient d'abord l'auteur du commentaire
+		// puis son commentaire complet, séparés par ":::"
+		commData := "Antoine Lord" + ":::" + fp.Text // @todo RÉCUPÉRER LE NOM COMPLET DE L'AUTEUR SELON SON ID
+
+		fmt.Fprint(w, commData)
+		//return commData
+
+		//fmt.Fprint(w, commentaire)
+	}
 }
 
 // fonction privée
