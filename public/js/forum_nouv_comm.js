@@ -72,7 +72,6 @@ $(window).load(function() {
 
                     // Séparation en deux du string reçu
                     var dataRecue = data.split(":::", 2);
-
                     var auteur = dataRecue[0];
                     var commentaire = dataRecue[1];
 

@@ -3,10 +3,10 @@ package app
 import (
 	"fmt"
 	"github.com/gorilla/mux"
+	"github.com/kennygrant/sanitize"
 	"log"
 	"net/http"
 	. "strconv"
-	"github.com/kennygrant/sanitize"
 )
 
 type PageForum struct {
@@ -37,7 +37,7 @@ func ForumNouvCommHandler(w http.ResponseWriter, r *http.Request) {
 	// Validation des données
 	// Si une des variables est vide, la func retourne un "error"
 	// ce qui fait afficher un message d'erreur
-	if  r.PostFormValue("val_commentaire") == "" ||
+	if r.PostFormValue("val_commentaire") == "" ||
 		r.PostFormValue("val_post_id") == "" ||
 		r.PostFormValue("val_auteur_id") == "" {
 
@@ -56,9 +56,13 @@ func ForumNouvCommHandler(w http.ResponseWriter, r *http.Request) {
 		fp.IsOnline = 1
 		fp.Save()
 
+		var u User
+		u.Id = fp.UserId
+		u = u.getById()
+
 		// String qui contient d'abord l'auteur du commentaire
 		// puis son commentaire complet, séparés par ":::"
-		commData := "Antoine Lord" + ":::" + fp.Text // @todo RÉCUPÉRER LE NOM COMPLET DE L'AUTEUR SELON SON ID
+		commData := u.FirstName + " " + u.LastName + ":::" + fp.Text
 
 		fmt.Fprint(w, commData)
 		//return commData
@@ -128,6 +132,7 @@ func (p PageForum) IsHtmlRender() bool {
 // permet d'injecter des donnés de cession dans l'utilisateur loggé
 func (p *PageForum) SetSessionData(u User) (v bool) {
 	if u.Id != 0 && u.FirstName != "" {
+		p.SessIdUser = u.Id
 		p.SessIsLogged = true
 		p.SessNameUser = u.FirstName
 		v = true

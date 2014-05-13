@@ -77,6 +77,7 @@ func (p PageCompte) IsHtmlRender() bool {
 // permet d'injecter des donnés de cession dans l'utilisateur loggé
 func (p *PageCompte) SetSessionData(u User) (v bool) {
 	if u.Id != 0 && u.FirstName != "" {
+		p.SessIdUser = u.Id
 		p.SessIsLogged = true
 		p.SessNameUser = u.FirstName
 		v = true

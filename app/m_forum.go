@@ -27,8 +27,20 @@ type Forum struct {
 
 // fonction public
 // permet d'enregistrer les éléments du formulaire
-func (f Forum) Save() {
+func (f Forum) Save() int64 {
 	db.Save(&f)
+	if f.Id != 0 {
+		return f.Id
+	} else {
+		db.Last(&f)
+		return f.Id
+	}
+}
+
+// fonction public
+// permet de supprimer une question du forum
+func (f Forum) Delete() {
+	db.Delete(&f)
 }
 
 // permet de donner l'id d'une question à partir de son titre

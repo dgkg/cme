@@ -45,10 +45,9 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 	// Si un des variables est vide, la func retourne un "error"
 	// ce qui fait afficher une message d'erreur
 	if r.PostFormValue("titre_post") == "" ||
-		r.PostFormValue("resolu_post") == "" ||
 		r.PostFormValue("categorie_post") == "" ||
-		r.PostFormValue("contenu_post") == "" {
-
+		r.PostFormValue("contenu_post") == "" ||
+		r.PostFormValue("user_id") == "" {
 		fmt.Fprint(w, "error")
 	} else {
 
@@ -62,6 +61,28 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 		f.IsSolved = isSolved
 		f.Text = r.PostFormValue("contenu_post")
 		f.IsOnline = 1
-		f.Save()
+		f.UserId, _ = ParseInt(r.PostFormValue("user_id"), 0, 64)
+		f.Id = f.Save()
+
+		// String qui contient d'abord l'auteur du commentaire
+		// puis son commentaire complet, séparés par ":::"
+		commData := Itoa(int(f.Id)) + ":::" + "All good"
+		fmt.Fprint(w, commData)
 	}
 }
+
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/

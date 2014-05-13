@@ -17,7 +17,7 @@
 
                         <h2>Votre sujet a été publié avec succès.</h2>
                         <p>Vous pouvez maintenant le consulter en cliquant sur le bouton ci-dessous.</p>
-                        <a class="pure-button" href=#>Voir votre sujet</a>
+                        <a class="pure-button" id="forum-id" href="/forum/post/{{.Forum.Id}}">Voir votre sujet</a>
 
                     </div>
 
@@ -26,7 +26,9 @@
                     </div>
 
                     <form class="pure-form nouv-post-form" action="" method="POST">
-
+                        {{if ne .SessIdUser 0}}
+                            <input type="hidden" id="user-id" name="user-id" value="{{.SessIdUser}}">
+                        {{end}}
                         <label class="label-post-nom" for="post-nom">Nom du sujet</label>
                         <input type="text" id="post-nom" class="post-nom" name="post-nom" data-validation="required" data-validation-error-msg="Veuillez saisir le nom du sujet." value="{{.Forum.Title}}">
 
@@ -52,7 +54,7 @@
                                 {{end}}
                             </select>
                         </div>
-
+                        {{if ne .Forum.Id 0}}
                         <div class="sec-post-etat">
                             <label class="label-post-etat" for="post-etat">État du problème</label>
                             <select id="post-etat" class="post-etat" name="post-etat">
@@ -65,6 +67,7 @@
                             {{end}}
                             </select>
                         </div>
+                        {{end}}
 
                         <label class="label-post-contenu" for="post-contenu">Contenu</label>
                         <textarea id="post-contenu" name="postcontenu" class="post-contenu" data-validation="required" data-validation-error-msg="Veuillez écrire le contenu de votre sujet.">{{.Forum.Text}}</textarea>
