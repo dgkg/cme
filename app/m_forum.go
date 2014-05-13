@@ -38,6 +38,14 @@ func (f Forum) Save() int64 {
 }
 
 // fonction public
+// permet d'enregistrer les modifications des éléments du formulaire
+func (f Forum) Update() int64 {
+	db.First(&f, &f.Id).Update(&f)
+	//return f.Id
+	return 30
+}
+
+// fonction public
 // permet de supprimer une question du forum
 func (f Forum) Delete() {
 	db.Delete(&f)

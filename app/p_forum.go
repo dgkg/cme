@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	. "strconv"
+	"time"
 )
 
 type PageForum struct {
@@ -60,9 +61,13 @@ func ForumNouvCommHandler(w http.ResponseWriter, r *http.Request) {
 		u.Id = fp.UserId
 		u = u.getById()
 
+		// permet de convertir la date de la personne qui a posté la réponse
+		t := time.Now()
+		date := t.Format(dateLayout)
+
 		// String qui contient d'abord l'auteur du commentaire
 		// puis son commentaire complet, séparés par ":::"
-		commData := u.FirstName + " " + u.LastName + ":::" + fp.Text
+		commData := u.FirstName + " " + u.LastName + ":::" + date + ":::" + fp.Text
 
 		fmt.Fprint(w, commData)
 		//return commData

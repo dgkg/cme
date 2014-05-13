@@ -30,7 +30,7 @@ func ConnexionHandler(w http.ResponseWriter, r *http.Request) {
 		session, _ := store.Get(r, "cme_connecte")
 		// Set some session values.
 		session.Values["id"] = u.Id
-		session.Values["name"] = u.LastName
+		session.Values["name"] = u.FirstName
 		session.Options = &sessions.Options{
 			MaxAge:   86400 * 7,
 			HttpOnly: true,
@@ -39,7 +39,7 @@ func ConnexionHandler(w http.ResponseWriter, r *http.Request) {
 		session.Save(r, w)
 		// Set data into current page
 		pc.SessIdUser = u.Id
-		pc.SessNameUser = u.LastName
+		pc.SessNameUser = u.FirstName
 		pc.SessIsLogged = true
 	}
 
