@@ -3,6 +3,7 @@ package app
 import (
 	"log"
 	"net/http"
+	"fmt"
 )
 
 type PageCompte struct {
@@ -19,6 +20,41 @@ func MonCompteHandler(w http.ResponseWriter, r *http.Request) {
 	p = pc
 	Render(w, p, r)
 
+}
+
+// Réception du POST envoyé en AJAX et ajout des
+// données dans la BD
+func EditCompteHandler(w http.ResponseWriter, r *http.Request) {
+
+	// Validation des données
+	// Si un des variables est vide, la func retourne un "error"
+	// ce qui fait afficher une message d'erreur
+	if r.PostFormValue("section") == "" /* || r.PostFormValue("photo_profil") == "" */ {
+
+		fmt.Fprint(w, "error")
+	} else {
+
+		fmt.Fprint(w, "Bonjour")
+
+		// @todo : Recevoir la section + la photo de profil envoyé
+		// 		Héberger l'image sur le serveur dans public/img/
+		//		 Retourner une confirmation
+
+		/*
+
+		var f Forum
+
+		isSolved, _ := ParseInt(r.PostFormValue("resolu_post"), 0, 64)
+		idCat, _ := ParseInt(r.PostFormValue("categorie_post"), 0, 64)
+
+		f.Title = r.PostFormValue("titre_post")
+		f.ForumCategoryId = idCat
+		f.IsSolved = isSolved
+		f.Text = r.PostFormValue("contenu_post")
+		f.IsOnline = 1
+		f.Save()
+		*/
+	}
 }
 
 func (pc *PageCompte) View() {

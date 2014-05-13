@@ -422,59 +422,69 @@ a:visited { color: #e11414; }
 .user_compte .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
 /* line 17, pages/_user_compte.scss */
 .user_compte .body h2 { display: block; line-height: 1.4em; font-size: 28px; font-family: "gt_pressura_light", sans-serif; margin-right: auto; margin-left: auto; }
-/* line 28, pages/_user_compte.scss */
-.user_compte .body .formulaire p { font-size: 16px; line-height: 1.4em; font-family: "Georgia", sans-serif; color: #424245; }
-/* line 35, pages/_user_compte.scss */
-.user_compte .body .formulaire .img-info { width: 100%; margin-bottom: 20px; }
-/* line 40, pages/_user_compte.scss */
-.user_compte .body .formulaire .section { max-width: 100%; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; background-color: #EDEDED; border: 1px solid #D4D2D2; padding: 15px; margin-bottom: 20px; }
+/* line 26, pages/_user_compte.scss */
+.user_compte .body .msg-succes { width: 100%; min-height: 40px; background-color: #74B727; vertical-align: middle; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; border: 1px solid #5E9420; padding-left: 15px; padding-top: 15px; margin-bottom: 20px; color: #f9f9f9; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; display: none; }
+/* line 44, pages/_user_compte.scss */
+.user_compte .body .msg-succes h3 { font-size: 18px; margin-top: 0; margin-bottom: 5px; }
 /* line 50, pages/_user_compte.scss */
+.user_compte .body .msg-succes p { margin-top: 5px; }
+/* line 54, pages/_user_compte.scss */
+.user_compte .body .msg-succes a { margin-bottom: 15px; margin-top: 10px; color: #262628; }
+/* line 63, pages/_user_compte.scss */
+.user_compte .body .msg-erreur .form-error { width: 100%; min-height: 40px; background-color: #E81313; line-height: 40px; vertical-align: middle; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; padding-left: 15px; margin-bottom: 20px; color: #f9f9f9; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
+/* line 82, pages/_user_compte.scss */
+.user_compte .body .formulaire p { font-size: 16px; line-height: 1.4em; font-family: "Georgia", sans-serif; color: #424245; }
+/* line 89, pages/_user_compte.scss */
+.user_compte .body .formulaire .img-info { width: 100%; margin-bottom: 20px; }
+/* line 94, pages/_user_compte.scss */
+.user_compte .body .formulaire .section { max-width: 100%; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; background-color: #EDEDED; border: 1px solid #D4D2D2; padding: 15px; margin-bottom: 20px; }
+/* line 104, pages/_user_compte.scss */
 .user_compte .body .formulaire .section h3 { margin: 0; margin-bottom: 10px; font-size: 20px; }
-/* line 56, pages/_user_compte.scss */
+/* line 110, pages/_user_compte.scss */
 .user_compte .body .formulaire .section h4 { margin: 0; margin-bottom: 10px; margin-top: 24px; font-size: 14px; text-transform: uppercase; }
-/* line 64, pages/_user_compte.scss */
+/* line 118, pages/_user_compte.scss */
 .user_compte .body .formulaire .section input { margin-bottom: 8px; margin-top: 12px; }
-/* line 69, pages/_user_compte.scss */
+/* line 123, pages/_user_compte.scss */
 .user_compte .body .formulaire .section input:last-child { margin-bottom: 0; }
-/* line 73, pages/_user_compte.scss */
+/* line 127, pages/_user_compte.scss */
 .user_compte .body .formulaire .section input[type=file] { max-width: 100%; }
-/* line 77, pages/_user_compte.scss */
-.user_compte .body .formulaire .section textarea { width: 100%; height: 80px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; border: 1px solid #D4D2D2; }
-/* line 86, pages/_user_compte.scss */
-.user_compte .body .formulaire .section .custom-upload { width: 100%; height: 30px; }
-/* line 91, pages/_user_compte.scss */
-.user_compte .body .formulaire .section p { font-size: 14px; margin-bottom: 14px; margin-top: 8px; }
-/* line 97, pages/_user_compte.scss */
-.user_compte .body .formulaire .section input[type=text] { width: 100%; height: 30px; border: 1px solid #D4D2D2; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
-/* line 108, pages/_user_compte.scss */
-.user_compte .body .formulaire .section input[type=text]::-webkit-input-placeholder { /* WebKit browsers */ padding-left: 5px; }
-/* line 111, pages/_user_compte.scss */
-.user_compte .body .formulaire .section input[type=text]:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ padding-left: 5px; }
-/* line 114, pages/_user_compte.scss */
-.user_compte .body .formulaire .section input[type=text]::-moz-placeholder { /* Mozilla Firefox 19+ */ padding-left: 5px; }
-/* line 117, pages/_user_compte.scss */
-.user_compte .body .formulaire .section input[type=text]:-ms-input-placeholder { /* Internet Explorer 10+ */ padding-left: 5px; }
-/* line 121, pages/_user_compte.scss */
-.user_compte .body .formulaire .section .gradu { display: block; width: 100%; height: 30px; }
-/* line 126, pages/_user_compte.scss */
-.user_compte .body .formulaire .section .gradu option { height: 20px; }
 /* line 131, pages/_user_compte.scss */
+.user_compte .body .formulaire .section textarea { width: 100%; height: 80px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; border: 1px solid #D4D2D2; }
+/* line 140, pages/_user_compte.scss */
+.user_compte .body .formulaire .section .custom-upload { width: 100%; height: 30px; }
+/* line 145, pages/_user_compte.scss */
+.user_compte .body .formulaire .section p { font-size: 14px; margin-bottom: 14px; margin-top: 8px; }
+/* line 151, pages/_user_compte.scss */
+.user_compte .body .formulaire .section input[type=text] { width: 100%; height: 30px; border: 1px solid #D4D2D2; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
+/* line 162, pages/_user_compte.scss */
+.user_compte .body .formulaire .section input[type=text]::-webkit-input-placeholder { /* WebKit browsers */ padding-left: 5px; }
+/* line 165, pages/_user_compte.scss */
+.user_compte .body .formulaire .section input[type=text]:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ padding-left: 5px; }
+/* line 168, pages/_user_compte.scss */
+.user_compte .body .formulaire .section input[type=text]::-moz-placeholder { /* Mozilla Firefox 19+ */ padding-left: 5px; }
+/* line 171, pages/_user_compte.scss */
+.user_compte .body .formulaire .section input[type=text]:-ms-input-placeholder { /* Internet Explorer 10+ */ padding-left: 5px; }
+/* line 175, pages/_user_compte.scss */
+.user_compte .body .formulaire .section .gradu { display: block; width: 100%; height: 30px; }
+/* line 180, pages/_user_compte.scss */
+.user_compte .body .formulaire .section .gradu option { height: 20px; }
+/* line 185, pages/_user_compte.scss */
 .user_compte .body .formulaire .section a { color: #f9f9f9; }
-/* line 135, pages/_user_compte.scss */
+/* line 189, pages/_user_compte.scss */
 .user_compte .body .formulaire .section .supp-compte { margin-top: 20px; }
-/* line 139, pages/_user_compte.scss */
+/* line 193, pages/_user_compte.scss */
 .user_compte .body .formulaire .section .button-error { background: #ca3c3c; /* this is a maroon */ }
-@media only screen and (min-device-width: 768px) { /* line 152, pages/_user_compte.scss */
+@media only screen and (min-device-width: 768px) { /* line 206, pages/_user_compte.scss */
   .user_compte .body h2 { max-width: 45%; }
-  /* line 156, pages/_user_compte.scss */
+  /* line 210, pages/_user_compte.scss */
   .user_compte .body .formulaire { width: 45%; margin-right: auto; margin-left: auto; margin-bottom: 60px; }
-  /* line 162, pages/_user_compte.scss */
+  /* line 216, pages/_user_compte.scss */
   .user_compte .body .formulaire p:first-child { margin-top: 0; }
-  /* line 166, pages/_user_compte.scss */
+  /* line 220, pages/_user_compte.scss */
   .user_compte .body .formulaire .section { margin-bottom: 40px; } }
-@media only screen and (min-width: 1224px) { /* line 178, pages/_user_compte.scss */
+@media only screen and (min-width: 1224px) { /* line 232, pages/_user_compte.scss */
   .user_compte #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 186, pages/_user_compte.scss */
+  /* line 240, pages/_user_compte.scss */
   .user_compte .body { margin-left: 0; margin-right: 0; } }
 
 /* line 1, pages/_forum.scss */
