@@ -29,6 +29,7 @@ func (p *PageWeb) IsHtmlRender() bool {
 
 func (p *PageWeb) SetSessionData(u User) (v bool) {
 	if u.Id != 0 && u.FirstName != "" {
+		p.SessIdUser = u.Id
 		p.SessIsLogged = true
 		p.SessNameUser = u.FirstName
 		v = true

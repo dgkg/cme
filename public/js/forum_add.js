@@ -21,19 +21,25 @@ $(window).load(function() {
             // Récupération des données saisies dans la page
             var $val_titre_post = $('#post-nom').val();
             var $val_categorie_post = $('#post-cat').val();
-            var $val_resolu_post = $('#post-etat').val();
+            //var $val_resolu_post = $('#post-etat').val();
             var $val_contenu_post = $('#post-contenu').val();
+            var $val_user_id = $('#user-id').val();
+            
 
             // Envois des données en AJAX après avoir été trimmé
             var posting = $.post( "/forum/nouveau/submitform", {
                 titre_post : $val_titre_post.trim(),
                 categorie_post : $val_categorie_post.trim(),
-                resolu_post : $val_resolu_post.trim(),
-                contenu_post: $val_contenu_post.trim()
+                //resolu_post : $val_resolu_post.trim(),
+                contenu_post: $val_contenu_post.trim(),
+                user_id : $val_user_id.trim()
             }, function(data, status){
 
                 if (data != "error") {
-                    afficherSucces();
+                    var dataRecue = data.split(":::", 2);
+                    var idForum = dataRecue[0];
+                    afficherSucces(idForum);
+                    //var idForum = dataRecue[0];
 
                 } else {
                     alert("Une erreur est survenue. Veuillez réessayer.");
@@ -43,7 +49,9 @@ $(window).load(function() {
     });
 });
 
-function afficherSucces() {
+function afficherSucces(idForum) {
+    //idForum = 5;
+    $("#forum-id").attr("href","/forum/post/"+idForum);
     $('.msg-succes').show();
     $('.nouv-post-form').hide();
     $('html, body').animate({
