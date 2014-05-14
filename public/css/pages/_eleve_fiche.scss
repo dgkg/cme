@@ -53,6 +53,18 @@
 
 		.etu-projets {
 
+			.entete-projets {
+				width: 100%;
+				margin-bottom: 20px;
+
+				a {
+					width: 75%;
+					display: block;
+					margin-left: auto;
+					margin-right: auto;
+				}
+			}
+
 			h2 {
 				display: block;
 				font-size: 26px;
@@ -167,6 +179,23 @@
                 width: 30.666666667%;
                 float: left;
     		}
+
+			.entete-projets {
+				height: 40px;
+				vertical-align: middle;
+				line-height: 40px;
+
+				h2 {
+					float: left;
+					margin-top: 0;
+				}
+
+				a {
+					max-width: 12%;
+					float: right;
+					color: $quasi-blanc;
+				}
+			}
     	}
     }
 
