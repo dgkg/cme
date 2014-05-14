@@ -12,8 +12,8 @@ $(window).load(function() {
 
 	// Initialisation de base
 	var strProjetsAAjouter = '';
-	var viewportWidth = $(window).width();
-	var viewportHeight = $(window).height();
+	var viewportWidth 	   = $(window).width();
+	var viewportHeight     = $(window).height();
 
 	$(".mosaique").height(viewportHeight);
 
