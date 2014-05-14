@@ -49,16 +49,15 @@ func main() {
 	r.HandleFunc("/inscription", InscriptionHandler)
 	r.HandleFunc("/mon-compte", MonCompteHandler)
 
-	// Rootage des pages d'informations
-	r.HandleFunc("/qui-sommes-nous", QuiSommesNousHandler)
-	r.HandleFunc("/pourquoi-une-association", PourquoiUneAssoHandler)
-
 	// AJAX
 	r.HandleFunc("/forum/nouveau/submitform", SubmitFormHandler)
 	r.HandleFunc("/inscription/submitform", InscFormHandler)
 	r.HandleFunc("/forum/post/nouvcomm", ForumNouvCommHandler)
 	r.HandleFunc("/forum/post/delcomm", ForumDelCommHandler)
 	r.HandleFunc("/mon-compte/update", EditCompteHandler)
+
+	// Page simple
+	r.HandleFunc("/{pageUrl:[a-z-]+}", PageSimpleHandler)
 
 	//gestion des fichiers statiques
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
