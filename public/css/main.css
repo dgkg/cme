@@ -368,48 +368,58 @@ a:visited { color: #e11414; }
 /* line 44, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-fiche .etu-bio { margin-top: 30px; margin-bottom: 30px; }
 /* line 56, pages/_eleve_fiche.scss */
+.eleve_fiche .body .etu-projets .entete-projets { width: 100%; margin-bottom: 20px; }
+/* line 60, pages/_eleve_fiche.scss */
+.eleve_fiche .body .etu-projets .entete-projets a { width: 75%; display: block; margin-left: auto; margin-right: auto; }
+/* line 68, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets h2 { display: block; font-size: 26px; margin-top: 30px; margin-bottom: 24px; }
-/* line 63, pages/_eleve_fiche.scss */
+/* line 75, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet { width: 100%; margin-right: auto; margin-left: auto; margin-bottom: 30px; }
-/* line 69, pages/_eleve_fiche.scss */
+/* line 81, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet img { width: 100%; }
-/* line 73, pages/_eleve_fiche.scss */
+/* line 85, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet { padding: 30px; background-color: black; opacity: 0.8; }
-/* line 78, pages/_eleve_fiche.scss */
-.eleve_fiche .body .etu-projets .img-projet .over-projet h3, .eleve_fiche .body .etu-projets .img-projet .over-projet p { color: #f9f9f9; margin: 0; }
-/* line 83, pages/_eleve_fiche.scss */
-.eleve_fiche .body .etu-projets .img-projet .over-projet h3 { font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; font-size: 20px; margin-bottom: 20px; }
 /* line 90, pages/_eleve_fiche.scss */
-.eleve_fiche .body .etu-projets .img-projet .over-projet p { font-size: 14px; margin-bottom: 20px; }
+.eleve_fiche .body .etu-projets .img-projet .over-projet h3, .eleve_fiche .body .etu-projets .img-projet .over-projet p { color: #f9f9f9; margin: 0; }
 /* line 95, pages/_eleve_fiche.scss */
+.eleve_fiche .body .etu-projets .img-projet .over-projet h3 { font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; font-size: 20px; margin-bottom: 20px; }
+/* line 102, pages/_eleve_fiche.scss */
+.eleve_fiche .body .etu-projets .img-projet .over-projet p { font-size: 14px; margin-bottom: 20px; }
+/* line 107, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet a { color: #e11414; }
-/* line 99, pages/_eleve_fiche.scss */
+/* line 111, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet a:hover { color: #9c1111; }
-@media only screen and (min-device-width: 768px) { /* line 113, pages/_eleve_fiche.scss */
+@media only screen and (min-device-width: 768px) { /* line 125, pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-fiche { margin-top: 30px; text-align: center; width: 60%; margin-left: auto; margin-right: auto; }
-  /* line 120, pages/_eleve_fiche.scss */
-  .eleve_fiche .body .etu-fiche h1 { display: block; margin-left: auto; margin-right: auto; }
-  /* line 126, pages/_eleve_fiche.scss */
-  .eleve_fiche .body .etu-fiche .container-img { width: 120px; border-radius: 80px; -webkit-border-radius: 80px; -moz-border-radius: 80px; }
   /* line 132, pages/_eleve_fiche.scss */
-  .eleve_fiche .body .etu-fiche .container-img .etu-photo { width: 100%; margin-right: auto; margin-left: auto; }
-  /* line 139, pages/_eleve_fiche.scss */
-  .eleve_fiche .body .etu-fiche .etu-gradu { margin-left: auto; margin-right: auto; }
+  .eleve_fiche .body .etu-fiche h1 { display: block; margin-left: auto; margin-right: auto; }
+  /* line 138, pages/_eleve_fiche.scss */
+  .eleve_fiche .body .etu-fiche .container-img { width: 120px; border-radius: 80px; -webkit-border-radius: 80px; -moz-border-radius: 80px; }
   /* line 144, pages/_eleve_fiche.scss */
-  .eleve_fiche .body .etu-fiche .etu-bio { margin-top: 20px; margin-bottom: 20px; margin-left: auto; margin-right: auto; }
+  .eleve_fiche .body .etu-fiche .container-img .etu-photo { width: 100%; margin-right: auto; margin-left: auto; }
   /* line 151, pages/_eleve_fiche.scss */
+  .eleve_fiche .body .etu-fiche .etu-gradu { margin-left: auto; margin-right: auto; }
+  /* line 156, pages/_eleve_fiche.scss */
+  .eleve_fiche .body .etu-fiche .etu-bio { margin-top: 20px; margin-bottom: 20px; margin-left: auto; margin-right: auto; }
+  /* line 163, pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-fiche .etu-social { display: inline-block; padding: 8px; margin-left: 10px; border: 1px solid #D4D2D2; }
-  /* line 158, pages/_eleve_fiche.scss */
+  /* line 170, pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-fiche .etu-social:hover { background-color: #EDEDED; }
-  /* line 165, pages/_eleve_fiche.scss */
-  .eleve_fiche .body .etu-projets .img-projet { display: inline-block; width: 30.666666667%; float: left; } }
-@media only screen and (min-width: 1224px) { /* line 179, pages/_eleve_fiche.scss */
+  /* line 177, pages/_eleve_fiche.scss */
+  .eleve_fiche .body .etu-projets .img-projet { display: inline-block; width: 30.666666667%; float: left; }
+  /* line 183, pages/_eleve_fiche.scss */
+  .eleve_fiche .body .etu-projets .entete-projets { height: 40px; vertical-align: middle; line-height: 40px; }
+  /* line 188, pages/_eleve_fiche.scss */
+  .eleve_fiche .body .etu-projets .entete-projets h2 { float: left; margin-top: 0; }
+  /* line 193, pages/_eleve_fiche.scss */
+  .eleve_fiche .body .etu-projets .entete-projets a { max-width: 12%; float: right; color: #f9f9f9; } }
+@media only screen and (min-width: 1224px) { /* line 208, pages/_eleve_fiche.scss */
   .eleve_fiche #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 187, pages/_eleve_fiche.scss */
+  /* line 216, pages/_eleve_fiche.scss */
   .eleve_fiche .body { margin-left: 0; margin-right: 0; }
-  /* line 191, pages/_eleve_fiche.scss */
+  /* line 220, pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-fiche { max-width: 40%; }
-  /* line 197, pages/_eleve_fiche.scss */
+  /* line 226, pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-projets h2 { margin-top: 30px; margin-bottom: 24px; } }
 
 /* line 1, pages/_user_compte.scss */
