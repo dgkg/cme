@@ -47,18 +47,24 @@
 
                 <ul class="nav-mobile">
                     <li><a href="/eleves">Élèves</a></li>
+                    {{if .SessIsLogged}}
                     <li><a href="/forum">Forum</a></li>
                     <li><a href="/tutoriels">Tutoriels</a></li>
+                    {{end}}
                     <li><a href="/actualites">Actualités</a></li>
                 </ul>
 
                 <ul class="nav1-ipad">
                     <li><a href="/eleves">Élèves</a></li>
+                    {{if .SessIsLogged}}
                     <li><a href="/forum">Forum</a></li>
+                    {{end}}
                 </ul>
 
                 <ul class="nav2-ipad">
+                    {{if .SessIsLogged}}
                     <li><a href="/tutoriels">Tutoriels</a></li>
+                    {{end}}
                     <li><a href="/actualites">Actualités</a></li>
                 </ul>
 
