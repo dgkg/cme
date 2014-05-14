@@ -18,15 +18,13 @@ type PageForum struct {
 
 // affichage d'une question du forum
 func ForumPostHandler(w http.ResponseWriter, r *http.Request) {
-
+	// récupération de la variable id
 	vars := mux.Vars(r)
 	id := vars["id"]
-	log.Println("Id appelé : " + id)
-
+	// initialisation de l'objet PageForum
 	pfp := new(PageForum)
 	pfp.Forum.Id, _ = ParseInt(id, 0, 64)
 	pfp.View()
-
 	//insersion dans l'interface Page
 	var p Page
 	p = pfp
@@ -36,14 +34,14 @@ func ForumPostHandler(w http.ResponseWriter, r *http.Request) {
 // Public function
 // permet d'ajouter un commenaire sur une fonction
 func ForumNouvCommHandler(w http.ResponseWriter, r *http.Request) {
-
 	// Validation des données
 	// Si une des variables est vide, la func retourne un "error"
 	// ce qui fait afficher un message d'erreur
 	if r.PostFormValue("val_commentaire") == "" ||
 		r.PostFormValue("val_post_id") == "" ||
-		r.PostFormValue("val_auteur_id") == "" {
-
+		r.PostFormValue("val_auteur_id") == "" ||
+		r.PostFormValue("val_auteur_id") == "0" {
+		// envoie un message d'erreur
 		fmt.Fprint(w, "error")
 	} else {
 		// initialise l'objet ForumPost et récupère les données du formulaire
@@ -52,24 +50,18 @@ func ForumNouvCommHandler(w http.ResponseWriter, r *http.Request) {
 		fp.UserId, _ = ParseInt(r.PostFormValue("val_auteur_id"), 0, 64)
 		fp.Text = sanitize.HTML(r.PostFormValue("val_commentaire"))
 		fp.IsOnline = 1
-		// vérifie que l'id de l'utilisateur n'est pas à 0
-		if fp.UserId != 0 {
-			fp.Id = fp.Save()
-			// permet de récuprérer le nom de l'utilisateur
-			var u User
-			u.Id = fp.UserId
-			u = u.getById()
-			// permet de convertir la date de la personne qui a posté la réponse
-			t := time.Now()
-			date := t.Format(dateLayout)
-			// String qui contient d'abord l'auteur du commentaire
-			// puis son commentaire complet, séparés par ":::"
-			commData := u.FirstName + " " + u.LastName + ":::" + date + ":::" + fp.Text + ":::" + Itoa(int(fp.Id))
-			fmt.Fprint(w, commData)
-		} else {
-			commData := "error"
-			fmt.Fprint(w, commData)
-		}
+		fp.Id = fp.Save()
+		// permet de récuprérer le nom de l'utilisateur
+		var u User
+		u.Id = fp.UserId
+		u = u.getById()
+		// permet de convertir la date de la personne qui a posté la réponse
+		t := time.Now()
+		date := t.Format(dateLayout)
+		// String qui contient d'abord l'auteur du commentaire
+		// puis son commentaire complet, séparés par ":::"
+		commData := u.FirstName + " " + u.LastName + ":::" + date + ":::" + fp.Text + ":::" + Itoa(int(fp.Id))
+		fmt.Fprint(w, commData)
 	}
 }
 
