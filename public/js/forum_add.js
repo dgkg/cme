@@ -2,8 +2,7 @@ $(window).load(function() {
 
     $('.post-contenu').ckeditor();
 
-    var editeur = $('.post-contenu');
-
+    var editeur        = $('.post-contenu');
     var $zoneMsgErreur = $('.msg-erreur');
 
     $.validate({
@@ -47,6 +46,7 @@ $(window).load(function() {
 });
 
 function afficherSucces(idForum) {
+    // creation du lien et animation
     $("#forum-id-created").attr("href","/forum/post/"+idForum);
     $('.nouv-post-form').hide();
     $('.msg-succes').fadeIn();

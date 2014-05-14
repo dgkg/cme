@@ -36,7 +36,6 @@
                             <label class="label-post-cat" for="post-cat">Catégorie</label>
                             <select id="post-cat" class="post-cat" name="post-cat">
 
-
                                 {{$idCatSelected := .Forum.ForumCategoryId}}
 
                                 {{if eq .Forum.Id 0}}
@@ -54,10 +53,12 @@
                                 {{end}}
                             </select>
                         </div>
+
                         {{if ne .Forum.Id 0}}
                         <div class="sec-post-etat">
                             <label class="label-post-etat" for="post-etat">État du problème</label>
                             <select id="post-etat" class="post-etat" name="post-etat">
+
                             {{ if eq .Forum.IsSolved 1}}
                                 <option value="1" selected>Résolu</option>
                                 <option value="0">Non résolu</option>
