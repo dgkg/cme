@@ -62,7 +62,17 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 		f.Text = r.PostFormValue("contenu_post")
 		f.IsOnline = 1
 		f.UserId, _ = ParseInt(r.PostFormValue("user_id"), 0, 64)
+		// si il y a pas encore un id met un 0
+		f.Id, _ = ParseInt(r.PostFormValue("forum_id"), 0, 64)
 		f.Id = f.Save()
+		/*
+			log.Println(f.Id)
+			if f.Id == 0 {
+				f.Id = f.Save()
+			} else {
+				f.Id = f.Update()
+			}
+		*/
 
 		// String qui contient d'abord l'auteur du commentaire
 		// puis son commentaire complet, séparés par ":::"

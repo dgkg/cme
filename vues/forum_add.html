@@ -17,33 +17,29 @@
 
                         <h2>Votre sujet a été publié avec succès.</h2>
                         <p>Vous pouvez maintenant le consulter en cliquant sur le bouton ci-dessous.</p>
-                        <a class="pure-button" id="forum-id" href="/forum/post/{{.Forum.Id}}">Voir votre sujet</a>
+                        <a class="pure-button" id="forum-id-created" href="/forum/post/{{.Forum.Id}}">Voir votre sujet</a>
 
                     </div>
 
-                    <div class="msg-erreur">
-
-                    </div>
+                    <div class="msg-erreur"></div>
 
                     <form class="pure-form nouv-post-form" action="" method="POST">
-                        {{if ne .SessIdUser 0}}
-                            <input type="hidden" id="user-id" name="user-id" value="{{.SessIdUser}}">
-                        {{end}}
+
+                        <input type="hidden" id="user-id" name="user-id" value="{{.SessIdUser}}">
+                        <input type="hidden" id="forum-id" name="forum-id" value="{{.Forum.Id}}">
+                        
                         <label class="label-post-nom" for="post-nom">Nom du sujet</label>
                         <input type="text" id="post-nom" class="post-nom" name="post-nom" data-validation="required" data-validation-error-msg="Veuillez saisir le nom du sujet." value="{{.Forum.Title}}">
-
+                        
                         <div class="sec-post-cat">
                             <label class="label-post-cat" for="post-cat">Catégorie</label>
                             <select id="post-cat" class="post-cat" name="post-cat">
 
-
-                                {{$idCatSelected := .Forum.ForumCategoryId}}
-
                                 {{if eq .Forum.Id 0}}
-                                    
-                                {{else}}
                                     <option value="-1">Catégorie</option>
                                 {{end}}
+
+                                {{$idCatSelected := .Forum.ForumCategoryId}}
 
                                 {{range .Categories}}
                                     {{if eq .Id $idCatSelected}}
@@ -54,10 +50,13 @@
                                 {{end}}
                             </select>
                         </div>
+                        
+
                         {{if ne .Forum.Id 0}}
                         <div class="sec-post-etat">
                             <label class="label-post-etat" for="post-etat">État du problème</label>
                             <select id="post-etat" class="post-etat" name="post-etat">
+
                             {{ if eq .Forum.IsSolved 1}}
                                 <option value="1" selected>Résolu</option>
                                 <option value="0">Non résolu</option>
@@ -68,7 +67,7 @@
                             </select>
                         </div>
                         {{end}}
-
+                        <hr>
                         <label class="label-post-contenu" for="post-contenu">Contenu</label>
                         <textarea id="post-contenu" name="postcontenu" class="post-contenu" data-validation="required" data-validation-error-msg="Veuillez écrire le contenu de votre sujet.">{{.Forum.Text}}</textarea>
 
