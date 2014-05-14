@@ -14,7 +14,8 @@ var $val_resolu_post;
 var $val_contenu_post;
 var $val_user_id;
 var $val_forum_id;
-var errorMessage = new Array();
+var errorMessage   = new Array();
+var urlAjaxService = "/forum/nouveau/submitform";
 
 $(window).load(function() {
     // initialisation de ckeditor
@@ -100,7 +101,7 @@ function displayErrorMessage(){
 // Fonction permettant d'envoyer en Ajax les informations du formulaire
 function sendData(){
     // Envois des données en AJAX après avoir été trimmé
-    var posting = $.post( "/forum/nouveau/submitform", {
+    var posting = $.post( urlAjaxService, {
         titre_post      : $val_titre_post,
         categorie_post  : $val_categorie_post,
         resolu_post     : $val_resolu_post,

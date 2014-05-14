@@ -1,6 +1,18 @@
 {{ define "forum_post" }}
 <!DOCTYPE html>
 {{template "header" .}}
+
+            <style type="text/css">
+                .del-forum-post{
+                    text-align: right;
+                    opacity: 0.5;
+                    display: block;
+                    float: right;
+                    height: 15px;
+                    width: 15px;
+                }
+            </style>
+
             <div class="body">
 
                 <div class="liste-post">
@@ -38,8 +50,13 @@
                     <div class="comms">
 
                         {{ if .Forum.Posts}}
+                            {{ $idUser := .SessIdUser}}
+
                             {{ range .Forum.Posts }}
                                 <div class="comm">
+                                    {{if eq $idUser .UserId}}
+                                        <img id="{{.Id}}" class="del-forum-post" src="/img/ui/circle_delete.png">
+                                    {{end}}
                                     <p class="comm-texte">{{.Text}}</p>
                                     <p class="comm-auteur">{{.UserName}}</p>
                                     <p class="comm-date">{{.CreatedAtString}}</p>
@@ -59,7 +76,7 @@
                             <input type="hidden" id="nouv-comm-auteur" name="nouv-comm-auteur" value="{{.SessIdUser}}">
 
                             <textarea id="nouv-comm-contenu" data-validation="required" data-validation-error-msg="Veuillez inscrire votre message."></textarea>
-                            <button type="submit" class="pure-button pure-button-primary">Envoyer</button>
+                            <button type="submit" id="submit" class="pure-button pure-button-primary">Envoyer</button>
 
                         </form>
 

@@ -1,99 +1,95 @@
+/*
+    Fonctions pour le formulaire forum_post.html
+    
+    1 - Valide le formulaire
+    2 - Affiche des messages d'erreurs
+    3 - Envoie en Ajax les informations du formulaire
+    4 - Affiche un message de validation
+*/
+
+var urlAjaxServiceAdd = "/forum/post/nouvcomm";
+var urlAjaxServiceDel = "/forum/post/delcomm";
+
 $(window).load(function() {
-
-    moment.lang('fr', {
-        months        : "janvier_février_mars_avril_mai_juin_juillet_août_septembre_octobre_novembre_décembre".split("_"),
-        monthsShort   : "janv._févr._mars_avr._mai_juin_juil._août_sept._oct._nov._déc.".split("_"),
-        weekdays      : "dimanche_lundi_mardi_mercredi_jeudi_vendredi_samedi".split("_"),
-        weekdaysShort : "dim._lun._mar._mer._jeu._ven._sam.".split("_"),
-        weekdaysMin   : "Di_Lu_Ma_Me_Je_Ve_Sa".split("_"),
-        longDateFormat : {
-            LT   : "HH:mm",
-            L    : "DD/MM/YYYY",
-            LL   : "D MMMM YYYY",
-            LLL  : "D MMMM YYYY LT",
-            LLLL : "dddd D MMMM YYYY LT"
-        },
-        calendar : {
-            sameDay : "[Aujourd'hui à] LT",
-            nextDay : '[Demain à] LT',
-            nextWeek: 'dddd [à] LT',
-            lastDay : '[Hier à] LT',
-            lastWeek: 'dddd [dernier à] LT',
-            sameElse: 'L'
-        },
-        relativeTime : {
-            future : "dans %s",
-            past   : "il y a %s",
-            s      : "quelques secondes",
-            m      : "une minute",
-            mm     : "%d minutes",
-            h      : "une heure",
-            hh     : "%d heures",
-            d      : "un jour",
-            dd     : "%d jours",
-            M      : "un mois",
-            MM     : "%d mois",
-            y      : "une année",
-            yy     : "%d années"
-        },
-        ordinal : function (number) {
-            return number + (number === 1 ? 'er' : '');
-        },
-        week : {
-            dow : 1, // Monday is the first day of the week.
-            doy : 4  // The week that contains Jan 4th is the first week of the year.
-        }
+    // récurpération du clic sur le formulaire
+    // permet d'ajouter un commentaire
+    $( "#submit" ).click(function( event ) {
+        event.preventDefault();
+        sendData();
     });
-
-    $.validate({
-
-        onValidate : function() {
-
-            //Ne pas rafraîchir la page
-            event.preventDefault();
-        },
-
-        onSuccess : function() {
-
-            // Récupération des données saisies dans la page
-            var $val_commentaire = $('#nouv-comm-contenu').val();
-            var $val_post_id     = $('#nouv-comm-id').val();
-            var $val_auteur_id   = $('#nouv-comm-auteur').val();
-
-            // Envois des données en AJAX après avoir été trimmé
-            var posting = $.post( "/forum/post/nouvcomm", {
-                val_commentaire : $val_commentaire.trim(),
-                val_post_id     : $val_post_id,
-                val_auteur_id   : $val_auteur_id
-
-            }, function(data, status){
-
-                if (data != "error" && data != "") {
-
-                    // Séparation en deux du string reçu
-                    var dataRecue    = data.split(":::", 3);
-                    var auteur       = dataRecue[0];
-                    var dateCreation = dataRecue[1];
-                    var commentaire  = dataRecue[2];
-
-                    // Création du nouveau commentaire avec les infos
-                    var nouvCommentaire =
-                    "<div class='comm'>" +
-                        "<p class='comm-texte'>" + commentaire + "</p>" +
-                        "<p class='comm-auteur'>" + auteur + "</p>" +
-                        "<p class='comm-date'>" + dateCreation + "</p>" +
-                    "</div>"
-
-                    // Affichage dans la page du commentaire tout juste envoyé
-                    $('.comms').append(nouvCommentaire);
-                    //$( ".comm:last-child" ).fadeIn( "slow" );
-                    $( ".comm:last-child" ).hide();
-                    $( ".comm:last-child" ).fadeIn();
-                    $('#nouv-comm-contenu').val('');
-                } else {
-                    alert("Une erreur est survenue. Veuillez réessayer.");
-                };
-            });
-        }
+    // récurpération du clic sur le formulaire
+    // permet de supprimer un commentaire
+    $( ".del-forum-post" ).click(function( event ) {
+        event.preventDefault();
+        deletData($(this));
     });
 });
+
+
+// Fonction permettant d'envoyer en Ajax les informations du formulaire
+function sendData(){
+    // Récupération des données saisies dans la page
+    var $val_commentaire = $('#nouv-comm-contenu').val();
+    var $val_post_id     = $('#nouv-comm-id').val();
+    var $val_auteur_id   = $('#nouv-comm-auteur').val();
+    // Envois des données en AJAX après avoir été trimmé
+    var posting = $.post( urlAjaxServiceAdd, {
+        val_commentaire : $val_commentaire.trim(),
+        val_post_id     : $val_post_id,
+        val_auteur_id   : $val_auteur_id
+    }, function(data, status){
+        // check si il n'y a pas d'erreurs
+        if (data != "error" && data != "") {
+            displaySucces(data);
+        } else {
+            alert("Une erreur est survenue. Veuillez réessayer.");
+        };
+    });
+};
+
+// Fonction permettant de supprimer le post
+function deletData(obj){
+    var $idCommentToDelete = obj.attr("id");
+    // Envois des données en AJAX après avoir été trimmé
+    var posting = $.post( urlAjaxServiceDel, {
+        id_commentaire : $idCommentToDelete,
+    }, function(data, status){
+        // check si il n'y a pas d'erreurs
+        if (data != "error" && data != "") {
+            displayDelete(obj);
+        } else {
+            alert("Une erreur est survenue. Veuillez réessayer.");
+        };
+    });
+}
+
+// Fonction permettant de supprimer à l'affichage le post
+function displayDelete(obj) {
+    obj.parent().fadeOut();
+}
+
+// affiche un message après l'envoie du formulaire si tout c'est déroulé correctement
+function displaySucces(data) {
+    // Séparation en deux du string reçu
+    var dataRecue    = data.split(":::", 4);
+    var auteur       = dataRecue[0];
+    var dateCreation = dataRecue[1];
+    var commentaire  = dataRecue[2];
+    var idCommentaire  = dataRecue[3];
+    // Création du nouveau commentaire avec les infos
+    var nouvCommentaire =
+    "<div class='comm'>" +
+        "<img id='"+idCommentaire+"' class='del-forum-post' src='/img/ui/circle_delete.png'>" +
+        "<p class='comm-texte'>" + commentaire + "</p>" +
+        "<p class='comm-auteur'>" + auteur + "</p>" +
+        "<p class='comm-date'>" + dateCreation + "</p>" +
+    "</div>"
+    // Affichage dans la page du commentaire tout juste envoyé
+    $('.comms').append(nouvCommentaire);
+    //$( ".comm:last-child" ).fadeIn( "slow" );
+    $( ".comm:last-child" ).hide();
+    $( ".comm:last-child" ).fadeIn();
+    $('#nouv-comm-contenu').val('');
+};
+
+

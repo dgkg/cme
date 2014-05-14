@@ -57,6 +57,7 @@ func main() {
 	r.HandleFunc("/forum/nouveau/submitform", SubmitFormHandler)
 	r.HandleFunc("/inscription/submitform", InscFormHandler)
 	r.HandleFunc("/forum/post/nouvcomm", ForumNouvCommHandler)
+	r.HandleFunc("/forum/post/delcomm", ForumDelCommHandler)
 	r.HandleFunc("/mon-compte/update", EditCompteHandler)
 
 	//gestion des fichiers statiques
