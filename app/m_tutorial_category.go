@@ -14,6 +14,24 @@ type TutorialCategory struct {
 	UpdatedAt time.Time
 }
 
+// Save permet d'enregistrer les éléments du formulaire
+// si l'élément n'existe pas l'ajoute dans la base de donnée
+// si l'élément exite met à jour dans la base de donnée
+func (tc TutorialCategory) Save() int64 {
+	db.Save(&tc)
+	if tc.Id != 0 {
+		return tc.Id
+	} else {
+		db.Last(&tc)
+		return tc.Id
+	}
+}
+
+// Delete permet de supprimer une catégorie d'un tutorial
+func (tc TutorialCategory) Delete() {
+	db.Delete(&tc)
+}
+
 func (tc TutorialCategory) getTitle() string {
 	log.Println("getTitle appelé")
 	tc = tc.getData()
