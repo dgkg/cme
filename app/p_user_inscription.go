@@ -36,7 +36,6 @@ func InscriptionHandler(w http.ResponseWriter, r *http.Request) {
 		pi.SessIdUser = u.Id
 		pi.SessNameUser = u.FirstName
 		pi.SessIsLogged = true
-
 	}
 
 	pi.View()

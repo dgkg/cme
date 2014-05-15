@@ -3,25 +3,26 @@ package app
 import (
 	"errors"
 	"log"
+	. "strconv"
 	"time"
 )
 
 type User struct {
-	Id        int64
-	FirstName string `sql:"type:varchar(100);"`
-	LastName  string `sql:"type:varchar(100);"`
-	Text      string
-	Email     string
-	Pass      string
-	Keywords  string
-	Facebook  string
-	Twitter   string
-	LinkedIn  string
+	Id         int64
+	FirstName  string `sql:"type:varchar(100);"`
+	LastName   string `sql:"type:varchar(100);"`
+	Text       string
+	Email      string
+	Pass       string
+	Keywords   string
+	Facebook   string
+	Twitter    string
+	LinkedIn   string
 	Graduation string
-	IsOnline  int64
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	Images    []UserImage
+	IsOnline   int64
+	CreatedAt  time.Time
+	UpdatedAt  time.Time
+	Images     []UserImage
 }
 
 // fonction public
@@ -63,7 +64,7 @@ func (u User) SaveSocial() {
 	userFb := u.Facebook
 	userTw := u.Twitter
 	userLi := u.LinkedIn
-	db.First(&u, userId).Updates(User{Facebook : userFb, Twitter : userTw, LinkedIn : userLi})
+	db.First(&u, userId).Updates(User{Facebook: userFb, Twitter: userTw, LinkedIn: userLi})
 }
 
 func (u User) SaveGrad() {
@@ -76,7 +77,7 @@ func (u User) SaveUserName() {
 	userId := u.Id
 	userPrenom := u.FirstName
 	userNom := u.LastName
-	db.First(&u, userId).Updates(User{FirstName : userPrenom, LastName : userNom})
+	db.First(&u, userId).Updates(User{FirstName: userPrenom, LastName: userNom})
 }
 
 func (u User) DeleteAccount() {
@@ -111,11 +112,11 @@ func (u *User) LoginPassExist() (v bool, err error) {
 	return
 }
 
+// permet de récupérer toute les données du user
+// en fonction de son id
 func (u User) getById() User {
-	var user User
-	user.Id = u.Id
-	db.Find(&u)
-	return user
+	db.Where("is_online = ? AND id = ?", "1", Itoa(int(u.Id))).Find(&u)
+	return u
 }
 
 // permet de récupérer toute la listes des questions du forum
