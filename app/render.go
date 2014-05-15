@@ -28,10 +28,15 @@ func Render(w http.ResponseWriter, p Page, r *http.Request) {
 
 	session, err := store.Get(r, "cme_connecte")
 
-	if err == nil && session.Values["id"] != nil {
+	if err == nil && session.Values["id"] != nil && session.Values["id"].(string) != "0" {
 		var u User
 		u.Id = session.Values["id"].(int64)
 		u.FirstName = session.Values["name"].(string)
+		p.SetSessionData(u)
+	} else {
+		// permet de supprimer la session en cours
+		session.Options.MaxAge = -1
+		var u User
 		p.SetSessionData(u)
 	}
 

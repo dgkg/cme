@@ -107,7 +107,6 @@ func (p *PageConnexion) Connect(login string, pass string) (u User, err error) {
 
 	}
 	return
-
 }
 
 // fonction permettant de savoir si le rendu passe par l'html ou non
@@ -123,6 +122,10 @@ func (p *PageConnexion) SetSessionData(u User) (v bool) {
 		p.SessIsLogged = true
 		p.SessNameUser = u.FirstName
 		v = true
+	} else {
+		p.SessIdUser = 0
+		p.SessIsLogged = false
+		p.SessNameUser = ""
 	}
 	return
 }

@@ -55,3 +55,24 @@ func (pts *PageTutorial) View(idTuto string) {
 	log.Println("le titre du post est : " + pts.Tutorial.Title)
 
 }
+
+// fonction permettant de savoir si le rendu passe par l'html ou non
+// permet de faire fonctionner avec l'interface de type Page
+func (p PageTutorial) IsHtmlRender() bool {
+	return p.RenderHtml
+}
+
+// permet d'injecter des donnés de cession dans l'utilisateur loggé
+func (p *PageTutorial) SetSessionData(u User) (v bool) {
+	if u.Id != 0 && u.FirstName != "" {
+		p.SessIdUser = u.Id
+		p.SessIsLogged = true
+		p.SessNameUser = u.FirstName
+		v = true
+	} else {
+		p.SessIdUser = 0
+		p.SessIsLogged = false
+		p.SessNameUser = ""
+	}
+	return
+}

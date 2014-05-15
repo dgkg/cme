@@ -1,9 +1,9 @@
 package app
 
 import (
+	"fmt"
 	"log"
 	"net/http"
-	"fmt"
 )
 
 type PageCompte struct {
@@ -42,17 +42,17 @@ func EditCompteHandler(w http.ResponseWriter, r *http.Request) {
 
 		/*
 
-		var f Forum
+			var f Forum
 
-		isSolved, _ := ParseInt(r.PostFormValue("resolu_post"), 0, 64)
-		idCat, _ := ParseInt(r.PostFormValue("categorie_post"), 0, 64)
+			isSolved, _ := ParseInt(r.PostFormValue("resolu_post"), 0, 64)
+			idCat, _ := ParseInt(r.PostFormValue("categorie_post"), 0, 64)
 
-		f.Title = r.PostFormValue("titre_post")
-		f.ForumCategoryId = idCat
-		f.IsSolved = isSolved
-		f.Text = r.PostFormValue("contenu_post")
-		f.IsOnline = 1
-		f.Save()
+			f.Title = r.PostFormValue("titre_post")
+			f.ForumCategoryId = idCat
+			f.IsSolved = isSolved
+			f.Text = r.PostFormValue("contenu_post")
+			f.IsOnline = 1
+			f.Save()
 		*/
 	}
 }
@@ -81,6 +81,10 @@ func (p *PageCompte) SetSessionData(u User) (v bool) {
 		p.SessIsLogged = true
 		p.SessNameUser = u.FirstName
 		v = true
+	} else {
+		p.SessIdUser = 0
+		p.SessIsLogged = false
+		p.SessNameUser = ""
 	}
 	return
 }

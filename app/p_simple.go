@@ -80,6 +80,10 @@ func (ps PageSimple) SetSessionData(u User) (v bool) {
 		ps.SessIsLogged = true
 		ps.SessNameUser = u.FirstName
 		v = true
+	} else {
+		ps.SessIdUser = 0
+		ps.SessIsLogged = false
+		ps.SessNameUser = ""
 	}
 	return
 }
