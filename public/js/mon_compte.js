@@ -1,111 +1,126 @@
 $(window).load(function() {
 
-    var $zoneMsgErreur = $('.msg-erreur');
-
-    // Validation de l'image de profil
-    $.validate({
-        form : '.form-photo',
-        errorMessagePosition: $zoneMsgErreur,
-        validateOnBlur: false,
-        showHelpOnFocus : false,
-        addSuggestions : false,
-        scrollToTopOnError : false,
-
-        onValidate : function() {
-
-            //Ne pas rafraîchir la page
-            event.preventDefault();
-        },
-
-        onSuccess : function() {
-
-            // Récupération des données saisies dans la page
-            var $section = "photo";
-            var $photo_profil = $('.photo-upload').get(0).files[0];
-
-            var requete = $.ajax({
-                type: "POST",
-                url: "/mon-compte/update",
-                contentType: false,
-                processData: false,
-                data: {section : $section, photo_profil : $photo_profil}
-            });
-
-            requete.done(function( msg ) {
-                alert(msg);
-            });
-
-            requete.fail(function( msg ) {
-                // Faire qquechose
-            });
-
-            /*
-            // Envois des données en AJAX après avoir été trimmé
-            var posting = $.post( "/mon-compte/update", {
-                section : $section,
-                photo_profil : $photo_profil,
-            }, function(data, status){
-
-                if (data != "error") {
-
-                    afficherSucces();
-                } else {
-
-                    alert("Une erreur est survenue. Veuillez réessayer.");
-                };
-            });
-            */
-        }
+    $('.form-bio').submit( function(event) {
+        event.preventDefault();
+        saveBio();
     });
 
-    // Validation du formulaire social (Facebook, Twitter et LinkedIn)
-    $.validate({
-        form : '.form-social',
-        errorMessagePosition: $zoneMsgErreur,
-        validateOnBlur: false,
-        showHelpOnFocus : false,
-        addSuggestions : false,
-        scrollToTopOnError : false,
+    $('.form-social').submit( function(event) {
+        event.preventDefault();
+        saveSocial();
+    });
 
-        onValidate : function() {
+    $('.form-gradu').submit( function(event) {
+        event.preventDefault();
+        saveGraduation();
+    });
 
-            //Ne pas rafraîchir la page
-            event.preventDefault();
-        },
+    $('.form-compte').submit( function(event) {
+        event.preventDefault();
+        saveNomUtilisateur();
+    });
 
-        onSuccess : function() {
+    $('#supp-compte').click( function(event) {
+        event.preventDefault();
+        $('#supp-compte').hide();
+        $('#msg-confirm').append( "<p class='msg'>Êtes-vous absolument certain de vouloir supprimer définitivement votre compte?</p>");
+        $('#msg-confirm').append( "<input type='submit' class='pure-button button-error' value='Je confirme, je souhaite supprimer mon compte.'>" );
+    });
 
-            // Récupération des données saisies dans la page
-            var $section = "social";
-            var $val_facebook = $('#url-facebook').val();
-            var $val_twitter = $('#url-twitter').val();
-            var $val_linkedin = $('#url-linkedin').val();
-
-            // Envois des données en AJAX après avoir été trimmé
-            var posting = $.post( "/mon-compte/update", {
-                section : $section,
-                val_facebook : $val_facebook.trim(),
-                val_twitter : $val_twitter.trim(),
-                val_linkedin : $val_linkedin.trim(),
-            }, function(data, status){
-
-                if (data != "error") {
-
-                    afficherSucces();
-                } else {
-
-                    alert("Une erreur est survenue. Veuillez réessayer.");
-                };
-            });
-        }
+    $('.form-supp').submit( function(event) {
+        event.preventDefault();
+        supprimerCompte();
     });
 });
 
 function afficherSucces() {
     $('.msg-succes').show();
-    $('.formulaire').hide();
+    //$('.formulaire').hide();
     $('html, body').animate({
         scrollTop: $(".msg-succes").offset().top
-    }, 750);
+    }, 500);
+}
 
+/*
+function savePhotoProfil() {
+    //    @todo : Envoyer la photo de profil en AJAX
+
+    var idUser = $('#id-user').val();
+    var imgPhoto = $('#bio-text').val();
+    var strSection = "savePhoto";
+    var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection, biographie : strBiographie }, function(data, status){
+        if (data != "error") {
+            afficherSucces();
+        } else {
+            alert("Une erreur est survenue. Veuillez réessayer.");
+        };
+    });
+
+} */
+
+function saveBio() {
+    var idUser = $('#id-user').val();
+    var strBiographie = $('#bio-text').val();
+    var strSection = "saveBio";
+    var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection, biographie : strBiographie }, function(data, status){
+        if (data != "error") {
+            afficherSucces();
+        } else {
+            alert("Une erreur est survenue. Veuillez réessayer.");
+        };
+    });
+}
+
+function saveSocial() {
+    var idUser = $('#id-user').val();
+    var strFb = $('#url-facebook').val();
+    var strTw = $('#url-twitter').val();
+    var strLi = $('#url-linkedin').val();
+    var strSection = "saveSocial";
+    var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection, facebook : strFb, twitter : strTw, linkedin : strLi }, function(data, status){
+        if (data != "error") {
+            afficherSucces();
+        } else {
+            alert("Une erreur est survenue. Veuillez réessayer.");
+        };
+    });
+}
+
+function saveGraduation() {
+    var idUser = $('#id-user').val();
+    var intGraduation = $('#graduation').val();
+    var strSection = "saveGraduation";
+    var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection, graduation : intGraduation }, function(data, status){
+        if (data != "error") {
+            afficherSucces();
+        } else {
+            alert("Une erreur est survenue. Veuillez réessayer.");
+        };
+    });
+}
+
+function saveNomUtilisateur() {
+    var idUser = $('#id-user').val();
+    var strPrenom = $('#prenom-utilisateur').val();
+    var strNom = $('#nom-utilisateur').val();
+    var strSection = "saveNomUtilisateur";
+    var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection, prenom : strPrenom, nom : strNom }, function(data, status){
+        if (data != "error") {
+            afficherSucces();
+        } else {
+            alert("Une erreur est survenue. Veuillez réessayer.");
+        };
+    });
+}
+
+function supprimerCompte() {
+    var idUser = $('#id-user').val();
+    var strSection = "supprimerCompte";
+    var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection}, function(data, status){
+        if (data != "error") {
+            afficherSucces();
+        } else {
+            alert("Une erreur est survenue. Veuillez réessayer.");
+        };
+    });
 }

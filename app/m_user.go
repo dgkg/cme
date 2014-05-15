@@ -17,6 +17,7 @@ type User struct {
 	Facebook  string
 	Twitter   string
 	LinkedIn  string
+	Graduation string
 	IsOnline  int64
 	CreatedAt time.Time
 	UpdatedAt time.Time
@@ -26,8 +27,46 @@ type User struct {
 // fonction public
 // permet d'enregistrer les éléments du formulaire
 func (u User) Save() {
-	log.Println(u)
+	//log.Println(u)
 	db.Save(&u)
+}
+
+/* func (u User) SavePhoto() {
+	userId := u.Id
+	userPhoto := u.Text
+	db.First(&u, userId).Update("text", userBio)
+} */
+
+func (u User) SaveBio() {
+	userId := u.Id
+	userBio := u.Text
+	db.First(&u, userId).Update("text", userBio)
+}
+
+func (u User) SaveSocial() {
+	userId := u.Id
+	userFb := u.Facebook
+	userTw := u.Twitter
+	userLi := u.LinkedIn
+	db.First(&u, userId).Updates(User{Facebook : userFb, Twitter : userTw, LinkedIn : userLi})
+}
+
+func (u User) SaveGrad() {
+	userId := u.Id
+	userGrad := u.Graduation
+	db.First(&u, userId).Update("graduation", userGrad)
+}
+
+func (u User) SaveUserName() {
+	userId := u.Id
+	userPrenom := u.FirstName
+	userNom := u.LastName
+	db.First(&u, userId).Updates(User{FirstName : userPrenom, LastName : userNom})
+}
+
+func (u User) DeleteAccount() {
+	db.Delete(&u)
+	// @todo : Déconnecter l'utilisateur en cours et lui présenter la page d'accueil
 }
 
 // fonction permettant de retourner un utilisateur

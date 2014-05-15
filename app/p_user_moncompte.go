@@ -4,16 +4,28 @@ import (
 	"log"
 	"net/http"
 	"fmt"
+	."strconv"
 )
 
 type PageCompte struct {
 	PageWeb
+	User
+	Graduations []string
 }
 
 func MonCompteHandler(w http.ResponseWriter, r *http.Request) {
 
 	pc := new(PageCompte)
-	pc.View()
+
+	session, err := store.Get(r, "cme_connecte")
+
+	var u User
+
+	if err == nil && session.Values["id"] != nil {
+		u.Id = session.Values["id"].(int64)
+	}
+
+	pc.View(u.Id)
 
 	//insersion dans l'interface Page
 	var p Page
@@ -29,10 +41,49 @@ func EditCompteHandler(w http.ResponseWriter, r *http.Request) {
 	// Validation des données
 	// Si un des variables est vide, la func retourne un "error"
 	// ce qui fait afficher une message d'erreur
-	if r.PostFormValue("section") == "" /* || r.PostFormValue("photo_profil") == "" */ {
+	sectionRecue := r.PostFormValue("section")
+
+	if sectionRecue == "" {
 
 		fmt.Fprint(w, "error")
+
 	} else {
+
+		var u User
+
+		u.Id, _ = ParseInt(r.PostFormValue("idUser"), 0, 64)
+		//log.Println(u.Id)
+
+		switch sectionRecue {
+
+			case "savePhoto" :
+				//	@todo : Recevoir la photo +
+				//	l'héberger dans public/img/ +
+				//	retourner une confirmation
+
+			case "saveBio" :
+				u.Text = r.PostFormValue("biographie")
+				u.SaveBio()
+
+			case "saveSocial" :
+				u.Facebook = r.PostFormValue("facebook")
+				u.Twitter = r.PostFormValue("twitter")
+				u.LinkedIn = r.PostFormValue("linkedin")
+				u.SaveSocial()
+
+			case "saveGraduation" :
+				u.Graduation = r.PostFormValue("graduation")
+				u.SaveGrad()
+
+			case "saveNomUtilisateur" :
+				u.FirstName = r.PostFormValue("prenom")
+				u.LastName = r.PostFormValue("nom")
+				u.SaveUserName()
+
+			case "supprimerCompte" :
+				u.DeleteAccount()
+
+		}
 
 		fmt.Fprint(w, "Bonjour")
 
@@ -57,7 +108,7 @@ func EditCompteHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func (pc *PageCompte) View() {
+func (pc *PageCompte) View( id int64 ) {
 
 	log.Println("Mon Compte appelé")
 
@@ -65,7 +116,31 @@ func (pc *PageCompte) View() {
 
 	pc.Title = "Votre compte"
 	pc.MainClass = "user_compte"
+
+	var u User
+	u.Id = id
+	u = u.getById()
+
+	pc.Text = u.Text
+	pc.Facebook = u.Facebook
+	pc.Twitter = u.Twitter
+	pc.LinkedIn = u.LinkedIn
+	pc.Graduation = u.Graduation
+	pc.FirstName = u.FirstName
+	pc.LastName = u.LastName
+
+	pc.Graduations = make([]string, 20)
+
+	var anneeGrad int = 2014
+
+	for key, _ := range pc.Graduations {
+		pc.Graduations[key] = Itoa(anneeGrad)
+		anneeGrad--
+	}
+
+
 	pc.RenderHtml = true
+
 }
 
 // fonction permettant de savoir si le rendu passe par l'html ou non

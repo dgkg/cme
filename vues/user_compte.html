@@ -26,7 +26,7 @@
 
                                 <form class="form-photo" method="POST">
                                     <input class="photo-upload" type="file" data-validation-allowing="jpg, png, gif" data-validation-max-size="2M" data-validation-error-msg="Votre photo doit être au formet JPG, PNG ou GIF et faire moins de 4 Mo." value="Choisir une photo">
-                                    <input class="pure-button pure-button-primary" type="submit" value="Soumettre">
+                                    <input class="pure-button pure-button-primary" type="submit" value="Enregistrer">
                                 </form>
 
                                 <hr>
@@ -38,8 +38,9 @@
                                 <form class="form-bio" method="POST">
 
                                     <!-- <label for="bio">Biographie</label> -->
-                                    <textarea class=""></textarea>
-                                    <input class="pure-button pure-button-primary" type="submit" value="Soumettre">
+                                    <textarea id="bio-text" class="">{{.Text}}</textarea>
+                                    <input class="pure-button pure-button-primary" type="submit" value="Enregistrer">
+                                    <input id="id-user" name="id-user" type="hidden" value="{{.SessIdUser}}">
 
                                 </form>
 
@@ -54,15 +55,15 @@
                                 <form class="form-social" method="POST">
 
                                     <label for="facebook">Facebook</label>
-                                    <input id="url-facebook" type="text" name="facebook" placeholder="ex: http://facebook.com/votrenom" data-validation="url" data-validation-optional="true" data-validation-error-msg="L'URL de votre profil Facebook est invalide.">
+                                    <input id="url-facebook" type="text" name="facebook" placeholder="ex: http://facebook.com/votrenom" data-validation="url" data-validation-optional="true" data-validation-error-msg="L'URL de votre profil Facebook est invalide." value="{{.Facebook}}">
 
                                     <label for="twitter">Twitter</label>
-                                    <input id="url-twitter" type="text" name="twitter" placeholder="ex: http://twitter.com/votrenom" data-validation="url" data-validation-optional="true" data-validation-error-msg="L'URL de votre profil Twitter est invalide.">
+                                    <input id="url-twitter" type="text" name="twitter" placeholder="ex: http://twitter.com/votrenom" data-validation="url" data-validation-optional="true" data-validation-error-msg="L'URL de votre profil Twitter est invalide." value="{{.Twitter}}">
 
                                     <label for="linkedin">LinkedIn</label>
-                                    <input id="url-linkedin" type="text" name="linkedin" placeholder="ex: http://linkedin.com/votrenom" data-validation="url" data-validation-optional="true"  data-validation-error-msg="L'URL de votre profil LinkedIn est invalide.">
+                                    <input id="url-linkedin" type="text" name="linkedin" placeholder="ex: http://linkedin.com/votrenom" data-validation="url" data-validation-optional="true"  data-validation-error-msg="L'URL de votre profil LinkedIn est invalide." value="{{.LinkedIn}}">
 
-                                    <input class="pure-button pure-button-primary" type="submit" value="Soumettre">
+                                    <input class="pure-button pure-button-primary" type="submit" value="Enregistrer">
 
                                 </form>
 
@@ -74,25 +75,21 @@
 
                                 <form class="form-gradu" method="POST">
 
-                                    <select class="gradu">
-                                        <option>2014</option>
-                                        <option>2013</option>
-                                        <option>2012</option>
-                                        <option>2011</option>
-                                        <option>2010</option>
-                                        <option>2009</option>
-                                        <option>2008</option>
-                                        <option>2007</option>
-                                        <option>2006</option>
-                                        <option>2005</option>
-                                        <option>2004</option>
-                                        <option>2003</option>
-                                        <option>2002</option>
-                                        <option>2001</option>
-                                        <option>2000</option>
+                                    <select id="graduation" class="gradu">
+
+                                    {{$idAnneeSelected := .Graduation}}
+
+                                    {{range .Graduations}}
+                                        {{if eq . $idAnneeSelected}}
+                                            <option value="{{ . }}" selected>{{.}}</option>
+                                        {{else}}
+                                            <option value="{{ . }}">{{.}}</option>
+                                        {{end}}
+                                    {{end}}
+
                                     </select>
 
-                                    <input class="pure-button pure-button-primary" type="submit" value="Soumettre">
+                                    <input class="pure-button pure-button-primary" type="submit" value="Enregistrer">
 
                                 </form>
 
@@ -108,8 +105,13 @@
 
                                 <form class="form-compte" method="POST">
 
-                                    <input type="text" name="nomutilisateur" placeholder="Nom d'utilisateur">
-                                    <input class="pure-button pure-button-primary" type="submit" value="Soumettre">
+                                    <label for="prenom-utilisateur">Prénom</label>
+                                    <input type="text" id="prenom-utilisateur" name="prenom-utilisateur" placeholder="Votre prénom" value="{{.FirstName}}">
+
+                                    <label for="nom-utilisateur">Nom</label>
+                                    <input type="text" id="nom-utilisateur" name="nom-utilisateur" placeholder="Votre nom" value="{{.LastName}}">
+
+                                    <input class="pure-button pure-button-primary" type="submit" value="Enregistrer">
 
                                 </form>
 
@@ -118,8 +120,15 @@
                                 <h4>Suppression du compte</h4>
 
                                 <p>Cliquez ici pour supprimer entièrement et définitivement votre compte.</p>
+                                <p>Toutes vos données seront perdues et irrécupérable.</p>
 
-                                <a class="pure-button button-error supp-compte" href="#">Supprimer mon compte</a>
+                                <form class="form-supp" method="POST">
+
+                                <a id="supp-compte" class="pure-button button-error supp-compte" href="#">Supprimer mon compte</a>
+
+                                <div id="msg-confirm"></div>
+
+                                </form>
 
                             </div>
 
