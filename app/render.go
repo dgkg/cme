@@ -28,7 +28,7 @@ func Render(w http.ResponseWriter, p Page, r *http.Request) {
 
 	session, err := store.Get(r, "cme_connecte")
 
-	if err == nil && session.Values["id"] != nil && session.Values["id"].(string) != "0" {
+	if err == nil && session.Values["id"] != nil && session.Values["id"] != "0" {
 		var u User
 		u.Id = session.Values["id"].(int64)
 		u.FirstName = session.Values["name"].(string)

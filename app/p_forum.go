@@ -144,3 +144,30 @@ func (p *PageForum) SetSessionData(u User) (v bool) {
 	}
 	return
 }
+
+/*
+
+
+
+
+
+
+*/
+/*
+type PageTestPost struct {
+	Posts []string
+	PageWeb
+}
+
+// affichage des posts
+func TestPostHandler(w http.ResponseWriter, r *http.Request) {
+
+	var pt PageTestPost
+	pt.Posts = make([]string, 3)
+	pt.Posts[0] = "All good !!!"
+	pt.Posts[1] = r.PostFormValue("login")
+	pt.Posts[2] = r.PostFormValue("pass")
+	fmt.Fprint(w, pt.Posts)
+
+}
+*/

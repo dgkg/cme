@@ -55,6 +55,10 @@ func main() {
 	r.HandleFunc("/forum/post/nouvcomm", ForumNouvCommHandler)
 	r.HandleFunc("/forum/post/delcomm", ForumDelCommHandler)
 	r.HandleFunc("/mon-compte/update", EditCompteHandler)
+	//r.HandleFunc("/ajax/connect", AjaxConnectHandler)
+
+	// Tests
+	//r.HandleFunc("/test-post", TestPostHandler)
 
 	// Page simple
 	r.HandleFunc("/{pageUrl:[a-z-]+}", PageSimpleHandler)
