@@ -7,68 +7,29 @@
 
                 <hr>
 
-                <div class="msg-erreur">
-
-                </div>
+                <div class="msg-erreur"></div>
 
                 <form class="pure-form pure-form-aligned connexion-form" method="POST" action="">
 
                     <h2>Informations personnelles</h2>
 
                     <fieldset class="pure-group">
-                        <input type="text" id="insc-prenom" class="pure-input-1-2" placeholder="Prénom" data-validation="required" data-validation-error-msg="Veuillez saisir votre prénom.">
-                        <input type="text" id="insc-nom" class="pure-input-1-2" placeholder="Nom" data-validation="required" data-validation-error-msg="Veuillez saisir votre nom.">
+                        <input type="text" id="prenom" class="pure-input-1-2" placeholder="Prénom">
+                        <input type="text" id="nom" class="pure-input-1-2" placeholder="Nom">
                     </fieldset>
 
                     <fieldset>
-                        <input type="email" id="insc-email" class="pure-input-1-2" placeholder="Email" data-validation="email" data-validation-error-msg="Veuillez saisir votre adresse courriel.">
+                        <input type="email" id="email" class="pure-input-1-2" placeholder="Email">
                     </fieldset>
 
                     <h2>Créer un mot de passe</h2>
 
                     <fieldset class="pure-group">
-                        <input type="password" id="insc-mdp" name="pass_confirmation" class="pure-input-1-2" placeholder="Mot de passe" data-validation="length" data-validation-length="min6" data-validation-error-msg="Veuillez saisir un mot de passe valide (6 caractères et +)">
-                        <input type="password" id="insc-mdp2" name="pass" class="pure-input-1-2" placeholder="Confirmation" data-validation="confirmation" data-validation-error-msg="La confirmation de mot de passe est différent.">
+                        <input type="password" id="pass" name="pass_confirmation" class="pure-input-1-2" placeholder="Mot de passe">
+                        <input type="password" id="pass2" name="pass" class="pure-input-1-2" placeholder="Confirmation">
                     </fieldset>
 
-                    <button type="submit" id="insc-submit" class="pure-button pure-input-1-2 pure-button-primary">Inscription</button>
-
-                    <!-- <fieldset>
-
-                        <div class="pure-control-group">
-                            <label for="prenom">Votre prénom</label>
-                            <input id="prenom" type="text" placeholder="Prénom">
-                        </div>
-
-                        <div class="pure-control-group">
-                            <label for="name">Votre nom</label>
-                            <input id="name" type="text" placeholder="Nom">
-                        </div>
-
-                    </fieldset>
-
-                    <fieldset>
-
-                        <div class="pure-control-group">
-                            <label for="email">Courriel</label>
-                            <input id="email" type="text" placeholder="Courriel">
-                        </div>
-
-                        <div class="pure-control-group">
-                            <label for="password">Mot de passe</label>
-                            <input id="password" type="password" placeholder="Mot de passe">
-                        </div>
-
-                        <div class="pure-control-group">
-                            <label for="passwordconf">Confirmation</label>
-                            <input id="passwordconf" type="password" placeholder="Confirmation">
-                        </div>
-
-                        <div class="pure-controls">
-                            <button type="submit" class="pure-button pure-button-primary">Connexion</button>
-                        </div>
-
-                    </fieldset> -->
+                    <button type="submit" id="submit" class="pure-button pure-input-1-2 pure-button-primary">Inscription</button>
 
                 </form>
 

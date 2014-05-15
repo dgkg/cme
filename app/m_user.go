@@ -24,11 +24,26 @@ type User struct {
 }
 
 // fonction public
+// permet d'enregistrer les éléments du user
+// retourne l'id du user
+func (u User) Save() int64 {
+	db.Save(&u)
+	if u.Id != 0 {
+		return u.Id
+	} else {
+		db.Last(&u)
+		return u.Id
+	}
+}
+
+/*
+// fonction public
 // permet d'enregistrer les éléments du formulaire
 func (u User) Save() {
 	log.Println(u)
 	db.Save(&u)
 }
+*/
 
 // fonction permettant de retourner un utilisateur
 // en fonction de son login et son mot de passe
@@ -60,7 +75,7 @@ func (u *User) LoginPassExist() (v bool, err error) {
 func (u User) getById() User {
 	var user User
 	user.Id = u.Id
-	db.Find(&user)
+	db.Find(&u)
 	return user
 }
 

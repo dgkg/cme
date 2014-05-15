@@ -8,11 +8,18 @@
         <title>{{.Title}} - Communauté Maryse-Éloy</title>
         <meta name="description" content="Annuaire des membres du CME, la communauté des étudiants de l'école d'arts Maryse-Éloy.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <!-- todo merger les deux validation -->
+         {{ if eq .MainClass "inscription"}}
+            {{ if .SessIsLogged}}
+                <meta http-equiv="Refresh" content="0;url=/mon-compte">
+            {{end}}
+        {{end}}
         {{ if eq .MainClass "connexion"}}
             {{ if .SessIsLogged}}
                 <meta http-equiv="Refresh" content="0;url=/mon-compte">
             {{end}}
         {{end}}
+        <!-- fin todo merger les deux validation -->
         <link rel="stylesheet" href="/css/normalize.min.css">
         <link rel="stylesheet" href="/css/pure-min.css">
         <link rel="stylesheet" href="/css/main.css">
@@ -35,9 +42,9 @@
 
             <div class="zone-membre">
 
-                <a class="btn-moncompte" href="/mon-compte">Mon compte</a>
+                <!--<a class="btn-moncompte" href="/mon-compte">Mon compte</a>-->
                 {{if .SessIsLogged}}
-                    <a class="btn-connexion" href="">Bonjour {{.SessNameUser}}</a>
+                    <a class="btn-connexion" href="/mon-compte">Bonjour {{.SessNameUser}}</a>
                 {{else}}
                     <a class="btn-connexion" href="/connexion">Se connecter</a>
                 {{end}}
