@@ -18,8 +18,14 @@ type ForumPost struct {
 
 // fonction public
 // permet d'enregistrer les éléments du formulaire
-func (fp ForumPost) Save() {
+func (fp ForumPost) Save() int64 {
 	db.Save(&fp)
+	if fp.Id != 0 {
+		return fp.Id
+	} else {
+		db.Last(&fp)
+		return fp.Id
+	}
 }
 
 // fonction public

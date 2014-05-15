@@ -8,7 +8,11 @@
         <title>{{.Title}} - Communauté Maryse-Éloy</title>
         <meta name="description" content="Annuaire des membres du CME, la communauté des étudiants de l'école d'arts Maryse-Éloy.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        {{ if eq .MainClass "connexion"}}
+            {{ if .SessIsLogged}}
+                <meta http-equiv="Refresh" content="0;url=/mon-compte">
+            {{end}}
+        {{end}}
         <link rel="stylesheet" href="/css/normalize.min.css">
         <link rel="stylesheet" href="/css/pure-min.css">
         <link rel="stylesheet" href="/css/main.css">
@@ -18,9 +22,7 @@
     </head>
     <body>
 
-        <div class="mosaique">
-
-        </div>
+        <div class="mosaique"></div>
 
         <div id="wrapper"  class="{{.MainClass}}">
 
@@ -47,18 +49,24 @@
 
                 <ul class="nav-mobile">
                     <li><a href="/eleves">Élèves</a></li>
+                    {{if .SessIsLogged}}
                     <li><a href="/forum">Forum</a></li>
                     <li><a href="/tutoriels">Tutoriels</a></li>
+                    {{end}}
                     <li><a href="/actualites">Actualités</a></li>
                 </ul>
 
                 <ul class="nav1-ipad">
                     <li><a href="/eleves">Élèves</a></li>
+                    {{if .SessIsLogged}}
                     <li><a href="/forum">Forum</a></li>
+                    {{end}}
                 </ul>
 
                 <ul class="nav2-ipad">
+                    {{if .SessIsLogged}}
                     <li><a href="/tutoriels">Tutoriels</a></li>
+                    {{end}}
                     <li><a href="/actualites">Actualités</a></li>
                 </ul>
 

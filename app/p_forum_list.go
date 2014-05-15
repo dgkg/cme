@@ -279,6 +279,10 @@ func (p *PageForumList) SetSessionData(u User) (v bool) {
 		p.SessIsLogged = true
 		p.SessNameUser = u.FirstName
 		v = true
+	} else {
+		p.SessIdUser = 0
+		p.SessIsLogged = false
+		p.SessNameUser = ""
 	}
 	return
 }

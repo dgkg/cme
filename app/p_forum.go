@@ -18,62 +18,61 @@ type PageForum struct {
 
 // affichage d'une question du forum
 func ForumPostHandler(w http.ResponseWriter, r *http.Request) {
-
+	// récupération de la variable id
 	vars := mux.Vars(r)
 	id := vars["id"]
-	log.Println("Id appelé : " + id)
-
+	// initialisation de l'objet PageForum
 	pfp := new(PageForum)
 	pfp.Forum.Id, _ = ParseInt(id, 0, 64)
 	pfp.View()
-
 	//insersion dans l'interface Page
 	var p Page
 	p = pfp
 	Render(w, p, r)
 }
 
+// Public function
+// permet d'ajouter un commenaire sur une fonction
 func ForumNouvCommHandler(w http.ResponseWriter, r *http.Request) {
-
 	// Validation des données
 	// Si une des variables est vide, la func retourne un "error"
 	// ce qui fait afficher un message d'erreur
 	if r.PostFormValue("val_commentaire") == "" ||
 		r.PostFormValue("val_post_id") == "" ||
-		r.PostFormValue("val_auteur_id") == "" {
-
+		r.PostFormValue("val_auteur_id") == "" ||
+		r.PostFormValue("val_auteur_id") == "0" {
+		// envoie un message d'erreur
 		fmt.Fprint(w, "error")
 	} else {
-
+		// initialise l'objet ForumPost et récupère les données du formulaire
 		var fp ForumPost
-		//var u User
-
-		forumId, _ := ParseInt(r.PostFormValue("val_post_id"), 0, 64)
-		auteurId, _ := ParseInt(r.PostFormValue("val_auteur_id"), 0, 64)
-
-		fp.ForumId = forumId
-		fp.UserId = auteurId
+		fp.ForumId, _ = ParseInt(r.PostFormValue("val_post_id"), 0, 64)
+		fp.UserId, _ = ParseInt(r.PostFormValue("val_auteur_id"), 0, 64)
 		fp.Text = sanitize.HTML(r.PostFormValue("val_commentaire"))
 		fp.IsOnline = 1
-		fp.Save()
-
+		fp.Id = fp.Save()
+		// permet de récuprérer le nom de l'utilisateur
 		var u User
 		u.Id = fp.UserId
 		u = u.getById()
-
 		// permet de convertir la date de la personne qui a posté la réponse
 		t := time.Now()
 		date := t.Format(dateLayout)
-
 		// String qui contient d'abord l'auteur du commentaire
 		// puis son commentaire complet, séparés par ":::"
-		commData := u.FirstName + " " + u.LastName + ":::" + date + ":::" + fp.Text
-
+		commData := u.FirstName + " " + u.LastName + ":::" + date + ":::" + fp.Text + ":::" + Itoa(int(fp.Id))
 		fmt.Fprint(w, commData)
-		//return commData
-
-		//fmt.Fprint(w, commentaire)
 	}
+}
+
+// fonction Public
+// permet de supprimer un commentaire sur une question
+func ForumDelCommHandler(w http.ResponseWriter, r *http.Request) {
+	var fp ForumPost
+	fp.Id, _ = ParseInt(r.PostFormValue("id_commentaire"), 0, 64)
+	fp.Delete()
+	commData := "success"
+	fmt.Fprint(w, commData)
 }
 
 // fonction privée
@@ -94,17 +93,14 @@ func (pfp *PageForum) injectDataToDisplay() {
 	pfp.Forum.CreatedAtString = t.Format(dateLayout)
 
 	lenPosts := len(pfp.Forum.Posts)
-
 	for i := 0; i < lenPosts; i++ {
 		// permet de récupérer le nom prénom de la personne qui a posté la réponse
 		u.Id = pfp.Forum.Posts[i].UserId
 		u = u.getById()
 		pfp.Forum.Posts[i].UserName = u.FirstName + " " + u.LastName
-
 		// permet de convertir la date de la personne qui a posté la question
 		t = pfp.Forum.Posts[i].CreatedAt
 		pfp.Forum.Posts[i].CreatedAtString = t.Format(dateLayout)
-
 	}
 }
 
@@ -141,6 +137,37 @@ func (p *PageForum) SetSessionData(u User) (v bool) {
 		p.SessIsLogged = true
 		p.SessNameUser = u.FirstName
 		v = true
+	} else {
+		p.SessIdUser = 0
+		p.SessIsLogged = false
+		p.SessNameUser = ""
 	}
 	return
 }
+
+/*
+
+
+
+
+
+
+*/
+/*
+type PageTestPost struct {
+	Posts []string
+	PageWeb
+}
+
+// affichage des posts
+func TestPostHandler(w http.ResponseWriter, r *http.Request) {
+
+	var pt PageTestPost
+	pt.Posts = make([]string, 3)
+	pt.Posts[0] = "All good !!!"
+	pt.Posts[1] = r.PostFormValue("login")
+	pt.Posts[2] = r.PostFormValue("pass")
+	fmt.Fprint(w, pt.Posts)
+
+}
+*/
