@@ -53,10 +53,12 @@ func main() {
 
 	// AJAX
 	r.HandleFunc("/forum/nouveau/submitform", SubmitFormHandler)
-	r.HandleFunc("/tutoriel/nouveau/submitform", SubmitTutorialHandler)
-	r.HandleFunc("/inscription/submitform", InscFormHandler)
 	r.HandleFunc("/forum/post/nouvcomm", ForumNouvCommHandler)
 	r.HandleFunc("/forum/post/delcomm", ForumDelCommHandler)
+	r.HandleFunc("/tutoriel/nouveau/submitform", SubmitTutorialHandler)
+	r.HandleFunc("/tutoriel/post/nouvcomm", TutorialNouvCommHandler)
+	r.HandleFunc("/tutoriel/post/delcomm", TutorialDelCommHandler)
+	r.HandleFunc("/inscription/submitform", InscFormHandler)
 	r.HandleFunc("/mon-compte/update", EditCompteHandler)
 	//r.HandleFunc("/ajax/connect", AjaxConnectHandler)
 

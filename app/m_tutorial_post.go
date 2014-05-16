@@ -6,13 +6,15 @@ import (
 )
 
 type TutorialPost struct {
-	Id         int64
-	TutorialId int64
-	UserId     int64
-	Text       string
-	IsOline    int64
-	CreatedAt  time.Time
-	UpdatedAt  time.Time
+	Id              int64
+	TutorialId      int64
+	UserId          int64
+	Text            string
+	IsOnline        int64
+	UserName        string `sql:"-"` // Ignore this field
+	CreatedAtString string `sql:"-"` // Ignore this field
+	CreatedAt       time.Time
+	UpdatedAt       time.Time
 }
 
 // Save permet d'enregistrer les éléments du formulaire
