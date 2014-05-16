@@ -45,6 +45,7 @@
                 <!--<a class="btn-moncompte" href="/mon-compte">Mon compte</a>-->
                 {{if .SessIsLogged}}
                     <a class="btn-connexion" href="/mon-compte">Bonjour {{.SessNameUser}}</a>
+                    <a class="btn-connexion" href="/deconnexion">Déconnecter</a>
                 {{else}}
                     <a class="btn-connexion" href="/connexion">Se connecter</a>
                 {{end}}

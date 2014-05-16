@@ -126,6 +126,13 @@ func (u User) getById() User {
 	return u
 }
 
+// permet de récupérer le nom prénom du user
+// en fonction de son id
+func (u User) getFullName() string {
+	db.Where("is_online = ? AND id = ?", "1", Itoa(int(u.Id))).Find(&u)
+	return u.FirstName + " " + u.LastName
+}
+
 // permet de récupérer toute la listes des questions du forum
 // en fonction de la limite affichable par page
 func (u User) getList() []User {

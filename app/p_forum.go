@@ -22,12 +22,12 @@ func ForumPostHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id := vars["id"]
 	// initialisation de l'objet PageForum
-	pfp := new(PageForum)
-	pfp.Forum.Id, _ = ParseInt(id, 0, 64)
-	pfp.View()
+	pf := new(PageForum)
+	pf.Forum.Id, _ = ParseInt(id, 0, 64)
+	pf.View()
 	//insersion dans l'interface Page
 	var p Page
-	p = pfp
+	p = pf
 	Render(w, p, r)
 }
 
@@ -85,8 +85,7 @@ func (pfp *PageForum) injectDataToDisplay() {
 	// permet de récupérer le nom prénom de la personne qui a posté la question
 	var u User
 	u.Id = pfp.Forum.UserId
-	u = u.getById()
-	pfp.Forum.UserName = u.FirstName + " " + u.LastName
+	pfp.Forum.UserName = u.getFullName()
 
 	// permet de convertir la date de la personne qui a posté la question
 	t := pfp.Forum.CreatedAt
@@ -96,8 +95,7 @@ func (pfp *PageForum) injectDataToDisplay() {
 	for i := 0; i < lenPosts; i++ {
 		// permet de récupérer le nom prénom de la personne qui a posté la réponse
 		u.Id = pfp.Forum.Posts[i].UserId
-		u = u.getById()
-		pfp.Forum.Posts[i].UserName = u.FirstName + " " + u.LastName
+		pfp.Forum.Posts[i].UserName = u.getFullName()
 		// permet de convertir la date de la personne qui a posté la question
 		t = pfp.Forum.Posts[i].CreatedAt
 		pfp.Forum.Posts[i].CreatedAtString = t.Format(dateLayout)
@@ -116,6 +114,9 @@ func (pfp *PageForum) View() {
 	pfp.Title = "Titre du post! Woohoo!"
 	pfp.MainClass = "forum_post"
 	pfp.Forum = pfp.Forum.getById()
+	log.Println("*--* pfp.Forum *--*")
+	log.Println(pfp.Forum)
+	log.Println("*--* fin pfp.Forum *--*")
 	pfp.Forum.Posts = pfp.Forum.getPost()
 	pfp.RenderHtml = true
 	pfp.injectDataToDisplay()

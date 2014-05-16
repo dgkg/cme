@@ -34,6 +34,7 @@ func main() {
 	r.HandleFunc("/tutoriel/search", TutoSearchHandler)
 	r.HandleFunc("/tutoriel/{category}", TutoCatHandler)
 	r.HandleFunc("/tutoriel/post/{id:[0-9]+}", TutoPostHandler)
+	r.HandleFunc("/tutoriel/post/edit/{id:[0-9]+}", TutoEditHandler)
 
 	// routages des actualités
 	r.HandleFunc("/actualites", NewsHandler)
@@ -41,6 +42,7 @@ func main() {
 
 	// rootage de la page connexion
 	r.HandleFunc("/connexion", ConnexionHandler)
+	r.HandleFunc("/deconnexion", DeconnexionHandler)
 
 	r.HandleFunc("/valider-connexion", ConnexionPostHandler)
 
@@ -51,9 +53,12 @@ func main() {
 
 	// AJAX
 	r.HandleFunc("/forum/nouveau/submitform", SubmitFormHandler)
-	r.HandleFunc("/inscription/submitform", InscFormHandler)
 	r.HandleFunc("/forum/post/nouvcomm", ForumNouvCommHandler)
 	r.HandleFunc("/forum/post/delcomm", ForumDelCommHandler)
+	r.HandleFunc("/tutoriel/nouveau/submitform", SubmitTutorialHandler)
+	r.HandleFunc("/tutoriel/post/nouvcomm", TutorialNouvCommHandler)
+	r.HandleFunc("/tutoriel/post/delcomm", TutorialDelCommHandler)
+	r.HandleFunc("/inscription/submitform", InscFormHandler)
 	r.HandleFunc("/mon-compte/update", EditCompteHandler)
 	r.HandleFunc("/mon-compte/upload", UploadHandler)
 	//r.HandleFunc("/ajax/connect", AjaxConnectHandler)

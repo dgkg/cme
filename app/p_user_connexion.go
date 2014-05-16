@@ -50,6 +50,29 @@ func ConnexionHandler(w http.ResponseWriter, r *http.Request) {
 
 }
 
+// DeconnexionHandler permet de supprimer la connexion "cme_connecte"
+// en changant la date d'expiration à -1
+// puis affiche la home
+func DeconnexionHandler(w http.ResponseWriter, r *http.Request) {
+	// récupère la cession en cours
+	session, _ := store.Get(r, "cme_connecte")
+	// modifie sa date d'expiration
+	session.Options.MaxAge = -1
+	// sauvegarde
+	session.Save(r, w)
+	// creation de l'objet PageSimple
+	var ps PageSimple
+	ps.SessIdUser = 0
+	ps.SessIsLogged = false
+	ps.SessNameUser = ""
+	// surcharge du template à utiliser
+	Templ = "deconnexion"
+	//insersion dans l'interface Page
+	var p Page
+	p = ps
+	Render(w, p, r)
+}
+
 func ConnexionPostHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Get a session. We're ignoring the error resulted from decoding an

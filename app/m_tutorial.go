@@ -16,6 +16,9 @@ type Tutorial struct {
 	IsOnline           int64
 	PostNumb           int64  `sql:"-"` // Ignore this field
 	CategoryTitle      string `sql:"-"` // Ignore this field
+	Url                string `sql:"-"` // Ignore this field
+	UserName           string `sql:"-"` // Ignore this field
+	CreatedAtString    string `sql:"-"` // Ignore this field
 	CreatedAt          time.Time
 	UpdatedAt          time.Time
 	Posts              []TutorialPost
@@ -23,14 +26,26 @@ type Tutorial struct {
 
 // fonction public
 // permet d'enregistrer les éléments du tutoriel
-func (t Tutorial) Save() {
+func (t Tutorial) Save() int64 {
 	db.Save(&t)
+	if t.Id != 0 {
+		return t.Id
+	} else {
+		db.Last(&t)
+		return t.Id
+	}
+}
+
+// fonction public
+// permet de supprimer un tutoriel
+func (t Tutorial) Delete() {
+	db.Delete(&t)
 }
 
 // permet de donner l'id d'une question à partir de son titre
 func (t Tutorial) getIdFromCatName(cat string) int64 {
 
-	catList := t.getAllCategories()
+	catList := t.getAllCategories(0)
 	lenCat := len(cat)
 	for i := 0; i < lenCat; i++ {
 		// vérifie si la cat est celle cherchée
@@ -44,7 +59,7 @@ func (t Tutorial) getIdFromCatName(cat string) int64 {
 
 // permet de retourner toutes les catégories
 // permet aussi de créer les liens pour les catégories
-func (t Tutorial) getAllCategories() []TutorialCategory {
+func (t Tutorial) getAllCategories(id int64) []TutorialCategory {
 
 	var cat []TutorialCategory
 	db.Find(&cat)
@@ -54,9 +69,21 @@ func (t Tutorial) getAllCategories() []TutorialCategory {
 	for i := 0; i < lenCat; i++ {
 		//cat[i].Url = "/forum/categorie/" + strings.ToLower(cat[i].Title) + "/" + Itoa(int(cat[i].Id))
 		cat[i].Url = "/tutoriel/" + strings.ToLower(cat[i].Title)
+		// permet de créer la sélection d'un élément
+		if cat[i].Id == id {
+			cat[i].IsSelected = true
+		} else {
+			cat[i].IsSelected = false
+		}
 	}
-
 	return cat
+}
+
+// permet de récupérer tout le tutoriel
+// en fonction de son id
+func (t Tutorial) getById() Tutorial {
+	db.Where("is_online = ? AND id = ?", "1", Itoa(int(t.Id))).Find(&t)
+	return t
 }
 
 // permet de récupérer toute la listes des tutoriels
@@ -117,10 +144,8 @@ func (t Tutorial) countFromIdCat(id int64) int {
 // permet de récupérer les posts d'un tutoriel
 // à partir de l'id d'un tutoriel
 func (t Tutorial) getPost() []TutorialPost {
-
-	idTutorial := Itoa(int(t.Id))
 	var posts []TutorialPost
-	db.Where("is_online = ? and tutorial_id = ?", "1", idTutorial).Find(&posts)
+	db.Where("is_online = ? and tutorial_id = ?", "1", Itoa(int(t.Id))).Find(&posts)
 	return posts
 }
 
