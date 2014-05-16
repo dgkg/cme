@@ -36,6 +36,12 @@ func (t Tutorial) Save() int64 {
 	}
 }
 
+// fonction public
+// permet de supprimer un tutoriel
+func (t Tutorial) Delete() {
+	db.Delete(&t)
+}
+
 // permet de donner l'id d'une question à partir de son titre
 func (t Tutorial) getIdFromCatName(cat string) int64 {
 

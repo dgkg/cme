@@ -75,6 +75,7 @@ func TutorialNouvCommHandler(w http.ResponseWriter, r *http.Request) {
 func TutorialDelCommHandler(w http.ResponseWriter, r *http.Request) {
 	var tp TutorialPost
 	tp.Id, _ = ParseInt(r.PostFormValue("id_commentaire"), 0, 64)
+	log.Println("TutorialPost " + Itoa(int(tp.Id)) + " supprimé")
 	tp.Delete()
 	commData := "success"
 	fmt.Fprint(w, commData)
@@ -90,8 +91,7 @@ func (pt *PageTutorial) injectDataToDisplay() {
 	// permet de récupérer le nom prénom de la personne qui a posté la question
 	var u User
 	u.Id = pt.Tutorial.UserId
-	u = u.getById()
-	pt.Tutorial.UserName = u.FirstName + " " + u.LastName
+	pt.Tutorial.UserName = u.getFullName()
 
 	// permet de convertir la date de la personne qui a posté la question
 	t := pt.Tutorial.CreatedAt
@@ -101,8 +101,7 @@ func (pt *PageTutorial) injectDataToDisplay() {
 	for i := 0; i < lenPosts; i++ {
 		// permet de récupérer le nom prénom de la personne qui a posté la réponse
 		u.Id = pt.Tutorial.Posts[i].UserId
-		u = u.getById()
-		pt.Tutorial.Posts[i].UserName = u.FirstName + " " + u.LastName
+		pt.Tutorial.Posts[i].UserName = u.getFullName()
 		// permet de convertir la date de la personne qui a posté la question
 		t = pt.Tutorial.Posts[i].CreatedAt
 		pt.Tutorial.Posts[i].CreatedAtString = t.Format(dateLayout)
@@ -123,7 +122,7 @@ func (pt *PageTutorial) View() {
 	pt.Tutorial = pt.Tutorial.getById()
 	pt.Tutorial.Posts = pt.Tutorial.getPost()
 	pt.RenderHtml = true
-	//pts.injectDataToDisplay()
+	pt.injectDataToDisplay()
 
 	log.Println("le titre du post est : " + pt.Tutorial.Title)
 
