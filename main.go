@@ -60,6 +60,7 @@ func main() {
 	r.HandleFunc("/tutoriel/post/delcomm", TutorialDelCommHandler)
 	r.HandleFunc("/inscription/submitform", InscFormHandler)
 	r.HandleFunc("/mon-compte/update", EditCompteHandler)
+	r.HandleFunc("/mon-compte/upload", UploadHandler)
 	//r.HandleFunc("/ajax/connect", AjaxConnectHandler)
 
 	// Tests

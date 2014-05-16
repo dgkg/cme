@@ -24,10 +24,11 @@
 		}
 
 		.msg-succes {
+			display: inline-block;
 			width: 100%;
-			min-height: 40px;
+			min-height: 26px;
 			background-color: #74B727;
-			//line-height: 40px;
+			line-height: 26px;
 			vertical-align: middle;
 			-webkit-border-radius: 4px;
 			-moz-border-radius: 4px;

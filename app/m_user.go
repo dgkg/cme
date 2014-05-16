@@ -19,6 +19,7 @@ type User struct {
 	Twitter    string
 	LinkedIn   string
 	Graduation string
+	PhotoProfil string
 	IsOnline   int64
 	CreatedAt  time.Time
 	UpdatedAt  time.Time
@@ -47,11 +48,10 @@ func (u User) Save() {
 }
 */
 
-/* func (u User) SavePhoto() {
+func (u User) SavePhoto(nouvPhoto string) {
 	userId := u.Id
-	userPhoto := u.Text
-	db.First(&u, userId).Update("text", userBio)
-} */
+	db.First(&u, userId).Update("PhotoProfil", nouvPhoto)
+}
 
 func (u User) SaveBio() {
 	userId := u.Id
@@ -64,7 +64,14 @@ func (u User) SaveSocial() {
 	userFb := u.Facebook
 	userTw := u.Twitter
 	userLi := u.LinkedIn
-	db.First(&u, userId).Updates(User{Facebook: userFb, Twitter: userTw, LinkedIn: userLi})
+
+	// J'ignore pourquoi mais la ligne suivante ne fonctionne pas
+	//db.First(&u, userId).Updates(User{Facebook: userFb, Twitter: userTw, LinkedIn: userLi})
+
+	// Je dois faire trois requêtes différentes pour mettre à jour les infos
+	db.First(&u, userId).Update("Facebook", userFb)
+	db.First(&u, userId).Update("Twitter", userTw)
+	db.First(&u, userId).Update("LinkedIn", userLi)
 }
 
 func (u User) SaveGrad() {

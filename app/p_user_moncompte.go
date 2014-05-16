@@ -5,6 +5,9 @@ import (
 	"log"
 	"net/http"
 	."strconv"
+	"io"
+	//"net/http"
+	"os"
 )
 
 type PageCompte struct {
@@ -82,29 +85,54 @@ func EditCompteHandler(w http.ResponseWriter, r *http.Request) {
 
 			case "supprimerCompte" :
 				u.DeleteAccount()
-
 		}
+	}
+}
 
-		fmt.Fprint(w, "Bonjour")
+// Upload de fichiers avec Go
+// Code original : https://gist.github.com/sanatgersappa/5127317#file-app-go
+func UploadHandler(w http.ResponseWriter, r *http.Request) {
 
-		// @todo : Recevoir la section + la photo de profil envoyé
-		// 		Héberger l'image sur le serveur dans public/img/
-		//		 Retourner une confirmation
+	//parse the multipart form in the request
+	err := r.ParseMultipartForm(100000)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 
-		/*
+	//get a ref to the parsed multipart form
+	m := r.MultipartForm
 
-			var f Forum
+	//get the *fileheaders
+	files := m.File["photo-upload"]
 
-			isSolved, _ := ParseInt(r.PostFormValue("resolu_post"), 0, 64)
-			idCat, _ := ParseInt(r.PostFormValue("categorie_post"), 0, 64)
+	file, err := files[0].Open()
 
-			f.Title = r.PostFormValue("titre_post")
-			f.ForumCategoryId = idCat
-			f.IsSolved = isSolved
-			f.Text = r.PostFormValue("contenu_post")
-			f.IsOnline = 1
-			f.Save()
-		*/
+	defer file.Close()
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	//create destination file making sure the path is writeable.
+	dst, err := os.Create("./public/img/uploads/" + files[0].Filename)
+
+	// Envoi du nom du fichier pour l'ajout à la BD
+	var u User
+	session, err := store.Get(r, "cme_connecte")
+	u.Id = session.Values["id"].(int64)
+	u.SavePhoto(files[0].Filename)
+
+	defer dst.Close()
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	//copy the uploaded file to the destination file
+	if _, err := io.Copy(dst, file); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
 }
 

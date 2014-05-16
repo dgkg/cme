@@ -9,11 +9,6 @@
 
                         <div class="formulaire">
 
-                            <div class="msg-succes">
-                                <h3>Succès!</h3>
-                                <p>Vos modifications ont été appliquées avec succès.</p>
-                            </div>
-
                             <div class="msg-erreur"></div>
 
                             <div class="section profil">
@@ -24,9 +19,13 @@
 
                                 <p>Pour modifier votre photo de profil, utilisez le bouton ci-dessous.</p>
 
-                                <form class="form-photo" method="POST">
-                                    <input class="photo-upload" type="file" data-validation-allowing="jpg, png, gif" data-validation-max-size="2M" data-validation-error-msg="Votre photo doit être au formet JPG, PNG ou GIF et faire moins de 4 Mo." value="Choisir une photo">
+                                <form class="form-photo" method="POST" action="/mon-compte/upload" enctype="multipart/form-data">
+
+                                    <input class="photo-upload" type="file" name="photo-upload" id="photo-upload" value="Choisir une photo">
                                     <input class="pure-button pure-button-primary" type="submit" value="Enregistrer">
+
+                                    <p class="msg-succes msg-photo">Vos modifications ont été enregistrés avec succès.</p>
+
                                 </form>
 
                                 <hr>
@@ -40,6 +39,7 @@
                                     <!-- <label for="bio">Biographie</label> -->
                                     <textarea id="bio-text" class="">{{.Text}}</textarea>
                                     <input class="pure-button pure-button-primary" type="submit" value="Enregistrer">
+                                    <p class="msg-succes msg-bio">Vos modifications ont été enregistrés avec succès.</p>
                                     <input id="id-user" name="id-user" type="hidden" value="{{.SessIdUser}}">
 
                                 </form>
@@ -64,6 +64,7 @@
                                     <input id="url-linkedin" type="text" name="linkedin" placeholder="ex: http://linkedin.com/votrenom" data-validation="url" data-validation-optional="true"  data-validation-error-msg="L'URL de votre profil LinkedIn est invalide." value="{{.LinkedIn}}">
 
                                     <input class="pure-button pure-button-primary" type="submit" value="Enregistrer">
+                                    <p class="msg-succes msg-social">Vos modifications ont été enregistrés avec succès.</p>
 
                                 </form>
 
@@ -90,6 +91,7 @@
                                     </select>
 
                                     <input class="pure-button pure-button-primary" type="submit" value="Enregistrer">
+                                    <p class="msg-succes msg-gradu">Vos modifications ont été enregistrés avec succès.</p>
 
                                 </form>
 
@@ -112,6 +114,7 @@
                                     <input type="text" id="nom-utilisateur" name="nom-utilisateur" placeholder="Votre nom" value="{{.LastName}}">
 
                                     <input class="pure-button pure-button-primary" type="submit" value="Enregistrer">
+                                    <p class="msg-succes msg-compte">Vos modifications ont été enregistrés avec succès.</p>
 
                                 </form>
 
@@ -140,7 +143,6 @@
         </div>
 
         <script type="text/javascript" src="/js/vendor/jquery-1.11.0.min.js"></script>
-        <script type="text/javascript" src="/js/vendor/form-validator/jquery.form-validator.min.js"></script>
         <script type="text/javascript" src="/js/mon_compte.js"></script>
     </body>
 </html>
