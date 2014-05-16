@@ -97,10 +97,12 @@ func (t Tutorial) getList() []Tutorial {
 // permet de récupérer toute la listes des tutoriels
 // avec les fonctions de pagination
 // en fonction de la limite affichable par page
-func (t Tutorial) getListPaged(fromPage int64) []Tutorial {
+func (t Tutorial) getListPaged(fromPage int) []Tutorial {
 
 	var tutorials []Tutorial
-	db.Limit(maxElementsInPage).Offset(int(fromPage)*maxElementsInPage).Where("is_online = ?", "1").Order("id desc").Find(&tutorials)
+	p := fromPage * maxElementsInPage
+	p = p - maxElementsInPage
+	db.Limit(maxElementsInPage).Offset(p).Where("is_online = ?", "1").Order("id desc").Find(&tutorials)
 	return tutorials
 }
 
@@ -115,10 +117,12 @@ func (t Tutorial) getListFromCat(id int64) []Tutorial {
 // permet de récupérer une liste des tutoriels en fonction
 // de l'id de la catégorie sélectionnée
 // et de la page dans laquelle on est
-func (t Tutorial) getListFromCatPaged(id int64, fromPage int64) []Tutorial {
+func (t Tutorial) getListFromCatPaged(id int64, fromPage int) []Tutorial {
 
 	var tutorials []Tutorial
-	db.Limit(maxElementsInPage).Offset(int(fromPage)*maxElementsInPage).Where("is_online = ? and tutorial_category_id = ?", "1", Itoa(int(id))).Order("id desc").Find(&tutorials)
+	p := fromPage * maxElementsInPage
+	p = p - maxElementsInPage
+	db.Limit(maxElementsInPage).Offset(p).Where("is_online = ? and tutorial_category_id = ?", "1", Itoa(int(id))).Order("id desc").Find(&tutorials)
 	return tutorials
 }
 

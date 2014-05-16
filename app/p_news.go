@@ -4,7 +4,6 @@ import (
 	"log"
 	//"math"
 	"net/http"
-	//. "strconv"
 )
 
 // Helper de vue

@@ -106,7 +106,7 @@ func (pt *PageTutorialList) ViewPaged(page string) {
 	// surcharge de la variable d'affichage
 	Templ = "tutorial"
 
-	pagePosition, _ := ParseInt(page, 0, 64)
+	pagePosition, _ := Atoi(page)
 
 	pt.Title = "Tutoriel"
 	pt.MainClass = "tutoriels"
@@ -155,7 +155,7 @@ func (pt *PageTutorialList) ViewCategoryPaged(cat string, page string) {
 	// surcharge de la variable d'affichage
 	Templ = "tutorial"
 
-	pagePosition, _ := ParseInt(page, 0, 64)
+	pagePosition, _ := Atoi(page)
 	// récupère l'id de la catégorie
 	idCat := t.getIdFromCatName(cat)
 
@@ -227,7 +227,8 @@ func (pt PageTutorialList) createPaginate() []Paginate {
 
 	nb := elTotal / maxElementsInPage
 	mf := int(math.Floor(float64(nb)))
-	p := make([]Paginate, nb)
+	mf++ // permet de réaliser la correction du nombre de pages
+	p := make([]Paginate, mf)
 
 	for i := 0; i < mf; i++ {
 		t := Itoa(i + 1)
@@ -245,7 +246,8 @@ func (pt PageTutorialList) createPaginateFromIdCat(id int64) []Paginate {
 
 	nb := elTotal / maxElementsInPage
 	mf := int(math.Floor(float64(nb)))
-	p := make([]Paginate, nb)
+	mf++ // permet de réaliser la correction du nombre de pages
+	p := make([]Paginate, mf)
 
 	for i := 0; i < mf; i++ {
 		t := Itoa(i + 1)

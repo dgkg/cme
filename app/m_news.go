@@ -38,10 +38,12 @@ func (n News) getList(numbElements int) []News {
 // permet de récupérer toute la listes des news
 // avec les fonctions de pagination
 // en fonction de la limite affichable par page
-func (n News) getListPaged(fromPage int64) []News {
+func (n News) getListPaged(fromPage int) []News {
 
 	var news []News
-	db.Limit(maxElementsInPage).Offset(int(fromPage)*maxElementsInPage).Where("is_online = ?", "1").Order("id desc").Find(&news)
+	p := fromPage * maxElementsInPage
+	p = p - maxElementsInPage
+	db.Limit(maxElementsInPage).Offset(p).Where("is_online = ?", "1").Order("id desc").Find(&news)
 	return news
 }
 

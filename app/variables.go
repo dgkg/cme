@@ -5,7 +5,7 @@ package app
 var Templ = "index"
 
 // donne le nombre d'éléments max à afficher par page
-var maxElementsInPage = 30
+var maxElementsInPage = 3
 
 // connexion à la base de donnée
 var db = connectToDatabase()

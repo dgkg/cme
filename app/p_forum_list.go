@@ -112,7 +112,8 @@ func (pf *PageForumList) ViewPaged(page string) {
 	// surcharge de la variable d'affichage
 	Templ = "forum"
 
-	pagePosition, _ := ParseInt(page, 0, 64)
+	//pagePosition, _ := ParseInt(page, 0, 64)
+	pagePosition, _ := Atoi(page)
 
 	pf.Title = "Forum"
 	pf.MainClass = "forum"
@@ -161,7 +162,7 @@ func (pf *PageForumList) ViewCategoryPaged(cat string, page string) {
 	// surcharge de la variable d'affichage
 	Templ = "forum"
 
-	pagePosition, _ := ParseInt(page, 0, 64)
+	pagePosition, _ := Atoi(page)
 	// récupère l'id de la catégorie
 	idCat := f.getIdFromCatName(cat)
 
@@ -226,12 +227,14 @@ func (pf PageForumList) injectDataToDisplay(forums []Forum) []Forum {
 // fonction privée
 // fonction pour créer la pagination
 func (pf PageForumList) createPaginate() []Paginate {
+
 	var f Forum
 	elTotal := f.count()
 
 	nb := elTotal / maxElementsInPage
 	mf := int(math.Floor(float64(nb)))
-	p := make([]Paginate, nb)
+	mf++ // permet de réaliser la correction du nombre de pages
+	p := make([]Paginate, mf)
 
 	for i := 0; i < mf; i++ {
 		t := Itoa(i + 1)
@@ -249,7 +252,8 @@ func (pf PageForumList) createPaginateFromIdCat(id int64) []Paginate {
 
 	nb := elTotal / maxElementsInPage
 	mf := int(math.Floor(float64(nb)))
-	p := make([]Paginate, nb)
+	mf++ // permet de réaliser la correction du nombre de pages
+	p := make([]Paginate, mf)
 
 	for i := 0; i < mf; i++ {
 		t := Itoa(i + 1)

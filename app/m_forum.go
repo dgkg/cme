@@ -107,10 +107,12 @@ func (f Forum) getList() []Forum {
 // permet de récupérer toute la listes des questions du forum
 // avec les fonctions de pagination
 // en fonction de la limite affichable par page
-func (f Forum) getListPaged(fromPage int64) []Forum {
-
+func (f Forum) getListPaged(fromPage int) []Forum {
+	//
 	var forums []Forum
-	db.Limit(maxElementsInPage).Offset(int(fromPage)*maxElementsInPage).Where("is_online = ?", "1").Order("id desc").Find(&forums)
+	p := fromPage * maxElementsInPage
+	p = p - maxElementsInPage
+	db.Limit(maxElementsInPage).Offset(p).Where("is_online = ?", "1").Order("id desc").Find(&forums)
 	return forums
 }
 
@@ -125,10 +127,12 @@ func (f Forum) getListFromCat(id int64) []Forum {
 // permet de récupérer une liste de questions du formulaire en fonction
 // de l'id de la catégorie sélectionnée
 // et de la page dans laquelle on est
-func (f Forum) getListFromCatPaged(id int64, fromPage int64) []Forum {
+func (f Forum) getListFromCatPaged(id int64, fromPage int) []Forum {
 
 	var forums []Forum
-	db.Limit(maxElementsInPage).Offset(int(fromPage)*maxElementsInPage).Where("is_online = ? and forum_category_id = ?", "1", Itoa(int(id))).Order("id desc").Find(&forums)
+	p := fromPage * maxElementsInPage
+	p = p - maxElementsInPage
+	db.Limit(maxElementsInPage).Offset(p).Where("is_online = ? and forum_category_id = ?", "1", Itoa(int(id))).Order("id desc").Find(&forums)
 	return forums
 }
 

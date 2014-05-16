@@ -63,7 +63,7 @@ func (pn *PageNewsList) ViewPaged(page string) {
 	// surcharge de la variable d'affichage
 	Templ = "news"
 
-	pagePosition, _ := ParseInt(page, 0, 64)
+	pagePosition, _ := Atoi(page)
 
 	pn.Title = "Actualités de CME"
 	pn.MainClass = "news"
@@ -100,7 +100,8 @@ func (pn PageNewsList) createPaginate() []Paginate {
 
 	nb := elTotal / maxElementsInPage
 	mf := int(math.Floor(float64(nb)))
-	p := make([]Paginate, nb)
+	mf++ // permet de réaliser la correction du nombre de pages
+	p := make([]Paginate, mf)
 
 	for i := 0; i < mf; i++ {
 		t := Itoa(i + 1)
