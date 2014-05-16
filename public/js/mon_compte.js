@@ -1,25 +1,32 @@
 $(window).load(function() {
 
+    // Initialisation des handlers vers chaque fonction associée
+
+    // Sauvegarde de la bio
     $('.form-bio').submit( function(event) {
         event.preventDefault();
         saveBio();
     });
 
+    // Sauvegarde de les réseaux sociaux
     $('.form-social').submit( function(event) {
         event.preventDefault();
         saveSocial();
     });
 
+    // Sauvegarde de l'année de graduation
     $('.form-gradu').submit( function(event) {
         event.preventDefault();
         saveGraduation();
     });
 
+    // Sauvegarde du nom d'utilisateur
     $('.form-compte').submit( function(event) {
         event.preventDefault();
         saveNomUtilisateur();
     });
 
+    // Suppression du compte
     $('#supp-compte').click( function(event) {
         event.preventDefault();
         $('#supp-compte').hide();
@@ -33,30 +40,43 @@ $(window).load(function() {
     });
 });
 
-function afficherSucces() {
-    $('.msg-succes').show();
-    //$('.formulaire').hide();
-    $('html, body').animate({
-        scrollTop: $(".msg-succes").offset().top
-    }, 500);
+function afficherSucces(section) {
+    var msgSection = "msg-" + section;
+    $('.' + msgSection).fadeIn('fast');
 }
 
-/*
+// Envoi de l'image de profil
 function savePhotoProfil() {
-    //    @todo : Envoyer la photo de profil en AJAX
 
+    // Initialisation des variables de base
     var idUser = $('#id-user').val();
-    var imgPhoto = $('#bio-text').val();
+    var imgUser = $('#myFiles').get(0).files[0];
     var strSection = "savePhoto";
-    var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection, biographie : strBiographie }, function(data, status){
-        if (data != "error") {
-            afficherSucces();
-        } else {
-            alert("Une erreur est survenue. Veuillez réessayer.");
-        };
-    });
 
-} */
+    // Création de l'objet formulaire
+    var formData = new FormData();
+
+    // Ajout d'une entrée dans l'objet formulaire
+    formData.append('imgUser', imgUser, imgUser.name);
+
+    // Création de la requête
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('POST', '/mon-compte/upload', true);
+
+    // Vérification de l'envoi du formulaire
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            // File(s) uploaded.
+            alert('Envoyé avec succès');
+        } else {
+            alert('Une erreur est survenue. Veuillez réessayer.');
+        }
+    };
+
+    // Envoi du formulaire et de son contenu
+    xhr.send(formData);
+}
 
 function saveBio() {
     var idUser = $('#id-user').val();
@@ -64,7 +84,7 @@ function saveBio() {
     var strSection = "saveBio";
     var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection, biographie : strBiographie }, function(data, status){
         if (data != "error") {
-            afficherSucces();
+            afficherSucces("bio");
         } else {
             alert("Une erreur est survenue. Veuillez réessayer.");
         };
@@ -79,7 +99,7 @@ function saveSocial() {
     var strSection = "saveSocial";
     var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection, facebook : strFb, twitter : strTw, linkedin : strLi }, function(data, status){
         if (data != "error") {
-            afficherSucces();
+            afficherSucces("social");
         } else {
             alert("Une erreur est survenue. Veuillez réessayer.");
         };
@@ -92,7 +112,7 @@ function saveGraduation() {
     var strSection = "saveGraduation";
     var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection, graduation : intGraduation }, function(data, status){
         if (data != "error") {
-            afficherSucces();
+            afficherSucces("gradu");
         } else {
             alert("Une erreur est survenue. Veuillez réessayer.");
         };
@@ -106,7 +126,7 @@ function saveNomUtilisateur() {
     var strSection = "saveNomUtilisateur";
     var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection, prenom : strPrenom, nom : strNom }, function(data, status){
         if (data != "error") {
-            afficherSucces();
+            afficherSucces("compte");
         } else {
             alert("Une erreur est survenue. Veuillez réessayer.");
         };
