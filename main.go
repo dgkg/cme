@@ -41,6 +41,7 @@ func main() {
 
 	// rootage de la page connexion
 	r.HandleFunc("/connexion", ConnexionHandler)
+	r.HandleFunc("/deconnexion", DeconnexionHandler)
 
 	r.HandleFunc("/valider-connexion", ConnexionPostHandler)
 

@@ -23,7 +23,7 @@ type PageWeb struct {
 
 // fonction permettant de savoir si le rendu passe par l'html ou non
 // permet de faire fonctionner avec l'interface de type Page
-func (p *PageWeb) IsHtmlRender() bool {
+func (p PageWeb) IsHtmlRender() bool {
 	return p.RenderHtml
 }
 
