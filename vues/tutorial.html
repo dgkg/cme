@@ -53,15 +53,13 @@
                         {{range .Tutorials}}
                             <div class="post">
 
-                            <h2>{{.Title}}</h2>
-                            <p class="post-desc">{{.Text}}</p>
+                            <h2><a href="/tutoriel/post/{{.Id}}">{{.Title}}</a></h2>
+                            {{.Text}}
                             <div class="post-meta">
                                 <p class="post-cat">{{.CategoryTitle}}</p>
                                 <img src="/img/ui/icone-reponse.png" alt="Nombre de réponses"><p>{{.PostNumb}}</p>
                                 <img src="/img/ui/icone-appreciations.png" alt="Nombre d'appréciations"><p>8</p>
                             </div>
-
-                            <a class="btn-repondre" href="/tutoriel/post/{{.Id}}">Répondre</a>
 
                             <hr>
 

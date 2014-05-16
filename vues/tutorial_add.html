@@ -3,48 +3,59 @@
 
             <div class="body">
 
-                <div class="entete-tuto">
+                <div class="entete-forum">
 
-                    <h1>Créer un nouveau tutoriel</h1>
+                    <h1>{{.Title}}</h1>
 
                 </div>
 
                 <hr>
 
-                <div class="nouv-tuto">
+                <div class="nouv-post">
 
-                    <div class="msg-erreur">
+                    <div class="msg-succes">
+
+                        <h2>Votre sujet a été publié avec succès.</h2>
+                        <p>Vous pouvez maintenant le consulter en cliquant sur le bouton ci-dessous.</p>
+                        <a class="pure-button" id="tutorial-id-created" href="/tutoriel/post/{{.Tutorial.Id}}">Voir votre sujet</a>
 
                     </div>
 
-                    <form class="pure-form" method="tuto">
+                    <div class="msg-erreur"></div>
 
-                        <label class="label-tuto-nom" for="tuto-nom">Nom du sujet</label>
-                        <input type="text" id="tuto-nom" class="tuto-nom" name="tuto-nom" data-validation="required" data-validation-error-msg="Veuillez saisir le nom du sujet.">
+                    <form class="pure-form nouv-post-form" action="" method="POST">
 
-                        <div class="sec-tuto-cat">
-                            <label class="label-tuto-cat" for="tuto-cat">Catégorie</label>
-                            <select id="tuto-cat" class="tuto-cat" name="tuto-cat">
-                                <option value="-1">Catégorie</option>
+                        <input type="hidden" id="user-id" name="user-id" value="{{.SessIdUser}}">
+                        <input type="hidden" id="tutorial-id" name="forum-id" value="{{.Tutorial.Id}}">
+
+                        <label class="label-post-nom" for="post-nom">Titre du sujet</label>
+                        <input type="text" id="post-nom" class="post-nom" name="post-nom" value="{{.Tutorial.Title}}">
+
+                        <div class="sec-post-cat">
+                            <label class="label-post-cat" for="post-cat">Catégorie</label>
+                            <select id="post-cat" class="post-cat" name="post-cat">
+
+                                {{if eq .Tutorial.Id 0}}
+                                    <option value="-1">Catégorie</option>
+                                {{end}}
+
+                                {{$idCatSelected := .Tutorial.TutorialCategoryId}}
+
                                 {{range .Categories}}
-                                <option value="{{ .Id }}">{{.Title}}</option>
+                                    {{if eq .Id $idCatSelected}}
+                                        <option value="{{ .Id }}" selected>{{.Title}}</option>
+                                    {{else}}
+                                        <option value="{{ .Id }}">{{.Title}}</option>
+                                    {{end}}
                                 {{end}}
                             </select>
                         </div>
 
-                        <div class="sec-tuto-etat">
-                            <label class="label-tuto-etat" for="tuto-etat">État du problème</label>
-                            <select id="tuto-etat" class="tuto-etat" name="tuto-etat">
-                                <option value="1">Résolu</option>
-                                <option value="2">Non résolu</option>
-                            </select>
-                        </div>
+                        <hr>
 
-                        <label class="label-tuto-contenu" for="tuto-contenu">Contenu</label>
-                        <textarea id="tuto-contenu" name="tutocontenu" class="tuto-contenu" data-validation="required" data-validation-error-msg="Veuillez écrire le contenu de votre sujet."></textarea>
-
-                        <input type="submit" class="btn-soumettre" value="Soumettre">
-
+                        <label class="label-post-contenu" for="post-contenu">Contenu</label>
+                        <textarea id="post-contenu" name="postcontenu" class="post-contenu">{{.Tutorial.Text}}</textarea>
+                        <input id="submit" type="submit" class="btn-soumettre" value="Soumettre">
                     </form>
 
                 </div>
@@ -56,7 +67,6 @@
         <script type="text/javascript" src="/js/vendor/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="/js/vendor/ckeditor.js"></script>
         <script type="text/javascript" src="/js/vendor/adapters/jquery.js"></script>
-        <script type="text/javascript" src="/js/vendor/form-validator/jquery.form-validator.min.js"></script>
         <script type="text/javascript" src="/js/tutorial_add.js"></script>
     </body>
 </html>

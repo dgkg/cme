@@ -34,6 +34,7 @@ func main() {
 	r.HandleFunc("/tutoriel/search", TutoSearchHandler)
 	r.HandleFunc("/tutoriel/{category}", TutoCatHandler)
 	r.HandleFunc("/tutoriel/post/{id:[0-9]+}", TutoPostHandler)
+	r.HandleFunc("/tutoriel/post/edit/{id:[0-9]+}", TutoEditHandler)
 
 	// routages des actualités
 	r.HandleFunc("/actualites", NewsHandler)
@@ -52,6 +53,7 @@ func main() {
 
 	// AJAX
 	r.HandleFunc("/forum/nouveau/submitform", SubmitFormHandler)
+	r.HandleFunc("/tutoriel/nouveau/submitform", SubmitTutorialHandler)
 	r.HandleFunc("/inscription/submitform", InscFormHandler)
 	r.HandleFunc("/forum/post/nouvcomm", ForumNouvCommHandler)
 	r.HandleFunc("/forum/post/delcomm", ForumDelCommHandler)

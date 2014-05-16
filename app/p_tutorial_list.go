@@ -2,6 +2,7 @@ package app
 
 import (
 	"github.com/gorilla/mux"
+	"github.com/kennygrant/sanitize"
 	"log"
 	"math"
 	"net/http"
@@ -86,9 +87,9 @@ func (pt *PageTutorialList) View() {
 	pt.Title = "Tutoriel"
 	pt.MainClass = "tutoriels"
 	pt.Tutorials = t.getList()
-	pt.Categories = t.getAllCategories()
+	pt.Categories = t.getAllCategories(0)
 	pt.PagesList = pt.createPaginate()
-	pt.RenderHtml = false
+	pt.RenderHtml = true
 	pt.injectDataToDisplay(pt.Tutorials)
 
 }
@@ -110,7 +111,7 @@ func (pt *PageTutorialList) ViewPaged(page string) {
 	pt.Title = "Tutoriel"
 	pt.MainClass = "tutoriels"
 	pt.Tutorials = t.getListPaged(pagePosition)
-	pt.Categories = t.getAllCategories()
+	pt.Categories = t.getAllCategories(0)
 	pt.PagesList = pt.createPaginate()
 	pt.RenderHtml = true
 	pt.injectDataToDisplay(pt.Tutorials)
@@ -134,7 +135,7 @@ func (pt *PageTutorialList) ViewCategory(cat string) {
 	pt.Title = "Tutoriel " + cat
 	pt.MainClass = "tutoriels"
 	pt.Tutorials = t.getListFromCat(idCat)
-	pt.Categories = t.getAllCategories()
+	pt.Categories = t.getAllCategories(idCat)
 	pt.PagesList = pt.createPaginateFromIdCat(idCat)
 	pt.RenderHtml = true
 	pt.injectDataToDisplay(pt.Tutorials)
@@ -161,7 +162,7 @@ func (pt *PageTutorialList) ViewCategoryPaged(cat string, page string) {
 	pt.Title = "Tutoriel " + cat
 	pt.MainClass = "tutoriels"
 	pt.Tutorials = t.getListFromCatPaged(idCat, pagePosition)
-	pt.Categories = t.getAllCategories()
+	pt.Categories = t.getAllCategories(idCat)
 	pt.PagesList = pt.createPaginateFromIdCat(idCat)
 	pt.RenderHtml = true
 	pt.injectDataToDisplay(pt.Tutorials)
@@ -183,7 +184,7 @@ func (pt *PageTutorialList) ViewSearch(q string) {
 	pt.Title = "Tutoriel Rechercher"
 	pt.MainClass = "tutoriels"
 	pt.Tutorials = t.search(q)
-	pt.Categories = t.getAllCategories()
+	pt.Categories = t.getAllCategories(0)
 	pt.RenderHtml = true
 	if len(pt.Tutorials) == 0 {
 		pt.SearchText = q
@@ -203,14 +204,16 @@ func (pt PageTutorialList) injectDataToDisplay(tutorials []Tutorial) []Tutorial 
 	for i := 0; i < lenTuto; i++ {
 		id := tutorials[i].Id
 		// permet de réaliser des extraits si le texte est trop long
-		if len(tutorials[i].Text) > 250 {
-			text := tutorials[i].Text[0:250]
-			tutorials[i].Text = text
+		extrait := sanitize.HTML(tutorials[i].Text)
+		if len(extrait) > 250 {
+			extrait = extrait[0:250]
 		}
+		tutorials[i].Text = "<p>" + extrait + "</p>"
+		// permet de compter ne nombres de réponses
 		tutorials[i].PostNumb = tutorials[i].countPost(id)
+		// permet de créer une url du lien
 		tutorials[i].CategoryTitle = tutorials[i].getCatTitle()
 	}
-
 	return tutorials
 }
 

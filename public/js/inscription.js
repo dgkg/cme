@@ -47,6 +47,8 @@ function validateForm(){
 
     // création d'une variable d'incrémentation
     var i = 0;
+    // vide le tableau des anciens messages
+    errorMessage = [];
     // validation si le prénom n'est pas vide
     if ($val_prenom == ""){
         errorMessage[i] = "Prénom : Veuillez renseigner le champs avec votre prénom";

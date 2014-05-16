@@ -208,25 +208,18 @@ func (pf PageForumList) injectDataToDisplay(forums []Forum) []Forum {
 	lenForum := len(forums)
 
 	for i := 0; i < lenForum; i++ {
-
 		id := forums[i].Id
-
 		// permet de réaliser des extraits si le texte est trop long
 		extrait := sanitize.HTML(forums[i].Text)
-
 		if len(extrait) > 250 {
-
 			extrait = extrait[0:250]
 		}
-
 		forums[i].Text = "<p>" + extrait + "</p>"
-
 		// permet de compter ne nombres de réponses
 		forums[i].PostNumb = forums[i].countPost(id)
 		// permet de créer une url du lien
 		forums[i].Url = "/forum/post/" + Itoa(int(forums[i].Id))
 	}
-
 	return forums
 }
 

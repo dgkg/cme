@@ -22,12 +22,12 @@ func ForumPostHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	id := vars["id"]
 	// initialisation de l'objet PageForum
-	pfp := new(PageForum)
-	pfp.Forum.Id, _ = ParseInt(id, 0, 64)
-	pfp.View()
+	pf := new(PageForum)
+	pf.Forum.Id, _ = ParseInt(id, 0, 64)
+	pf.View()
 	//insersion dans l'interface Page
 	var p Page
-	p = pfp
+	p = pf
 	Render(w, p, r)
 }
 

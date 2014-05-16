@@ -7,11 +7,12 @@ import (
 )
 
 type TutorialCategory struct {
-	Id        int64
-	Title     string `sql:"type:varchar(100);"`
-	Url       string `sql:"_"` // Ignore this field
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	Id         int64
+	Title      string `sql:"type:varchar(100);"`
+	Url        string `sql:"_"` // Ignore this field
+	IsSelected bool   `sql:"_"` // Ignore this field
+	CreatedAt  time.Time
+	UpdatedAt  time.Time
 }
 
 // Save permet d'enregistrer les éléments du formulaire

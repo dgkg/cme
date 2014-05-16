@@ -18,6 +18,7 @@ var errorMessage   = new Array();
 var urlAjaxService = "/forum/nouveau/submitform";
 
 $(window).load(function() {
+    $('.msg-succes').hide();
     // initialisation de ckeditor
     $('.post-contenu').ckeditor();
     //récurpération du clic sur le formulaire
@@ -48,6 +49,8 @@ function validateForm(){
 
     // création d'une variable d'incrémentation
     var i = 0;
+    // vide le tableau des anciens messages
+    errorMessage = [];
     // validation si le titre n'est pas vide
     if ($val_titre_post == ""){
         errorMessage[i] = "Titre du sujet : Veuillez renseigner le titre";
@@ -84,7 +87,7 @@ function validateForm(){
 
 // Fonction pour afficher la listes des erreurs
 function displayErrorMessage(){
-    var nouvCommentaire;
+    var nouvCommentaire="";
 
     console.log(errorMessage);
 
