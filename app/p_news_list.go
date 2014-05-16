@@ -109,3 +109,24 @@ func (pn PageNewsList) createPaginate() []Paginate {
 	}
 	return p
 }
+
+// fonction permettant de savoir si le rendu passe par l'html ou non
+// permet de faire fonctionner avec l'interface de type Page
+func (p PageNewsList) IsHtmlRender() bool {
+	return p.RenderHtml
+}
+
+// permet d'injecter des donnés de cession dans l'utilisateur loggé
+func (p *PageNewsList) SetSessionData(u User) (v bool) {
+	if u.Id != 0 && u.FirstName != "" {
+		p.SessIdUser = u.Id
+		p.SessIsLogged = true
+		p.SessNameUser = u.FirstName
+		v = true
+	} else {
+		p.SessIdUser = 0
+		p.SessIsLogged = false
+		p.SessNameUser = ""
+	}
+	return
+}

@@ -104,20 +104,21 @@
 				h3 {
 					margin: 0;
 					margin-bottom: 10px;
-					font-size: 20px;
+					font-size: 22px;
 				}
 
 				h4 {
 					margin: 0;
 					margin-bottom: 10px;
 					margin-top: 24px;
-					font-size: 14px;
+					font-size: 16px;
 					text-transform: uppercase;
 				}
 
 				input {
-					margin-bottom: 8px;
-					margin-top: 12px;
+					margin-bottom: 14px;
+					//margin-top: 12px;
+					margin-top: 5px;
 				}
 
 				input:last-child {
@@ -148,6 +149,11 @@
 					margin-top: 8px;
 				}
 
+				label {
+					font-family: $titre-regular;
+					font-size: 16px;
+				}
+
 				input[type=text] {
 					//display: block;
 					width: 100%;
@@ -157,6 +163,10 @@
 					-moz-border-radius: 2px;
 					border-radius: 2px;
 					//padding-left: 5px;
+				}
+
+				input[type=submit] {
+					display: block;
 				}
 
 				input[type=text]::-webkit-input-placeholder { /* WebKit browsers */
@@ -182,15 +192,17 @@
 					}
 				}
 
-				a {
-					color: $quasi-blanc;
-				}
-
 				.supp-compte {
 					margin-top: 20px;
 				}
 
+				.msg {
+					color: rgb(202, 60, 60);
+					font-size: 16px;
+				}
+
 				.button-error {
+					color: $quasi-blanc;
 		            background: rgb(202, 60, 60); /* this is a maroon */
 		        }
 			}

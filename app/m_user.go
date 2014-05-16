@@ -3,31 +3,86 @@ package app
 import (
 	"errors"
 	"log"
+	. "strconv"
 	"time"
 )
 
 type User struct {
-	Id        int64
-	FirstName string `sql:"type:varchar(100);"`
-	LastName  string `sql:"type:varchar(100);"`
-	Text      string
-	Email     string
-	Pass      string
-	Keywords  string
-	Facebook  string
-	Twitter   string
-	LinkedIn  string
-	IsOnline  int64
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	Images    []UserImage
+	Id         int64
+	FirstName  string `sql:"type:varchar(100);"`
+	LastName   string `sql:"type:varchar(100);"`
+	Text       string
+	Email      string
+	Pass       string
+	Keywords   string
+	Facebook   string
+	Twitter    string
+	LinkedIn   string
+	Graduation string
+	IsOnline   int64
+	CreatedAt  time.Time
+	UpdatedAt  time.Time
+	Images     []UserImage
 }
 
 // fonction public
+// permet d'enregistrer les éléments du user
+// retourne l'id du user
+func (u User) Save() int64 {
+	db.Save(&u)
+	if u.Id != 0 {
+		return u.Id
+	} else {
+		db.Last(&u)
+		return u.Id
+	}
+}
+
+/*
+// fonction public
 // permet d'enregistrer les éléments du formulaire
 func (u User) Save() {
-	log.Println(u)
+	//log.Println(u)
 	db.Save(&u)
+}
+*/
+
+/* func (u User) SavePhoto() {
+	userId := u.Id
+	userPhoto := u.Text
+	db.First(&u, userId).Update("text", userBio)
+} */
+
+func (u User) SaveBio() {
+	userId := u.Id
+	userBio := u.Text
+	db.First(&u, userId).Update("text", userBio)
+}
+
+func (u User) SaveSocial() {
+	userId := u.Id
+	userFb := u.Facebook
+	userTw := u.Twitter
+	userLi := u.LinkedIn
+	db.First(&u, userId).Updates(User{Facebook: userFb, Twitter: userTw, LinkedIn: userLi})
+}
+
+func (u User) SaveGrad() {
+	userId := u.Id
+	userGrad := u.Graduation
+	db.First(&u, userId).Update("graduation", userGrad)
+}
+
+func (u User) SaveUserName() {
+	userId := u.Id
+	userPrenom := u.FirstName
+	userNom := u.LastName
+	db.First(&u, userId).Updates(User{FirstName: userPrenom, LastName: userNom})
+}
+
+func (u User) DeleteAccount() {
+	db.Delete(&u)
+	// @todo : Déconnecter l'utilisateur en cours et lui présenter la page d'accueil
 }
 
 // fonction permettant de retourner un utilisateur
@@ -57,11 +112,11 @@ func (u *User) LoginPassExist() (v bool, err error) {
 	return
 }
 
+// permet de récupérer toute les données du user
+// en fonction de son id
 func (u User) getById() User {
-	var user User
-	user.Id = u.Id
-	db.Find(&user)
-	return user
+	db.Where("is_online = ? AND id = ?", "1", Itoa(int(u.Id))).Find(&u)
+	return u
 }
 
 // permet de récupérer toute la listes des questions du forum

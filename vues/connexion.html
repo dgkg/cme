@@ -7,20 +7,16 @@
 
                 <hr>
 
-                <div class="msg-erreur">
-
-
-
-                </div>
+                <div class="msg-erreur"></div>
 
                 <form class="pure-form pure-form-aligned connexion-form" method="POST" action="">
 
                         <fieldset class="pure-group">
-                            <input type="text" class="pure-input-1-2" placeholder="Courriel" data-validation="email" data-validation-error-msg="Adresse courriel invalide." name="login">
-                            <input type="password" class="pure-input-1-2" placeholder="Mot de passe"  data-validation="required" data-validation-error-msg="Saisissez votre mot de passe." name="pass">
+                            <input type="text" id="login" name="login" class="pure-input-1-2" placeholder="Email" >
+                            <input type="password" id="pass" name="pass" class="pure-input-1-2" placeholder="Mot de passe">
                         </fieldset>
 
-                        <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Connexion</button>
+                        <button type="submit" id="submit" class="pure-button pure-input-1-2 pure-button-primary">Connexion</button>
 
                     </fieldset>
 

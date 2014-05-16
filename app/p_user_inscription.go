@@ -2,6 +2,7 @@ package app
 
 import (
 	"fmt"
+	"github.com/gorilla/sessions"
 	"log"
 	"net/http"
 )
@@ -14,12 +15,69 @@ type PageInscription struct {
 func InscriptionHandler(w http.ResponseWriter, r *http.Request) {
 
 	pi := new(PageInscription)
+	idUser, isValid := pi.ValidateDataInscrption(r)
+
+	var u User
+	u.Id = idUser
+	u = u.getById()
+
+	if isValid {
+		session, _ := store.Get(r, "cme_connecte")
+		// Set some session values.
+		session.Values["id"] = u.Id
+		session.Values["name"] = u.FirstName
+		session.Options = &sessions.Options{
+			MaxAge:   86400 * 7,
+			HttpOnly: true,
+		}
+		// Save it.
+		session.Save(r, w)
+		// Set data into current page
+		pi.SessIdUser = u.Id
+		pi.SessNameUser = u.FirstName
+		pi.SessIsLogged = true
+	}
+
 	pi.View()
 
 	//insersion dans l'interface Page
 	var p Page
 	p = pi
 	Render(w, p, r)
+}
+
+func (pi *PageInscription) ValidateDataInscrption(r *http.Request) (idUser int64, isValid bool) {
+
+	log.Println("Validation Data Inscriptin applé")
+	log.Println(r.PostFormValue("prenom"))
+	log.Println(r.PostFormValue("nom"))
+	log.Println(r.PostFormValue("email"))
+	log.Println(r.PostFormValue("pass"))
+	log.Println("Fin Validation Data Inscriptin applé")
+
+	// Validation des données
+	// Si un des variables est vide, la func retourne un "error"
+	// ce qui fait afficher une message d'erreur
+	if r.PostFormValue("prenom") == "" ||
+		r.PostFormValue("nom") == "" ||
+		r.PostFormValue("email") == "" ||
+		r.PostFormValue("pass") == "" {
+		idUser = 0
+		isValid = false
+		return
+	} else {
+
+		var u User
+		u.FirstName = r.PostFormValue("prenom")
+		u.LastName = r.PostFormValue("nom")
+		u.Email = r.PostFormValue("email")
+		u.Pass = r.PostFormValue("pass")
+		u.IsOnline = 1
+		idUser = u.Save()
+		isValid = true
+		return
+	}
+
 }
 
 // Réception du POST envoyé en AJAX et ajout des
@@ -32,7 +90,7 @@ func InscFormHandler(w http.ResponseWriter, r *http.Request) {
 	if r.PostFormValue("prenom") == "" ||
 		r.PostFormValue("nom") == "" ||
 		r.PostFormValue("email") == "" ||
-		r.PostFormValue("mdp") == "" {
+		r.PostFormValue("pass") == "" {
 
 		fmt.Fprint(w, "error")
 	} else {
@@ -42,7 +100,7 @@ func InscFormHandler(w http.ResponseWriter, r *http.Request) {
 		u.FirstName = r.PostFormValue("prenom")
 		u.LastName = r.PostFormValue("nom")
 		u.Email = r.PostFormValue("email")
-		u.Pass = r.PostFormValue("mdp")
+		u.Pass = r.PostFormValue("pass")
 		u.IsOnline = 1
 		u.Save()
 	}
@@ -77,6 +135,10 @@ func (p *PageInscription) SetSessionData(u User) (v bool) {
 		p.SessIsLogged = true
 		p.SessNameUser = u.FirstName
 		v = true
+	} else {
+		p.SessIdUser = 0
+		p.SessIsLogged = false
+		p.SessNameUser = ""
 	}
 	return
 }

@@ -27,10 +27,10 @@
 
                         <input type="hidden" id="user-id" name="user-id" value="{{.SessIdUser}}">
                         <input type="hidden" id="forum-id" name="forum-id" value="{{.Forum.Id}}">
-                        
+
                         <label class="label-post-nom" for="post-nom">Titre du sujet</label>
                         <input type="text" id="post-nom" class="post-nom" name="post-nom" value="{{.Forum.Title}}">
-                        
+
                         <div class="sec-post-cat">
                             <label class="label-post-cat" for="post-cat">Catégorie</label>
                             <select id="post-cat" class="post-cat" name="post-cat">
@@ -50,7 +50,7 @@
                                 {{end}}
                             </select>
                         </div>
-                        
+
 
                         {{if ne .Forum.Id 0}}
                         <div class="sec-post-etat">

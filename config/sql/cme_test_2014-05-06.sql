@@ -209,6 +209,33 @@ CREATE TABLE `tag` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+# Affichage de la table page_simple
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `page_simple`;
+
+CREATE TABLE `page_simple` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `url` varchar(100) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `text` text NOT NULL,
+  `is_online` int(1) NOT NULL DEFAULT '1',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+
+LOCK TABLES `page_simple` WRITE;
+/*!40000 ALTER TABLE `page_simple` DISABLE KEYS */;
+
+INSERT INTO `page_simple` (`id`, `url`, `title`, `text`, `is_online`, `created_at`, `updated_at`) VALUES
+(1, 'pourquoi-une-association', 'Pourquoi une association ?', '<img class="img-info" src="/img/pq_une_asso_large.jpg" alt="Qui sommes nous ?">\r\n\r\n                            <p>Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>\r\n                            <p>Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>\r\n                            <p>Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, 'qui-sommes-nous', 'Qui sommes-nous ?', '<img class="img-info" src="/img/qui_sommes_nous_large.jpg" alt="Qui sommes nous ?">\r\n\r\n                            <p>Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>\r\n                            <p>Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>\r\n                            <p>Nullam quis risus eget urna mollis ornare vel eu leo. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+/*!40000 ALTER TABLE `page_simple` ENABLE KEYS */;
+UNLOCK TABLES;
+
 
 # Affichage de la table tutorial
 # ------------------------------------------------------------
