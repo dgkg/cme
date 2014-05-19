@@ -2,12 +2,16 @@ package app
 
 import (
 	"fmt"
+	"io"
 	"log"
 	"net/http"
-	."strconv"
-	"io"
+	. "strconv"
 	//"net/http"
+	"github.com/kennygrant/sanitize"
+	"github.com/nfnt/resize"
+	"image/jpeg"
 	"os"
+	"path/filepath"
 )
 
 type PageCompte struct {
@@ -59,32 +63,32 @@ func EditCompteHandler(w http.ResponseWriter, r *http.Request) {
 
 		switch sectionRecue {
 
-			case "savePhoto" :
-				//	@todo : Recevoir la photo +
-				//	l'héberger dans public/img/ +
-				//	retourner une confirmation
+		case "savePhoto":
+			//	@todo : Recevoir la photo +
+			//	l'héberger dans public/img/ +
+			//	retourner une confirmation
 
-			case "saveBio" :
-				u.Text = r.PostFormValue("biographie")
-				u.SaveBio()
+		case "saveBio":
+			u.Text = r.PostFormValue("biographie")
+			u.SaveBio()
 
-			case "saveSocial" :
-				u.Facebook = r.PostFormValue("facebook")
-				u.Twitter = r.PostFormValue("twitter")
-				u.LinkedIn = r.PostFormValue("linkedin")
-				u.SaveSocial()
+		case "saveSocial":
+			u.Facebook = r.PostFormValue("facebook")
+			u.Twitter = r.PostFormValue("twitter")
+			u.LinkedIn = r.PostFormValue("linkedin")
+			u.SaveSocial()
 
-			case "saveGraduation" :
-				u.Graduation = r.PostFormValue("graduation")
-				u.SaveGrad()
+		case "saveGraduation":
+			u.Graduation = r.PostFormValue("graduation")
+			u.SaveGrad()
 
-			case "saveNomUtilisateur" :
-				u.FirstName = r.PostFormValue("prenom")
-				u.LastName = r.PostFormValue("nom")
-				u.SaveUserName()
+		case "saveNomUtilisateur":
+			u.FirstName = r.PostFormValue("prenom")
+			u.LastName = r.PostFormValue("nom")
+			u.SaveUserName()
 
-			case "supprimerCompte" :
-				u.DeleteAccount()
+		case "supprimerCompte":
+			u.DeleteAccount()
 		}
 	}
 }
@@ -92,6 +96,13 @@ func EditCompteHandler(w http.ResponseWriter, r *http.Request) {
 // Upload de fichiers avec Go
 // Code original : https://gist.github.com/sanatgersappa/5127317#file-app-go
 func UploadHandler(w http.ResponseWriter, r *http.Request) {
+
+	// Initialisation des variables utiles
+	var u User
+	session, _ := store.Get(r, "cme_connecte")
+	u.Id = session.Values["id"].(int64)
+	userId := Itoa(int(u.Id))
+	var strNomFichier string
 
 	//parse the multipart form in the request
 	err := r.ParseMultipartForm(100000)
@@ -114,14 +125,27 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// Création d'un nom sanitizé pour
+	strNomFichier = sanitize.Name(files[0].Filename)
+
+	// Validation des extensions de fichiers
+	if filepath.Ext(strNomFichier) != ".jpg" &&
+		filepath.Ext(strNomFichier) != ".jpeg" &&
+		filepath.Ext(strNomFichier) != ".png" &&
+		filepath.Ext(strNomFichier) != ".gif" {
+		return
+	}
+
 	//create destination file making sure the path is writeable.
-	dst, err := os.Create("./public/img/uploads/" + files[0].Filename)
+	dst, err := os.Create("./public/img/uploads/users/" + userId + "/" + strNomFichier)
+
+	// Vérification de l'existence du répertoire cible
+	if err != nil {
+		log.Println(err)
+	}
 
 	// Envoi du nom du fichier pour l'ajout à la BD
-	var u User
-	session, err := store.Get(r, "cme_connecte")
-	u.Id = session.Values["id"].(int64)
-	u.SavePhoto(files[0].Filename)
+	u.SavePhoto(strNomFichier)
 
 	defer dst.Close()
 	if err != nil {
@@ -134,9 +158,35 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+
+	// Redimensionnement de l'image
+
+	// open "test.jpg"
+	rfile, err := os.Open("./public/img/uploads/users/" + userId + "/" + strNomFichier)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// decode jpeg into image.Image
+	rimg, err := jpeg.Decode(rfile)
+	if err != nil {
+		log.Fatal(err)
+	}
+	rfile.Close()
+
+	image := resize.Thumbnail(300, 300, rimg, resize.Bilinear)
+
+	out, err := os.Create("./public/img/uploads/users/" + userId + "/" + strNomFichier)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer out.Close()
+
+	// write new image to file
+	jpeg.Encode(out, image, nil)
 }
 
-func (pc *PageCompte) View( id int64 ) {
+func (pc *PageCompte) View(id int64) {
 
 	log.Println("Mon Compte appelé")
 
@@ -165,7 +215,6 @@ func (pc *PageCompte) View( id int64 ) {
 		pc.Graduations[key] = Itoa(anneeGrad)
 		anneeGrad--
 	}
-
 
 	pc.RenderHtml = true
 
