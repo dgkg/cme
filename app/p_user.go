@@ -1,7 +1,8 @@
 package app
 
 import (
-	//"github.com/gorilla/mux"
+	"github.com/gorilla/mux"
+	"github.com/kennygrant/sanitize"
 	"log"
 	"net/http"
 )
@@ -20,7 +21,20 @@ func CreatePageUser() *PageUser {
 func StudentFicheHandler(w http.ResponseWriter, r *http.Request) {
 
 	pu := new(PageUser)
-	pu.View()
+
+	//var u User
+	// récupération de la variable de l'utilisateur
+	vars := mux.Vars(r)
+	pu.User.Graduation = vars["year"]
+	pu.User.FirstName = vars["firstName"]
+	pu.User.LastName = vars["lastName"]
+
+	isFound := pu.findUser()
+	if isFound {
+		pu.View()
+	} else {
+		// todo réaliser une redirection vers page non trouvée
+	}
 
 	//insersion dans l'interface Page
 	var p Page
@@ -30,13 +44,38 @@ func StudentFicheHandler(w http.ResponseWriter, r *http.Request) {
 
 func (pu *PageUser) View() {
 
+	var up UserProject
+	up.UserId = pu.User.Id
+
 	log.Println("Fiche appelé")
 
 	Templ = "user_fiche"
 	pu.Title = "Fiche de Henri Lepic"
 	pu.MainClass = "eleve_fiche"
-
+	pu.User.Projects = up.getAllFromIdUser()
 	pu.RenderHtml = true
+}
+
+// findUser permet de retrouver le user à partir de :
+// son année de graduation
+// et de son prénom formatté en url
+// et de son nom formatté en url
+// retourne un booleen permettan de savoir si oui ou non il a été trouvé
+func (pu *PageUser) findUser() (isFound bool) {
+
+	listUsers := pu.User.getUsersByGraduation()
+	sfn := pu.User.FirstName
+	sln := pu.User.LastName
+	for key, _ := range listUsers {
+		fn := sanitize.Name(listUsers[key].FirstName)
+		ln := sanitize.Name(listUsers[key].LastName)
+		//log.Println("sfn : " + sfn + " / fn : " + fn + " / sln : " + sln + " / ln : " + ln)
+		if sfn == fn && sln == ln {
+			pu.User = listUsers[key]
+			isFound = true
+		}
+	}
+	return
 }
 
 // fonction permettant de savoir si le rendu passe par l'html ou non
