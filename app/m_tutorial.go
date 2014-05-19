@@ -101,7 +101,7 @@ func (t Tutorial) getListPaged(fromPage int) []Tutorial {
 
 	var tutorials []Tutorial
 	p := fromPage * maxElementsInPage
-	p = p - maxElementsInPage
+	p = p - maxElementsInPage - 1
 	db.Limit(maxElementsInPage).Offset(p).Where("is_online = ?", "1").Order("id desc").Find(&tutorials)
 	return tutorials
 }
