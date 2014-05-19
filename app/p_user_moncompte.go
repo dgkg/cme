@@ -7,8 +7,10 @@ import (
 	"net/http"
 	. "strconv"
 	//"net/http"
-	"os"
 	"github.com/kennygrant/sanitize"
+	"github.com/nfnt/resize"
+	"image/jpeg"
+	"os"
 	"path/filepath"
 )
 
@@ -126,11 +128,11 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 	// Création d'un nom sanitizé pour
 	strNomFichier = sanitize.Name(files[0].Filename)
 
-
-	if (filepath.Ext(strNomFichier) != ".jpg" &&
+	// Validation des extensions de fichiers
+	if filepath.Ext(strNomFichier) != ".jpg" &&
 		filepath.Ext(strNomFichier) != ".jpeg" &&
 		filepath.Ext(strNomFichier) != ".png" &&
-		filepath.Ext(strNomFichier) != ".gif") {
+		filepath.Ext(strNomFichier) != ".gif" {
 		return
 	}
 
@@ -156,6 +158,32 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+
+	// Redimensionnement de l'image
+
+	// open "test.jpg"
+	rfile, err := os.Open("./public/img/uploads/users/" + userId + "/" + strNomFichier)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// decode jpeg into image.Image
+	rimg, err := jpeg.Decode(rfile)
+	if err != nil {
+		log.Fatal(err)
+	}
+	rfile.Close()
+
+	image := resize.Thumbnail(300, 300, rimg, resize.Bilinear)
+
+	out, err := os.Create("./public/img/uploads/users/" + userId + "/" + strNomFichier)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer out.Close()
+
+	// write new image to file
+	jpeg.Encode(out, image, nil)
 }
 
 func (pc *PageCompte) View(id int64) {

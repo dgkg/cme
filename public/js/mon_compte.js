@@ -54,8 +54,8 @@ $(window).load(function() {
             $('#photo-upload').css("background-color","red");
             $('#submitPhoto').attr("disabled", true);
         },
-        maxSize:      '2m', //optional
-        type:         'image' //optional
+        maxSize:      '2m',
+        type:         'image'
     });
 });
 
