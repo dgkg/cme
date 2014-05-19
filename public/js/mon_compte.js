@@ -2,6 +2,12 @@ $(window).load(function() {
 
     // Initialisation des handlers vers chaque fonction associée
 
+    // Sauvegarde de la photo de profil
+    $('.form-photo').submit( function(event) {
+        event.preventDefault();
+        savePhotoProfil();
+    });
+
     // Sauvegarde de la bio
     $('.form-bio').submit( function(event) {
         event.preventDefault();
@@ -38,6 +44,19 @@ $(window).load(function() {
         event.preventDefault();
         supprimerCompte();
     });
+
+    $('#photo-upload').fileValidator({
+        onValidation: function(files){
+            $('#photo-upload').css("background-color","none");
+            $('#submitPhoto').removeAttr("disabled");
+        },
+        onInvalid:    function(validationType, file) {
+            $('#photo-upload').css("background-color","red");
+            $('#submitPhoto').attr("disabled", true);
+        },
+        maxSize:      '2m', //optional
+        type:         'image' //optional
+    });
 });
 
 function afficherSucces(section) {
@@ -50,14 +69,14 @@ function savePhotoProfil() {
 
     // Initialisation des variables de base
     var idUser = $('#id-user').val();
-    var imgUser = $('#myFiles').get(0).files[0];
+    var imgUser = $('#photo-upload').get(0).files[0];
     var strSection = "savePhoto";
 
     // Création de l'objet formulaire
     var formData = new FormData();
 
     // Ajout d'une entrée dans l'objet formulaire
-    formData.append('imgUser', imgUser, imgUser.name);
+    formData.append('photo-upload', imgUser, imgUser.name);
 
     // Création de la requête
     var xhr = new XMLHttpRequest();
@@ -67,8 +86,7 @@ function savePhotoProfil() {
     // Vérification de l'envoi du formulaire
     xhr.onload = function () {
         if (xhr.status === 200) {
-            // File(s) uploaded.
-            alert('Envoyé avec succès');
+            afficherSucces("photo");
         } else {
             alert('Une erreur est survenue. Veuillez réessayer.');
         }

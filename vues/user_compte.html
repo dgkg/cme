@@ -19,10 +19,10 @@
 
                                 <p>Pour modifier votre photo de profil, utilisez le bouton ci-dessous.</p>
 
-                                <form class="form-photo" method="POST" action="/mon-compte/upload" enctype="multipart/form-data">
+                                <form class="form-photo" method="POST" action="/mon-compte/upload" enctype="multipart/form-data" accept="image/jpg|image/png|image/gif">
 
                                     <input class="photo-upload" type="file" name="photo-upload" id="photo-upload" value="Choisir une photo">
-                                    <input class="pure-button pure-button-primary" type="submit" value="Enregistrer">
+                                    <input id="submitPhoto" class="pure-button pure-button-primary" type="submit" value="Enregistrer">
 
                                     <p class="msg-succes msg-photo">Vos modifications ont été enregistrés avec succès.</p>
 
@@ -143,6 +143,7 @@
         </div>
 
         <script type="text/javascript" src="/js/vendor/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="/js/vendor/file-validator.js"></script>
         <script type="text/javascript" src="/js/mon_compte.js"></script>
     </body>
 </html>
