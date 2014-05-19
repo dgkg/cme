@@ -7,10 +7,10 @@
 
     .btn-connexion, .btn-inscription, .btn-moncompte {
         display: inline-block;
-        height: 40px;
+        height: 20px;
         width: 42%;
         background-color: $btn-rouge;
-        line-height: 40px;
+        line-height: 20px;
         vertical-align: middle;
         text-align: center;
         font-size: 16px;
@@ -20,8 +20,8 @@
         float: right;
         margin-left: 4%;
         margin-right: 4%;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 
     .btn-connexion:hover, .btn-inscription:hover {
@@ -179,13 +179,13 @@
     and (min-width : 1224px) {
 
     .header {
-        padding-top: 100px;
+        padding-top: 20px;
         padding-bottom: 100px;
 
         .nav1-ipad, .nav2-ipad {
             margin-right: 0;
             margin-left: 0;
-            top: 80px;
+            top: 40px;
         }
 
         .nav1-ipad li , .nav2-ipad li {
