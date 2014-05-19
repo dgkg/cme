@@ -37,10 +37,11 @@
                         {{end}}
                     </select>
 
-                    <form class="pure-form">
-                        <input type="text" class="pure-input-rounded" placeholder="Recherche...">
+                    <form class="pure-form" action="/forum/search" method="get">
+                        <input type="text" class="pure-input-rounded" placeholder="Recherche..." name="q">
                         <button type="submit" class="pure-button">Rechercher</button>
                     </form>
+                    
 
                     <select>
                         <option>Plus récents d'abord</option>
