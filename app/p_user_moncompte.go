@@ -2,16 +2,15 @@ package app
 
 import (
 	"fmt"
-	"io"
-	"log"
-	"net/http"
-	. "strconv"
-	//"net/http"
 	"github.com/kennygrant/sanitize"
 	"github.com/nfnt/resize"
 	"image/jpeg"
+	"io"
+	"log"
+	"net/http"
 	"os"
 	"path/filepath"
+	. "strconv"
 )
 
 type PageCompte struct {
@@ -184,6 +183,7 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 
 	// write new image to file
 	jpeg.Encode(out, image, nil)
+
 }
 
 func (pc *PageCompte) View(id int64) {
