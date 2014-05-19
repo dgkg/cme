@@ -54,6 +54,16 @@ func (pu *PageUser) View() {
 	pu.MainClass = "eleve_fiche"
 	pu.User.Projects = up.getAllFromIdUser()
 	pu.RenderHtml = true
+	pu.injectDataToDisplay()
+}
+
+// fonction privée
+// permet de créer les urls des projets
+func (pu *PageUser) injectDataToDisplay() {
+	for key, _ := range pu.Projects {
+		pu.Projects[key].Url = "/eleves/" + pu.User.Graduation + "/" + pu.User.FirstName + "_" + pu.User.LastName + "/" + sanitize.Name(pu.Projects[key].Title)
+	}
+
 }
 
 // findUser permet de retrouver le user à partir de :

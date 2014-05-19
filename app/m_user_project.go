@@ -16,6 +16,7 @@ type UserProject struct {
 	Description           string
 	IsFeatured            int64
 	IsOnline              int64
+	Url                   string `sql:"-"` // Ignore this field
 	CreatedAt             time.Time
 	UpdatedAt             time.Time
 	Images                []UserImage
