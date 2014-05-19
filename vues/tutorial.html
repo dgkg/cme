@@ -52,9 +52,11 @@
                     {{if .Tutorials}}
                         {{range .Tutorials}}
                             <div class="post">
-                            
+
                             <h2><a href="/tutoriel/post/{{.Id}}">{{.Title}}</a></h2>
-                            {{.Text}}
+
+                            <div class="post-desc">{{.Text}}</div>
+
                             <div class="post-meta">
                                 <p class="post-cat">{{.CategoryTitle}}</p>
                                 <img src="/img/ui/icone-reponse.png" alt="Nombre de réponses"><p>{{.PostNumb}}</p>
@@ -96,11 +98,6 @@
                 {{template "footer" .}}
             </div>
         </div>
-
-        <!-- <script type="text/javascript" src="/js/jquery-1.11.0.min.js"></script> -->
-        <!-- <script type="text/javascript" src="/js/jquery.justifiedGallery.js"></script> -->
-        <!-- <script type="text/javascript" src="/js/jquery.contenthover.min.js"></script> -->
-        <!-- <script type="text/javascript" src="/js/main.js"></script> -->
     </body>
 </html>
 {{ end }}
