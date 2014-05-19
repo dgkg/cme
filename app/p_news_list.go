@@ -99,7 +99,7 @@ func (pn PageNewsList) createPaginate() []Paginate {
 	elTotal := n.count()
 
 	nb := elTotal / maxElementsInPage
-	mf := int(math.Floor(float64(nb)))
+	mf := int(math.Ceil(float64(nb)))
 	mf++ // permet de réaliser la correction du nombre de pages
 	p := make([]Paginate, mf)
 

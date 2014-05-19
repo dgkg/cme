@@ -8,22 +8,22 @@ import (
 )
 
 type User struct {
-	Id         int64
-	FirstName  string `sql:"type:varchar(100);"`
-	LastName   string `sql:"type:varchar(100);"`
-	Text       string
-	Email      string
-	Pass       string
-	Keywords   string
-	Facebook   string
-	Twitter    string
-	LinkedIn   string
-	Graduation string
+	Id          int64
+	FirstName   string `sql:"type:varchar(100);"`
+	LastName    string `sql:"type:varchar(100);"`
+	Text        string
+	Email       string
+	Pass        string
+	Keywords    string
+	Facebook    string
+	Twitter     string
+	LinkedIn    string
+	Graduation  string
 	PhotoProfil string
-	IsOnline   int64
-	CreatedAt  time.Time
-	UpdatedAt  time.Time
-	Images     []UserImage
+	IsOnline    int64
+	CreatedAt   time.Time
+	UpdatedAt   time.Time
+	Images      []UserImage
 }
 
 // fonction public
@@ -145,10 +145,12 @@ func (u User) getList() []User {
 // permet de récupérer toute la listes des questions du forum
 // avec les fonctions de pagination
 // en fonction de la limite affichable par page
-func (u User) getListPaged(fromPage int64) []User {
+func (u User) getListPaged(fromPage int) []User {
 
 	var users []User
-	db.Limit(maxElementsInPage).Offset(int(fromPage)*maxElementsInPage).Where("is_online = ?", "1").Order("id desc").Find(&users)
+	p := fromPage * maxElementsInPage
+	p = p - maxElementsInPage - 1
+	db.Limit(maxElementsInPage).Offset(p).Where("is_online = ?", "1").Order("id desc").Find(&users)
 	return users
 }
 

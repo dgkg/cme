@@ -111,7 +111,7 @@ func (f Forum) getListPaged(fromPage int) []Forum {
 	//
 	var forums []Forum
 	p := fromPage * maxElementsInPage
-	p = p - maxElementsInPage
+	p = p - maxElementsInPage - 1
 	db.Limit(maxElementsInPage).Offset(p).Where("is_online = ?", "1").Order("id desc").Find(&forums)
 	return forums
 }

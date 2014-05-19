@@ -226,7 +226,7 @@ func (pt PageTutorialList) createPaginate() []Paginate {
 	elTotal := t.count()
 
 	nb := elTotal / maxElementsInPage
-	mf := int(math.Floor(float64(nb)))
+	mf := int(math.Ceil(float64(nb)))
 	mf++ // permet de réaliser la correction du nombre de pages
 	p := make([]Paginate, mf)
 
@@ -245,7 +245,7 @@ func (pt PageTutorialList) createPaginateFromIdCat(id int64) []Paginate {
 	elTotal := f.countFromIdCat(id)
 
 	nb := elTotal / maxElementsInPage
-	mf := int(math.Floor(float64(nb)))
+	mf := int(math.Ceil(float64(nb)))
 	mf++ // permet de réaliser la correction du nombre de pages
 	p := make([]Paginate, mf)
 

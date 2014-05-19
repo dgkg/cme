@@ -232,14 +232,15 @@ func (pf PageForumList) createPaginate() []Paginate {
 	elTotal := f.count()
 
 	nb := elTotal / maxElementsInPage
-	mf := int(math.Floor(float64(nb)))
-	mf++ // permet de réaliser la correction du nombre de pages
+	mf := int(math.Ceil(float64(nb)))
+	mf++ // permet de réaliser la correction du nombre de pages à l'affichage
 	p := make([]Paginate, mf)
 
 	for i := 0; i < mf; i++ {
 		t := Itoa(i + 1)
 		p[i].Title = t
 		p[i].Url = "?p=" + t
+
 	}
 	return p
 }
@@ -251,7 +252,7 @@ func (pf PageForumList) createPaginateFromIdCat(id int64) []Paginate {
 	elTotal := f.countFromIdCat(id)
 
 	nb := elTotal / maxElementsInPage
-	mf := int(math.Floor(float64(nb)))
+	mf := int(math.Ceil(float64(nb)))
 	mf++ // permet de réaliser la correction du nombre de pages
 	p := make([]Paginate, mf)
 

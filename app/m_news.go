@@ -42,7 +42,7 @@ func (n News) getListPaged(fromPage int) []News {
 
 	var news []News
 	p := fromPage * maxElementsInPage
-	p = p - maxElementsInPage
+	p = p - maxElementsInPage - 1
 	db.Limit(maxElementsInPage).Offset(p).Where("is_online = ?", "1").Order("id desc").Find(&news)
 	return news
 }
