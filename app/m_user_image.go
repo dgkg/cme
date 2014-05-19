@@ -9,7 +9,7 @@ import (
 
 type UserImage struct {
 	Id                  int64
-	UserId              int64
+	ProjectId           int64
 	UserImageCategoryId int64
 	Title               string `sql:"type:varchar(100);"`
 	Url                 string `sql:"type:varchar(200);"`
@@ -38,6 +38,14 @@ func (ui UserImage) getProjets(nbProjets int) []UserImage {
 // permet d'enregistrer les éléments du formulaire
 func (ui UserImage) Save() {
 	db.Save(&ui)
+}
+
+// getAllByIdProject permet de retourner la liste des Images
+// en fonction de l'id du projet
+func (ui *UserImage) getAllByIdProject() []UserImage {
+	var uis []UserImage
+	db.Where("is_online = ? AND id = ?", "1", Itoa(int(ui.ProjectId))).Find(&uis)
+	return uis
 }
 
 // permet de donner l'id d'une question à partir de son titre

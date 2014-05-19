@@ -25,8 +25,8 @@ func main() {
 
 	// routages des élèves
 	r.HandleFunc("/eleves", StudentHandler)
-	r.HandleFunc("/eleves/2014/henrilepic", StudentFicheHandler)
-	//r.HandleFunc("/eleves/2014/henrilepic/{name:[a-z-]+}", ProjetHandler)
+	r.HandleFunc("/eleves/{year:[0-9]+}/{firstName:[a-z-]+}_{lastName:[a-z-]+}", StudentFicheHandler)
+	//r.HandleFunc("/eleves/{year:[0-9]+}/{firstName:[a-z-]+}_{lastName:[a-z-]+}/{project:[a-z-]+}", ProjetHandler)
 
 	// routage des tutoriels
 	r.HandleFunc("/tutoriels", TutoHandler)

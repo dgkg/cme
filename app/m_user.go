@@ -23,7 +23,7 @@ type User struct {
 	IsOnline    int64
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
-	Images      []UserImage
+	Projects    []UserProject
 }
 
 // fonction public
@@ -151,6 +151,12 @@ func (u User) getListPaged(fromPage int) []User {
 	p := fromPage * maxElementsInPage
 	p = p - maxElementsInPage - 1
 	db.Limit(maxElementsInPage).Offset(p).Where("is_online = ?", "1").Order("id desc").Find(&users)
+	return users
+}
+
+func (u User) getUsersByGraduation() []User {
+	var users []User
+	db.Where("is_online = ? AND graduation = ?", "1", u.Graduation).Find(&users)
 	return users
 }
 

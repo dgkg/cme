@@ -4,12 +4,13 @@
             <div class="body">
 
                 <div class="etu-fiche">
-                    <div class="container-img"><img class="etu-photo" src="/img/uploads/users/{{.Id}}/{{.PhotoProfil}}" alt="Photo de l'étudiant"></div>
-                    <h1>Henri Lepic</h1>
-                    <p class="etu-gradu">Gradué en 2003</p>
-                    <p class="etu-bio">Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                    <p class="etu-social">HenriLepic</p>
-                    <p class="etu-social">@HenriLepic</p>
+                    <div class="container-img"><img class="etu-photo" src="/img/uploads/users/{{.User.Id}}/{{.User.PhotoProfil}}" alt="Photo de l'étudiant"></div>
+                    <h1>{{.User.FirstName}} {{.User.LastName}}</h1>
+                    <p class="etu-gradu">Gradué en {{.User.Graduation}}</p>
+                    <p class="etu-bio">{{.User.Text}}</p>
+                    <p class="etu-social">{{.User.Facebook}}</p>
+                    <p class="etu-social">{{.User.Twitter}}</p>
+                    <p class="etu-social">{{.User.LinkedIn}}</p>
                 </div>
 
                 <hr>
@@ -18,42 +19,29 @@
 
                     <div class="entete-projets">
 
-                        <h2>Projets d'Henri</h2>
-
-                        <a class="pure-button pure-button-primary ajout-projet" href="#">Ajouter une image</a>
-
+                        <h2>Projets de {{.User.FirstName}}</h2>
+                        {{if eq .SessIdUser .User.Id}}
+                            <a class="pure-button pure-button-primary ajout-projet" href="#">Ajouter une image</a>
+                        {{end}}
                     </div>
 
+                    {{ if .Projects}}
                     <div class="etu-projet-liste">
 
+                        {{ range .Projects}}
                         <div class="img-projet">
-                            <img class="img-du-projet" src="http://placehold.it/320x400">
+                            <img class="img-du-projet" src="{{.ImageUrl}}">
                             <div class="over-projet">
-                                <h3>Nom du projet</h3>
-                                <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                <a href="#">Voir le projet</a>
+                                <h3>{{.Title}}</h3>
+                                {{.Description}}
+                                <a href="./{{.Title}}">Voir le projet</a>
                             </div>
                         </div>
-
-                        <div class="img-projet">
-                            <img class="img-du-projet" src="http://placehold.it/320x400">
-                            <div class="over-projet">
-                                <h3>Nom du projet</h3>
-                                <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                <a href="#">Voir le projet</a>
-                            </div>
-                        </div>
-
-                        <div class="img-projet">
-                            <img class="img-du-projet" src="http://placehold.it/320x400">
-                            <div class="over-projet">
-                                <h3>Nom du projet</h3>
-                                <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                <a href="#">Voir le projet</a>
-                            </div>
-                        </div>
+                        {{end}}
 
                     </div>
+                    {{end}}
+
 
                 </div>
 
