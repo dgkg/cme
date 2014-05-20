@@ -6,9 +6,10 @@ import (
 )
 
 type PageHome struct {
-	Images  []UserImage
-	News    []News
-	Projets []UserImage
+	Categories []UserProjectCategory
+	Images     []UserProjectImage
+	News       []News
+	Projets    []UserProject
 	PageWeb
 }
 
@@ -37,9 +38,12 @@ func (ph *PageHome) View() {
 
 	ph.Title = "Accueil | Communauté Maryse-Éloy"
 
-	var uimg UserImage
+	var up UserProject
+	ph.Projets = up.getAllProjects()
 
-	ph.Projets = uimg.getProjets(20)
+	var uic UserProjectCategory
+	ph.Categories = uic.getAllCategories()
+	//getAllCategories()
 
 	//uimg.getDescCourte()
 

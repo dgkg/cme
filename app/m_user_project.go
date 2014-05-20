@@ -4,6 +4,7 @@ import (
 	//"fmt"
 	. "strconv"
 	//"strings"
+	"math/rand"
 	"time"
 )
 
@@ -19,7 +20,7 @@ type UserProject struct {
 	Url                   string `sql:"-"` // Ignore this field
 	CreatedAt             time.Time
 	UpdatedAt             time.Time
-	Images                []UserImage
+	Images                []UserProjectImage
 }
 
 // fonction public
@@ -48,10 +49,35 @@ func (up UserProject) getById() UserProject {
 	return up
 }
 
+func (up UserProject) getByIdCat(limit int) []UserProject {
+	var ups []UserProject
+	db.Limit(limit).Where("is_online = ? AND user_project_category_id = ?", "1", Itoa(int(up.UserProjectCategoryId))).Find(&ups)
+	return ups
+}
+
 // getAllFromIdUser permet de récupérer tous les projets d'un user
 // en fonction de l'id user
 func (up UserProject) getAllFromIdUser() []UserProject {
 	var ups []UserProject
 	db.Where("is_online = ? AND user_id = ?", "1", Itoa(int(up.UserId))).Find(&ups)
 	return ups
+}
+
+// fonction permettant de récupérer tous les projets actifs
+func (up UserProject) getAllProjects() []UserProject {
+	var ups []UserProject
+	db.Where("is_online = ? ", "1").Find(&ups)
+	return ups
+}
+
+func (up UserProject) getRandomProjects(numbProjects int) []UserProject {
+	ups := up.getAllProjects()
+	//numbProjects
+	result := make([]UserProject, numbProjects)
+
+	for i := 0; i > numbProjects; i++ {
+		result[i] = ups[rand.Intn(len(ups))]
+	}
+
+	return result
 }

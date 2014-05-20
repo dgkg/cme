@@ -2,39 +2,24 @@
 {{template "header" .}}
             <div class="body">
 
+                {{if .Categories}}
                 <div class="categories">
 
                     <ul>
                         <li>Catégories  /   </li>
-                        <li><a href="#">Graphisme</a></li>
-                        <li class="active"><a href="#">Packaging</a></li>
-                        <li><a href="#">Dessins et croquis</a></li>
-                        <li><a href="#">Couleur</a></li>
-                        <li><a href="#">Perspective</a></li>
-                        <li><a href="#">Rough et storyboard</a></li>
-                        <li><a href="#">Publicité</a></li>
-                        <li><a href="#">Typographie</a></li>
-                        <li><a href="#">Identité visuelle</a></li>
-                        <li><a href="#">Édition</a></li>
-                        <li><a href="#">Projets de diplômes</a></li>
+                        {{range .Categories}}
+                        <li><a class="cat-select" href="{{.Id}}">{{.Title}}</a></li>
+                        {{end}}
                     </ul>
 
                     <select>
-                        <option value="#">Catégories</option>
-                        <option value="#">Graphisme</option>
-                        <option value="#">Packaging</option>
-                        <option value="#">Dessins et croquis</option>
-                        <option value="#">Couleur</option>
-                        <option value="#">Perspective</option>
-                        <option value="#">Rough et storyboard</option>
-                        <option value="#">Publicité</option>
-                        <option value="#">Typographie</option>
-                        <option value="#">Identité visuelle</option>
-                        <option value="#">Édition</option>
-                        <option value="#">Projets et diplômes</option>
+                        {{range .Categories}}
+                        <option class="cat-select" value="{{.Id}}">{{.Title}}</option>
+                        {{end}}
                     </select>
 
                 </div>
+                {{end}}
 
                 <div class="projets" >
 
@@ -42,10 +27,10 @@
                         {{range .Projets}}
 
                             <div class="img-projet">
-                                <img class="img-du-projet" src="/img/projets/{{.Year}}/{{.Month}}/prj_{{.Id}}.jpg">
+                                <img class="img-du-projet" src="{{.ImageUrl}}">
                                 <div class="over-projet">
                                     <h3>{{.Title}}</h3>
-                                    <p>{{.DescriptionCourte}}</p>
+                                    <p>{{.Description}}</p>
                                     <a href="/eleves/2014/henrilepic/{{.Url}}">Voir le projet</a>
                                 </div>
                             </div>
@@ -135,6 +120,7 @@
         <script type="text/javascript" src="/js/vendor/jquery.contenthover.min.js"></script>
         <script type="text/javascript" src="/js/vendor/isotope.pkgd.min.js"></script>
         <script type="text/javascript" src="/js/main.js"></script>
+        <script type="text/javascript" src="/js/home.js"></script>
     </body>
 </html>
 {{ end }}

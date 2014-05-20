@@ -2,14 +2,14 @@ package app
 
 import (
 	"fmt"
-	"github.com/kennygrant/sanitize"
-	"github.com/nfnt/resize"
-	"image/jpeg"
-	"io"
+	//"github.com/kennygrant/sanitize"
+	//"github.com/nfnt/resize"
+	//"image/jpeg"
+	//"io"
 	"log"
 	"net/http"
-	"os"
-	"path/filepath"
+	//"os"
+	//"path/filepath"
 	. "strconv"
 )
 
@@ -95,95 +95,95 @@ func EditCompteHandler(w http.ResponseWriter, r *http.Request) {
 // Upload de fichiers avec Go
 // Code original : https://gist.github.com/sanatgersappa/5127317#file-app-go
 func UploadHandler(w http.ResponseWriter, r *http.Request) {
+	/*
+		// Initialisation des variables utiles
+		var u User
+		session, _ := store.Get(r, "cme_connecte")
+		u.Id = session.Values["id"].(int64)
+		userId := Itoa(int(u.Id))
+		var strNomFichier string
 
-	// Initialisation des variables utiles
-	var u User
-	session, _ := store.Get(r, "cme_connecte")
-	u.Id = session.Values["id"].(int64)
-	userId := Itoa(int(u.Id))
-	var strNomFichier string
+		//parse the multipart form in the request
+		err := r.ParseMultipartForm(100000)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 
-	//parse the multipart form in the request
-	err := r.ParseMultipartForm(100000)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
+		//get a ref to the parsed multipart form
+		m := r.MultipartForm
 
-	//get a ref to the parsed multipart form
-	m := r.MultipartForm
+		//get the *fileheaders
+		files := m.File["photo-upload"]
 
-	//get the *fileheaders
-	files := m.File["photo-upload"]
+		file, err := files[0].Open()
 
-	file, err := files[0].Open()
+		defer file.Close()
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 
-	defer file.Close()
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
+		// Création d'un nom sanitizé pour
+		strNomFichier = sanitize.Name(files[0].Filename)
 
-	// Création d'un nom sanitizé pour
-	strNomFichier = sanitize.Name(files[0].Filename)
+		// Validation des extensions de fichiers
+		if filepath.Ext(strNomFichier) != ".jpg" &&
+			filepath.Ext(strNomFichier) != ".jpeg" &&
+			filepath.Ext(strNomFichier) != ".png" &&
+			filepath.Ext(strNomFichier) != ".gif" {
+			return
+		}
 
-	// Validation des extensions de fichiers
-	if filepath.Ext(strNomFichier) != ".jpg" &&
-		filepath.Ext(strNomFichier) != ".jpeg" &&
-		filepath.Ext(strNomFichier) != ".png" &&
-		filepath.Ext(strNomFichier) != ".gif" {
-		return
-	}
+		//create destination file making sure the path is writeable.
+		dst, err := os.Create("./public/img/uploads/users/" + userId + "/" + strNomFichier)
 
-	//create destination file making sure the path is writeable.
-	dst, err := os.Create("./public/img/uploads/users/" + userId + "/" + strNomFichier)
+		// Vérification de l'existence du répertoire cible
+		if err != nil {
+			log.Println(err)
+		}
 
-	// Vérification de l'existence du répertoire cible
-	if err != nil {
-		log.Println(err)
-	}
+		// Envoi du nom du fichier pour l'ajout à la BD
+		u.SavePhoto(strNomFichier)
 
-	// Envoi du nom du fichier pour l'ajout à la BD
-	u.SavePhoto(strNomFichier)
+		defer dst.Close()
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 
-	defer dst.Close()
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
+		//copy the uploaded file to the destination file
+		if _, err := io.Copy(dst, file); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 
-	//copy the uploaded file to the destination file
-	if _, err := io.Copy(dst, file); err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
+		// Redimensionnement de l'image
 
-	// Redimensionnement de l'image
+		// open "test.jpg"
+		rfile, err := os.Open("./public/img/uploads/users/" + userId + "/" + strNomFichier)
+		if err != nil {
+			log.Fatal(err)
+		}
 
-	// open "test.jpg"
-	rfile, err := os.Open("./public/img/uploads/users/" + userId + "/" + strNomFichier)
-	if err != nil {
-		log.Fatal(err)
-	}
+		// decode jpeg into image.Image
+		rimg, err := jpeg.Decode(rfile)
+		if err != nil {
+			log.Fatal(err)
+		}
+		rfile.Close()
 
-	// decode jpeg into image.Image
-	rimg, err := jpeg.Decode(rfile)
-	if err != nil {
-		log.Fatal(err)
-	}
-	rfile.Close()
+		image := resize.Thumbnail(300, 300, rimg, resize.Bilinear)
 
-	image := resize.Thumbnail(300, 300, rimg, resize.Bilinear)
+		out, err := os.Create("./public/img/uploads/users/" + userId + "/" + strNomFichier)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer out.Close()
 
-	out, err := os.Create("./public/img/uploads/users/" + userId + "/" + strNomFichier)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer out.Close()
-
-	// write new image to file
-	jpeg.Encode(out, image, nil)
-
+		// write new image to file
+		jpeg.Encode(out, image, nil)
+	*/
 }
 
 func (pc *PageCompte) View(id int64) {
