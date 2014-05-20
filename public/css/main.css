@@ -58,7 +58,7 @@ a:visited { color: #e11414; }
 /* line 1, inc/_header.scss */
 .zone-membre { width: 100%; height: 60px; position: relative; line-height: 60px; vertical-align: middle; }
 /* line 8, inc/_header.scss */
-.zone-membre .btn-connexion, .zone-membre .btn-inscription, .zone-membre .btn-moncompte { display: inline-block; height: 40px; width: 42%; background-color: #e11414; line-height: 40px; vertical-align: middle; text-align: center; font-size: 16px; text-decoration: none; color: #f9f9f9; font-family: "gt_pressura_regular", sans-serif; float: right; margin-left: 4%; margin-right: 4%; margin-top: 20px; margin-bottom: 20px; }
+.zone-membre .btn-connexion, .zone-membre .btn-inscription, .zone-membre .btn-moncompte { display: inline-block; height: 20px; width: 42%; background-color: #e11414; line-height: 20px; vertical-align: middle; text-align: center; font-size: 16px; text-decoration: none; color: #f9f9f9; font-family: "gt_pressura_regular", sans-serif; float: right; margin-left: 4%; margin-right: 4%; margin-top: 10px; margin-bottom: 10px; }
 /* line 27, inc/_header.scss */
 .zone-membre .btn-connexion:hover, .zone-membre .btn-inscription:hover { background-color: #9c1111; color: #f9f9f9; }
 @media only screen and (min-device-width: 768px) { /* line 35, inc/_header.scss */
@@ -110,9 +110,9 @@ a:visited { color: #e11414; }
   .header .nav1-ipad li a, .header .nav2-ipad li a { vertical-align: middle; } }
 /* Desktops and laptops ----------- */
 @media only screen and (min-width: 1224px) { /* line 181, inc/_header.scss */
-  .header { padding-top: 100px; padding-bottom: 100px; }
+  .header { padding-top: 20px; padding-bottom: 100px; }
   /* line 185, inc/_header.scss */
-  .header .nav1-ipad, .header .nav2-ipad { margin-right: 0; margin-left: 0; top: 80px; }
+  .header .nav1-ipad, .header .nav2-ipad { margin-right: 0; margin-left: 0; top: 40px; }
   /* line 191, inc/_header.scss */
   .header .nav1-ipad li, .header .nav2-ipad li { font-size: 22px; } }
 /* line 1, pages/_accueil.scss */
@@ -522,7 +522,7 @@ a:visited { color: #e11414; }
 /* line 58, pages/_forum.scss */
 .forum .body .categories ul li a { color: #727272; text-decoration: none; }
 /* line 63, pages/_forum.scss */
-.forum .body .categories ul li a:visited { color: #727272; text-decoration: none; }
+.forum .body .categories ul li a:visited { text-decoration: none; }
 /* line 68, pages/_forum.scss */
 .forum .body .categories ul li .selected { color: #E11414; }
 /* line 74, pages/_forum.scss */
@@ -567,39 +567,41 @@ a:visited { color: #e11414; }
   .forum .body .categories ul { display: block; padding: 0; width: 60%; float: left; margin: 0; }
   /* line 247, pages/_forum.scss */
   .forum .body .categories ul li { display: inline-block; font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; font-size: 20px; padding-right: 15px; line-height: 1.4em; color: #4A4A4A; float: left; }
-  /* line 260, pages/_forum.scss */
+  /* line 258, pages/_forum.scss */
   .forum .body .categories ul li:first-child { margin-right: 20px; color: #262628; }
-  /* line 266, pages/_forum.scss */
+  /* line 263, pages/_forum.scss */
+  .forum .body .categories ul .selected { color: #e11414; }
+  /* line 268, pages/_forum.scss */
   .forum .body .categories select { display: none; }
-  /* line 270, pages/_forum.scss */
+  /* line 272, pages/_forum.scss */
   .forum .body .categories form { float: right; margin: 0; margin-bottom: 30px; width: 320px; }
-  /* line 278, pages/_forum.scss */
+  /* line 280, pages/_forum.scss */
   .forum .body .categories form input { display: inline-block; width: 200px; }
-  /* line 284, pages/_forum.scss */
+  /* line 286, pages/_forum.scss */
   .forum .body .categories form button { float: right; display: inline-block; }
-  /* line 293, pages/_forum.scss */
+  /* line 295, pages/_forum.scss */
   .forum .body .liste-posts .post { position: relative; }
-  /* line 296, pages/_forum.scss */
+  /* line 298, pages/_forum.scss */
   .forum .body .liste-posts .post h2 { float: left; }
-  /* line 300, pages/_forum.scss */
+  /* line 302, pages/_forum.scss */
   .forum .body .liste-posts .post .post-desc { max-width: 480px; float: left; clear: both; }
-  /* line 306, pages/_forum.scss */
+  /* line 308, pages/_forum.scss */
   .forum .body .liste-posts .post .post-meta { position: absolute; width: 240px; right: 0; top: 10px; }
-  /* line 312, pages/_forum.scss */
+  /* line 314, pages/_forum.scss */
   .forum .body .liste-posts .post .post-meta .post-cat { float: none; margin-bottom: 15px; font-size: 20px; text-transform: uppercase; }
-  /* line 319, pages/_forum.scss */
+  /* line 321, pages/_forum.scss */
   .forum .body .liste-posts .post .post-meta img { clear: both; margin-bottom: 10px; }
-  /* line 325, pages/_forum.scss */
+  /* line 327, pages/_forum.scss */
   .forum .body .liste-posts .post .btn-repondre { max-width: 140px; float: left; clear: left; margin-bottom: 30px; }
-  /* line 336, pages/_forum.scss */
+  /* line 338, pages/_forum.scss */
   .forum .body .pagination ul { display: block; text-align: center; }
-  /* line 340, pages/_forum.scss */
+  /* line 342, pages/_forum.scss */
   .forum .body .pagination ul li { display: inline-block; width: 30px; height: 30px; margin-right: 10px; font-size: 18px; font-family: "gt_pressura_regular", sans-serif; }
-  /* line 350, pages/_forum.scss */
+  /* line 352, pages/_forum.scss */
   .forum .body .pagination select { display: none; } }
-@media only screen and (min-width: 1224px) { /* line 361, pages/_forum.scss */
+@media only screen and (min-width: 1224px) { /* line 363, pages/_forum.scss */
   .forum #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 369, pages/_forum.scss */
+  /* line 371, pages/_forum.scss */
   .forum .body { margin-left: 0; margin-right: 0; } }
 
 /* line 1, pages/_tutoriels.scss */
