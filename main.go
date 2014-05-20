@@ -64,6 +64,7 @@ func main() {
 	r.HandleFunc("/ajax/userProject/getByIdCat/{id:[0-9]+}", UserProjectAjaxHandler)
 
 	//r.HandleFunc("/ajax/connect", AjaxConnectHandler)
+	r.HandleFunc("/get-projects", GetProjectsHandler)
 
 	// Tests
 	//r.HandleFunc("/test-post", TestPostHandler)

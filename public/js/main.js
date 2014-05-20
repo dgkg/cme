@@ -72,7 +72,16 @@ $(window).load(function() {
 			margin: margeGrille,
 		},
 		itemSelector: '.img-projet',
-	})
+	});
+
+	$(".btn-plus-de-projets").click(function() {
+		var nbProjetsACharger = 8;
+		var requete = $.post('/get-projects', { nbProjets : nbProjetsACharger } );
+
+		requete.done(function(data){
+			// Ajouter les projets dans le HTML
+		});
+	});
 
 });
 
