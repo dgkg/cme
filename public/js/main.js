@@ -1,5 +1,9 @@
 $(window).load(function() {
 
+
+	
+
+
 	// Création d'un tableau de 40 chiffres (0 à 40)
 	var arrProjets = new Array();
 

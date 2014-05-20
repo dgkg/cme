@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-type UserImage struct {
+type UserProjectImage struct {
 	Id                  int64
 	ProjectId           int64
 	UserImageCategoryId int64
@@ -23,10 +23,10 @@ type UserImage struct {
 	UpdatedAt           time.Time
 }
 
-func (ui UserImage) getProjets(nbProjets int) []UserImage {
+func (ui UserProjectImage) getProjets(nbProjets int) []UserProjectImage {
 
 	// Récupérer les images
-	var images []UserImage
+	var images []UserProjectImage
 	db.Limit(nbProjets).Where("is_online = ?", "1").Order("id desc").Find(&images)
 
 	return images
@@ -36,20 +36,20 @@ func (ui UserImage) getProjets(nbProjets int) []UserImage {
 
 // fonction public
 // permet d'enregistrer les éléments du formulaire
-func (ui UserImage) Save() {
+func (ui UserProjectImage) Save() {
 	db.Save(&ui)
 }
 
 // getAllByIdProject permet de retourner la liste des Images
 // en fonction de l'id du projet
-func (ui *UserImage) getAllByIdProject() []UserImage {
-	var uis []UserImage
+func (ui *UserProjectImage) getAllByIdProject() []UserProjectImage {
+	var uis []UserProjectImage
 	db.Where("is_online = ? AND id = ?", "1", Itoa(int(ui.ProjectId))).Find(&uis)
 	return uis
 }
 
 // permet de donner l'id d'une question à partir de son titre
-func (ui UserImage) getIdFromCatName(cat string) int64 {
+func (ui UserProjectImage) getIdFromCatName(cat string) int64 {
 
 	catList := ui.getAllCategories()
 	lenCat := len(cat)
@@ -65,9 +65,9 @@ func (ui UserImage) getIdFromCatName(cat string) int64 {
 
 // permet de retourner toutes les catégories
 // permet aussi de créer les liens pour les catégories
-func (ui UserImage) getAllCategories() []UserImageCategory {
+func (ui UserProjectImage) getAllCategories() []UserProjectCategory {
 
-	var cat []UserImageCategory
+	var cat []UserProjectCategory
 	db.Find(&cat)
 
 	// create dynamic links
@@ -82,16 +82,16 @@ func (ui UserImage) getAllCategories() []UserImageCategory {
 
 // permet de récupérer toute la question du forum
 // en fonction de son id
-func (ui UserImage) getById() UserImage {
+func (ui UserProjectImage) getById() UserProjectImage {
 	db.Where("is_online = ? AND id = ?", "1", Itoa(int(ui.Id))).Find(&ui)
 	return ui
 }
 
 // permet de récupérer toute la listes des questions du forum
 // en fonction de la limite affichable par page
-func (ui UserImage) getList() []UserImage {
+func (ui UserProjectImage) getList() []UserProjectImage {
 
-	var userImages []UserImage
+	var userImages []UserProjectImage
 	db.Limit(maxElementsInPage).Where("is_online = ?", "1").Order("id desc").Find(&userImages)
 	return userImages
 }
@@ -99,17 +99,17 @@ func (ui UserImage) getList() []UserImage {
 // permet de récupérer toute la listes des questions du forum
 // avec les fonctions de pagination
 // en fonction de la limite affichable par page
-func (ui UserImage) getListPaged(fromPage int64) []UserImage {
+func (ui UserProjectImage) getListPaged(fromPage int64) []UserProjectImage {
 
-	var userImages []UserImage
+	var userImages []UserProjectImage
 	db.Limit(maxElementsInPage).Offset(int(fromPage)*maxElementsInPage).Where("is_online = ?", "1").Order("id desc").Find(&userImages)
 	return userImages
 }
 
 // permet de récupérer des questions du forum à partir de l'id de la catégorie
-func (ui UserImage) getListFromCat(id int64) []UserImage {
+func (ui UserProjectImage) getListFromCat(id int64) []UserProjectImage {
 
-	var userImages []UserImage
+	var userImages []UserProjectImage
 	db.Limit(maxElementsInPage).Where("is_online = ? and user_image_category_id = ?", "1", Itoa(int(id))).Order("id desc").Find(&userImages)
 	return userImages
 }
@@ -117,17 +117,17 @@ func (ui UserImage) getListFromCat(id int64) []UserImage {
 // permet de récupérer une liste de questions du formulaire en fonction
 // de l'id de la catégorie sélectionnée
 // et de la page dans laquelle on est
-func (ui UserImage) getListFromCatPaged(id int64, fromPage int64) []UserImage {
+func (ui UserProjectImage) getListFromCatPaged(id int64, fromPage int64) []UserProjectImage {
 
-	var userImages []UserImage
+	var userImages []UserProjectImage
 	db.Limit(maxElementsInPage).Offset(int(fromPage)*maxElementsInPage).Where("is_online = ? and user_image_category_id = ?", "1", Itoa(int(id))).Order("id desc").Find(&userImages)
 	return userImages
 }
 
 // permet de récupérer le nombre de forums de question total de la base de donnée
-func (ui UserImage) count() int {
+func (ui UserProjectImage) count() int {
 
-	var userImages []UserImage
+	var userImages []UserProjectImage
 	var num int
 	db.Where("is_online = ?", "1").Find(&userImages).Count(&num)
 	return num
@@ -135,18 +135,18 @@ func (ui UserImage) count() int {
 
 // permet de récupérer le nombre de forums de question total de la base de donnée
 // en fonction de l'id de la catégorie
-func (ui UserImage) countFromIdCat(id int64) int {
+func (ui UserProjectImage) countFromIdCat(id int64) int {
 
-	var userImages []UserImage
+	var userImages []UserProjectImage
 	var num int
 	db.Where("is_online = ? and user_image_category_id = ?", "1", Itoa(int(id))).Find(&userImages).Count(&num)
 	return num
 }
 
 // fonction permetttant de rechercher dans les titres des questions
-func (ui UserImage) search(s string) []UserImage {
+func (ui UserProjectImage) search(s string) []UserProjectImage {
 
-	var userImages []UserImage
+	var userImages []UserProjectImage
 	db.Where("is_online = ? and title LIKE ? ", "1", "%"+s+"%").Order("id desc").Find(&userImages)
 	return userImages
 }
