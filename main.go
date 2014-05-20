@@ -62,6 +62,7 @@ func main() {
 	r.HandleFunc("/mon-compte/update", EditCompteHandler)
 	r.HandleFunc("/mon-compte/upload", UploadHandler)
 	//r.HandleFunc("/ajax/connect", AjaxConnectHandler)
+	r.HandleFunc("/get-projects", GetProjectsHandler)
 
 	// Tests
 	//r.HandleFunc("/test-post", TestPostHandler)

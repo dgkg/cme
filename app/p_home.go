@@ -23,6 +23,11 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	Render(w, p, r)
 }
 
+func GetProjectsHandler(w http.ResponseWriter, r *http.Request) {
+	nbProjetsACharger := r.PostFormValue("nbProjets")
+	log.Println(nbProjetsACharger)
+}
+
 // fonction pour permettre de créer une page
 func CreatePageHome() *PageHome {
 	return new(PageHome)
