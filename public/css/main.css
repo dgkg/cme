@@ -591,96 +591,96 @@ a:visited { color: #e11414; }
 /* line 17, pages/_forum.scss */
 .forum .body .entete-forum p { font-size: 14px; }
 /* line 21, pages/_forum.scss */
-.forum .body .entete-forum .btn-nouv-publication { display: block; width: 100%; height: 30px; background-color: #e11414; padding-top: 15px; padding-bottom: 15px; color: #f9f9f9; text-decoration: none; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; text-align: center; line-height: 30px; vertical-align: middle; margin-top: 30px; margin-bottom: 30px; }
-/* line 39, pages/_forum.scss */
+.forum .body .entete-forum .btn-nouv-publication { display: block; width: 100%; background-color: #e11414; padding-top: 15px; padding-bottom: 15px; color: #f9f9f9; text-decoration: none; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; text-align: center; line-height: 30px; vertical-align: middle; margin-top: 30px; margin-bottom: 30px; }
+/* line 38, pages/_forum.scss */
 .forum .body .entete-forum .btn-nouv-publication:hover { background-color: #9c1111; }
-/* line 46, pages/_forum.scss */
+/* line 45, pages/_forum.scss */
 .forum .body .categories h2 { text-align: center; margin-top: 30px; margin-bottom: 30px; font-size: 26px; text-transform: uppercase; }
-/* line 54, pages/_forum.scss */
+/* line 53, pages/_forum.scss */
 .forum .body .categories ul { display: none; }
-/* line 58, pages/_forum.scss */
+/* line 57, pages/_forum.scss */
 .forum .body .categories ul li a { color: #727272; text-decoration: none; }
-/* line 63, pages/_forum.scss */
+/* line 62, pages/_forum.scss */
 .forum .body .categories ul li a:visited { text-decoration: none; }
-/* line 68, pages/_forum.scss */
+/* line 67, pages/_forum.scss */
 .forum .body .categories ul li .selected { color: #E11414; }
-/* line 74, pages/_forum.scss */
+/* line 73, pages/_forum.scss */
 .forum .body .categories select { display: block; margin-left: auto; margin-right: auto; width: 80%; height: 36px; padding: 2px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
-/* line 88, pages/_forum.scss */
+/* line 87, pages/_forum.scss */
 .forum .body .categories form { margin-top: 30px; margin-bottom: 30px; }
-/* line 92, pages/_forum.scss */
+/* line 91, pages/_forum.scss */
 .forum .body .categories form input { margin-left: auto; margin-right: auto; display: block; height: 36px; width: 80%; }
-/* line 100, pages/_forum.scss */
+/* line 99, pages/_forum.scss */
 .forum .body .categories form button { margin-left: auto; margin-right: auto; display: block; height: 36px; }
-/* line 109, pages/_forum.scss */
+/* line 108, pages/_forum.scss */
 .forum .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
-/* line 120, pages/_forum.scss */
+/* line 119, pages/_forum.scss */
 .forum .body .liste-posts .post h2 { display: block; width: 100%; line-height: 1.4em; }
-/* line 126, pages/_forum.scss */
+/* line 125, pages/_forum.scss */
 .forum .body .liste-posts .post a { text-decoration: none; }
-/* line 130, pages/_forum.scss */
+/* line 129, pages/_forum.scss */
 .forum .body .liste-posts .post .post-meta { display: block; margin-bottom: 10px; margin-top: 20px; height: 24px; line-height: 30px; vertical-align: middle; }
-/* line 138, pages/_forum.scss */
+/* line 137, pages/_forum.scss */
 .forum .body .liste-posts .post .post-meta img { float: left; margin-right: 6px; }
-/* line 143, pages/_forum.scss */
+/* line 142, pages/_forum.scss */
 .forum .body .liste-posts .post .post-meta p { float: left; line-height: 20px; vertical-align: middle; margin: 0; margin-right: 16px; color: #4A4A4A; text-transform: uppercase; font-size: 14px; font-family: "gt_pressura_regular", sans-serif; }
-/* line 155, pages/_forum.scss */
+/* line 154, pages/_forum.scss */
 .forum .body .liste-posts .post .post-meta .post-cat { float: right; margin: 0; }
-/* line 161, pages/_forum.scss */
+/* line 160, pages/_forum.scss */
 .forum .body .liste-posts .post .btn-repondre { display: block; width: 80%; font-family: "gt_pressura_regular", sans-serif; margin-top: 20px; margin-bottom: 20px; margin-left: auto; margin-right: auto; clear: both; }
-/* line 186, pages/_forum.scss */
+/* line 185, pages/_forum.scss */
 .forum .body .pagination ul { display: none; }
-/* line 190, pages/_forum.scss */
+/* line 189, pages/_forum.scss */
 .forum .body .pagination .btn-nav-suiv { display: none; }
-/* line 194, pages/_forum.scss */
+/* line 193, pages/_forum.scss */
 .forum .body .pagination select { display: block; margin-left: auto; margin-right: auto; width: 40%; height: 30px; padding: 2px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
-@media only screen and (min-device-width: 768px) { /* line 218, pages/_forum.scss */
+@media only screen and (min-device-width: 768px) { /* line 217, pages/_forum.scss */
   .forum .body .entete-forum h1, .forum .body .entete-forum p { float: left; }
-  /* line 222, pages/_forum.scss */
+  /* line 221, pages/_forum.scss */
   .forum .body .entete-forum p { clear: both; max-width: 320px; }
-  /* line 227, pages/_forum.scss */
+  /* line 226, pages/_forum.scss */
   .forum .body .entete-forum .btn-nouv-publication { max-width: 300px; float: right; margin: 0; }
-  /* line 236, pages/_forum.scss */
+  /* line 235, pages/_forum.scss */
   .forum .body .categories h2 { display: none; }
-  /* line 240, pages/_forum.scss */
+  /* line 239, pages/_forum.scss */
   .forum .body .categories ul { display: block; padding: 0; width: 60%; float: left; margin: 0; }
-  /* line 247, pages/_forum.scss */
+  /* line 246, pages/_forum.scss */
   .forum .body .categories ul li { display: inline-block; font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; font-size: 20px; padding-right: 15px; line-height: 1.4em; color: #4A4A4A; float: left; }
-  /* line 258, pages/_forum.scss */
+  /* line 257, pages/_forum.scss */
   .forum .body .categories ul li:first-child { margin-right: 20px; color: #262628; }
-  /* line 263, pages/_forum.scss */
+  /* line 262, pages/_forum.scss */
   .forum .body .categories ul .selected { color: #e11414; }
-  /* line 268, pages/_forum.scss */
+  /* line 267, pages/_forum.scss */
   .forum .body .categories select { display: none; }
-  /* line 272, pages/_forum.scss */
+  /* line 271, pages/_forum.scss */
   .forum .body .categories form { float: right; margin: 0; margin-bottom: 30px; width: 320px; }
-  /* line 280, pages/_forum.scss */
+  /* line 279, pages/_forum.scss */
   .forum .body .categories form input { display: inline-block; width: 200px; }
-  /* line 286, pages/_forum.scss */
+  /* line 285, pages/_forum.scss */
   .forum .body .categories form button { float: right; display: inline-block; }
-  /* line 295, pages/_forum.scss */
+  /* line 294, pages/_forum.scss */
   .forum .body .liste-posts .post { position: relative; }
-  /* line 298, pages/_forum.scss */
+  /* line 297, pages/_forum.scss */
   .forum .body .liste-posts .post h2 { float: left; }
-  /* line 302, pages/_forum.scss */
+  /* line 301, pages/_forum.scss */
   .forum .body .liste-posts .post .post-desc { max-width: 480px; float: left; clear: both; }
-  /* line 308, pages/_forum.scss */
+  /* line 307, pages/_forum.scss */
   .forum .body .liste-posts .post .post-meta { position: absolute; width: 240px; right: 0; top: 10px; }
-  /* line 314, pages/_forum.scss */
+  /* line 313, pages/_forum.scss */
   .forum .body .liste-posts .post .post-meta .post-cat { float: none; margin-bottom: 15px; font-size: 20px; text-transform: uppercase; }
-  /* line 321, pages/_forum.scss */
+  /* line 320, pages/_forum.scss */
   .forum .body .liste-posts .post .post-meta img { clear: both; margin-bottom: 10px; }
-  /* line 327, pages/_forum.scss */
+  /* line 326, pages/_forum.scss */
   .forum .body .liste-posts .post .btn-repondre { max-width: 140px; float: left; clear: left; margin-bottom: 30px; }
-  /* line 338, pages/_forum.scss */
+  /* line 337, pages/_forum.scss */
   .forum .body .pagination ul { display: block; text-align: center; }
-  /* line 342, pages/_forum.scss */
+  /* line 341, pages/_forum.scss */
   .forum .body .pagination ul li { display: inline-block; width: 30px; height: 30px; margin-right: 10px; font-size: 18px; font-family: "gt_pressura_regular", sans-serif; }
-  /* line 352, pages/_forum.scss */
+  /* line 351, pages/_forum.scss */
   .forum .body .pagination select { display: none; } }
-@media only screen and (min-width: 1224px) { /* line 363, pages/_forum.scss */
+@media only screen and (min-width: 1224px) { /* line 362, pages/_forum.scss */
   .forum #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 371, pages/_forum.scss */
+  /* line 370, pages/_forum.scss */
   .forum .body { margin-left: 0; margin-right: 0; } }
 
 /* line 1, pages/_tutoriels.scss */
@@ -694,94 +694,94 @@ a:visited { color: #e11414; }
 /* line 17, pages/_tutoriels.scss */
 .tutoriels .body .entete-forum p { font-size: 14px; }
 /* line 21, pages/_tutoriels.scss */
-.tutoriels .body .entete-forum .btn-nouv-publication { display: block; width: 100%; height: 30px; background-color: #e11414; padding-top: 15px; padding-bottom: 15px; color: #f9f9f9; text-decoration: none; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; text-align: center; line-height: 30px; vertical-align: middle; margin-top: 30px; margin-bottom: 30px; }
-/* line 39, pages/_tutoriels.scss */
+.tutoriels .body .entete-forum .btn-nouv-publication { display: block; width: 100%; background-color: #e11414; padding-top: 15px; padding-bottom: 15px; color: #f9f9f9; text-decoration: none; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; text-align: center; line-height: 30px; vertical-align: middle; margin-top: 30px; margin-bottom: 30px; }
+/* line 38, pages/_tutoriels.scss */
 .tutoriels .body .entete-forum .btn-nouv-publication:hover { background-color: #9c1111; }
-/* line 46, pages/_tutoriels.scss */
+/* line 45, pages/_tutoriels.scss */
 .tutoriels .body .categories h2 { text-align: center; margin-top: 30px; margin-bottom: 30px; font-size: 26px; text-transform: uppercase; }
-/* line 54, pages/_tutoriels.scss */
+/* line 53, pages/_tutoriels.scss */
 .tutoriels .body .categories ul { display: none; }
-/* line 58, pages/_tutoriels.scss */
+/* line 57, pages/_tutoriels.scss */
 .tutoriels .body .categories ul li a { color: #727272; text-decoration: none; }
-/* line 63, pages/_tutoriels.scss */
+/* line 62, pages/_tutoriels.scss */
 .tutoriels .body .categories ul li a:visited { color: #727272; text-decoration: none; }
-/* line 68, pages/_tutoriels.scss */
+/* line 67, pages/_tutoriels.scss */
 .tutoriels .body .categories ul li .selected { color: #E11414; }
-/* line 74, pages/_tutoriels.scss */
+/* line 73, pages/_tutoriels.scss */
 .tutoriels .body .categories select { display: block; margin-left: auto; margin-right: auto; width: 80%; height: 36px; padding: 2px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
-/* line 88, pages/_tutoriels.scss */
+/* line 87, pages/_tutoriels.scss */
 .tutoriels .body .categories form { margin-top: 30px; margin-bottom: 30px; }
-/* line 92, pages/_tutoriels.scss */
+/* line 91, pages/_tutoriels.scss */
 .tutoriels .body .categories form input { margin-left: auto; margin-right: auto; display: block; height: 36px; width: 80%; }
-/* line 100, pages/_tutoriels.scss */
+/* line 99, pages/_tutoriels.scss */
 .tutoriels .body .categories form button { margin-left: auto; margin-right: auto; display: block; height: 36px; }
-/* line 109, pages/_tutoriels.scss */
+/* line 108, pages/_tutoriels.scss */
 .tutoriels .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
-/* line 120, pages/_tutoriels.scss */
+/* line 119, pages/_tutoriels.scss */
 .tutoriels .body .liste-posts .post h2 { display: block; width: 100%; line-height: 1.4em; }
-/* line 126, pages/_tutoriels.scss */
+/* line 125, pages/_tutoriels.scss */
 .tutoriels .body .liste-posts .post a { text-decoration: none; }
-/* line 130, pages/_tutoriels.scss */
+/* line 129, pages/_tutoriels.scss */
 .tutoriels .body .liste-posts .post .post-meta { display: block; margin-bottom: 10px; margin-top: 20px; height: 24px; line-height: 30px; vertical-align: middle; }
-/* line 138, pages/_tutoriels.scss */
+/* line 137, pages/_tutoriels.scss */
 .tutoriels .body .liste-posts .post .post-meta img { float: left; margin-right: 6px; }
-/* line 143, pages/_tutoriels.scss */
+/* line 142, pages/_tutoriels.scss */
 .tutoriels .body .liste-posts .post .post-meta p { float: left; line-height: 20px; vertical-align: middle; margin: 0; margin-right: 16px; color: #4A4A4A; text-transform: uppercase; font-size: 14px; font-family: "gt_pressura_regular", sans-serif; }
-/* line 155, pages/_tutoriels.scss */
+/* line 154, pages/_tutoriels.scss */
 .tutoriels .body .liste-posts .post .post-meta .post-cat { float: right; margin: 0; }
-/* line 161, pages/_tutoriels.scss */
+/* line 160, pages/_tutoriels.scss */
 .tutoriels .body .liste-posts .post .btn-repondre { display: block; width: 80%; font-family: "gt_pressura_regular", sans-serif; margin-top: 20px; margin-bottom: 20px; margin-left: auto; margin-right: auto; clear: both; }
-/* line 186, pages/_tutoriels.scss */
+/* line 185, pages/_tutoriels.scss */
 .tutoriels .body .pagination ul { display: none; }
-/* line 190, pages/_tutoriels.scss */
+/* line 189, pages/_tutoriels.scss */
 .tutoriels .body .pagination .btn-nav-suiv { display: none; }
-/* line 194, pages/_tutoriels.scss */
+/* line 193, pages/_tutoriels.scss */
 .tutoriels .body .pagination select { display: block; margin-left: auto; margin-right: auto; width: 40%; height: 30px; padding: 2px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
-@media only screen and (min-device-width: 768px) { /* line 218, pages/_tutoriels.scss */
+@media only screen and (min-device-width: 768px) { /* line 217, pages/_tutoriels.scss */
   .tutoriels .body .entete-forum h1, .tutoriels .body .entete-forum p { float: left; }
-  /* line 222, pages/_tutoriels.scss */
+  /* line 221, pages/_tutoriels.scss */
   .tutoriels .body .entete-forum p { clear: both; max-width: 320px; }
-  /* line 227, pages/_tutoriels.scss */
+  /* line 226, pages/_tutoriels.scss */
   .tutoriels .body .entete-forum .btn-nouv-publication { max-width: 300px; float: right; margin: 0; }
-  /* line 236, pages/_tutoriels.scss */
+  /* line 235, pages/_tutoriels.scss */
   .tutoriels .body .categories h2 { display: none; }
-  /* line 240, pages/_tutoriels.scss */
+  /* line 239, pages/_tutoriels.scss */
   .tutoriels .body .categories ul { display: block; padding: 0; width: 60%; float: left; margin: 0; }
-  /* line 247, pages/_tutoriels.scss */
+  /* line 246, pages/_tutoriels.scss */
   .tutoriels .body .categories ul li { display: inline-block; font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; font-size: 20px; padding-right: 15px; line-height: 1.4em; color: #4A4A4A; float: left; }
-  /* line 260, pages/_tutoriels.scss */
+  /* line 259, pages/_tutoriels.scss */
   .tutoriels .body .categories ul li:first-child { margin-right: 20px; color: #262628; }
-  /* line 266, pages/_tutoriels.scss */
+  /* line 265, pages/_tutoriels.scss */
   .tutoriels .body .categories select { display: none; }
-  /* line 270, pages/_tutoriels.scss */
+  /* line 269, pages/_tutoriels.scss */
   .tutoriels .body .categories form { float: right; margin: 0; margin-bottom: 30px; width: 320px; }
-  /* line 278, pages/_tutoriels.scss */
+  /* line 277, pages/_tutoriels.scss */
   .tutoriels .body .categories form input { display: inline-block; width: 200px; }
-  /* line 284, pages/_tutoriels.scss */
+  /* line 283, pages/_tutoriels.scss */
   .tutoriels .body .categories form button { float: right; display: inline-block; }
-  /* line 293, pages/_tutoriels.scss */
+  /* line 292, pages/_tutoriels.scss */
   .tutoriels .body .liste-posts .post { position: relative; }
-  /* line 296, pages/_tutoriels.scss */
+  /* line 295, pages/_tutoriels.scss */
   .tutoriels .body .liste-posts .post h2 { float: left; }
-  /* line 300, pages/_tutoriels.scss */
+  /* line 299, pages/_tutoriels.scss */
   .tutoriels .body .liste-posts .post .post-desc { max-width: 480px; float: left; clear: both; }
-  /* line 306, pages/_tutoriels.scss */
+  /* line 305, pages/_tutoriels.scss */
   .tutoriels .body .liste-posts .post .post-meta { position: absolute; width: 240px; right: 0; top: 10px; }
-  /* line 312, pages/_tutoriels.scss */
+  /* line 311, pages/_tutoriels.scss */
   .tutoriels .body .liste-posts .post .post-meta .post-cat { float: none; margin-bottom: 15px; font-size: 20px; text-transform: uppercase; }
-  /* line 319, pages/_tutoriels.scss */
+  /* line 318, pages/_tutoriels.scss */
   .tutoriels .body .liste-posts .post .post-meta img { clear: both; margin-bottom: 10px; }
-  /* line 325, pages/_tutoriels.scss */
+  /* line 324, pages/_tutoriels.scss */
   .tutoriels .body .liste-posts .post .btn-repondre { max-width: 140px; float: left; clear: left; margin-bottom: 30px; }
-  /* line 336, pages/_tutoriels.scss */
+  /* line 335, pages/_tutoriels.scss */
   .tutoriels .body .pagination ul { display: block; text-align: center; }
-  /* line 340, pages/_tutoriels.scss */
+  /* line 339, pages/_tutoriels.scss */
   .tutoriels .body .pagination ul li { display: inline-block; width: 30px; height: 30px; margin-right: 10px; font-size: 18px; font-family: "gt_pressura_regular", sans-serif; }
-  /* line 350, pages/_tutoriels.scss */
+  /* line 349, pages/_tutoriels.scss */
   .tutoriels .body .pagination select { display: none; } }
-@media only screen and (min-width: 1224px) { /* line 361, pages/_tutoriels.scss */
+@media only screen and (min-width: 1224px) { /* line 360, pages/_tutoriels.scss */
   .tutoriels #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 369, pages/_tutoriels.scss */
+  /* line 368, pages/_tutoriels.scss */
   .tutoriels .body { margin-left: 0; margin-right: 0; } }
 
 /* line 1, pages/_actualites.scss */
@@ -817,24 +817,24 @@ a:visited { color: #e11414; }
   /* line 99, pages/_actualites.scss */
   .news .body .liste-actu .actu h2 { max-width: 60%; float: left; margin-left: 20%; margin-right: 20%; }
   /* line 106, pages/_actualites.scss */
-  .news .body .liste-actu .actu .actu-contenu { width: 60%; float: right; margin-right: 20%; margin-bottom: 60px; }
-  /* line 112, pages/_actualites.scss */
+  .news .body .liste-actu .actu .actu-contenu { width: 60%; float: right; margin-right: 20%; margin-bottom: 60px; font-size: 16px; line-height: 1.4em; }
+  /* line 114, pages/_actualites.scss */
   .news .body .liste-actu .actu .actu-contenu p:first-child { margin-top: 0; }
-  /* line 117, pages/_actualites.scss */
+  /* line 119, pages/_actualites.scss */
   .news .body .liste-actu .actu .actu-meta { width: 20%; float: left; }
-  /* line 121, pages/_actualites.scss */
+  /* line 123, pages/_actualites.scss */
   .news .body .liste-actu .actu .actu-meta p { margin: 0; line-height: 2em; }
-  /* line 126, pages/_actualites.scss */
+  /* line 128, pages/_actualites.scss */
   .news .body .liste-actu .actu .actu-meta .actu-auteur { clear: both; float: left; }
-  /* line 136, pages/_actualites.scss */
+  /* line 138, pages/_actualites.scss */
   .news .body .pagination ul { display: block; text-align: center; padding: 0; }
-  /* line 141, pages/_actualites.scss */
+  /* line 143, pages/_actualites.scss */
   .news .body .pagination ul li { display: inline-block; width: 30px; height: 30px; margin-right: 10px; font-size: 18px; font-family: "gt_pressura_regular", sans-serif; }
-  /* line 151, pages/_actualites.scss */
+  /* line 153, pages/_actualites.scss */
   .news .body .pagination select { display: none; } }
-@media only screen and (min-width: 1224px) { /* line 162, pages/_actualites.scss */
+@media only screen and (min-width: 1224px) { /* line 164, pages/_actualites.scss */
   .news #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 170, pages/_actualites.scss */
+  /* line 172, pages/_actualites.scss */
   .news .body { margin-left: 0; margin-right: 0; } }
 
 /* line 1, pages/_tutorial_add.scss */
