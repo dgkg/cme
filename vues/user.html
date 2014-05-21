@@ -71,117 +71,27 @@
 
                     <div class="wrapper-eleves">
 
-                        <a class="eleve 2014" href="/">
+                        {{ if .Users }}
+                            {{ range .Users }}
 
-                            <div class="back-projet">
-                                <img src="/img/projets/2014/5/prj_19.jpg" alt="">
-                            </div>
+                            <a class="eleve {{ .Graduation }}" href="#">
 
-                            <div class="img-etudiant">
-                                <img src="/img/eleves/2014/avatar.jpg" alt="">
-                            </div>
+                                <div class="back-projet">
+                                    <img src="/img/uploads/users/{{ .Id }}/{{ .PhotoCover }}" alt="">
+                                </div>
 
-                            <h2>Antoine Lord</h2>
+                                <div class="img-etudiant">
+                                    <img src="/img/uploads/users/{{ .Id }}/{{ .PhotoProfil }}" alt="">
+                                </div>
 
-                        </a>
+                                <h2>{{ .FirstName }} {{ .LastName }}</h2>
 
-                        <a class="eleve" href="/">
+                            </a>
 
-                            <div class="back-projet">
-                                <img src="/img/projets/2014/5/prj_22.jpg" alt="">
-                            </div>
+                            {{ end }}
+                        {{ else }}
 
-                            <div class="img-etudiant">
-                                <img src="/img/eleves/2003/henri-lepic.png" alt="">
-                            </div>
-
-                            <h2>Henri Lepic</h2>
-
-                        </a>
-
-                        <a class="eleve" href="/">
-
-                            <div class="back-projet">
-                                <img src="/img/projets/2014/5/prj_15.jpg" alt="">
-                            </div>
-
-                            <div class="img-etudiant">
-                                <img src="/img/eleves/2014/avatar.jpg" alt="">
-                            </div>
-
-                            <h2>Antoine Lord</h2>
-
-                        </a>
-
-                        <a class="eleve" href="/">
-
-                            <div class="back-projet">
-                                <img src="/img/projets/2014/5/prj_12.jpg" alt="">
-                            </div>
-
-                            <div class="img-etudiant">
-                                <img src="/img/eleves/2003/henri-lepic.png" alt="">
-                            </div>
-
-                            <h2>Henri Lepic</h2>
-
-                        </a>
-
-                        <a class="eleve" href="/">
-
-                            <div class="back-projet">
-                                <img src="/img/projets/2014/5/prj_32.jpg" alt="">
-                            </div>
-
-                            <div class="img-etudiant">
-                                <img src="/img/eleves/2014/avatar.jpg" alt="">
-                            </div>
-
-                            <h2>Antoine Lord</h2>
-
-                        </a>
-
-                        <a class="eleve" href="/">
-
-                            <div class="back-projet">
-                                <img src="/img/projets/2014/5/prj_30.jpg" alt="">
-                            </div>
-
-                            <div class="img-etudiant">
-                                <img src="/img/eleves/2003/henri-lepic.png" alt="">
-                            </div>
-
-                            <h2>Henri Lepic</h2>
-
-                        </a>
-
-                        <a class="eleve" href="/">
-
-                            <div class="back-projet">
-                                <img src="/img/projets/2014/5/prj_16.jpg" alt="">
-                            </div>
-
-                            <div class="img-etudiant">
-                                <img src="/img/eleves/2014/avatar.jpg" alt="">
-                            </div>
-
-                            <h2>Antoine Lord</h2>
-
-                        </a>
-
-                        <a class="eleve" href="/">
-
-                            <div class="back-projet">
-                                <img src="/img/projets/2014/5/prj_10.jpg" alt="">
-                            </div>
-
-                            <div class="img-etudiant">
-                                <img src="/img/eleves/2003/henri-lepic.png" alt="">
-                            </div>
-
-                            <h2>Henri Lepic</h2>
-
-                        </a>
+                        {{ end }}
 
                     </div>
 

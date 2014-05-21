@@ -8,9 +8,10 @@
                     <h1>{{.User.FirstName}} {{.User.LastName}}</h1>
                     <p class="etu-gradu">Gradué en {{.User.Graduation}}</p>
                     <p class="etu-bio">{{.User.Text}}</p>
-                    <p class="etu-social">{{.User.Facebook}}</p>
-                    <p class="etu-social">{{.User.Twitter}}</p>
-                    <p class="etu-social">{{.User.LinkedIn}}</p>
+
+                    <a class="etu-social" href="{{.User.LinkedIn}}">LinkedIn</p>
+                    <a class="etu-social" href="{{.User.Twitter}}">Twitter</p>
+                    <a class="etu-social" href="{{.User.Facebook}}">Facebook</p>
                 </div>
 
                 <hr>
