@@ -20,7 +20,9 @@ type User struct {
 	LinkedIn    string
 	Graduation  string
 	PhotoProfil string
+	PhotoCover  string
 	IsOnline    int64
+	Url         string  `sql:"-"`
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
 	Projects    []UserProject
@@ -139,6 +141,12 @@ func (u User) getList() []User {
 
 	var users []User
 	db.Limit(maxElementsInPage).Where("is_online = ?", "1").Order("id desc").Find(&users)
+	return users
+}
+
+func (u User) getAllUser() []User {
+	var users []User
+	db.Where("is_online = ?", "1").Order("id desc").Find(&users)
 	return users
 }
 

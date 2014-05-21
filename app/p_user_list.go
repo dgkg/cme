@@ -4,6 +4,7 @@ import (
 	//"github.com/gorilla/mux"
 	"log"
 	"net/http"
+	"github.com/kennygrant/sanitize"
 )
 
 type PageUserList struct {
@@ -38,36 +39,60 @@ func (pul *PageUserList) render(w http.ResponseWriter, r *http.Request) {
 	Render(w, p, r)
 }
 
-func (pu *PageUserList) View() {
+func (pul *PageUserList) View() {
 
 	log.Println("Users appelé")
 
 	// surcharge de la variable d'affichage
 	Templ = "user"
 
-	pu.Title = "Users"
-	pu.MainClass = "eleves"
+	pul.Title = "Users"
+	pul.MainClass = "eleves"
 
 	// pagination
-	pu.PagesList = make([]Paginate, 5)
+	pul.PagesList = make([]Paginate, 5)
 
-	pu.PagesList[0].Title = "1"
-	pu.PagesList[0].Url = "/eleves/page/1"
+	var u User
 
-	pu.PagesList[1].Title = "2"
-	pu.PagesList[1].Url = "/eleves/page/2"
+	pul.Users = u.getAllUser()
+	pul.injectDataToDisplay()
 
-	pu.PagesList[2].Title = "3"
-	pu.PagesList[2].Url = "/eleves/page/3"
+	pul.PagesList[0].Title = "1"
+	pul.PagesList[0].Url = "/eleves/page/1"
 
-	pu.PagesList[3].Title = "4"
-	pu.PagesList[3].Url = "/eleves/page/4"
+	pul.PagesList[1].Title = "2"
+	pul.PagesList[1].Url = "/eleves/page/2"
 
-	pu.PagesList[4].Title = "5"
-	pu.PagesList[4].Url = "/eleves/page/5"
+	pul.PagesList[2].Title = "3"
+	pul.PagesList[2].Url = "/eleves/page/3"
 
-	pu.RenderHtml = true
+	pul.PagesList[3].Title = "4"
+	pul.PagesList[3].Url = "/eleves/page/4"
 
+	pul.PagesList[4].Title = "5"
+	pul.PagesList[4].Url = "/eleves/page/5"
+
+	pul.RenderHtml = true
+
+}
+
+// fonction privée
+// permet de créer les urls des projets
+func (pul *PageUserList) injectDataToDisplay() {
+	for key, _ := range pul.Users {
+
+		// Génère l'URL du profil selon son prénom, nom et l'année de graduation
+		fn := sanitize.Name(pul.Users[key].FirstName)
+		ln := sanitize.Name(pul.Users[key].LastName)
+		ug := pul.Users[key].Graduation
+		pul.Users[key].Url = "/eleves/" + ug + "/" + fn + "_" + ln
+
+		// Si l'utilisateur n'a pas choisi sa photo de profil,
+		// une image générique lui est attribué
+		if (pul.Users[key].PhotoProfil == "") {
+			pul.Users[key].PhotoProfil = "user_inconnu.jpg";
+		}
+	}
 }
 
 // fonction public
