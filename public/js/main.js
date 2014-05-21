@@ -1,9 +1,12 @@
 $(window).load(function() {
+	InitDisplay();
+});
 
+$( window ).resize(function() {
+	InitDisplay();  
+});
 
-	
-
-
+function InitDisplay(){
 	// Création d'un tableau de 40 chiffres (0 à 40)
 	var arrProjets = new Array();
 
@@ -57,6 +60,17 @@ $(window).load(function() {
 	    }, 750);
 	});
 
+	initUserProjets();
+
+}
+
+function Shuffle(o) {
+	for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+	return o;
+};
+
+// permet d'initialiser l'affichage de la liste des projets
+function initUserProjets(){
 	// Effet hover sur les projets en accueil
 	$('.img-du-projet').contenthover({
 	    overlay_background: '#000',
@@ -65,7 +79,18 @@ $(window).load(function() {
 	});
 
 	var margeGrille = $('.projets').width() * 0.04;
-
+	var $container = $('.img-projet').imagesLoaded( function() {
+		console.log("les images sont loadés : imagesLoaded appelé ! dans main.js");
+  		$('.projets').isotope({
+    		masonry: {
+			gutter: margeGrille,
+			margin: margeGrille,
+		},
+		itemSelector: '.img-projet',
+  		});
+	});
+	
+	/*
 	$('.projets').isotope({
 		masonry: {
 			gutter: margeGrille,
@@ -73,22 +98,10 @@ $(window).load(function() {
 		},
 		itemSelector: '.img-projet',
 	});
+*/
 
-	$(".btn-plus-de-projets").click(function() {
-		var nbProjetsACharger = 8;
-		var requete = $.post('/get-projects', { nbProjets : nbProjetsACharger } );
-
-		requete.done(function(data){
-			// Ajouter les projets dans le HTML
-		});
-	});
-
-});
-
-function Shuffle(o) {
-	for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-	return o;
 };
+
 
 function initierMosaique() {
 

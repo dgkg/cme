@@ -49,9 +49,25 @@ func (up UserProject) getById() UserProject {
 	return up
 }
 
+// getById permet de récupérer toute les données d'un projet de user
+// en fonction de son id
+func (up UserProject) getListPaged(page int, limit int) []UserProject {
+	var ups []UserProject
+	db.Limit(limit).Offset(page).Where("is_online = ?", "1").Order("id desc").Find(&ups)
+	return ups
+}
+
 func (up UserProject) getByIdCat(limit int) []UserProject {
 	var ups []UserProject
-	db.Limit(limit).Where("is_online = ? AND user_project_category_id = ?", "1", Itoa(int(up.UserProjectCategoryId))).Find(&ups)
+	idCat := Itoa(int(up.UserProjectCategoryId))
+	db.Limit(limit).Where("is_online = ? AND user_project_category_id = ?", "1", idCat).Order("id desc").Find(&ups)
+	return ups
+}
+
+func (up UserProject) getByIdCatPaged(page int, limit int) []UserProject {
+	var ups []UserProject
+	idCat := Itoa(int(up.UserProjectCategoryId))
+	db.Limit(limit).Offset(page).Where("is_online = ?  AND user_project_category_id = ?", "1", idCat).Order("id desc").Find(&ups)
 	return ups
 }
 
@@ -66,7 +82,7 @@ func (up UserProject) getAllFromIdUser() []UserProject {
 // fonction permettant de récupérer tous les projets actifs
 func (up UserProject) getAllProjects() []UserProject {
 	var ups []UserProject
-	db.Where("is_online = ? ", "1").Find(&ups)
+	db.Where("is_online = ? ", "1").Order("id desc").Find(&ups)
 	return ups
 }
 
