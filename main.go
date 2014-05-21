@@ -62,6 +62,8 @@ func main() {
 	r.HandleFunc("/mon-compte/update", EditCompteHandler)
 	r.HandleFunc("/mon-compte/upload", UploadHandler)
 	r.HandleFunc("/ajax/userProject/getByIdCat/{id:[0-9]+}", UserProjectAjaxHandler)
+	r.HandleFunc("/ajax/userProject/getByIdCat/{id:[0-9]+}/{page:[0-9]+}", UserProjectMoreInCatAjaxHandler)
+	r.HandleFunc("/ajax/userProject/getMore/{page:[0-9]+}", UserProjectMoreAjaxHandler)
 
 	//r.HandleFunc("/ajax/connect", AjaxConnectHandler)
 	r.HandleFunc("/get-projects", GetProjectsHandler)

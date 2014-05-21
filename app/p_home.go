@@ -17,11 +17,7 @@ type PageHome struct {
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	ph := new(PageHome)
 	ph.View()
-
-	//insersion dans l'interface Page
-	var p Page
-	p = ph
-	Render(w, p, r)
+	ph.render(w, r)
 }
 
 func GetProjectsHandler(w http.ResponseWriter, r *http.Request) {
@@ -35,28 +31,39 @@ func CreatePageHome() *PageHome {
 }
 
 func (ph *PageHome) View() {
-
 	log.Println("Accueil appelé")
-
-	// surcharge de la variable d'affichage
 	Templ = "index"
-
 	ph.Title = "Accueil | Communauté Maryse-Éloy"
-
-	var up UserProject
-	ph.Projets = up.getAllProjects()
-
-	var uic UserProjectCategory
-	ph.Categories = uic.getAllCategories()
-	//getAllCategories()
-
-	//uimg.getDescCourte()
-
 	ph.MainClass = "accueil"
 	ph.RenderHtml = true
+	ph.getProjects()
+	ph.getCategories()
+	ph.getNews(2)
+}
 
+func (ph *PageHome) render(w http.ResponseWriter, r *http.Request) {
+	var p Page
+	p = ph
+	Render(w, p, r)
+}
+
+// permet de récupérer les news
+func (ph *PageHome) getNews(numb int) {
 	var n News
-	ph.News = n.getList(2)
+	ph.News = n.getList(numb)
+}
+
+// permet de récupérer les projets
+func (ph *PageHome) getProjects() {
+	var up UserProject
+	ph.Projets = up.getAllProjects()
+}
+
+// permet de récupérer les catégories qui ont des projets
+func (ph *PageHome) getCategories() {
+	log.Println("getCategories appelé")
+	var uic UserProjectCategory
+	ph.Categories = uic.GetCategoriesProjects()
 }
 
 // fonction permettant de savoir si le rendu passe par l'html ou non

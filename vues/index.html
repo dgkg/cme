@@ -8,7 +8,7 @@
                     <ul>
                         <li>Catégories  /   </li>
                         {{range .Categories}}
-                        <li><a class="cat-select" href="{{.Id}}">{{.Title}}</a></li>
+                        <li><a class="cat-select" href="#" data-idCat="{{.Id}}">{{.Title}}</a></li>
                         {{end}}
                     </ul>
 
@@ -26,7 +26,7 @@
                     {{if .Projets}}
                         {{range .Projets}}
 
-                            <div class="img-projet">
+                            <div class="img-projet {{ .UserProjectCategoryId }}">
                                 <img class="img-du-projet" src="{{.ImageUrl}}">
                                 <div class="over-projet">
                                     <h3>{{.Title}}</h3>
@@ -119,6 +119,7 @@
         <script type="text/javascript" src="/js/vendor/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="/js/vendor/jquery.justifiedGallery.js"></script>
         <script type="text/javascript" src="/js/vendor/jquery.contenthover.min.js"></script>
+        <script type="text/javascript" src="/js/vendor/imagesloaded.pkgd.min.js"></script>
         <script type="text/javascript" src="/js/vendor/isotope.pkgd.min.js"></script>
         <script type="text/javascript" src="/js/main.js"></script>
         <script type="text/javascript" src="/js/home.js"></script>
