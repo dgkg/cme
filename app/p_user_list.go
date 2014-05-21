@@ -14,13 +14,27 @@ type PageUserList struct {
 
 // affichage de la liste des étudants
 func StudentHandler(w http.ResponseWriter, r *http.Request) {
+	pul := new(PageUserList)
+	pul.View()
+	pul.render(w, r)
+}
 
-	pu := new(PageUserList)
-	pu.View()
+// affichage de la recherche dans la liste des étudants
+func StudentSearchHandler(w http.ResponseWriter, r *http.Request) {
+	pul := new(PageUserList)
+	q := r.FormValue("q")
+	if q == "" {
+		pul.View()
+	} else {
+		pul.ViewSearch(q)
+	}
+	pul.render(w, r)
+}
 
+func (pul *PageUserList) render(w http.ResponseWriter, r *http.Request) {
 	//insersion dans l'interface Page
 	var p Page
-	p = pu
+	p = pul
 	Render(w, p, r)
 }
 
@@ -54,6 +68,35 @@ func (pu *PageUserList) View() {
 
 	pu.RenderHtml = true
 
+}
+
+// fonction public
+// permet d'afficher la recherche à partir d'un mot clef
+// va chercher dans les noms
+// et va chercher dans les prénoms
+func (pul *PageUserList) ViewSearch(q string) {
+
+	log.Println("ForumViewSearch appelé")
+
+	// surcharge de la variable d'affichage
+	Templ = "user"
+
+	pul.Title = "Users"
+	pul.MainClass = "eleves"
+	pul.SearchText = q
+	pul.getSearch()
+
+	//pul.Categories = u.getAllCategories(0)
+	pul.RenderHtml = true
+	//pul.injectDataToDisplay(pul.Users)
+
+}
+
+// getSearch permet d'insérer une liste d'utilisateurs
+// en fonction de la recherche q
+func (pul *PageUserList) getSearch() {
+	var u User
+	pul.Users = u.search(pul.SearchText)
 }
 
 // fonction permettant de savoir si le rendu passe par l'html ou non

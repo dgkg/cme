@@ -25,6 +25,7 @@ func main() {
 
 	// routages des élèves
 	r.HandleFunc("/eleves", StudentHandler)
+	r.HandleFunc("/eleves/search", StudentSearchHandler)
 	r.HandleFunc("/eleves/{year:[0-9]+}/{firstName:[a-z-]+}_{lastName:[a-z-]+}", StudentFicheHandler)
 	//r.HandleFunc("/eleves/{year:[0-9]+}/{firstName:[a-z-]+}_{lastName:[a-z-]+}/{project:[a-z-]+}", ProjetHandler)
 

@@ -173,6 +173,6 @@ func (u User) count() int {
 func (u User) search(s string) []User {
 
 	var users []User
-	db.Where("is_online = ? and first_name LIKE ? ", "1", "%"+s+"%").Or("is_online = ? and last_name LIKE ? ", "1", "%"+s+"%").Order("id desc").Find(&users)
+	db.Where("is_online = ? AND first_name LIKE ? ", "1", "%"+s+"%").Or("is_online = ? and last_name LIKE ? ", "1", "%"+s+"%").Order("id desc").Find(&users)
 	return users
 }
