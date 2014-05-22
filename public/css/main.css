@@ -58,62 +58,62 @@ a:visited { color: #e11414; }
 /* line 1, inc/_header.scss */
 .zone-membre { width: 100%; height: 60px; position: relative; line-height: 60px; vertical-align: middle; }
 /* line 8, inc/_header.scss */
-.zone-membre .btn-connexion, .zone-membre .btn-inscription, .zone-membre .btn-moncompte { display: inline-block; height: 20px; width: 42%; background-color: #e11414; line-height: 20px; vertical-align: middle; text-align: center; font-size: 16px; text-decoration: none; color: #f9f9f9; font-family: "gt_pressura_regular", sans-serif; float: right; margin-left: 4%; margin-right: 4%; margin-top: 10px; margin-bottom: 10px; }
-/* line 27, inc/_header.scss */
-.zone-membre .btn-connexion:hover, .zone-membre .btn-inscription:hover { background-color: #9c1111; color: #f9f9f9; }
-@media only screen and (min-device-width: 768px) { /* line 35, inc/_header.scss */
-  .zone-membre .btn-connexion, .zone-membre .btn-inscription, .zone-membre .btn-moncompte { float: right; width: auto; padding: 10px; background-color: #f9f9f9; color: #6E7074; margin: 0; margin-top: 10px; margin-bottom: 10px; margin-right: 30px; font-size: 14px; border: 1px solid #f9f9f9; }
-  /* line 49, inc/_header.scss */
-  .zone-membre .btn-connexion:hover, .zone-membre .btn-inscription:hover, .zone-membre .btn-moncompte:hover { background-color: #f9f9f9; color: #262628; border: 1px solid #262628; } }
-@media only screen and (min-width: 1224px) { /* line 59, inc/_header.scss */
+.zone-membre .btn-connexion, .zone-membre .btn-inscription, .zone-membre .btn-moncompte { display: inline-block; width: 42%; line-height: 20px; vertical-align: middle; text-align: center; font-size: 16px; text-decoration: none; color: #f9f9f9; font-family: "gt_pressura_regular", sans-serif; float: right; margin-left: 4%; margin-right: 4%; margin-top: 10px; margin-bottom: 10px; }
+/* line 25, inc/_header.scss */
+.zone-membre .btn-connexion:hover, .zone-membre .btn-inscription:hover { color: #f9f9f9; }
+@media only screen and (min-device-width: 768px) { /* line 32, inc/_header.scss */
+  .zone-membre .btn-connexion, .zone-membre .btn-inscription, .zone-membre .btn-moncompte { float: right; width: auto; padding: 10px; color: #6E7074; margin: 0; margin-top: 10px; margin-bottom: 10px; margin-right: 30px; font-size: 14px; }
+  /* line 44, inc/_header.scss */
+  .zone-membre .btn-connexion:hover, .zone-membre .btn-inscription:hover, .zone-membre .btn-moncompte:hover { color: #262628; border: 1px solid #262628; } }
+@media only screen and (min-width: 1224px) { /* line 53, inc/_header.scss */
   .zone-membre .btn-connexion, .zone-membre .btn-inscription, .zone-membre .btn-moncompte { margin-right: 0; font-size: 16px; } }
 
-/* line 67, inc/_header.scss */
+/* line 61, inc/_header.scss */
 .header { width: 100%; min-height: 20px; padding-top: 60px; padding-bottom: 60px; }
-/* line 73, inc/_header.scss */
+/* line 67, inc/_header.scss */
 .header #logo { display: block; margin-right: auto; margin-left: auto; width: 80px; height: auto; }
-/* line 81, inc/_header.scss */
+/* line 75, inc/_header.scss */
 .header .nav-mobile { padding: 0; }
-/* line 85, inc/_header.scss */
+/* line 79, inc/_header.scss */
 .header .nav-mobile li { display: inline-block; width: 100%; text-align: center; margin-bottom: 1.2em; font-family: "gt_pressura_regular", sans-serif; font-size: 20px; margin-left: auto; margin-right: auto; }
-/* line 96, inc/_header.scss */
+/* line 90, inc/_header.scss */
 .header .nav-mobile li:first-child { margin-top: 1.2em; }
-/* line 100, inc/_header.scss */
+/* line 94, inc/_header.scss */
 .header .nav-mobile li:last-child { margin-bottom: 0; }
-/* line 104, inc/_header.scss */
+/* line 98, inc/_header.scss */
 .header a { color: #262628; }
-/* line 108, inc/_header.scss */
+/* line 102, inc/_header.scss */
 .header a:hover { color: #e11414; }
-/* line 112, inc/_header.scss */
+/* line 106, inc/_header.scss */
 .header .nav1-ipad, .header .nav2-ipad { display: none; }
 
 /* iPads (portrait and landscape) ----------- */
-@media only screen and (min-device-width: 768px) { /* line 121, inc/_header.scss */
+@media only screen and (min-device-width: 768px) { /* line 115, inc/_header.scss */
   .header { position: relative; }
-  /* line 124, inc/_header.scss */
+  /* line 118, inc/_header.scss */
   .header #logo { display: block; position: absolute; width: 80px; height: auto; margin: auto; top: 0; left: 0; right: 0; bottom: 0; }
-  /* line 133, inc/_header.scss */
+  /* line 127, inc/_header.scss */
   .header .nav-mobile { display: none; }
-  /* line 137, inc/_header.scss */
+  /* line 131, inc/_header.scss */
   .header .nav1-ipad, .header .nav2-ipad { display: inline-block; position: absolute; padding: 0; list-style-type: none; vertical-align: middle; top: 40px; margin-right: 30px; margin-left: 30px; }
-  /* line 147, inc/_header.scss */
+  /* line 141, inc/_header.scss */
   .header .nav1-ipad li a, .header .nav2-ipad li a { text-decoration: none; }
-  /* line 152, inc/_header.scss */
+  /* line 146, inc/_header.scss */
   .header .nav1-ipad { left: 0px; }
-  /* line 156, inc/_header.scss */
+  /* line 150, inc/_header.scss */
   .header .nav2-ipad { right: 0px; }
-  /* line 160, inc/_header.scss */
+  /* line 154, inc/_header.scss */
   .header .nav1-ipad li, .header .nav2-ipad li { display: inline-block; margin-bottom: 1.2em; font-family: "gt_pressura_regular", sans-serif; font-size: 20px; }
-  /* line 167, inc/_header.scss */
+  /* line 161, inc/_header.scss */
   .header .nav1-ipad li:first-child, .header .nav2-ipad li:first-child { margin-right: 40px; }
-  /* line 171, inc/_header.scss */
+  /* line 165, inc/_header.scss */
   .header .nav1-ipad li a, .header .nav2-ipad li a { vertical-align: middle; } }
 /* Desktops and laptops ----------- */
-@media only screen and (min-width: 1224px) { /* line 181, inc/_header.scss */
+@media only screen and (min-width: 1224px) { /* line 175, inc/_header.scss */
   .header { padding-top: 20px; padding-bottom: 100px; }
-  /* line 185, inc/_header.scss */
+  /* line 179, inc/_header.scss */
   .header .nav1-ipad, .header .nav2-ipad { margin-right: 0; margin-left: 0; top: 40px; }
-  /* line 191, inc/_header.scss */
+  /* line 185, inc/_header.scss */
   .header .nav1-ipad li, .header .nav2-ipad li { font-size: 22px; } }
 /* line 1, pages/_accueil.scss */
 .accueil { /* iPads (portrait and landscape) ----------- */ /* Desktops and laptops ----------- */ }
