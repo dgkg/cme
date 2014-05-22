@@ -50,7 +50,7 @@ func (pu *PageUser) View() {
 	log.Println("Fiche appelé")
 
 	Templ = "user_fiche"
-	pu.Title = "Fiche de Henri Lepic"
+	pu.Title = "Fiche d'" + pu.User.FirstName + " " + pu.User.LastName
 	pu.MainClass = "eleve_fiche"
 	pu.User.Projects = up.getAllFromIdUser()
 	pu.RenderHtml = true
