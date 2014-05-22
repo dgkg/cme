@@ -8,6 +8,12 @@ $(window).load(function() {
         savePhotoProfil();
     });
 
+    // Sauvegarde de l'image de cover
+    $('.form-cover').submit( function(event) {
+        event.preventDefault();
+        savePhotoCover();
+    })
+
     // Sauvegarde de la bio
     $('.form-bio').submit( function(event) {
         event.preventDefault();
@@ -81,12 +87,44 @@ function savePhotoProfil() {
     // Création de la requête
     var xhr = new XMLHttpRequest();
 
-    xhr.open('POST', '/mon-compte/upload', true);
+    xhr.open('POST', '/mon-compte/avatar', true);
 
     // Vérification de l'envoi du formulaire
     xhr.onload = function () {
         if (xhr.status === 200) {
             afficherSucces("photo");
+        } else {
+            alert('Une erreur est survenue. Veuillez réessayer.');
+        }
+    };
+
+    // Envoi du formulaire et de son contenu
+    xhr.send(formData);
+}
+
+// Envoi de l'image de cover
+function savePhotoCover() {
+
+    // Initialisation des variables de base
+    var idUser = $('#id-user').val();
+    var imgCover = $('#cover-upload').get(0).files[0];
+    var strSection = "savePhoto";
+
+    // Création de l'objet formulaire
+    var formData = new FormData();
+
+    // Ajout d'une entrée dans l'objet formulaire
+    formData.append('cover-upload', imgCover, imgCover.name);
+
+    // Création de la requête
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('POST', '/mon-compte/cover', true);
+
+    // Vérification de l'envoi du formulaire
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            afficherSucces("cover");
         } else {
             alert('Une erreur est survenue. Veuillez réessayer.');
         }

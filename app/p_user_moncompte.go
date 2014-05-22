@@ -94,7 +94,7 @@ func EditCompteHandler(w http.ResponseWriter, r *http.Request) {
 
 // Upload de fichiers avec Go
 // Code original : https://gist.github.com/sanatgersappa/5127317#file-app-go
-func UploadHandler(w http.ResponseWriter, r *http.Request) {
+func AvatarHandler(w http.ResponseWriter, r *http.Request) {
 	/*
 		// Initialisation des variables utiles
 		var u User
@@ -186,6 +186,101 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 	*/
 }
 
+// Upload de fichiers avec Go
+// Code original : https://gist.github.com/sanatgersappa/5127317#file-app-go
+func CoverHandler(w http.ResponseWriter, r *http.Request) {
+	log.Println("CoverHandler appelé!")
+	/*
+		// Initialisation des variables utiles
+		var u User
+		session, _ := store.Get(r, "cme_connecte")
+		u.Id = session.Values["id"].(int64)
+		userId := Itoa(int(u.Id))
+		var strNomFichier string
+
+		//parse the multipart form in the request
+		err := r.ParseMultipartForm(100000)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		//get a ref to the parsed multipart form
+		m := r.MultipartForm
+
+		//get the *fileheaders
+		files := m.File["cover-upload"]
+
+		file, err := files[0].Open()
+
+		defer file.Close()
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		// Création d'un nom sanitizé pour
+		strNomFichier = sanitize.Name(files[0].Filename)
+
+		// Validation des extensions de fichiers
+		if filepath.Ext(strNomFichier) != ".jpg" &&
+			filepath.Ext(strNomFichier) != ".jpeg" &&
+			filepath.Ext(strNomFichier) != ".png" &&
+			filepath.Ext(strNomFichier) != ".gif" {
+			return
+		}
+
+		//create destination file making sure the path is writeable.
+		dst, err := os.Create("./public/img/uploads/users/" + userId + "/" + strNomFichier)
+
+		// Vérification de l'existence du répertoire cible
+		if err != nil {
+			log.Println(err)
+		}
+
+		// Envoi du nom du fichier pour l'ajout à la BD
+		u.SavePhoto(strNomFichier)
+
+		defer dst.Close()
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		//copy the uploaded file to the destination file
+		if _, err := io.Copy(dst, file); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		// Redimensionnement de l'image
+
+		// open "test.jpg"
+		rfile, err := os.Open("./public/img/uploads/users/" + userId + "/" + strNomFichier)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		// decode jpeg into image.Image
+		rimg, err := jpeg.Decode(rfile)
+		if err != nil {
+			log.Fatal(err)
+		}
+		rfile.Close()
+
+		image := resize.Thumbnail(1280, 200, rimg, resize.Bilinear)
+
+		out, err := os.Create("./public/img/uploads/users/" + userId + "/" + strNomFichier)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer out.Close()
+
+		// write new image to file
+		jpeg.Encode(out, image, nil)
+	*/
+}
+
 func (pc *PageCompte) View(id int64) {
 
 	log.Println("Mon Compte appelé")
@@ -206,6 +301,8 @@ func (pc *PageCompte) View(id int64) {
 	pc.Graduation = u.Graduation
 	pc.FirstName = u.FirstName
 	pc.LastName = u.LastName
+	pc.Id = u.Id
+	pc.PhotoCover = u.PhotoCover
 
 	pc.Graduations = make([]string, 20)
 
