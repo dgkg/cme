@@ -192,70 +192,70 @@ a:visited { color: #e11414; }
 /* line 237, pages/_accueil.scss */
 .accueil .info-communaute .section-info a:hover { color: #9c1111; }
 /* line 243, pages/_accueil.scss */
-.accueil #qui-sommes-nous { background: url("/img/qui_sommes_nous.jpg") no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
-/* line 251, pages/_accueil.scss */
-.accueil #pq-une-asso { background: url("/img/pq_une_asso.jpg") no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
-/* line 259, pages/_accueil.scss */
-.accueil #insc { background: url("/img/insc.jpg") no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
-@media only screen and (min-device-width: 768px) { /* line 271, pages/_accueil.scss */
+.accueil #qui-sommes-nous { display: block; background: url("/img/qui_sommes_nous.jpg") no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
+/* line 252, pages/_accueil.scss */
+.accueil #pq-une-asso { display: block; background: url("/img/pq_une_asso.jpg") no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
+/* line 261, pages/_accueil.scss */
+.accueil #insc { display: block; background: url("/img/insc.jpg") no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
+@media only screen and (min-device-width: 768px) { /* line 274, pages/_accueil.scss */
   .accueil .message-accueil { position: absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0; z-index: 999; width: 90%; max-width: 420px; height: 140px; background-color: #f9f9f9; line-height: 140px; display: table; }
-  /* line 283, pages/_accueil.scss */
+  /* line 286, pages/_accueil.scss */
   .accueil .message-accueil .logo { vertical-align: middle; margin-left: 20px; }
-  /* line 288, pages/_accueil.scss */
+  /* line 291, pages/_accueil.scss */
   .accueil .message-accueil .btn { display: inline-block; margin-left: 20%; }
-  /* line 294, pages/_accueil.scss */
-  .accueil .categories { padding-bottom: 40px; }
   /* line 297, pages/_accueil.scss */
+  .accueil .categories { padding-bottom: 40px; }
+  /* line 300, pages/_accueil.scss */
   .accueil .categories ul { display: block; margin-left: 60px; margin-right: 60px; padding: 0; }
-  /* line 304, pages/_accueil.scss */
+  /* line 307, pages/_accueil.scss */
   .accueil .categories ul li { display: inline-block; font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; font-size: 18px; padding-right: 15px; line-height: 1.4em; }
-  /* line 312, pages/_accueil.scss */
+  /* line 315, pages/_accueil.scss */
   .accueil .categories ul li a { color: #727272; text-decoration: none; }
-  /* line 317, pages/_accueil.scss */
+  /* line 320, pages/_accueil.scss */
   .accueil .categories ul li a:visited { color: #727272; text-decoration: none; }
-  /* line 323, pages/_accueil.scss */
+  /* line 326, pages/_accueil.scss */
   .accueil .categories ul li:first-child { margin-right: 20px; }
-  /* line 327, pages/_accueil.scss */
+  /* line 330, pages/_accueil.scss */
   .accueil .categories select { display: none; }
-  /* line 332, pages/_accueil.scss */
+  /* line 335, pages/_accueil.scss */
   .accueil .projets { display: block; width: 100%; position: relative; overflow: hidden; }
-  /* line 338, pages/_accueil.scss */
+  /* line 341, pages/_accueil.scss */
   .accueil .projets .img-projet { display: inline-block; width: 30.666666667%; float: left; }
-  /* line 345, pages/_accueil.scss */
+  /* line 348, pages/_accueil.scss */
   .accueil .btn-plus-de-projets { display: block; clear: both; max-width: 30.666666667%; margin-right: auto; margin-left: auto; margin-bottom: 30px; }
-  /* line 354, pages/_accueil.scss */
+  /* line 357, pages/_accueil.scss */
   .accueil hr { clear: both; }
-  /* line 358, pages/_accueil.scss */
+  /* line 361, pages/_accueil.scss */
   .accueil .actualites { display: block; float: left; }
-  /* line 362, pages/_accueil.scss */
+  /* line 365, pages/_accueil.scss */
   .accueil .actualites .titre-section-actualite { display: block; width: 30.666666667%; float: left; margin-right: 2%; }
-  /* line 368, pages/_accueil.scss */
+  /* line 371, pages/_accueil.scss */
   .accueil .actualites .titre-section-actualite h2 { font-size: 28px; margin-top: 0; }
-  /* line 373, pages/_accueil.scss */
+  /* line 376, pages/_accueil.scss */
   .accueil .actualites .titre-section-actualite h2, .accueil .actualites .titre-section-actualite a { text-transform: uppercase; text-align: left; }
-  /* line 379, pages/_accueil.scss */
+  /* line 382, pages/_accueil.scss */
   .accueil .actualites .actu { display: block; max-width: 30.666666667%; float: left; margin-top: 0; margin-bottom: 40px; margin-right: 2%; margin-left: 2%; }
-  /* line 388, pages/_accueil.scss */
+  /* line 391, pages/_accueil.scss */
   .accueil .actualites .actu h3 { margin-top: 0; }
-  /* line 393, pages/_accueil.scss */
+  /* line 396, pages/_accueil.scss */
   .accueil .actualites .actu:first-child { margin-left: 0; }
-  /* line 397, pages/_accueil.scss */
+  /* line 400, pages/_accueil.scss */
   .accueil .actualites .actu:last-child { margin-right: 0; }
-  /* line 405, pages/_accueil.scss */
+  /* line 408, pages/_accueil.scss */
   .accueil .info-communaute .section-info { display: block; max-width: 30.666666667%; float: left; margin-top: 0; margin-bottom: 40px; margin-right: 2%; margin-left: 2%; }
-  /* line 415, pages/_accueil.scss */
+  /* line 418, pages/_accueil.scss */
   .accueil .info-communaute .section-info:first-child { margin-left: 0; }
-  /* line 419, pages/_accueil.scss */
+  /* line 422, pages/_accueil.scss */
   .accueil .info-communaute .section-info:last-child { margin-right: 0; } }
-@media only screen and (min-width: 1224px) { /* line 429, pages/_accueil.scss */
+@media only screen and (min-width: 1224px) { /* line 432, pages/_accueil.scss */
   .accueil #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 437, pages/_accueil.scss */
+  /* line 440, pages/_accueil.scss */
   .accueil .body { margin-left: 0; margin-right: 0; }
-  /* line 444, pages/_accueil.scss */
+  /* line 447, pages/_accueil.scss */
   .accueil .message-accueil .btn { margin-left: 25%; }
-  /* line 451, pages/_accueil.scss */
+  /* line 454, pages/_accueil.scss */
   .accueil .categories ul li { padding-right: 30px; line-height: 1.6em; }
-  /* line 457, pages/_accueil.scss */
+  /* line 460, pages/_accueil.scss */
   .accueil hr { margin-top: 60px; margin-bottom: 60px; } }
 
 /* line 1, pages/_eleves.scss */
