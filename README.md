@@ -5,3 +5,11 @@ cme
 
 Site de l'association des élèves de Maryse Éloy
 
+
+## Production
+
+[CME Production](http://www.la-communaute-de-maryse-eloy.com/)
+
+## Testing
+
+[CME Test](http://test.la-communaute-de-maryse-eloy.com/)
