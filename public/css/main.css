@@ -313,56 +313,56 @@ a:visited { color: #e11414; }
 	background-image: linear-gradient(-179deg, rgba(0,0,0,0.00) 0%, #000000 75%);
 } */ }
 /* line 115, pages/_eleves.scss */
-.eleves .body .liste-eleves .eleve .back-projet img { max-width: 100%; position: relative; }
-/* line 120, pages/_eleves.scss */
+.eleves .body .liste-eleves .eleve .back-projet img { min-width: 100%; min-height: 100%; position: relative; }
+/* line 121, pages/_eleves.scss */
 .eleves .body .liste-eleves .eleve .img-etudiant { display: block; position: relative; width: 60px; height: 60px; margin-right: auto; margin-left: auto; margin-top: -25%; z-index: 2; }
-/* line 131, pages/_eleves.scss */
+/* line 132, pages/_eleves.scss */
 .eleves .body .liste-eleves .eleve .img-etudiant img { max-width: 100%; display: block; border-radius: 30px; border: 3px solid #F9F9F9; }
-/* line 138, pages/_eleves.scss */
+/* line 139, pages/_eleves.scss */
 .eleves .body .liste-eleves .eleve h2 { display: block; margin-right: auto; margin-left: auto; font-size: 16px; text-align: center; }
-/* line 166, pages/_eleves.scss */
+/* line 167, pages/_eleves.scss */
 .eleves .body .pagination ul { display: none; }
-/* line 170, pages/_eleves.scss */
+/* line 171, pages/_eleves.scss */
 .eleves .body .pagination .btn-nav-suiv { display: none; }
-/* line 174, pages/_eleves.scss */
+/* line 175, pages/_eleves.scss */
 .eleves .body .pagination select { clear: both; display: block; margin-left: auto; margin-right: auto; width: 40%; height: 30px; padding: 2px; -webkit-border-radius: 1px; -moz-border-radius: 1px; border-radius: 1px; font-family: "gt_pressura_regular", sans-serif; font-size: 16px; }
-@media only screen and (min-device-width: 768px) { /* line 199, pages/_eleves.scss */
+@media only screen and (min-device-width: 768px) { /* line 200, pages/_eleves.scss */
   .eleves .body .entete h1, .eleves .body .entete p { float: left; }
-  /* line 203, pages/_eleves.scss */
+  /* line 204, pages/_eleves.scss */
   .eleves .body .entete p { clear: both; max-width: 320px; }
-  /* line 211, pages/_eleves.scss */
+  /* line 212, pages/_eleves.scss */
   .eleves .body .categories h2 { display: none; }
-  /* line 215, pages/_eleves.scss */
+  /* line 216, pages/_eleves.scss */
   .eleves .body .categories ul { display: block; padding: 0; width: 50%; float: left; margin: 0; }
-  /* line 222, pages/_eleves.scss */
+  /* line 223, pages/_eleves.scss */
   .eleves .body .categories ul li { display: inline-block; font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; font-size: 20px; padding-right: 15px; line-height: 1.4em; color: #4A4A4A; float: left; }
-  /* line 232, pages/_eleves.scss */
+  /* line 233, pages/_eleves.scss */
   .eleves .body .categories ul li a { color: #727272; text-decoration: none; }
-  /* line 237, pages/_eleves.scss */
+  /* line 238, pages/_eleves.scss */
   .eleves .body .categories ul li a:visited { color: #727272; text-decoration: none; }
-  /* line 243, pages/_eleves.scss */
+  /* line 244, pages/_eleves.scss */
   .eleves .body .categories ul li:first-child { margin-right: 20px; color: #262628; }
-  /* line 249, pages/_eleves.scss */
+  /* line 250, pages/_eleves.scss */
   .eleves .body .categories select { display: block; width: 20%; margin: 0; }
-  /* line 255, pages/_eleves.scss */
+  /* line 256, pages/_eleves.scss */
   .eleves .body .categories form { float: right; margin: 0; margin-bottom: 30px; width: 320px; }
-  /* line 263, pages/_eleves.scss */
+  /* line 264, pages/_eleves.scss */
   .eleves .body .categories form input { display: inline-block; width: 200px; }
-  /* line 269, pages/_eleves.scss */
+  /* line 270, pages/_eleves.scss */
   .eleves .body .categories form button { float: right; display: inline-block; }
-  /* line 276, pages/_eleves.scss */
+  /* line 277, pages/_eleves.scss */
   .eleves .body .graduation { display: block; float: left; width: 20%; }
-  /* line 281, pages/_eleves.scss */
+  /* line 282, pages/_eleves.scss */
   .eleves .body .graduation h3 { font-size: 20px; margin-bottom: 0; }
-  /* line 286, pages/_eleves.scss */
+  /* line 287, pages/_eleves.scss */
   .eleves .body .graduation ul { margin-top: 5px; padding-left: 20px; }
-  /* line 291, pages/_eleves.scss */
+  /* line 292, pages/_eleves.scss */
   .eleves .body .graduation ul li { list-style-type: none; }
-  /* line 295, pages/_eleves.scss */
+  /* line 296, pages/_eleves.scss */
   .eleves .body .graduation ul li:last-child { margin-bottom: 40px; }
-  /* line 299, pages/_eleves.scss */
+  /* line 300, pages/_eleves.scss */
   .eleves .body .graduation ul li a { text-decoration: none; font-size: 16px; line-height: 24px; }
-  /* line 306, pages/_eleves.scss */
+  /* line 307, pages/_eleves.scss */
   .eleves .body .liste-eleves { float: left; width: 80%; 				/*
 				.eleve:nth-child(even) {
 					margin-right: 2%;
@@ -380,23 +380,23 @@ a:visited { color: #e11414; }
 					margin-left: 0;
 				}
 				*/ }
-  /* line 310, pages/_eleves.scss */
+  /* line 311, pages/_eleves.scss */
   .eleves .body .liste-eleves .eleve { width: 23.6%; margin-bottom: 30px; }
-  /* line 315, pages/_eleves.scss */
+  /* line 316, pages/_eleves.scss */
   .eleves .body .liste-eleves .eleve .back-projet { height: 120px; }
-  /* line 319, pages/_eleves.scss */
+  /* line 320, pages/_eleves.scss */
   .eleves .body .liste-eleves .eleve .img-etudiant { margin-top: -13%; }
-  /* line 345, pages/_eleves.scss */
+  /* line 346, pages/_eleves.scss */
   .eleves .body .pagination ul { display: block; text-align: center; clear: both; padding: 0; margin-top: 40px; margin-bottom: 40px; }
-  /* line 353, pages/_eleves.scss */
+  /* line 354, pages/_eleves.scss */
   .eleves .body .pagination ul li { display: inline-block; width: 30px; height: 30px; margin-right: 10px; font-size: 18px; font-family: "gt_pressura_regular", sans-serif; }
-  /* line 363, pages/_eleves.scss */
+  /* line 364, pages/_eleves.scss */
   .eleves .body .pagination select { display: none; } }
-@media only screen and (min-width: 1224px) { /* line 374, pages/_eleves.scss */
+@media only screen and (min-width: 1224px) { /* line 375, pages/_eleves.scss */
   .eleves #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 382, pages/_eleves.scss */
+  /* line 383, pages/_eleves.scss */
   .eleves .body { margin-left: 0; margin-right: 0; }
-  /* line 386, pages/_eleves.scss */
+  /* line 387, pages/_eleves.scss */
   .eleves .body .liste-eleves { 				/*
 				.eleve:nth-child(even) {
 					margin-right: 2%;
@@ -423,11 +423,11 @@ a:visited { color: #e11414; }
 				}
 
 				*/ }
-  /* line 388, pages/_eleves.scss */
+  /* line 389, pages/_eleves.scss */
   .eleves .body .liste-eleves .eleve { width: 16.80%; margin-bottom: 45px; }
-  /* line 393, pages/_eleves.scss */
+  /* line 394, pages/_eleves.scss */
   .eleves .body .liste-eleves .eleve .back-projet { height: 120px; }
-  /* line 397, pages/_eleves.scss */
+  /* line 398, pages/_eleves.scss */
   .eleves .body .liste-eleves .eleve .img-etudiant { margin-top: -13%; } }
 
 /* line 1, pages/_eleve_fiche.scss */
