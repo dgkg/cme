@@ -4,23 +4,31 @@
             <div class="body">
 
                 <div class="etu-fiche">
-                    <div class="container-img"><img class="etu-photo" src="/img/uploads/users/{{.User.Id}}/{{.User.PhotoProfil}}" alt="Photo de l'étudiant"></div>
-                    <h1>{{.User.FirstName}} {{.User.LastName}}</h1>
-                    <p class="etu-gradu">Gradué en {{.User.Graduation}}</p>
+
+                    <div class="etu-cover">
+                        <img src="/img/uploads/users/{{ .Id }}/{{ .PhotoCover }}" alt="">
+                    </div>
+
+                    <div class="etu-avatar">
+                        <img src="/img/uploads/users/{{.User.Id}}/{{.User.PhotoProfil}}" alt="Avatar d'{{ .User.FirstName }} {{ .User.LastName }}">
+                    </div>
+
+                    <h2>{{ .User.FirstName }} {{ .User.LastName }}</h2>
+                    <p class="etu-gradu">Gradué en {{ .User.Graduation }}</p>
                     <p class="etu-bio">{{.User.Text}}</p>
 
-                    <a class="etu-social" href="{{.User.LinkedIn}}">LinkedIn</p>
-                    <a class="etu-social" href="{{.User.Twitter}}">Twitter</p>
-                    <a class="etu-social" href="{{.User.Facebook}}">Facebook</p>
-                </div>
+                    <div class="wrapper-etu-social">
+                        <a class="etu-social social-fb" href="{{.User.Facebook}}"><img src="/img/ui/facebook-logo.png" alt="Accéder au profil Facebook d'{{ .User.FirstName }} {{ .User.LastName }}"></a>
+                        <a class="etu-social social-tw" href="{{.User.Twitter}}"><img src="/img/ui/twitter-logo.png" alt="Accéder au profil Twitter d'{{ .User.FirstName }} {{ .User.LastName }}"></a>
+                        <a class="etu-social social-li" href="{{.User.LinkedIn}}"><img src="/img/ui/linkedin-logo.png" alt="Accéder au profil LinkedIn d'{{ .User.FirstName }} {{ .User.LastName }}"></a>
+                    </div>
 
-                <hr>
+                </div>
 
                 <div class="etu-projets">
 
                     <div class="entete-projets">
 
-                        <h2>Projets de {{.User.FirstName}}</h2>
                         {{if eq .SessIdUser .User.Id}}
                             <a class="pure-button pure-button-primary ajout-projet" href="#">Ajouter une image</a>
                         {{end}}

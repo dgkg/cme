@@ -15,120 +15,6 @@
 		}
 
 		.etu-fiche {
-			display: block;
-			//float: left;
-			width: 100%;
-			//height: auto;
-			border: 1px solid #C5C5C5;
-			border-radius: 6px;
-			text-decoration: none;
-			color: $gris-texte;
-
-			.etu-cover {
-				width: 100%;
-				//height: 75%;
-				height: 100px;
-				overflow: hidden;
-
-				/* .dimmer {
-					position: relative;
-					top: 55%;
-					width: 100%;
-					height: 45%;
-					z-index: 1;
-					background-image: -o-linear-gradient(-89deg, rgba(0,0,0,0.00) 0%, #000000 75%);
-					background-image: -moz-linear-gradient(-89deg, rgba(0,0,0,0.00) 0%, #000000 75%);
-					background-image: -ms-linear-gradient(-89deg, rgba(0,0,0,0.00) 0%, #000000 75%);
-					background-image: linear-gradient(-179deg, rgba(0,0,0,0.00) 0%, #000000 75%);
-				} */
-			}
-
-			.etu-cover img {
-				min-width: 100%;
-				min-height: 100%;
-				position: relative;
-			}
-
-			.etu-avatar {
-				display: block;
-				position: relative;
-				width: 60px;
-				height: 60px;
-				margin-right: auto;
-				margin-left: auto;
-				margin-top: -10%;
-				z-index: 2;
-			}
-
-			.etu-avatar img {
-				max-width: 100%;
-				display: block;
-				border-radius: 30px;
-				border: 3px solid #F9F9F9;
-			}
-
-			h2 {
-				display: block;
-				margin-right: auto;
-				margin-left: auto;
-				font-size: 20px;
-				text-align: center;
-			}
-
-			.etu-gradu, .etu-bio {
-				text-align: center;
-			}
-
-			.etu-gradu {
-				font-size: 12px;
-			}
-
-			.etu-bio {
-				display: block;
-				margin: 20px auto 20px auto;
-				line-height: 1.4em;
-				font-size: 14px;
-				max-width: 40%;
-				text-align: center;
-			}
-
-			.wrapper-etu-social {
-				display: block;
-				width: 80%;
-				margin-left: auto;
-				margin-right: auto;
-				text-align: center;
-			}
-
-			.etu-social {
-				display: inline-block;
-				width: 32px;
-				height: 32px;
-				border-radius: 4px;
-				margin: auto 6px 30px 6px;
-			}
-
-			.etu-social img {
-				height: 23px;
-				padding: 0;
-			}
-
-			.social-fb {
-				background-color: #3B5998;
-			}
-
-			.social-tw {
-				background-color: #55ACEE;
-			}
-
-			.social-li {
-				background-color: #0976B4;
-			}
-
-		}
-
-		/*
-		.etu-fiche {
 
 			.container-img {
 				width: 120px;
@@ -164,7 +50,6 @@
 
 			}
 		}
-		*/
 
 		.etu-projets {
 
@@ -262,25 +147,30 @@
 					margin-left: auto;
 				}
 			}
+
+    		.etu-gradu {
+				margin-left: auto;
+				margin-right: auto;
+    		}
+
+    		.etu-bio {
+    			margin-top: 20px;
+    			margin-bottom: 20px;
+				margin-left: auto;
+				margin-right: auto;
+    		}
+
+    		.etu-social {
+				display: inline-block;
+				padding: 8px;
+				margin-left: 10px;
+				border: 1px solid #D4D2D2;
+    		}
+
+			.etu-social:hover {
+				background-color: #EDEDED;
+			}
     	}
-
-		.etu-fiche {
-			width: 100%;
-
-			.etu-cover {
-				height: 175px;
-			}
-
-			.etu-avatar {
-				width: 100px;
-				height: 100px;
-				margin-top: -5%;
-			}
-
-			.etu-avatar img {
-				border-radius: 50px;
-			}
-		}
 
     	.etu-projets {
 
@@ -326,6 +216,10 @@
         .body {
             margin-left: 0;
             margin-right: 0;
+
+            .etu-fiche {
+				max-width: 40%;
+            }
 
 			.etu-projets {
 
