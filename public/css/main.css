@@ -435,44 +435,7 @@ a:visited { color: #e11414; }
 /* line 3, pages/_eleve_fiche.scss */
 .eleve_fiche .message-accueil { display: none; }
 /* line 7, pages/_eleve_fiche.scss */
-.eleve_fiche .body { margin-right: 30px; margin-left: 30px; 		/*
-		.etu-fiche {
-
-			.container-img {
-				width: 120px;
-				height: 120px;
-				margin-left: auto;
-				margin-right: auto;
-				overflow: hidden;
-				border-radius: 60px;
-				-webkit-border-radius: 60px;
-				-moz-border-radius: 60px;
-
-				.etu-photo {
-					max-width: 100%;
-					height: auto;
-					margin-left: auto;
-					margin-right: auto;
-					margin-bottom: 60px;
-				}
-			}
-
-
-
-			.etu-gradu {
-				font-family: $titre-regular;
-			}
-
-			.etu-bio {
-				margin-top: 30px;
-				margin-bottom: 30px;
-			}
-
-			.etu-social {
-
-			}
-		}
-		*/ }
+.eleve_fiche .body { margin-right: 30px; margin-left: 30px; }
 /* line 11, pages/_eleve_fiche.scss */
 .eleve_fiche .body hr { clear: both; margin-top: 30px; margin-bottom: 30px; }
 /* line 17, pages/_eleve_fiche.scss */
@@ -508,64 +471,66 @@ a:visited { color: #e11414; }
 /* line 103, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-fiche .etu-social { display: inline-block; width: 32px; height: 32px; border-radius: 4px; margin: auto 6px 30px 6px; }
 /* line 111, pages/_eleve_fiche.scss */
-.eleve_fiche .body .etu-fiche .etu-social img { height: 23px; padding: 0; }
+.eleve_fiche .body .etu-fiche .etu-social img { padding: 0; }
 /* line 116, pages/_eleve_fiche.scss */
-.eleve_fiche .body .etu-fiche .social-fb { background-color: #3B5998; }
-/* line 120, pages/_eleve_fiche.scss */
-.eleve_fiche .body .etu-fiche .social-tw { background-color: #55ACEE; }
-/* line 124, pages/_eleve_fiche.scss */
-.eleve_fiche .body .etu-fiche .social-li { background-color: #0976B4; }
-/* line 171, pages/_eleve_fiche.scss */
+.eleve_fiche .body .etu-fiche .social-fb { background-image: url("/img/ui/facebook-logo.png"); background-position: center center; }
+/* line 121, pages/_eleve_fiche.scss */
+.eleve_fiche .body .etu-fiche .social-tw { background-image: url("/img/ui/twitter-logo.png"); background-position: center center; }
+/* line 126, pages/_eleve_fiche.scss */
+.eleve_fiche .body .etu-fiche .social-li { background-image: url("/img/ui/linkedin-logo.png"); background-position: center center; }
+/* line 133, pages/_eleve_fiche.scss */
+.eleve_fiche .body .ajout-projet { margin-top: 30px; margin-bottom: 30px; }
+/* line 140, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .entete-projets { width: 100%; margin-bottom: 20px; }
-/* line 175, pages/_eleve_fiche.scss */
+/* line 144, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .entete-projets a { width: 75%; display: block; margin-left: auto; margin-right: auto; }
-/* line 183, pages/_eleve_fiche.scss */
+/* line 152, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets h2 { display: block; font-size: 26px; margin-top: 30px; margin-bottom: 24px; }
-/* line 190, pages/_eleve_fiche.scss */
+/* line 159, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet { width: 100%; margin-right: auto; margin-left: auto; margin-bottom: 30px; }
-/* line 196, pages/_eleve_fiche.scss */
+/* line 165, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet img { width: 100%; }
-/* line 200, pages/_eleve_fiche.scss */
+/* line 169, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet { padding: 30px; background-color: black; opacity: 0.8; }
-/* line 205, pages/_eleve_fiche.scss */
+/* line 174, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet h3, .eleve_fiche .body .etu-projets .img-projet .over-projet p { color: #f9f9f9; margin: 0; }
-/* line 210, pages/_eleve_fiche.scss */
+/* line 179, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet h3 { font-family: "gt_pressura_regular", sans-serif; text-transform: uppercase; font-size: 20px; margin-bottom: 20px; }
-/* line 217, pages/_eleve_fiche.scss */
+/* line 186, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet p { font-size: 14px; margin-bottom: 20px; }
-/* line 222, pages/_eleve_fiche.scss */
+/* line 191, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet a { color: #e11414; }
-/* line 226, pages/_eleve_fiche.scss */
+/* line 195, pages/_eleve_fiche.scss */
 .eleve_fiche .body .etu-projets .img-projet .over-projet a:hover { color: #9c1111; }
-@media only screen and (min-device-width: 768px) { /* line 240, pages/_eleve_fiche.scss */
+@media only screen and (min-device-width: 768px) { /* line 209, pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-fiche { margin-top: 30px; text-align: center; width: 60%; margin-left: auto; margin-right: auto; }
-  /* line 247, pages/_eleve_fiche.scss */
+  /* line 216, pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-fiche h1 { display: block; margin-left: auto; margin-right: auto; }
-  /* line 253, pages/_eleve_fiche.scss */
+  /* line 222, pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-fiche .container-img { width: 120px; border-radius: 80px; -webkit-border-radius: 80px; -moz-border-radius: 80px; }
-  /* line 259, pages/_eleve_fiche.scss */
+  /* line 228, pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-fiche .container-img .etu-photo { width: 100%; margin-right: auto; margin-left: auto; }
-  /* line 267, pages/_eleve_fiche.scss */
+  /* line 236, pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-fiche { width: 100%; }
-  /* line 270, pages/_eleve_fiche.scss */
+  /* line 239, pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-fiche .etu-cover { height: 175px; }
-  /* line 274, pages/_eleve_fiche.scss */
+  /* line 243, pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-fiche .etu-avatar { width: 100px; height: 100px; margin-top: -5%; }
-  /* line 280, pages/_eleve_fiche.scss */
+  /* line 249, pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-fiche .etu-avatar img { border-radius: 50px; }
-  /* line 287, pages/_eleve_fiche.scss */
+  /* line 256, pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-projets .img-projet { display: inline-block; width: 30.666666667%; float: left; }
-  /* line 293, pages/_eleve_fiche.scss */
+  /* line 262, pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-projets .entete-projets { height: 40px; vertical-align: middle; line-height: 40px; }
-  /* line 298, pages/_eleve_fiche.scss */
+  /* line 267, pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-projets .entete-projets h2 { float: left; margin-top: 0; }
-  /* line 303, pages/_eleve_fiche.scss */
+  /* line 272, pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-projets .entete-projets a { max-width: 12%; float: right; color: #f9f9f9; } }
-@media only screen and (min-width: 1224px) { /* line 318, pages/_eleve_fiche.scss */
+@media only screen and (min-width: 1224px) { /* line 287, pages/_eleve_fiche.scss */
   .eleve_fiche #wrapper { max-width: 1280px; margin-left: auto; margin-right: auto; padding-right: 0; padding-left: 0; }
-  /* line 326, pages/_eleve_fiche.scss */
+  /* line 295, pages/_eleve_fiche.scss */
   .eleve_fiche .body { margin-left: 0; margin-right: 0; }
-  /* line 332, pages/_eleve_fiche.scss */
+  /* line 301, pages/_eleve_fiche.scss */
   .eleve_fiche .body .etu-projets h2 { margin-top: 30px; margin-bottom: 24px; } }
 
 /* line 1, pages/_user_compte.scss */
