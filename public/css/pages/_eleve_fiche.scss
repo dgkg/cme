@@ -135,6 +135,32 @@
 			margin-bottom: 30px;
 		}
 
+		#nouv-projet {
+			display: none;
+			//border: 2px solid red;
+			min-width: 30.666667%;
+			min-height: 480px;
+			padding: 20px;
+			border-radius: 4px;
+			background: #F2F3F5;
+			border: 1px solid #B8B8B8;
+
+			label, input, textarea {
+				display: block;
+				width: 100%;
+			}
+
+			label {
+				font-family: $titre-regular;
+				font-size: 16px;
+			}
+
+			h3 {
+				font-size: 20px;
+				margin-top: 0;
+			}
+		}
+
 		.etu-projets {
 
 			.entete-projets {
@@ -147,6 +173,10 @@
 					margin-left: auto;
 					margin-right: auto;
 				}
+			}
+
+			.etu-projet-liste {
+				margin-top: 45px;
 			}
 
 			h2 {
