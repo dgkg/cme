@@ -19,7 +19,7 @@
 
                                 <p>Pour modifier votre photo de profil, utilisez le bouton ci-dessous.</p>
 
-                                <form class="form-photo" method="POST" action="/mon-compte/upload" enctype="multipart/form-data" accept="image/jpg|image/png|image/gif">
+                                <form class="form-photo" method="POST" action="/mon-compte/avatar" enctype="multipart/form-data" accept="image/jpg|image/png|image/gif">
 
                                     <input class="photo-upload" type="file" name="photo-upload" id="photo-upload" value="Choisir une photo">
                                     <input id="submitPhoto" class="pure-button pure-button-primary" type="submit" value="Enregistrer">
@@ -29,6 +29,28 @@
                                 </form>
 
                                 <hr>
+
+                                <h4>Cover</h4>
+
+                                <p>Pour modifier votre photo de couverture, utilisez le bouton ci-dessous.</p>
+
+                                <p>La résolution recommandé est de 1280 x 200 pixels.</p>
+
+                                <div class="wrapper-cover">
+                                    <img src="/img/uploads/users/{{.Id}}/{{.PhotoCover}}" alt="Votre cover actuel">
+                                </div>
+
+                                <form class="form-cover" method="POST" action="/mon-compte/cover" enctype="multipart/form-data" accept="image/jpg|image/png|image/gif">
+
+                                    <input class="cover-upload" type="file" name="cover-upload" id="cover-upload" value="Choisir une image">
+                                    <input id="submitCover" class="pure-button pure-button-primary" type="submit" value="Enregistrer">
+
+                                    <p class="msg-succes msg-cover">Vos modifications ont été enregistrés avec succès.</p>
+
+                                </form>
+
+                                <hr>
+
 
                                 <h4>Biographie</h4>
 

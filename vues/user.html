@@ -74,7 +74,7 @@
                         {{ if .Users }}
                             {{ range .Users }}
 
-                            <a class="eleve {{ .Graduation }}" href="#">
+                            <a class="eleve {{ .Graduation }}" href="{{.Url}}">
 
                                 <div class="back-projet">
                                     <img src="/img/uploads/users/{{ .Id }}/{{ .PhotoCover }}" alt="">
@@ -96,6 +96,8 @@
                     </div>
 
                 </div>
+
+                <hr>
 
                 <div class="pagination">
 
@@ -128,8 +130,6 @@
                     <a class="btn-nav-suiv" href="#">Suivant</a>
 
                 </div>
-
-                <hr>
 
                 {{template "footer" .}}
             </div>

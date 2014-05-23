@@ -109,62 +109,31 @@
 			}
 
 			.etu-social img {
-				height: 23px;
+				//height: 23px;
 				padding: 0;
 			}
 
 			.social-fb {
-				background-color: #3B5998;
+				background-image: url('/img/ui/facebook-logo.png');
+				background-position:center center;
 			}
 
 			.social-tw {
-				background-color: #55ACEE;
+				background-image: url('/img/ui/twitter-logo.png');
+				background-position:center center;
 			}
 
 			.social-li {
-				background-color: #0976B4;
+				background-image: url('/img/ui/linkedin-logo.png');
+				background-position:center center;
 			}
 
 		}
 
-		/*
-		.etu-fiche {
-
-			.container-img {
-				width: 120px;
-				height: 120px;
-				margin-left: auto;
-				margin-right: auto;
-				overflow: hidden;
-				border-radius: 60px;
-				-webkit-border-radius: 60px;
-				-moz-border-radius: 60px;
-
-				.etu-photo {
-					max-width: 100%;
-					height: auto;
-					margin-left: auto;
-					margin-right: auto;
-					margin-bottom: 60px;
-				}
-			}
-
-
-
-			.etu-gradu {
-				font-family: $titre-regular;
-			}
-
-			.etu-bio {
-				margin-top: 30px;
-				margin-bottom: 30px;
-			}
-
-			.etu-social {
-
-			}
+		.ajout-projet {
+			margin-top: 30px;
+			margin-bottom: 30px;
 		}
-		*/
 
 		.etu-projets {
 
