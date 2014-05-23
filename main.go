@@ -73,7 +73,7 @@ func main() {
 	//r.HandleFunc("/test-post", TestPostHandler)
 
 	// Page simple
-	r.HandleFunc("/{pageUrl:[a-z-]+}", PageSimpleHandler)
+	r.HandleFunc("/page/{pageUrl:[a-z-]+}", PageSimpleHandler)
 
 	//gestion des fichiers statiques
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))

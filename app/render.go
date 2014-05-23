@@ -16,6 +16,7 @@ var templatesHtml *htmlTempl.Template
 var templatesText *textTempl.Template
 
 func init() {
+	// /Users/henrilepic/gocode/src/github.com/konginteractive/cme/
 	templatesHtml = htmlTempl.Must(htmlTempl.ParseGlob("./vues/*"))
 	templatesText = textTempl.Must(textTempl.ParseGlob("./vues/*"))
 }
