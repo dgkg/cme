@@ -17,4 +17,14 @@ $(window).load(function() {
 		itemSelector: '.img-projet',
 	})
 
+	$('.ajout-projet').click(function(e){
+		e.preventDefault();
+		var nouvProjet = $('#nouv-projet')
+
+		nouvProjet.css('display', 'block');
+		$('.etu-projet-liste').prepend( nouvProjet );
+		$('.etu-projet-liste').isotope( 'prepended', nouvProjet );
+		nouvProjet.css('display', 'block'); // Je sais que cette ligne est dédoublée (voir 3 lignes plus haut) mais elle est nécessaire au bon fonctionnement de l'effet.
+	})
+
 });

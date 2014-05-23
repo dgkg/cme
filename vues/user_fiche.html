@@ -30,11 +30,33 @@
                     <div class="entete-projets">
 
                         {{if eq .SessIdUser .User.Id}}
-                            <a class="pure-button pure-button-primary ajout-projet" href="#">Ajouter une image</a>
+                            <a class="pure-button pure-button-primary ajout-projet" href="#">Ajouter un projet</a>
                         {{end}}
                     </div>
 
                     {{ if .Projects}}
+
+                    <div id="nouv-projet" class="img-projet">
+
+                        <form id="form-nouv-projet" class="pure-form">
+
+                            <h3>Ajouter un nouveau projet</h3>
+
+                            <label for="nom-nouv-projet">Nom du projet</label>
+                            <input type="text" id="nom-nouv-projet" name="nom-nouv-projet" />
+
+                            <label for="desc-nouv-projet">Description du projet</label>
+                            <textarea id="desc-nouv-projet" name="desc-nouv-projet" rows="6"/></textarea>
+
+                            <label for="cover-nouv-projet">Cover du projet</label>
+                            <input type="file" id="cover-nouv-projet" name="cover-nouv-projet" />
+
+                            <button type="submit" id="submit-nouv-projet" name="submit-nouv-projet" class="pure-button pure-button-primary">Soumettre</button>
+
+                        </form>
+
+                    </div>
+
                     <div class="etu-projet-liste">
 
                         {{ range .Projects}}
