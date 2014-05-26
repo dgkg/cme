@@ -1,122 +1,97 @@
-{{ define "forum" }}
+{{ define "forum_post" }}
+<!DOCTYPE html>
 {{template "header" .}}
+
+            <style type="text/css">
+                .del-forum-post{
+                    text-align: right;
+                    opacity: 0.5;
+                    display: block;
+                    float: right;
+                    height: 15px;
+                    width: 15px;
+                }
+            </style>
 
             <div class="body">
 
-                <div class="entete-forum">
+                <div class="liste-post">
 
-                    <h1>Forum</h1>
-                    <p>Utilisez ce forum pour partager vos connaissances, demander de l'aide à vos pairs et discuter de vos projets.</p>
-                    <a class="btn-nouv-publication" href="/forum/nouveau" rel="nofollow">Créer une nouvelle publication</a>
+                    <div class="post">
 
-                </div>
+                            {{ if .Forum}}
+                            <h2>{{ .Forum.Title }}</h2>
 
-                <hr>
+                            <div class="post-contenu">
+                                {{ .Forum.Text }}
+                            </div>
 
-                <div class="categories">
+                            <div class="post-meta">
 
-                    <h2>Catégories</h2>
-                    <ul>
-                        <li>Catégories  /</li>
+                                <!-- <p class="post-date">1er avril 2014</p> -->
+                                <p class="post-date">{{.Forum.CreatedAtString}}</p>
 
-                        {{range .Categories}}
-                        <li>
-                            {{if eq .IsSelected true}}
-                                <a href="{{.Url}}" class="selected">{{.Title}}</a>
-                            {{else}}
-                                <a href="{{.Url}}">{{.Title}}</a>
-                            {{end}}
-                        </li>
-                        {{end}}
+                                <p class="post-auteur">{{.Forum.UserName}}</p>
+                                {{if eq .Forum.IsSolved 1}}
+                                    <p class="post-resolu">Résolu</p>
+                                {{else}}
+                                    <p class="post-resolu">Non résolu</p>
+                                {{end}}
 
-                    </ul>
-
-                    <select>
-                        {{range .Categories}}
-                        <option value="{{ .Id }}">{{.Title}}</option>
-                        {{end}}
-                    </select>
-
-                    <form class="pure-form" action="/forum/search" method="get">
-                        <input type="text" class="pure-input-rounded" placeholder="Recherche..." name="q">
-                        <button type="submit" class="pure-button">Rechercher</button>
-                    </form>
-                    
-
-                    <select>
-                        <option>Plus récents d'abord</option>
-                        <option>Non résolus d'abord</option>
-                        <option>Les plus commentés</option>
-                    </select>
-
-                </div>
-
-                <hr>
-
-                <div class="liste-posts">
-                    {{if .Forums}}
-                        {{range .Forums}}
-
-                            <div class="post">
-                                
-                                <h2><a href="/forum/post/{{.Id}}">{{.Title}}</a></h2>
-
-                                <div class="post-desc">{{.Text}}</div>
-
-                                <div class="post-meta">
-                                    <img src="/img/ui/icone-reponse.png" alt="Nombre de réponses"><p>{{.PostNumb}}</p>
-
-
-                                    {{if eq .IsSolved 1 }}
-                                        <img src="/img/ui/icone-resolu.png" alt="Statut de la publication"><p>Résolu</p>
-                                    {{else}}
-                                        <img src="/img/ui/icone-non-resolu.png" alt="Statut de la publication"><p>Non résolu</p>
-                                    {{end}}
-
-                                    <img src="/img/ui/icone-appreciations.png" alt="Nombre d'appréciations"><p>8</p>
-                                </div>
-
-                                <a class="pure-button btn-repondre" href="/forum/post/{{.Id}}">Répondre</a>
-
-                                <hr>
+                                {{if eq .Forum.UserId .SessIdUser}}
+                                <p><a class="pure-button post-editer" href="/forum/post/edit/{{.Forum.Id}}">Éditer</a></p>
+                                {{end}}
 
                             </div>
-                        {{end}}
-                    {{else}}
-                        <h2>Désolé nous n'avons pas trouvé de résultats à votre recherche</h2>
-                        <h3>Mot clef : {{.SearchText}}</h3>
-                        <img src="http://www.lorempixum.com/g/800/600/" alt="" />
+                            {{end }}
 
-                    {{end}}
+                    </div>
+
+                    <div class="comms">
+
+                        {{ if .Forum.Posts}}
+                            {{ $idUser := .SessIdUser}}
+
+                            {{ range .Forum.Posts }}
+                                <div class="comm">
+                                    {{if eq $idUser .UserId}}
+                                        <img id="{{.Id}}" class="del-forum-post" src="/img/ui/circle_delete.png">
+                                    {{end}}
+                                    <p class="comm-texte">{{.Text}}</p>
+                                    <p class="comm-auteur">{{.UserName}}</p>
+                                    <p class="comm-date">{{.CreatedAtString}}</p>
+                                </div>
+                            {{end}}
+                        {{end}}
+
+                    </div>
+
+                    <div class="nouv-comm">
+
+                        <p>Nouveau commentaire</p>
+
+                        <form class="form-nouv-comm" method="POST" action="">
+
+                            <input type="hidden" id="nouv-comm-id" name="nouv-comm-id" value="{{.Forum.Id}}">
+                            <input type="hidden" id="nouv-comm-auteur" name="nouv-comm-auteur" value="{{.SessIdUser}}">
+
+                            <textarea id="nouv-comm-contenu" data-validation="required" data-validation-error-msg="Veuillez inscrire votre message."></textarea>
+                            <button type="submit" id="submit" class="pure-button pure-button-primary">Envoyer</button>
+
+                        </form>
+
+                    </div>
 
                 </div>
 
-                <div class="pagination">
-
-                    <ul>
-                        {{range .PagesList}}
-                        <li><a href="{{.Url}}">{{.Title}}</a></li>
-                        {{end}}
-                    </ul>
-
-                    <select>
-                        {{range .PagesList}}
-                        <option>{{.Title}}</option>
-                        {{end}}
-                    </select>
-
-                    <a class="btn-nav-suiv" href="#">Suivant</a>
-
-                </div>
-
-                {{template "footer" .}}
+               {{template "footer" .}}
             </div>
         </div>
 
-        <!-- <script type="text/javascript" src="/js/jquery-1.11.0.min.js"></script> -->
-        <!-- <script type="text/javascript" src="/js/jquery.justifiedGallery.js"></script> -->
-        <!-- <script type="text/javascript" src="/js/jquery.contenthover.min.js"></script> -->
-        <!-- <script type="text/javascript" src="/js/main.js"></script> -->
+        <script type="text/javascript" src="/js/vendor/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="/js/vendor/form-validator/jquery.form-validator.min.js"></script>
+        <script type="text/javascript" src="/js/vendor/moment.min.js"></script>
+        <script type="text/javascript" src="/js/forum_nouv_comm.js"></script>
     </body>
 </html>
 {{ end }}

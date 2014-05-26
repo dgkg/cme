@@ -1,62 +1,32 @@
-{{ define "news" }}
+{{ define "news-unique" }}
 <!DOCTYPE html>
 {{template "header" .}}
             <div class="body">
 
                 <div class="liste-actu">
 
-                    {{if .News}}
-                        {{range .News}}
+                    <div class="actu" id="{{.Id}}">
 
-                            <div class="actu" id="{{.Id}}">
-                                
-                                <h2>{{.Title}}</h2>
-                                <div class="actu-contenu">
+                        <h2>{{.Title}}</h2>
+                        <div class="actu-contenu">
 
-                                    {{.Text}}
+                            {{.Text}}
 
-                                </div>
+                        </div>
 
-                                <div class="actu-meta">
-                                    <p class="actu-date">{{.CreatedAtString}}</p>
-                                    <p class="actu-auteur">{{.UserName}}</p>
-                                </div>
+                        <div class="actu-meta">
+                            <p class="actu-date">{{.CreatedAtString}}</p>
+                            <p class="actu-auteur">{{.UserName}}</p>
+                        </div>
 
-                            </div>
-                        {{end}}
-
-                        {{else}}
-                            <h2>Désolé nous n'avons pas trouvé de résultats à votre recherche</h2>
-                            <h3>Mot clef : {{.SearchText}}</h3>
-                            <img src="http://www.lorempixum.com/g/1200/800/" alt="" />
-
-                        {{end}}
-
-                </div>
-
-                <hr>
-
-                <div class="pagination">
-
-                    <ul>
-                        {{range .PagesList}}
-                        <li><a href="{{.Url}}">{{.Title}}</a></li>
-                        {{end}}
-                    </ul>
-
-                    <select>
-                        {{range .PagesList}}
-                        <option>{{.Title}}</option>
-                        {{end}}
-                    </select>
-
-                    <a class="btn-nav-suiv" href="#">Suivant</a>
+                    </div>
 
                 </div>
 
                {{template "footer" .}}
             </div>
         </div>
+
         <!-- <script type="text/javascript" src="/js/jquery-1.11.0.min.js"></script> -->
         <!-- <script type="text/javascript" src="/js/jquery.justifiedGallery.js"></script> -->
         <!-- <script type="text/javascript" src="/js/jquery.contenthover.min.js"></script> -->
