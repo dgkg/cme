@@ -27,7 +27,7 @@ func uploadImage(destination string, r *http.Request) (imgPath string, err error
 	var strNomFichier string
 
 	//parse the multipart form in the request
-	err = r.ParseMultipartForm(100000)
+	err = r.ParseMultipartForm(MAX_SIZE_FILE_UPLOAD)
 	if err != nil {
 		err = errors.New("le fichier n' a pas les droits pour être créé")
 		return "", err

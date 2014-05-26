@@ -26,3 +26,6 @@ var YS = strconv.Itoa(Y)
 var MS = M.String()
 
 var URL_PROJECT_IMAGES = "./img/projets/"
+
+// max upload size file
+const MAX_SIZE_FILE_UPLOAD = 100000
