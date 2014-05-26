@@ -66,8 +66,8 @@ func main() {
 	r.HandleFunc("/ajax/userProject/getByIdCat/{id:[0-9]+}", UserProjectAjaxHandler)
 	r.HandleFunc("/ajax/userProject/getByIdCat/{id:[0-9]+}/{page:[0-9]+}", UserProjectMoreInCatAjaxHandler)
 	r.HandleFunc("/ajax/userProject/getMore/{page:[0-9]+}", UserProjectMoreAjaxHandler)
-	r.HandleFunc("/ajax/userProject/create", UserProjectCreateAjaxHandler)
-	r.HandleFunc("/ajax/userProject/upload", UserProjectUploadAjaxHandler)
+	r.HandleFunc("/ajax/up/create", UPCreateAjaxHandler)
+	r.HandleFunc("/ajax/upi/create", UPICreateAjaxHandler)
 
 	//r.HandleFunc("/ajax/connect", AjaxConnectHandler)
 	r.HandleFunc("/get-projects", GetProjectsHandler)

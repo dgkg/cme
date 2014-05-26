@@ -3,17 +3,17 @@ package app
 import (
 	"fmt"
 	"github.com/gorilla/mux"
-	//"github.com/kennygrant/sanitize"
+	"github.com/kennygrant/sanitize"
 	//"log"
 	"net/http"
 	. "strconv"
 	//"time"
 	"encoding/json"
-	"github.com/nfnt/resize"
-	"image/jpeg"
-	"io"
-	"os"
-	"path/filepath"
+	//"github.com/nfnt/resize"
+	//"image/jpeg"
+	//"io"
+	//"os"
+	//"path/filepath"
 )
 
 type PageUserProject struct {
@@ -110,120 +110,46 @@ func UserProjectMoreInCatAjaxHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// permet de créer un userProject
-func UserProjectCreateAjaxHandler(w http.ResponseWriter, r *http.Request) {
-
+// permet de créer un userProject à partir d'un formulaire HTML
+// et permet d'uploader une image associée
+// et permet de croper l'image en fonction de sa vignette
+func UPCreateAjaxHandler(w http.ResponseWriter, r *http.Request) {
 	// création d'un user project
 	var up UserProject
-	up.UserId, _ = ParseInt(r.PostFormValue("id_user"), 0, 64)
-	up.Title = r.PostFormValue("title")
-	up.Description = r.PostFormValue("Description")
-	up.IsOnline = 1 // permet qu'il soit en ligne
+	// récupère l'id du user
+	UserId, err := ParseInt(r.PostFormValue("id_user"), 0, 64)
+	if err != nil {
+		// envoie un message d'erreur
+		fmt.Fprint(w, "error")
+	}
+	up.UserId = UserId
+	// crécuprère l'id de la cat
+	up.UserProjectCategoryId, err = ParseInt(r.PostFormValue("id_cat"), 0, 64)
+	if err != nil {
+		// envoie un message d'erreur
+		fmt.Fprint(w, "error")
+	}
+	// récupère le titre
+	up.Title = sanitize.HTML(r.PostFormValue("title"))
+	// récupère la description
+	up.Description = sanitize.HTML(r.PostFormValue("Description"))
+	// permet d'uploader l'image
+	up.Url, err = uploadImage(URL_PROJECT_IMAGES, r)
+	if err != nil {
+		// envoie un message d'erreur
+		fmt.Fprint(w, "error")
+	}
+	// permet de cropper l'image qui viens d'être uploadée
+	err = cropImage(up.Url, 300, 300)
+	if err != nil {
+		// envoie un message d'erreur
+		fmt.Fprint(w, "error")
+	}
+	// finit de créer l'objet
+	// définit le projet non visible
+	up.IsOnline = 0
+	// sauvegarde dans la base de donnée
 	up.Id = up.Save()
-
-	b, err := json.Marshal(up)
-	if err != nil {
-		// envoie un message d'erreur
-		fmt.Fprint(w, "error")
-	}
-	fmt.Fprint(w, string(b))
-}
-
-// Upload de fichiers avec Go
-// Code original : https://gist.github.com/sanatgersappa/5127317#file-app-go
-func UserProjectUploadAjaxHandler(w http.ResponseWriter, r *http.Request) {
-
-	// création d'une image dans user project
-	var upi UserProjectImage
-	// récupération de la variable id
-	upi.ProjectId, _ = ParseInt(r.PostFormValue("id_user_project"), 0, 64)
-	upi.Title = r.PostFormValue("title")
-	upi.Description = r.PostFormValue("Description")
-
-	var strNomFichier string
-
-	//parse the multipart form in the request
-	err := r.ParseMultipartForm(100000)
-	if err != nil {
-		// envoie un message d'erreur
-		fmt.Fprint(w, "error")
-		/*
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
-		*/
-	}
-
-	//get a ref to the parsed multipart form
-	m := r.MultipartForm
-
-	//get the *fileheaders
-	files := m.File["myfiles"]
-	for i, _ := range files {
-		//for each fileheader, get a handle to the actual file
-		file, err := files[i].Open()
-		defer file.Close()
-		if err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
-		}
-
-		// Création d'un nom sanitizé pour
-		strNomFichier = sanitize.Name(files[i].Filename)
-
-		// Validation des extensions de fichiers
-		if filepath.Ext(strNomFichier) != ".jpg" &&
-			filepath.Ext(strNomFichier) != ".jpeg" &&
-			filepath.Ext(strNomFichier) != ".png" &&
-			filepath.Ext(strNomFichier) != ".gif" {
-			return
-		}
-
-		//create destination file making sure the path is writeable.
-		urlImage := "./public/img/uploads/users/" + userId + "/" + files[i].Filename
-		dst, err := os.Create(urlImage)
-		//defer dst.Close()
-		if err != nil {
-			log.Println(err)
-		}
-
-		// Envoi du nom du fichier pour l'ajout à la BD
-		upi.Url = urlImage
-		upi.Id = upi.Save()
-		up.Images = upi
-
-		//copy the uploaded file to the destination file
-		if _, err := io.Copy(dst, file); err != nil {
-			http.Error(w, err.Error(), http.StatusInternalServerError)
-			return
-		}
-
-	}
-
-	/*
-		// Redimensionnement de l'image
-
-		// open "test.jpg"
-		rfile, err := os.Open("./public/img/uploads/users/" + userId + "/" + strNomFichier)
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		// decode jpeg into image.Image
-		rimg, err := jpeg.Decode(rfile)
-		if err != nil {
-			log.Fatal(err)
-		}
-		rfile.Close()
-
-		image := resize.Thumbnail(300, 300, rimg, resize.Bilinear)
-
-		out, err := os.Create("./public/img/uploads/users/" + userId + "/" + strNomFichier)
-		if err != nil {
-			log.Fatal(err)
-		}
-		defer out.Close()
-
-		// write new image to file
-		jpeg.Encode(out, image, nil)
-	*/
+	// retourne l'objet en JSON
+	RenderJson(w, up)
 }

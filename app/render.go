@@ -4,6 +4,8 @@ import (
 	"github.com/gorilla/sessions"
 	"net/http"
 	// attention entre html/template et text/template le render est en autoescaping
+	"encoding/json"
+	"fmt"
 	htmlTempl "html/template"
 	textTempl "text/template"
 )
@@ -19,6 +21,8 @@ func init() {
 	// /Users/henrilepic/gocode/src/github.com/konginteractive/cme/
 	templatesHtml = htmlTempl.Must(htmlTempl.ParseGlob("./vues/*"))
 	templatesText = textTempl.Must(textTempl.ParseGlob("./vues/*"))
+	// permet d'avoir quelques variables
+	fmt.Println("YS : " + YS + " / MS : " + MS)
 }
 
 // fonction permettant de rendu des pages en fonction du type HTML ou TXT
@@ -41,7 +45,6 @@ func Render(w http.ResponseWriter, p Page, r *http.Request) {
 		p.SetSessionData(u)
 	}
 
-	//var err error
 	// permet d'afficher avec le rendu html ou non
 	if p.IsHtmlRender() == false {
 		err = templatesHtml.ExecuteTemplate(w, Templ, p)
@@ -52,4 +55,17 @@ func Render(w http.ResponseWriter, p Page, r *http.Request) {
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
+}
+
+// permet de renvoyer un objet générique en json
+func RenderJson(w http.ResponseWriter, msg interface{}) {
+
+	b, err := json.Marshal(msg)
+	if err != nil {
+		// envoie un message d'erreur
+		fmt.Fprint(w, "error")
+	}
+
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	fmt.Fprint(w, string(b))
 }

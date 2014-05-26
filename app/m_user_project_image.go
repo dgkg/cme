@@ -8,19 +8,18 @@ import (
 )
 
 type UserProjectImage struct {
-	Id                  int64
-	ProjectId           int64
-	UserImageCategoryId int64
-	Title               string `sql:"type:varchar(100);"`
-	Url                 string `sql:"type:varchar(200);"`
-	Description         string
-	DescriptionCourte   string
-	IsFeatured          int64
-	IsOnline            int64
-	Year                int64
-	Month               int64
-	CreatedAt           time.Time
-	UpdatedAt           time.Time
+	Id                int64
+	ProjectId         int64
+	Title             string `sql:"type:varchar(100);"`
+	Url               string `sql:"type:varchar(200);"`
+	Description       string
+	DescriptionCourte string `sql:"-"` // Ignore this field
+	IsFeatured        int64
+	IsOnline          int64
+	Year              int64
+	Month             int64
+	CreatedAt         time.Time
+	UpdatedAt         time.Time
 }
 
 func (ui UserProjectImage) getProjets(nbProjets int) []UserProjectImage {
@@ -36,8 +35,14 @@ func (ui UserProjectImage) getProjets(nbProjets int) []UserProjectImage {
 
 // fonction public
 // permet d'enregistrer les éléments du formulaire
-func (ui UserProjectImage) Save() {
-	db.Save(&ui)
+func (upi UserProjectImage) Save() int64 {
+	db.Save(&upi)
+	if upi.Id != 0 {
+		return upi.Id
+	} else {
+		db.Last(&upi)
+		return upi.Id
+	}
 }
 
 // getAllByIdProject permet de retourner la liste des Images
