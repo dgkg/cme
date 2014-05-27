@@ -1,13 +1,12 @@
 package app
 
 import (
-	"github.com/gorilla/sessions"
-	"net/http"
-	// attention entre html/template et text/template le render est en autoescaping
 	"encoding/json"
 	"fmt"
+	"github.com/gorilla/sessions"
 	. "github.com/konginteractive/cme/app/model"
 	htmlTempl "html/template"
+	"net/http"
 	textTempl "text/template"
 )
 
@@ -20,8 +19,8 @@ var templatesText *textTempl.Template
 
 func init() {
 	// /Users/henrilepic/gocode/src/github.com/konginteractive/cme/
-	templatesHtml = htmlTempl.Must(htmlTempl.ParseGlob("./vues/*"))
-	templatesText = textTempl.Must(textTempl.ParseGlob("./vues/*"))
+	templatesHtml = htmlTempl.Must(htmlTempl.ParseGlob("./app/vues/*"))
+	templatesText = textTempl.Must(textTempl.ParseGlob("./app/vues/*"))
 	// permet d'avoir quelques variables
 	fmt.Println("YS : " + YS + " / MS : " + MS)
 }

@@ -1,7 +1,7 @@
 //
 // Karine Duroux : LCL à contacter pour l'ordre de virement
 //
-package app
+package helper
 
 import (
 	//"fmt"
