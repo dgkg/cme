@@ -6,6 +6,7 @@ import (
 	// attention entre html/template et text/template le render est en autoescaping
 	"encoding/json"
 	"fmt"
+	. "github.com/konginteractive/cme/app/model"
 	htmlTempl "html/template"
 	textTempl "text/template"
 )
