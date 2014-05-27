@@ -1,4 +1,4 @@
-package app
+package controler
 
 import (
 	. "github.com/konginteractive/cme/app/model"
