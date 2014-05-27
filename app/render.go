@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gorilla/sessions"
+	. "github.com/konginteractive/cme/app/controler"
 	. "github.com/konginteractive/cme/app/model"
 	htmlTempl "html/template"
 	"net/http"
