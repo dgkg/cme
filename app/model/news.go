@@ -28,7 +28,7 @@ func (n News) Save() {
 
 // permet de récupérer toute la listes des questions du forum
 // en fonction de la limite affichable par page
-func (n News) getList(numbElements int) []News {
+func (n News) GetList(numbElements int) []News {
 
 	var news []News
 	db.Limit(numbElements).Where("is_online = ?", "1").Order("id desc").Find(&news)
@@ -38,7 +38,7 @@ func (n News) getList(numbElements int) []News {
 // permet de récupérer toute la listes des news
 // avec les fonctions de pagination
 // en fonction de la limite affichable par page
-func (n News) getListPaged(fromPage int) []News {
+func (n News) GetListPaged(fromPage int) []News {
 
 	var news []News
 	p := fromPage * maxElementsInPage
@@ -49,7 +49,7 @@ func (n News) getListPaged(fromPage int) []News {
 
 // permet de retourner toutes les catégories
 // permet aussi de créer les liens pour les catégories
-func (n News) getAllCategories() []NewsCategory {
+func (n News) GetAllCategories() []NewsCategory {
 
 	var cat []NewsCategory
 	db.Find(&cat)
@@ -64,7 +64,7 @@ func (n News) getAllCategories() []NewsCategory {
 }
 
 // permet de récupérer le nombre de news total de la base de donnée
-func (n News) count() int {
+func (n News) Count() int {
 
 	var news []News
 	var num int

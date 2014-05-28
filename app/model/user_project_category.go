@@ -39,13 +39,13 @@ func (upc UserProjectCategory) Delete() {
 
 // getById permet de récupérer toute les données d'une catégorie
 // en fonction de son id
-func (upc UserProjectCategory) getById() UserProjectCategory {
+func (upc UserProjectCategory) GetById() UserProjectCategory {
 	db.Where("id = ?", Itoa(int(upc.Id))).Find(&upc)
 	return upc
 }
 
 // fonction permettant de récupérer tous les catégories
-func (upc UserProjectCategory) getAllCategories() []UserProjectCategory {
+func (upc UserProjectCategory) GetAllCategories() []UserProjectCategory {
 	var ups []UserProjectCategory
 	db.Find(&ups)
 	return ups
@@ -61,7 +61,7 @@ func (upc UserProjectCategory) GetCategoriesProjects() []UserProjectCategory {
 	//
 	for key, _ := range rs {
 		upc.Id = rs[key].Id
-		upc = upc.getById()
+		upc = upc.GetById()
 		log.Println(upc.Title)
 		upcs[key] = upc
 	}

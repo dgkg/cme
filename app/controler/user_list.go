@@ -1,43 +1,15 @@
 package controler
 
 import (
-	//"github.com/gorilla/mux"
 	"github.com/kennygrant/sanitize"
 	. "github.com/konginteractive/cme/app/model"
 	"log"
-	"net/http"
 )
 
 type PageUserList struct {
 	Users     []User
 	PagesList []Paginate
 	PageWeb
-}
-
-// affichage de la liste des étudants
-func StudentHandler(w http.ResponseWriter, r *http.Request) {
-	pul := new(PageUserList)
-	pul.View()
-	pul.render(w, r)
-}
-
-// affichage de la recherche dans la liste des étudants
-func StudentSearchHandler(w http.ResponseWriter, r *http.Request) {
-	pul := new(PageUserList)
-	q := r.FormValue("q")
-	if q == "" {
-		pul.View()
-	} else {
-		pul.ViewSearch(q)
-	}
-	pul.render(w, r)
-}
-
-func (pul *PageUserList) render(w http.ResponseWriter, r *http.Request) {
-	//insersion dans l'interface Page
-	var p Page
-	p = pul
-	Render(w, p, r)
 }
 
 func (pul *PageUserList) View() {
@@ -55,7 +27,7 @@ func (pul *PageUserList) View() {
 
 	var u User
 
-	pul.Users = u.getAllUser()
+	pul.Users = u.GetAllUser()
 	pul.injectDataToDisplay()
 
 	pul.PagesList[0].Title = "1"
@@ -110,7 +82,7 @@ func (pul *PageUserList) ViewSearch(q string) {
 	pul.Title = "Users"
 	pul.MainClass = "eleves"
 	pul.SearchText = q
-	pul.getSearch()
+	pul.getResults()
 
 	//pul.Categories = u.getAllCategories(0)
 	pul.RenderHtml = true
@@ -120,9 +92,9 @@ func (pul *PageUserList) ViewSearch(q string) {
 
 // getSearch permet d'insérer une liste d'utilisateurs
 // en fonction de la recherche q
-func (pul *PageUserList) getSearch() {
+func (pul *PageUserList) getResults() {
 	var u User
-	pul.Users = u.search(pul.SearchText)
+	pul.Users = u.Search(pul.SearchText)
 }
 
 // fonction permettant de savoir si le rendu passe par l'html ou non

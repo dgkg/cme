@@ -7,8 +7,8 @@
     4 - Affiche un message de validation
 */
 
-var urlAjaxServiceAdd = "/forum/post/nouvcomm";
-var urlAjaxServiceDel = "/forum/post/delcomm";
+var urlAjaxServiceAdd = "/ajax/forum-post/add";
+var urlAjaxServiceDel = "/ajax/forum-post/del";
 
 $(window).load(function() {
     // récurpération du clic sur le formulaire

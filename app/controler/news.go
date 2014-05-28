@@ -4,7 +4,6 @@ import (
 	"log"
 	//"math"
 	. "github.com/konginteractive/cme/app/model"
-	"net/http"
 )
 
 // Helper de vue
@@ -23,19 +22,6 @@ type PageNews struct {
 // fonction pour permettre de créer une page
 func CreatePageNews() *PageNews {
 	return new(PageNews)
-}
-
-// affichage d'une news unique
-func NewsUniqueHandler(w http.ResponseWriter, r *http.Request) {
-
-	pn := new(PageNews)
-
-	pn.View()
-
-	//insersion dans l'interface Page
-	var p Page
-	p = pn
-	Render(w, p, r)
 }
 
 func (pn *PageNews) View() {

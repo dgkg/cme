@@ -2,7 +2,6 @@ package model
 
 import (
 	"errors"
-	"log"
 	. "strconv"
 	"time"
 )
@@ -100,9 +99,6 @@ func (u User) DeleteAccount() {
 // renvoie une erreur le cas échéant
 func (u *User) LoginPassExist() (v bool, err error) {
 
-	log.Println("SearchUserLoginAndPass appelé")
-	log.Println(u.Email + " / " + u.Pass)
-
 	var user User
 	if u.Email != "" && u.Pass != "" {
 		db.Where("email = ? AND pass = ?", u.Email, u.Pass).Find(&user)
@@ -123,28 +119,28 @@ func (u *User) LoginPassExist() (v bool, err error) {
 
 // permet de récupérer toute les données du user
 // en fonction de son id
-func (u User) getById() User {
+func (u User) GetById() User {
 	db.Where("is_online = ? AND id = ?", "1", Itoa(int(u.Id))).Find(&u)
 	return u
 }
 
 // permet de récupérer le nom prénom du user
 // en fonction de son id
-func (u User) getFullName() string {
+func (u User) GetFullName() string {
 	db.Where("is_online = ? AND id = ?", "1", Itoa(int(u.Id))).Find(&u)
 	return u.FirstName + " " + u.LastName
 }
 
 // permet de récupérer toute la listes des questions du forum
 // en fonction de la limite affichable par page
-func (u User) getList() []User {
+func (u User) GetList() []User {
 
 	var users []User
 	db.Limit(maxElementsInPage).Where("is_online = ?", "1").Order("id desc").Find(&users)
 	return users
 }
 
-func (u User) getAllUser() []User {
+func (u User) GetAllUser() []User {
 	var users []User
 	db.Where("is_online = ?", "1").Order("id desc").Find(&users)
 	return users
@@ -153,7 +149,7 @@ func (u User) getAllUser() []User {
 // permet de récupérer toute la listes des questions du forum
 // avec les fonctions de pagination
 // en fonction de la limite affichable par page
-func (u User) getListPaged(fromPage int) []User {
+func (u User) GetListPaged(fromPage int) []User {
 
 	var users []User
 	p := fromPage * maxElementsInPage
@@ -162,14 +158,14 @@ func (u User) getListPaged(fromPage int) []User {
 	return users
 }
 
-func (u User) getUsersByGraduation() []User {
+func (u User) GetUsersByGraduation() []User {
 	var users []User
 	db.Where("is_online = ? AND graduation = ?", "1", u.Graduation).Find(&users)
 	return users
 }
 
 // permet de récupérer le nombre de forums de question total de la base de donnée
-func (u User) count() int {
+func (u User) Count() int {
 
 	var users []User
 	var num int
@@ -178,7 +174,7 @@ func (u User) count() int {
 }
 
 // fonction permetttant de rechercher dans les titres des questions
-func (u User) search(s string) []User {
+func (u User) Search(s string) []User {
 
 	var users []User
 	db.Where("is_online = ? AND first_name LIKE ? ", "1", "%"+s+"%").Or("is_online = ? and last_name LIKE ? ", "1", "%"+s+"%").Order("id desc").Find(&users)

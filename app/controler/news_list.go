@@ -4,7 +4,6 @@ import (
 	. "github.com/konginteractive/cme/app/model"
 	"log"
 	"math"
-	"net/http"
 	. "strconv"
 )
 
@@ -13,24 +12,6 @@ type PageNewsList struct {
 	PagesList  []Paginate
 	News       []News
 	PageWeb
-}
-
-// affichage de la liste des news
-func NewsHandler(w http.ResponseWriter, r *http.Request) {
-
-	pn := new(PageNewsList)
-
-	value := r.FormValue("p")
-	if value == "" {
-		pn.View()
-	} else {
-		pn.ViewPaged(value)
-	}
-
-	//insersion dans l'interface Page
-	var p Page
-	p = pn
-	Render(w, p, r)
 }
 
 func (pn *PageNewsList) View() {
@@ -45,7 +26,7 @@ func (pn *PageNewsList) View() {
 
 	var n News
 
-	pn.News = n.getList(3)
+	pn.News = n.GetList(3)
 	pn.PagesList = pn.createPaginate()
 	pn.injectDataToDisplay()
 	pn.RenderHtml = false
@@ -68,8 +49,8 @@ func (pn *PageNewsList) ViewPaged(page string) {
 
 	pn.Title = "Actualités de CME"
 	pn.MainClass = "news"
-	pn.News = n.getListPaged(pagePosition)
-	pn.Categories = n.getAllCategories()
+	pn.News = n.GetListPaged(pagePosition)
+	pn.Categories = n.GetAllCategories()
 	pn.PagesList = pn.createPaginate()
 	pn.RenderHtml = true
 	pn.injectDataToDisplay()
@@ -87,7 +68,7 @@ func (pn *PageNewsList) injectDataToDisplay() {
 		pn.News[key].CreatedAtString = t.Format(dateLayout)
 
 		u.Id = pn.News[key].UserId
-		u = u.getById()
+		u = u.GetById()
 		pn.News[key].UserName = u.FirstName + " " + u.LastName
 		//log.Println(u.FirstName)
 	}
@@ -97,7 +78,7 @@ func (pn *PageNewsList) injectDataToDisplay() {
 // fonction pour créer la pagination
 func (pn PageNewsList) createPaginate() []Paginate {
 	var n News
-	elTotal := n.count()
+	elTotal := n.Count()
 
 	nb := elTotal / maxElementsInPage
 	mf := int(math.Ceil(float64(nb)))

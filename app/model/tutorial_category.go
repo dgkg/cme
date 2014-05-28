@@ -33,9 +33,9 @@ func (tc TutorialCategory) Delete() {
 	db.Delete(&tc)
 }
 
-func (tc TutorialCategory) getTitle() string {
+func (tc TutorialCategory) GetTitle() string {
 	log.Println("getTitle appelé")
-	tc = tc.getData()
+	tc = tc.GetData()
 
 	return tc.Title
 }
@@ -58,7 +58,7 @@ func (tc *TutorialCategory) getData() {
 
 // permet de récupérer toute la question du forum
 // en fonction de son id
-func (tc TutorialCategory) getData() TutorialCategory {
+func (tc TutorialCategory) GetData() TutorialCategory {
 	if tc.Id != 0 {
 		db.Where("id = ?", Itoa(int(tc.Id))).Find(&tc)
 	}

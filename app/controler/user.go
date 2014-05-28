@@ -1,11 +1,9 @@
 package controler
 
 import (
-	"github.com/gorilla/mux"
 	"github.com/kennygrant/sanitize"
 	. "github.com/konginteractive/cme/app/model"
 	"log"
-	"net/http"
 )
 
 type PageUser struct {
@@ -18,31 +16,6 @@ func CreatePageUser() *PageUser {
 	return new(PageUser)
 }
 
-// affichage de la fiche étudiant
-func StudentFicheHandler(w http.ResponseWriter, r *http.Request) {
-
-	pu := new(PageUser)
-
-	//var u User
-	// récupération de la variable de l'utilisateur
-	vars := mux.Vars(r)
-	pu.User.Graduation = vars["year"]
-	pu.User.FirstName = vars["firstName"]
-	pu.User.LastName = vars["lastName"]
-
-	isFound := pu.findUser()
-	if isFound {
-		pu.View()
-	} else {
-		// todo réaliser une redirection vers page non trouvée
-	}
-
-	//insersion dans l'interface Page
-	var p Page
-	p = pu
-	Render(w, p, r)
-}
-
 func (pu *PageUser) View() {
 
 	var up UserProject
@@ -53,7 +26,7 @@ func (pu *PageUser) View() {
 	Templ = "user_fiche"
 	pu.Title = "Fiche d'" + pu.User.FirstName + " " + pu.User.LastName
 	pu.MainClass = "eleve_fiche"
-	pu.User.Projects = up.getAllFromIdUser()
+	pu.User.Projects = up.GetAllFromIdUser()
 	pu.RenderHtml = true
 	pu.injectDataToDisplay()
 }
@@ -74,7 +47,7 @@ func (pu *PageUser) injectDataToDisplay() {
 // retourne un booleen permettan de savoir si oui ou non il a été trouvé
 func (pu *PageUser) findUser() (isFound bool) {
 
-	listUsers := pu.User.getUsersByGraduation()
+	listUsers := pu.User.GetUsersByGraduation()
 	sfn := pu.User.FirstName
 	sln := pu.User.LastName
 	for key, _ := range listUsers {

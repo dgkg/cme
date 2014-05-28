@@ -43,9 +43,9 @@ func (t Tutorial) Delete() {
 }
 
 // permet de donner l'id d'une question à partir de son titre
-func (t Tutorial) getIdFromCatName(cat string) int64 {
+func (t Tutorial) GetIdFromCatName(cat string) int64 {
 
-	catList := t.getAllCategories(0)
+	catList := t.GetAllCategories(0)
 	lenCat := len(cat)
 	for i := 0; i < lenCat; i++ {
 		// vérifie si la cat est celle cherchée
@@ -59,7 +59,7 @@ func (t Tutorial) getIdFromCatName(cat string) int64 {
 
 // permet de retourner toutes les catégories
 // permet aussi de créer les liens pour les catégories
-func (t Tutorial) getAllCategories(id int64) []TutorialCategory {
+func (t Tutorial) GetAllCategories(id int64) []TutorialCategory {
 
 	var cat []TutorialCategory
 	db.Find(&cat)
@@ -81,14 +81,14 @@ func (t Tutorial) getAllCategories(id int64) []TutorialCategory {
 
 // permet de récupérer tout le tutoriel
 // en fonction de son id
-func (t Tutorial) getById() Tutorial {
+func (t Tutorial) GetById() Tutorial {
 	db.Where("is_online = ? AND id = ?", "1", Itoa(int(t.Id))).Find(&t)
 	return t
 }
 
 // permet de récupérer toute la listes des tutoriels
 // en fonction de la limite affichable par page
-func (t Tutorial) getList() []Tutorial {
+func (t Tutorial) GetList() []Tutorial {
 	var tutorials []Tutorial
 	db.Limit(maxElementsInPage).Where("is_online = ?", "1").Order("id desc").Find(&tutorials)
 	return tutorials
@@ -97,7 +97,7 @@ func (t Tutorial) getList() []Tutorial {
 // permet de récupérer toute la listes des tutoriels
 // avec les fonctions de pagination
 // en fonction de la limite affichable par page
-func (t Tutorial) getListPaged(fromPage int) []Tutorial {
+func (t Tutorial) GetListPaged(fromPage int) []Tutorial {
 
 	var tutorials []Tutorial
 	p := fromPage * maxElementsInPage
@@ -107,7 +107,7 @@ func (t Tutorial) getListPaged(fromPage int) []Tutorial {
 }
 
 // permet de récupérer des questions du tutoriel à partir de l'id de la catégorie
-func (t Tutorial) getListFromCat(id int64) []Tutorial {
+func (t Tutorial) GetListFromCat(id int64) []Tutorial {
 
 	var tutorials []Tutorial
 	db.Limit(maxElementsInPage).Where("is_online = ? and tutorial_category_id = ?", "1", Itoa(int(id))).Order("id desc").Find(&tutorials)
@@ -117,7 +117,7 @@ func (t Tutorial) getListFromCat(id int64) []Tutorial {
 // permet de récupérer une liste des tutoriels en fonction
 // de l'id de la catégorie sélectionnée
 // et de la page dans laquelle on est
-func (t Tutorial) getListFromCatPaged(id int64, fromPage int) []Tutorial {
+func (t Tutorial) GetListFromCatPaged(id int64, fromPage int) []Tutorial {
 
 	var tutorials []Tutorial
 	p := fromPage * maxElementsInPage
@@ -127,7 +127,7 @@ func (t Tutorial) getListFromCatPaged(id int64, fromPage int) []Tutorial {
 }
 
 // permet de récupérer le nombre de tutoriels total de la base de donnée
-func (t Tutorial) count() int {
+func (t Tutorial) Count() int {
 
 	var tutorials []Tutorial
 	var num int
@@ -137,7 +137,7 @@ func (t Tutorial) count() int {
 
 // permet de récupérer le nombre de tutoriels total de la base de donnée
 // en fonction de l'id de la catégorie
-func (t Tutorial) countFromIdCat(id int64) int {
+func (t Tutorial) CountFromIdCat(id int64) int {
 
 	var tutorials []Tutorial
 	var num int
@@ -147,7 +147,7 @@ func (t Tutorial) countFromIdCat(id int64) int {
 
 // permet de récupérer les posts d'un tutoriel
 // à partir de l'id d'un tutoriel
-func (t Tutorial) getPost() []TutorialPost {
+func (t Tutorial) GetPost() []TutorialPost {
 	var posts []TutorialPost
 	db.Where("is_online = ? and tutorial_id = ?", "1", Itoa(int(t.Id))).Find(&posts)
 	return posts
@@ -155,7 +155,7 @@ func (t Tutorial) getPost() []TutorialPost {
 
 // permet de récupérer le nombre de posts d'un tutoriel
 // à partir de l'id d'un tutoriel
-func (t Tutorial) countPost(id int64) int64 {
+func (t Tutorial) CountPost(id int64) int64 {
 
 	i := int(id)
 	idTutorial := Itoa(i)
@@ -166,24 +166,24 @@ func (t Tutorial) countPost(id int64) int64 {
 }
 
 // fonction permetttant de rechercher dans les titres des questions
-func (t Tutorial) search(s string) []Tutorial {
+func (t Tutorial) Search(s string) []Tutorial {
 
 	var tutorials []Tutorial
 	db.Where("is_online = ? and title LIKE ? ", "1", "%"+s+"%").Or("is_online = ? and text LIKE ? ", "1", "%"+s+"%").Order("id desc").Find(&tutorials)
 	return tutorials
 }
-func (t *Tutorial) getTitle() string {
-	t.getData()
+func (t *Tutorial) GetTitle() string {
+	t.GetData()
 	return t.Title
 }
-func (t *Tutorial) getData() {
+func (t *Tutorial) GetData() {
 	if t.Id != 0 {
 		db.Where("is_online = ? and id = ?", "1", Itoa(int(t.Id))).Find(&t)
 	}
 }
-func (t *Tutorial) getCatTitle() string {
+func (t *Tutorial) GetCatTitle() string {
 	var tc TutorialCategory
 	tc.Id = t.TutorialCategoryId
 
-	return tc.getTitle()
+	return tc.GetTitle()
 }

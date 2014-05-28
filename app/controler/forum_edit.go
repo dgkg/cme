@@ -1,27 +1,10 @@
 package controler
 
 import (
-	"github.com/gorilla/mux"
 	. "github.com/konginteractive/cme/app/model"
 	"log"
-	"net/http"
 	. "strconv"
 )
-
-func ForumEditHandler(w http.ResponseWriter, r *http.Request) {
-
-	// récupère la catégorie sélectionnée
-	vars := mux.Vars(r)
-	id := vars["id"]
-
-	pf := new(PageForum)
-	pf.ViewEdit(id)
-
-	//insersion dans l'interface Page
-	var p Page
-	p = pf
-	Render(w, p, r)
-}
 
 // fonction public
 // permet d'afficher une question avec la liste des réponses
@@ -36,8 +19,8 @@ func (pfp *PageForum) ViewEdit(id string) {
 
 	pfp.MainClass = "forum_add"
 	pfp.Forum.Id, _ = ParseInt(id, 0, 64)
-	pfp.Forum = pfp.Forum.getById()
-	pfp.Categories = f.getAllCategories(0)
+	pfp.Forum = pfp.Forum.GetById()
+	pfp.Categories = f.GetAllCategories(0)
 
 	pfp.Title = "Éditer : " + pfp.Forum.Title
 

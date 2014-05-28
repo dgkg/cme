@@ -1,8 +1,6 @@
 package controler
 
 import (
-	"fmt"
-	"github.com/gorilla/sessions"
 	. "github.com/konginteractive/cme/app/model"
 	"io"
 	"log"
@@ -13,41 +11,6 @@ import (
 
 type PageInscription struct {
 	PageWeb
-}
-
-// affichage du formulaire d'inscription
-func InscriptionHandler(w http.ResponseWriter, r *http.Request) {
-
-	pi := new(PageInscription)
-	idUser, isValid := pi.ValidateDataInscrption(r)
-
-	var u User
-	u.Id = idUser
-	u = u.getById()
-
-	if isValid {
-		session, _ := store.Get(r, "cme_connecte")
-		// Set some session values.
-		session.Values["id"] = u.Id
-		session.Values["name"] = u.FirstName
-		session.Options = &sessions.Options{
-			MaxAge:   86400 * 7,
-			HttpOnly: true,
-		}
-		// Save it.
-		session.Save(r, w)
-		// Set data into current page
-		pi.SessIdUser = u.Id
-		pi.SessNameUser = u.FirstName
-		pi.SessIsLogged = true
-	}
-
-	pi.View()
-
-	//insersion dans l'interface Page
-	var p Page
-	p = pi
-	Render(w, p, r)
 }
 
 func (pi *PageInscription) ValidateDataInscrption(r *http.Request) (idUser int64, isValid bool) {
@@ -139,32 +102,6 @@ func cp(dst, src string) error {
 		return err
 	}
 	return d.Close()
-}
-
-// Réception du POST envoyé en AJAX et ajout des
-// données dans la BD
-func InscFormHandler(w http.ResponseWriter, r *http.Request) {
-
-	// Validation des données
-	// Si un des variables est vide, la func retourne un "error"
-	// ce qui fait afficher une message d'erreur
-	if r.PostFormValue("prenom") == "" ||
-		r.PostFormValue("nom") == "" ||
-		r.PostFormValue("email") == "" ||
-		r.PostFormValue("pass") == "" {
-
-		fmt.Fprint(w, "error")
-	} else {
-
-		var u User
-
-		u.FirstName = r.PostFormValue("prenom")
-		u.LastName = r.PostFormValue("nom")
-		u.Email = r.PostFormValue("email")
-		u.Pass = r.PostFormValue("pass")
-		u.IsOnline = 1
-		u.Save()
-	}
 }
 
 // fonction pour permettre de créer une page

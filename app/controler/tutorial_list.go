@@ -1,12 +1,10 @@
 package controler
 
 import (
-	"github.com/gorilla/mux"
 	"github.com/kennygrant/sanitize"
 	. "github.com/konginteractive/cme/app/model"
 	"log"
 	"math"
-	"net/http"
 	. "strconv"
 )
 
@@ -15,63 +13,6 @@ type PageTutorialList struct {
 	PagesList  []Paginate
 	Tutorials  []Tutorial
 	PageWeb
-}
-
-// affichage de la liste des tutos
-func TutoHandler(w http.ResponseWriter, r *http.Request) {
-
-	pt := new(PageTutorialList)
-	value := r.FormValue("p")
-
-	if value == "" {
-		pt.View()
-	} else {
-		pt.ViewPaged(value)
-	}
-
-	//insersion dans l'interface Page
-	var p Page
-	p = pt
-	Render(w, p, r)
-}
-
-// affichage d'une catégorie d'un tutoriel
-func TutoCatHandler(w http.ResponseWriter, r *http.Request) {
-	pt := new(PageTutorialList)
-
-	// récupère la catégorie sélectionnée
-	vars := mux.Vars(r)
-	category := vars["category"]
-	// récupère la page en cours sélectionnée
-	value := r.FormValue("p")
-
-	if value == "" {
-		pt.ViewCategory(category)
-	} else {
-		pt.ViewCategoryPaged(category, value)
-	}
-
-	//insersion dans l'interface Page
-	var p Page
-	p = pt
-	Render(w, p, r)
-}
-
-// affichage de la recherche de tutos
-func TutoSearchHandler(w http.ResponseWriter, r *http.Request) {
-	pt := new(PageTutorialList)
-
-	q := r.FormValue("q")
-	if q == "" {
-		pt.View()
-	} else {
-		pt.ViewSearch(q)
-	}
-
-	//insersion dans l'interface Page
-	var p Page
-	p = pt
-	Render(w, p, r)
 }
 
 // fonction public
@@ -87,8 +28,8 @@ func (pt *PageTutorialList) View() {
 
 	pt.Title = "Tutoriel"
 	pt.MainClass = "tutoriels"
-	pt.Tutorials = t.getList()
-	pt.Categories = t.getAllCategories(0)
+	pt.Tutorials = t.GetList()
+	pt.Categories = t.GetAllCategories(0)
 	pt.PagesList = pt.createPaginate()
 	pt.RenderHtml = true
 	pt.injectDataToDisplay(pt.Tutorials)
@@ -111,8 +52,8 @@ func (pt *PageTutorialList) ViewPaged(page string) {
 
 	pt.Title = "Tutoriel"
 	pt.MainClass = "tutoriels"
-	pt.Tutorials = t.getListPaged(pagePosition)
-	pt.Categories = t.getAllCategories(0)
+	pt.Tutorials = t.GetListPaged(pagePosition)
+	pt.Categories = t.GetAllCategories(0)
 	pt.PagesList = pt.createPaginate()
 	pt.RenderHtml = true
 	pt.injectDataToDisplay(pt.Tutorials)
@@ -131,12 +72,12 @@ func (pt *PageTutorialList) ViewCategory(cat string) {
 	Templ = "tutorial"
 
 	// récupère l'id de la catégorie
-	idCat := t.getIdFromCatName(cat)
+	idCat := t.GetIdFromCatName(cat)
 
 	pt.Title = "Tutoriel " + cat
 	pt.MainClass = "tutoriels"
-	pt.Tutorials = t.getListFromCat(idCat)
-	pt.Categories = t.getAllCategories(idCat)
+	pt.Tutorials = t.GetListFromCat(idCat)
+	pt.Categories = t.GetAllCategories(idCat)
 	pt.PagesList = pt.createPaginateFromIdCat(idCat)
 	pt.RenderHtml = true
 	pt.injectDataToDisplay(pt.Tutorials)
@@ -158,12 +99,12 @@ func (pt *PageTutorialList) ViewCategoryPaged(cat string, page string) {
 
 	pagePosition, _ := Atoi(page)
 	// récupère l'id de la catégorie
-	idCat := t.getIdFromCatName(cat)
+	idCat := t.GetIdFromCatName(cat)
 
 	pt.Title = "Tutoriel " + cat
 	pt.MainClass = "tutoriels"
-	pt.Tutorials = t.getListFromCatPaged(idCat, pagePosition)
-	pt.Categories = t.getAllCategories(idCat)
+	pt.Tutorials = t.GetListFromCatPaged(idCat, pagePosition)
+	pt.Categories = t.GetAllCategories(idCat)
 	pt.PagesList = pt.createPaginateFromIdCat(idCat)
 	pt.RenderHtml = true
 	pt.injectDataToDisplay(pt.Tutorials)
@@ -184,8 +125,8 @@ func (pt *PageTutorialList) ViewSearch(q string) {
 
 	pt.Title = "Tutoriel Rechercher"
 	pt.MainClass = "tutoriels"
-	pt.Tutorials = t.search(q)
-	pt.Categories = t.getAllCategories(0)
+	pt.Tutorials = t.Search(q)
+	pt.Categories = t.GetAllCategories(0)
 	pt.RenderHtml = true
 	if len(pt.Tutorials) == 0 {
 		pt.SearchText = q
@@ -211,9 +152,9 @@ func (pt PageTutorialList) injectDataToDisplay(tutorials []Tutorial) []Tutorial 
 		}
 		tutorials[i].Text = "<p>" + extrait + "</p>"
 		// permet de compter ne nombres de réponses
-		tutorials[i].PostNumb = tutorials[i].countPost(id)
+		tutorials[i].PostNumb = tutorials[i].CountPost(id)
 		// permet de créer une url du lien
-		tutorials[i].CategoryTitle = tutorials[i].getCatTitle()
+		tutorials[i].CategoryTitle = tutorials[i].GetCatTitle()
 	}
 	return tutorials
 }
@@ -224,7 +165,7 @@ func (pt PageTutorialList) createPaginate() []Paginate {
 
 	var t Tutorial
 
-	elTotal := t.count()
+	elTotal := t.Count()
 
 	nb := elTotal / maxElementsInPage
 	mf := int(math.Ceil(float64(nb)))
@@ -243,7 +184,7 @@ func (pt PageTutorialList) createPaginate() []Paginate {
 // fonction pour créer la pagination à partir d'une catégorie sélectionnée
 func (pt PageTutorialList) createPaginateFromIdCat(id int64) []Paginate {
 	var f Forum
-	elTotal := f.countFromIdCat(id)
+	elTotal := f.CountFromIdCat(id)
 
 	nb := elTotal / maxElementsInPage
 	mf := int(math.Ceil(float64(nb)))

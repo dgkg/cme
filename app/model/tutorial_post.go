@@ -35,7 +35,7 @@ func (tp TutorialPost) Delete() {
 	db.Delete(&tp)
 }
 
-func (t *TutorialPost) getData() {
+func (t *TutorialPost) GetData() {
 	if t.Id != 0 {
 		db.Where("id=?", Itoa(int(t.Id))).Find(&t)
 	}

@@ -1,12 +1,9 @@
 package controler
 
 import (
-	_ "github.com/go-sql-driver/mysql"
-	"github.com/gorilla/mux"
 	"github.com/kennygrant/sanitize"
 	"log"
 	"math"
-	"net/http"
 	. "strconv"
 	//"regexp"
 	. "github.com/konginteractive/cme/app/model"
@@ -17,62 +14,6 @@ type PageForumList struct {
 	PagesList  []Paginate
 	Forums     []Forum
 	PageWeb
-}
-
-// affichage du forum
-func ForumHandler(w http.ResponseWriter, r *http.Request) {
-
-	pf := new(PageForumList)
-
-	value := r.FormValue("p")
-	if value == "" {
-		pf.View()
-	} else {
-		pf.ViewPaged(value)
-	}
-
-	//insersion dans l'interface Page
-	var p Page
-	p = pf
-	Render(w, p, r)
-
-}
-
-// affichage de la recherche dans le forum
-func ForumSearchHandler(w http.ResponseWriter, r *http.Request) {
-	pf := new(PageForumList)
-	q := r.FormValue("q")
-	if q == "" {
-		pf.View()
-	} else {
-		pf.ViewSearch(q)
-	}
-
-	//insersion dans l'interface Page
-	var p Page
-	p = pf
-	Render(w, p, r)
-}
-
-// affichage d'une catégorie dans le forum
-func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
-	pf := new(PageForumList)
-
-	// récupère la catégorie sélectionnée
-	vars := mux.Vars(r)
-	category := vars["category"]
-	// récupère la page en cours sélectionnée
-	value := r.FormValue("p")
-
-	if value == "" {
-		pf.ViewCategory(category)
-	} else {
-		pf.ViewCategoryPaged(category, value)
-	}
-	//insersion dans l'interface Page
-	var p Page
-	p = pf
-	Render(w, p, r)
 }
 
 // fonction pour permettre de créer une page
@@ -93,8 +34,8 @@ func (pf *PageForumList) View() {
 
 	pf.Title = "Forum"
 	pf.MainClass = "forum"
-	pf.Forums = f.getList()
-	pf.Categories = f.getAllCategories(0)
+	pf.Forums = f.GetList()
+	pf.Categories = f.GetAllCategories(0)
 	pf.PagesList = pf.createPaginate()
 	pf.RenderHtml = true
 	pf.injectDataToDisplay(pf.Forums)
@@ -118,8 +59,8 @@ func (pf *PageForumList) ViewPaged(page string) {
 
 	pf.Title = "Forum"
 	pf.MainClass = "forum"
-	pf.Forums = f.getListPaged(pagePosition)
-	pf.Categories = f.getAllCategories(0)
+	pf.Forums = f.GetListPaged(pagePosition)
+	pf.Categories = f.GetAllCategories(0)
 	pf.PagesList = pf.createPaginate()
 	pf.RenderHtml = true
 	pf.injectDataToDisplay(pf.Forums)
@@ -138,12 +79,12 @@ func (pf *PageForumList) ViewCategory(cat string) {
 	Templ = "forum"
 
 	// récupère l'id de la catégorie
-	idCat := f.getIdFromCatName(cat)
+	idCat := f.GetIdFromCatName(cat)
 
 	pf.Title = "Forum " + cat
 	pf.MainClass = "forum"
-	pf.Forums = f.getListFromCat(idCat)
-	pf.Categories = f.getAllCategories(idCat)
+	pf.Forums = f.GetListFromCat(idCat)
+	pf.Categories = f.GetAllCategories(idCat)
 	pf.PagesList = pf.createPaginateFromIdCat(idCat)
 	pf.RenderHtml = true
 	pf.injectDataToDisplay(pf.Forums)
@@ -165,12 +106,12 @@ func (pf *PageForumList) ViewCategoryPaged(cat string, page string) {
 
 	pagePosition, _ := Atoi(page)
 	// récupère l'id de la catégorie
-	idCat := f.getIdFromCatName(cat)
+	idCat := f.GetIdFromCatName(cat)
 
 	pf.Title = "Forum " + cat
 	pf.MainClass = "forum"
-	pf.Forums = f.getListFromCatPaged(idCat, pagePosition)
-	pf.Categories = f.getAllCategories(idCat)
+	pf.Forums = f.GetListFromCatPaged(idCat, pagePosition)
+	pf.Categories = f.GetAllCategories(idCat)
 	pf.PagesList = pf.createPaginateFromIdCat(idCat)
 	pf.RenderHtml = true
 	pf.injectDataToDisplay(pf.Forums)
@@ -192,8 +133,8 @@ func (pf *PageForumList) ViewSearch(q string) {
 
 	pf.Title = "Forum Rechercher"
 	pf.MainClass = "forum"
-	pf.Forums = f.search(q)
-	pf.Categories = f.getAllCategories(0)
+	pf.Forums = f.Search(q)
+	pf.Categories = f.GetAllCategories(0)
 	pf.RenderHtml = true
 	if len(pf.Forums) == 0 {
 		pf.SearchText = q
@@ -218,7 +159,7 @@ func (pf PageForumList) injectDataToDisplay(forums []Forum) []Forum {
 		}
 		forums[i].Text = "<p>" + extrait + "</p>"
 		// permet de compter ne nombres de réponses
-		forums[i].PostNumb = forums[i].countPost(id)
+		forums[i].PostNumb = forums[i].CountPost(id)
 		// permet de créer une url du lien
 		forums[i].Url = "/forum/post/" + Itoa(int(forums[i].Id))
 	}
@@ -230,7 +171,7 @@ func (pf PageForumList) injectDataToDisplay(forums []Forum) []Forum {
 func (pf PageForumList) createPaginate() []Paginate {
 
 	var f Forum
-	elTotal := f.count()
+	elTotal := f.Count()
 
 	nb := elTotal / maxElementsInPage
 	mf := int(math.Ceil(float64(nb)))
@@ -250,7 +191,7 @@ func (pf PageForumList) createPaginate() []Paginate {
 // fonction pour créer la pagination à partir d'une catégorie sélectionnée
 func (pf PageForumList) createPaginateFromIdCat(id int64) []Paginate {
 	var f Forum
-	elTotal := f.countFromIdCat(id)
+	elTotal := f.CountFromIdCat(id)
 
 	nb := elTotal / maxElementsInPage
 	mf := int(math.Ceil(float64(nb)))

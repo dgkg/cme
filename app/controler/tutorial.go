@@ -1,14 +1,8 @@
 package controler
 
 import (
-	"fmt"
-	"github.com/gorilla/mux"
-	"github.com/kennygrant/sanitize"
 	. "github.com/konginteractive/cme/app/model"
 	"log"
-	"net/http"
-	. "strconv"
-	"time"
 )
 
 type PageTutorial struct {
@@ -22,66 +16,6 @@ func CreatePageTutorial() *PageTutorial {
 	return new(PageTutorial)
 }
 
-// affichage d'un tuto
-func TutoPostHandler(w http.ResponseWriter, r *http.Request) {
-	// récupération de la variable id
-	vars := mux.Vars(r)
-	id := vars["id"]
-	// initialisation de l'objet PageTutorial
-	pt := new(PageTutorial)
-	pt.Tutorial.Id, _ = ParseInt(id, 0, 64)
-	pt.View()
-	//insersion dans l'interface Page
-	var p Page
-	p = pt
-	Render(w, p, r)
-}
-
-// Public function
-// permet d'ajouter un commenaire sur la page tutoriel
-func TutorialNouvCommHandler(w http.ResponseWriter, r *http.Request) {
-	// Validation des données
-	// Si une des variables est vide, la func retourne un "error"
-	// ce qui fait afficher un message d'erreur
-	if r.PostFormValue("val_commentaire") == "" ||
-		r.PostFormValue("val_post_id") == "" ||
-		r.PostFormValue("val_auteur_id") == "" ||
-		r.PostFormValue("val_auteur_id") == "0" {
-		// envoie un message d'erreur
-		fmt.Fprint(w, "error")
-	} else {
-		// initialise l'objet ForumPost et récupère les données du formulaire
-		var tp TutorialPost
-		tp.TutorialId, _ = ParseInt(r.PostFormValue("val_post_id"), 0, 64)
-		tp.UserId, _ = ParseInt(r.PostFormValue("val_auteur_id"), 0, 64)
-		tp.Text = sanitize.HTML(r.PostFormValue("val_commentaire"))
-		tp.IsOnline = 1
-		tp.Id = tp.Save()
-		// permet de récuprérer le nom de l'utilisateur
-		var u User
-		u.Id = tp.UserId
-		u = u.getById()
-		// permet de convertir la date de la personne qui a posté la réponse
-		t := time.Now()
-		date := t.Format(dateLayout)
-		// String qui contient d'abord l'auteur du commentaire
-		// puis son commentaire complet, séparés par ":::"
-		commData := u.FirstName + " " + u.LastName + ":::" + date + ":::" + tp.Text + ":::" + Itoa(int(tp.Id))
-		fmt.Fprint(w, commData)
-	}
-}
-
-// fonction Public
-// permet de supprimer un commentaire sur le tuto
-func TutorialDelCommHandler(w http.ResponseWriter, r *http.Request) {
-	var tp TutorialPost
-	tp.Id, _ = ParseInt(r.PostFormValue("id_commentaire"), 0, 64)
-	log.Println("TutorialPost " + Itoa(int(tp.Id)) + " supprimé")
-	tp.Delete()
-	commData := "success"
-	fmt.Fprint(w, commData)
-}
-
 // fonction privée
 // Permet de retrouver le nom de la personne qui a posté
 // Permet aussi de convertir la date de création
@@ -92,7 +26,7 @@ func (pt *PageTutorial) injectDataToDisplay() {
 	// permet de récupérer le nom prénom de la personne qui a posté la question
 	var u User
 	u.Id = pt.Tutorial.UserId
-	pt.Tutorial.UserName = u.getFullName()
+	pt.Tutorial.UserName = u.GetFullName()
 
 	// permet de convertir la date de la personne qui a posté la question
 	t := pt.Tutorial.CreatedAt
@@ -102,7 +36,7 @@ func (pt *PageTutorial) injectDataToDisplay() {
 	for i := 0; i < lenPosts; i++ {
 		// permet de récupérer le nom prénom de la personne qui a posté la réponse
 		u.Id = pt.Tutorial.Posts[i].UserId
-		pt.Tutorial.Posts[i].UserName = u.getFullName()
+		pt.Tutorial.Posts[i].UserName = u.GetFullName()
 		// permet de convertir la date de la personne qui a posté la question
 		t = pt.Tutorial.Posts[i].CreatedAt
 		pt.Tutorial.Posts[i].CreatedAtString = t.Format(dateLayout)
@@ -120,8 +54,8 @@ func (pt *PageTutorial) View() {
 	pt.Title = "Tutoriel"
 	//pt.MainClass = "tutoriels"
 	pt.MainClass = "forum_post"
-	pt.Tutorial = pt.Tutorial.getById()
-	pt.Tutorial.Posts = pt.Tutorial.getPost()
+	pt.Tutorial = pt.Tutorial.GetById()
+	pt.Tutorial.Posts = pt.Tutorial.GetPost()
 	pt.RenderHtml = true
 	pt.injectDataToDisplay()
 

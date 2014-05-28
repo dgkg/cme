@@ -52,9 +52,9 @@ func (f Forum) Delete() {
 }
 
 // permet de donner l'id d'une question à partir de son titre
-func (f Forum) getIdFromCatName(cat string) int64 {
+func (f Forum) GetIdFromCatName(cat string) int64 {
 
-	catList := f.getAllCategories(0)
+	catList := f.GetAllCategories(0)
 	lenCat := len(cat)
 	for i := 0; i < lenCat; i++ {
 		// vérifie si la cat est celle cherchée
@@ -68,7 +68,7 @@ func (f Forum) getIdFromCatName(cat string) int64 {
 
 // permet de retourner toutes les catégories
 // permet aussi de créer les liens pour les catégories
-func (f Forum) getAllCategories(id int64) []ForumCategory {
+func (f Forum) GetAllCategories(id int64) []ForumCategory {
 
 	var cat []ForumCategory
 	db.Find(&cat)
@@ -90,14 +90,14 @@ func (f Forum) getAllCategories(id int64) []ForumCategory {
 
 // permet de récupérer toute la question du forum
 // en fonction de son id
-func (f Forum) getById() Forum {
+func (f Forum) GetById() Forum {
 	db.Where("is_online = ? AND id = ?", "1", Itoa(int(f.Id))).Find(&f)
 	return f
 }
 
 // permet de récupérer toute la listes des questions du forum
 // en fonction de la limite affichable par page
-func (f Forum) getList() []Forum {
+func (f Forum) GetList() []Forum {
 
 	var forums []Forum
 	db.Limit(maxElementsInPage).Where("is_online = ?", "1").Order("id desc").Find(&forums)
@@ -107,7 +107,7 @@ func (f Forum) getList() []Forum {
 // permet de récupérer toute la listes des questions du forum
 // avec les fonctions de pagination
 // en fonction de la limite affichable par page
-func (f Forum) getListPaged(fromPage int) []Forum {
+func (f Forum) GetListPaged(fromPage int) []Forum {
 	//
 	var forums []Forum
 	p := fromPage * maxElementsInPage
@@ -117,7 +117,7 @@ func (f Forum) getListPaged(fromPage int) []Forum {
 }
 
 // permet de récupérer des questions du forum à partir de l'id de la catégorie
-func (f Forum) getListFromCat(id int64) []Forum {
+func (f Forum) GetListFromCat(id int64) []Forum {
 
 	var forums []Forum
 	db.Limit(maxElementsInPage).Where("is_online = ? and forum_category_id = ?", "1", Itoa(int(id))).Order("id desc").Find(&forums)
@@ -127,7 +127,7 @@ func (f Forum) getListFromCat(id int64) []Forum {
 // permet de récupérer une liste de questions du formulaire en fonction
 // de l'id de la catégorie sélectionnée
 // et de la page dans laquelle on est
-func (f Forum) getListFromCatPaged(id int64, fromPage int) []Forum {
+func (f Forum) GetListFromCatPaged(id int64, fromPage int) []Forum {
 
 	var forums []Forum
 	p := fromPage * maxElementsInPage
@@ -137,7 +137,7 @@ func (f Forum) getListFromCatPaged(id int64, fromPage int) []Forum {
 }
 
 // permet de récupérer le nombre de forums de question total de la base de donnée
-func (f Forum) count() int {
+func (f Forum) Count() int {
 
 	var forums []Forum
 	var num int
@@ -147,7 +147,7 @@ func (f Forum) count() int {
 
 // permet de récupérer le nombre de forums de question total de la base de donnée
 // en fonction de l'id de la catégorie
-func (f Forum) countFromIdCat(id int64) int {
+func (f Forum) CountFromIdCat(id int64) int {
 
 	var forums []Forum
 	var num int
@@ -157,7 +157,7 @@ func (f Forum) countFromIdCat(id int64) int {
 
 // permet de récupérer les posts d'un forum
 // à partir de l'id d'un forum
-func (f Forum) getPost() []ForumPost {
+func (f Forum) GetPost() []ForumPost {
 	var posts []ForumPost
 	db.Where("is_online = ? and forum_id = ?", "1", Itoa(int(f.Id))).Find(&posts)
 	return posts
@@ -165,7 +165,7 @@ func (f Forum) getPost() []ForumPost {
 
 // permet de récupérer le nombre de posts d'un forum
 // à partir de l'id d'un forum
-func (f Forum) countPost(id int64) int64 {
+func (f Forum) CountPost(id int64) int64 {
 
 	i := int(id)
 	idForum := Itoa(i)
@@ -176,7 +176,7 @@ func (f Forum) countPost(id int64) int64 {
 }
 
 // fonction permetttant de rechercher dans les titres des questions
-func (f Forum) search(s string) []Forum {
+func (f Forum) Search(s string) []Forum {
 
 	var forums []Forum
 	db.Where("is_online = ? and title LIKE ? ", "1", "%"+s+"%").Or("is_online = ? and text LIKE ? ", "1", "%"+s+"%").Order("id desc").Find(&forums)

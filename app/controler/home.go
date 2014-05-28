@@ -3,7 +3,6 @@ package controler
 import (
 	. "github.com/konginteractive/cme/app/model"
 	"log"
-	"net/http"
 )
 
 type PageHome struct {
@@ -12,18 +11,6 @@ type PageHome struct {
 	News       []News
 	Projets    []UserProject
 	PageWeb
-}
-
-// affichage de la home
-func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	ph := new(PageHome)
-	ph.View()
-	ph.render(w, r)
-}
-
-func GetProjectsHandler(w http.ResponseWriter, r *http.Request) {
-	nbProjetsACharger := r.PostFormValue("nbProjets")
-	log.Println(nbProjetsACharger)
 }
 
 // fonction pour permettre de créer une page
@@ -42,22 +29,16 @@ func (ph *PageHome) View() {
 	ph.getNews(2)
 }
 
-func (ph *PageHome) render(w http.ResponseWriter, r *http.Request) {
-	var p Page
-	p = ph
-	Render(w, p, r)
-}
-
 // permet de récupérer les news
 func (ph *PageHome) getNews(numb int) {
 	var n News
-	ph.News = n.getList(numb)
+	ph.News = n.GetList(numb)
 }
 
 // permet de récupérer les projets
 func (ph *PageHome) getProjects() {
 	var up UserProject
-	ph.Projets = up.getAllProjects()
+	ph.Projets = up.GetAllProjects()
 }
 
 // permet de récupérer les catégories qui ont des projets

@@ -138,7 +138,7 @@ function saveBio() {
     var idUser = $('#id-user').val();
     var strBiographie = $('#bio-text').val();
     var strSection = "saveBio";
-    var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection, biographie : strBiographie }, function(data, status){
+    var requete = $.post('/ajax/mon-compte/update', { idUser : idUser, section : strSection, biographie : strBiographie }, function(data, status){
         if (data != "error") {
             afficherSucces("bio");
         } else {
@@ -153,7 +153,7 @@ function saveSocial() {
     var strTw = $('#url-twitter').val();
     var strLi = $('#url-linkedin').val();
     var strSection = "saveSocial";
-    var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection, facebook : strFb, twitter : strTw, linkedin : strLi }, function(data, status){
+    var requete = $.post('/ajax/mon-compte/update', { idUser : idUser, section : strSection, facebook : strFb, twitter : strTw, linkedin : strLi }, function(data, status){
         if (data != "error") {
             afficherSucces("social");
         } else {
@@ -166,7 +166,7 @@ function saveGraduation() {
     var idUser = $('#id-user').val();
     var intGraduation = $('#graduation').val();
     var strSection = "saveGraduation";
-    var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection, graduation : intGraduation }, function(data, status){
+    var requete = $.post('/ajax/mon-compte/update', { idUser : idUser, section : strSection, graduation : intGraduation }, function(data, status){
         if (data != "error") {
             afficherSucces("gradu");
         } else {
@@ -180,7 +180,7 @@ function saveNomUtilisateur() {
     var strPrenom = $('#prenom-utilisateur').val();
     var strNom = $('#nom-utilisateur').val();
     var strSection = "saveNomUtilisateur";
-    var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection, prenom : strPrenom, nom : strNom }, function(data, status){
+    var requete = $.post('/ajax/mon-compte/update', { idUser : idUser, section : strSection, prenom : strPrenom, nom : strNom }, function(data, status){
         if (data != "error") {
             afficherSucces("compte");
         } else {
@@ -192,7 +192,7 @@ function saveNomUtilisateur() {
 function supprimerCompte() {
     var idUser = $('#id-user').val();
     var strSection = "supprimerCompte";
-    var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection}, function(data, status){
+    var requete = $.post('/ajax/mon-compte/update', { idUser : idUser, section : strSection}, function(data, status){
         if (data != "error") {
             afficherSucces();
         } else {
