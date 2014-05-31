@@ -10,13 +10,30 @@ import (
 	"time"
 )
 
+/*
 type Handlers struct {
 	W http.ResponseWriter
 	R *http.Request
+	P Page
+	M string
 }
+*/
 
+/*
+func ForumPostHandler(w http.ResponseWriter, r *http.Request) {
+	var h Handlers
+	h.W = w
+	h.R = r
+	h.forumHandler()
+	h.render()
+}
+forumAddHandler
+forumEditHandler
+forumHandler
+forumSearchHandler
+*/
 // affichage d'une question du forum
-func (h *Handlers) ForumPostHandler() (p Page) {
+func ForumPostHandler(w http.ResponseWriter, r *http.Request) {
 	// récupération de la variable id
 	vars := mux.Vars(h.R)
 	id := vars["id"]
@@ -25,20 +42,22 @@ func (h *Handlers) ForumPostHandler() (p Page) {
 	pf.Forum.Id, _ = ParseInt(id, 0, 64)
 	pf.View()
 	//insersion dans l'interface Page
+	var p Page
 	p = pf
-	return p
+	render(w, p, r)
 }
 
 // affichage du formulaire du forum
-func (h *Handlers) ForumAddHandler() (p Page) {
+func ForumAddHandler(w http.ResponseWriter, r *http.Request) {
 	pf := new(PageForum)
 	pf.ViewAdd()
 	//insersion dans l'interface Page
+	var p Page
 	p = pf
-	return p
+	render(w, p, r)
 }
 
-func (h *Handlers) ForumEditHandler() (p Page) {
+func ForumEditHandler() (p Page) {
 
 	// récupère la catégorie sélectionnée
 	vars := mux.Vars(h.R)
@@ -53,7 +72,7 @@ func (h *Handlers) ForumEditHandler() (p Page) {
 }
 
 // affichage du forum
-func (h *Handlers) ForumHandler() (p Page) {
+func (h *Handlers) forumHandler() (p Page) {
 
 	pf := new(PageForumList)
 
@@ -70,7 +89,7 @@ func (h *Handlers) ForumHandler() (p Page) {
 }
 
 // affichage de la recherche dans le forum
-func (h *Handlers) ForumSearchHandler() (p Page) {
+func (h *Handlers) forumSearchHandler() (p Page) {
 	pf := new(PageForumList)
 	q := h.R.FormValue("q")
 	if q == "" {
@@ -85,7 +104,7 @@ func (h *Handlers) ForumSearchHandler() (p Page) {
 }
 
 // affichage d'une catégorie dans le forum
-func (h *Handlers) ForumCatHandler() (p Page) {
+func (h *Handlers) forumCatHandler() (p Page) {
 	pf := new(PageForumList)
 
 	// récupère la catégorie sélectionnée
@@ -106,7 +125,7 @@ func (h *Handlers) ForumCatHandler() (p Page) {
 
 // Public function
 // permet d'ajouter un commenaire sur une fonction
-func (h *Handlers) ForumNouvCommHandler() (m string) {
+func (h *Handlers) forumNouvCommHandler() (m string) {
 	// Validation des données
 	// Si une des variables est vide, la func retourne un "error"
 	// ce qui fait afficher un message d'erreur
@@ -140,7 +159,7 @@ func (h *Handlers) ForumNouvCommHandler() (m string) {
 
 // fonction Public
 // permet de supprimer un commentaire sur une question
-func (h *Handlers) ForumDelCommHandler() (m string) {
+func (h *Handlers) forumDelCommHandler() (m string) {
 	var fp ForumPost
 	fp.Id, _ = ParseInt(h.R.PostFormValue("id_commentaire"), 0, 64)
 	fp.Delete()
@@ -150,7 +169,7 @@ func (h *Handlers) ForumDelCommHandler() (m string) {
 
 // Réception du POST envoyé en AJAX et ajout des
 // données dans la BD
-func (h *Handlers) SubmitFormHandler() (m string) {
+func (h *Handlers) submitFormHandler() (m string) {
 
 	// Validation des données
 	// Si un des variables est vide, la func retourne un "error"

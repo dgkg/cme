@@ -23,11 +23,11 @@ func init() {
 	templatesHtml = htmlTempl.Must(htmlTempl.ParseGlob("./app/vues/*"))
 	templatesText = textTempl.Must(textTempl.ParseGlob("./app/vues/*"))
 	// permet d'avoir quelques variables
-	fmt.Println("YS : " + YS + " / MS : " + MS)
+	//fmt.Println("YS : " + YS + " / MS : " + MS)
 }
 
 // fonction permettant de rendu des pages en fonction du type HTML ou TXT
-func Render(w http.ResponseWriter, p Page, r *http.Request) {
+func render(w http.ResponseWriter, p Page, r *http.Request) {
 
 	w.Header().Add("Accept-Charset", "utf-8")
 	w.Header().Add("Content-Type", "text/html")
@@ -59,7 +59,7 @@ func Render(w http.ResponseWriter, p Page, r *http.Request) {
 }
 
 // permet de renvoyer un objet générique en json
-func RenderJson(w http.ResponseWriter, msg interface{}) {
+func renderJson(w http.ResponseWriter, msg interface{}) {
 
 	b, err := json.Marshal(msg)
 	if err != nil {

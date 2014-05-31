@@ -1,16 +1,18 @@
 package handler
 
 import (
+	"encoding/json"
 	"github.com/gorilla/mux"
 	"github.com/kennygrant/sanitize"
 	. "github.com/konginteractive/cme/app/controler"
+	. "github.com/konginteractive/cme/app/helper"
 	. "github.com/konginteractive/cme/app/model"
 	. "strconv"
 )
 
 // Public function
 // permet de récupérer une liste de projets
-func (h *Handlers) UserProjectAjaxHandler() (m string) {
+func (h *Handlers) userProjectAjaxHandler() (m string) {
 	// récupération de la variable id
 	vars := mux.Vars(h.R)
 	idCat, _ := ParseInt(vars["id"], 0, 64)
@@ -25,7 +27,7 @@ func (h *Handlers) UserProjectAjaxHandler() (m string) {
 
 		var up UserProject
 		up.UserProjectCategoryId = idCat
-		ups := up.getByIdCat(3)
+		ups := up.GetByIdCat(3)
 		// encodage en json des projets
 		b, err := json.Marshal(ups)
 		if err != nil {
@@ -39,7 +41,7 @@ func (h *Handlers) UserProjectAjaxHandler() (m string) {
 // Public function
 // permet de récupérer plus de projets
 // avec de la pagination
-func (h *Handlers) UserProjectMoreAjaxHandler() (m string) {
+func (h *Handlers) userProjectMoreAjaxHandler() (m string) {
 	// récupération de la variable id
 	vars := mux.Vars(h.R)
 	page, _ := Atoi(vars["page"])
@@ -52,7 +54,7 @@ func (h *Handlers) UserProjectMoreAjaxHandler() (m string) {
 	} else {
 
 		var up UserProject
-		ups := up.getListPaged(page, 3)
+		ups := up.GetListPaged(page, 3)
 		// encodage en json des projets
 		b, err := json.Marshal(ups)
 		if err != nil {
@@ -67,7 +69,7 @@ func (h *Handlers) UserProjectMoreAjaxHandler() (m string) {
 // permet de récupérer plus de projets
 // avec de la pagination
 // et avec une catégorie sélectionnée
-func (h *Handlers) UserProjectMoreInCatAjaxHandler() (m string) {
+func (h *Handlers) userProjectMoreInCatAjaxHandler() (m string) {
 	// récupération de la variable id
 	vars := mux.Vars(h.R)
 	idCat, _ := ParseInt(vars["id"], 0, 64)
@@ -82,7 +84,7 @@ func (h *Handlers) UserProjectMoreInCatAjaxHandler() (m string) {
 
 		var up UserProject
 		up.UserProjectCategoryId = idCat
-		ups := up.getByIdCatPaged(page, 3)
+		ups := up.GetByIdCatPaged(page, 3)
 		// encodage en json des projets
 		b, err := json.Marshal(ups)
 		if err != nil {
@@ -96,7 +98,7 @@ func (h *Handlers) UserProjectMoreInCatAjaxHandler() (m string) {
 // permet de créer un userProject à partir d'un formulaire HTML
 // et permet d'uploader une image associée
 // et permet de croper l'image en fonction de sa vignette
-func (h *Handlers) UPCreateAjaxHandler() (m string) {
+func (h *Handlers) uPCreateAjaxHandler() (m string) {
 
 	// création d'un user project
 	var up UserProject
@@ -118,13 +120,13 @@ func (h *Handlers) UPCreateAjaxHandler() (m string) {
 	// récupère la description
 	up.Description = sanitize.HTML(h.R.PostFormValue("Description"))
 	// permet d'uploader l'image
-	up.Url, err = uploadImage(URL_PROJECT_IMAGES, h.R)
+	up.Url, err = UploadImage(URL_PROJECT_IMAGES, h.R)
 	if err != nil {
 		// envoie un message d'erreur
 		return "error"
 	}
 	// permet de cropper l'image qui viens d'être uploadée
-	err = cropImage(up.Url, 300, 300)
+	err = CropImage(up.Url, 300, 300)
 	if err != nil {
 		// envoie un message d'erreur
 		return "error"

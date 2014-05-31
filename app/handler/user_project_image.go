@@ -1,7 +1,9 @@
 package handler
 
 import (
+	"encoding/json"
 	. "github.com/konginteractive/cme/app/controler"
+	. "github.com/konginteractive/cme/app/helper"
 	. "github.com/konginteractive/cme/app/model"
 	. "strconv"
 )
@@ -13,7 +15,7 @@ import (
 // UserProjectImage.Description : description
 // UserProjectImage.Url : URL_PROJECT_IMAGES + image
 // par défaut l'image est visible par tous
-func (h *Handlers) UPICreateAjaxHandler() (m string) {
+func (h *Handlers) uPICreateAjaxHandler() (m string) {
 	// création d'une image dans user project
 	var upi UserProjectImage
 	// récupération des variables
@@ -21,13 +23,13 @@ func (h *Handlers) UPICreateAjaxHandler() (m string) {
 	upi.Title = h.R.PostFormValue("title")
 	upi.Description = h.R.PostFormValue("description")
 	// permet d'uploader l'image
-	imgPath, err := uploadImage(URL_PROJECT_IMAGES, h.R)
+	imgPath, err := UploadImage(URL_PROJECT_IMAGES, h.R)
 	if err != nil {
 		// envoie un message d'erreur
 		return "error"
 	}
 	// permet de cropper l'image qui viens d'être uploadée
-	err = cropImage(imgPath, 300, 300)
+	err = CropImage(imgPath, 300, 300)
 	if err != nil {
 		// envoie un message d'erreur
 		return "error"

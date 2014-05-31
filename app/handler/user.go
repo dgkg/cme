@@ -1,19 +1,23 @@
 package handler
 
 import (
-	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"github.com/kennygrant/sanitize"
 	. "github.com/konginteractive/cme/app/controler"
 	. "github.com/konginteractive/cme/app/model"
+	"github.com/nfnt/resize"
+	"image/jpeg"
+	"io"
 	"log"
 	"net/http"
+	"os"
+	"path/filepath"
 	. "strconv"
 )
 
 // affichage de la fiche étudiant
-func (h *Handlers) StudentFicheHandler() (p Page) {
+func (h *Handlers) studentFicheHandler() (p Page) {
 
 	pu := new(PageUser)
 	//var u User
@@ -36,7 +40,7 @@ func (h *Handlers) StudentFicheHandler() (p Page) {
 }
 
 // affichage de la connexion
-func (h *Handlers) ConnexionHandler() (p Page) {
+func (h *Handlers) connexionHandler() (p Page) {
 
 	var u User
 	u.Email = h.R.PostFormValue("login")
@@ -76,7 +80,7 @@ func (h *Handlers) ConnexionHandler() (p Page) {
 // DeconnexionHandler permet de supprimer la connexion "cme_connecte"
 // en changant la date d'expiration à -1
 // puis affiche la home
-func (h *Handlers) DeconnexionHandler() (p Page) {
+func (h *Handlers) deconnexionHandler() (p Page) {
 	// récupère la cession en cours
 	session, _ := store.Get(h.R, "cme_connecte")
 	// modifie sa date d'expiration
@@ -95,7 +99,7 @@ func (h *Handlers) DeconnexionHandler() (p Page) {
 	return p
 }
 
-func (h *Handlers) ConnexionPostHandler() {
+func (h *Handlers) connexionPostHandler() {
 
 	// Get a session. We're ignoring the error resulted from decoding an
 	// existing session: Get() always returns a session, even if empty.
@@ -113,14 +117,14 @@ func (h *Handlers) ConnexionPostHandler() {
 }
 
 // affichage du formulaire d'inscription
-func (h *Handlers) InscriptionHandler() (p Page) {
+func (h *Handlers) inscriptionHandler() (p Page) {
 
 	pi := new(PageInscription)
 	idUser, isValid := pi.ValidateDataInscrption(h.R)
 
 	var u User
 	u.Id = idUser
-	u = u.getById()
+	u = u.GetById()
 
 	if isValid {
 		session, _ := store.Get(h.R, "cme_connecte")
@@ -148,7 +152,7 @@ func (h *Handlers) InscriptionHandler() (p Page) {
 
 // Réception du POST envoyé en AJAX et ajout des
 // données dans la BD
-func (h *Handlers) InscFormHandler() (m string) {
+func (h *Handlers) inscFormHandler() (m string) {
 
 	// Validation des données
 	// Si un des variables est vide, la func retourne un "error"
@@ -168,10 +172,11 @@ func (h *Handlers) InscFormHandler() (m string) {
 		u.IsOnline = 1
 		u.Save()
 	}
+	return "all good"
 }
 
 // affichage de la liste des étudants
-func (h *Handlers) StudentHandler() (p Page) {
+func (h *Handlers) studentHandler() (p Page) {
 	pul := new(PageUserList)
 	pul.View()
 	p = pul
@@ -179,7 +184,7 @@ func (h *Handlers) StudentHandler() (p Page) {
 }
 
 // affichage de la recherche dans la liste des étudants
-func (h *Handlers) StudentSearchHandler() (p Page) {
+func (h *Handlers) studentSearchHandler() (p Page) {
 	pul := new(PageUserList)
 	q := h.R.FormValue("q")
 	if q == "" {
@@ -191,7 +196,7 @@ func (h *Handlers) StudentSearchHandler() (p Page) {
 	return p
 }
 
-func (h *Handlers) MonCompteHandler() (p Page) {
+func (h *Handlers) monCompteHandler() (p Page) {
 
 	pc := new(PageCompte)
 
@@ -212,7 +217,7 @@ func (h *Handlers) MonCompteHandler() (p Page) {
 
 // Réception du POST envoyé en AJAX et ajout des
 // données dans la BD
-func (h *Handlers) EditCompteHandler() (m string) {
+func (h *Handlers) editCompteHandler() (m string) {
 
 	// Validation des données
 	// Si un des variables est vide, la func retourne un "error"
@@ -220,9 +225,7 @@ func (h *Handlers) EditCompteHandler() (m string) {
 	sectionRecue := h.R.PostFormValue("section")
 
 	if sectionRecue == "" {
-
-		fmt.Fprint(h.W, "error")
-
+		return "error"
 	} else {
 
 		var u User
@@ -260,11 +263,12 @@ func (h *Handlers) EditCompteHandler() (m string) {
 			u.DeleteAccount()
 		}
 	}
+	return "all good"
 }
 
 // Upload de fichiers avec Go
 // Code original : https://gist.github.com/sanatgersappa/5127317#file-app-go
-func (h *Handlers) AvatarHandler() {
+func (h *Handlers) avatarHandler() {
 
 	// Initialisation des variables utiles
 	var u User
@@ -290,7 +294,7 @@ func (h *Handlers) AvatarHandler() {
 
 	defer file.Close()
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Error(h.W, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
@@ -318,13 +322,13 @@ func (h *Handlers) AvatarHandler() {
 
 	defer dst.Close()
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Error(h.W, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	//copy the uploaded file to the destination file
 	if _, err := io.Copy(dst, file); err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Error(h.W, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
@@ -358,25 +362,25 @@ func (h *Handlers) AvatarHandler() {
 
 // Upload de fichiers avec Go
 // Code original : https://gist.github.com/sanatgersappa/5127317#file-app-go
-func (h *Handlers) CoverHandler() {
+func (h *Handlers) coverHandler() {
 	log.Println("CoverHandler appelé!")
 
 	// Initialisation des variables utiles
 	var u User
-	session, _ := store.Get(r, "cme_connecte")
+	session, _ := store.Get(h.R, "cme_connecte")
 	u.Id = session.Values["id"].(int64)
 	userId := Itoa(int(u.Id))
 	var strNomFichier string
 
 	//parse the multipart form in the request
-	err := r.ParseMultipartForm(100000)
+	err := h.R.ParseMultipartForm(100000)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Error(h.W, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	//get a ref to the parsed multipart form
-	m := r.MultipartForm
+	m := h.R.MultipartForm
 
 	//get the *fileheaders
 	files := m.File["cover-upload"]
@@ -385,7 +389,7 @@ func (h *Handlers) CoverHandler() {
 
 	defer file.Close()
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Error(h.W, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
@@ -413,13 +417,13 @@ func (h *Handlers) CoverHandler() {
 
 	defer dst.Close()
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Error(h.W, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	//copy the uploaded file to the destination file
 	if _, err := io.Copy(dst, file); err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		http.Error(h.W, err.Error(), http.StatusInternalServerError)
 		return
 	}
 

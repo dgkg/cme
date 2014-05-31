@@ -23,7 +23,7 @@ import (
 //     <input type="file" name="image" />
 //     <input type="submit" value="upload" />
 // </form>
-func uploadImage(destination string, r *http.Request) (imgPath string, err error) {
+func UploadImage(destination string, r *http.Request) (imgPath string, err error) {
 	var strNomFichier string
 
 	//parse the multipart form in the request
@@ -100,7 +100,7 @@ func uploadImage(destination string, r *http.Request) (imgPath string, err error
 // cropImage permet de redimensionnement d'une image
 // @todo il faut permettre le crop de jpg, png et gif
 // pour le moment la fonction permet de réaliser des crop uniquemen pour des jpeg
-func cropImage(imageUrl string, toW uint, toH uint) error {
+func CropImage(imageUrl string, toW uint, toH uint) error {
 
 	// open file
 	rfile, err := os.Open(imageUrl)

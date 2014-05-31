@@ -11,7 +11,7 @@ import (
 	"time"
 )
 
-func TutoEditHandler(w http.ResponseWriter, r *http.Request) {
+func tutoEditHandler(w http.ResponseWriter, r *http.Request) {
 
 	// récupère la catégorie sélectionnée
 	vars := mux.Vars(r)
@@ -27,7 +27,7 @@ func TutoEditHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 // affichage d'un tuto
-func (h *Handlers) TutoPostHandler() (p Page) {
+func (h *Handlers) tutoPostHandler() (p Page) {
 	// récupération de la variable id
 	vars := mux.Vars(h.R)
 	id := vars["id"]
@@ -41,7 +41,7 @@ func (h *Handlers) TutoPostHandler() (p Page) {
 }
 
 // affichage de la liste des tutos
-func TutoHandler(w http.ResponseWriter, r *http.Request) {
+func tutoHandler(w http.ResponseWriter, r *http.Request) {
 
 	pt := new(PageTutorialList)
 	value := r.FormValue("p")
@@ -59,7 +59,7 @@ func TutoHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 // affichage d'une catégorie d'un tutoriel
-func TutoCatHandler(w http.ResponseWriter, r *http.Request) {
+func tutoCatHandler(w http.ResponseWriter, r *http.Request) {
 	pt := new(PageTutorialList)
 
 	// récupère la catégorie sélectionnée
@@ -81,7 +81,7 @@ func TutoCatHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 // affichage de la recherche de tutos
-func TutoSearchHandler(w http.ResponseWriter, r *http.Request) {
+func tutoSearchHandler(w http.ResponseWriter, r *http.Request) {
 	pt := new(PageTutorialList)
 
 	q := r.FormValue("q")
@@ -99,7 +99,7 @@ func TutoSearchHandler(w http.ResponseWriter, r *http.Request) {
 
 // Public function
 // permet d'ajouter un commenaire sur la page tutoriel
-func (h *Handlers) TutorialNouvCommHandler() (m string) {
+func (h *Handlers) tutorialNouvCommHandler() (m string) {
 	// Validation des données
 	// Si une des variables est vide, la func retourne un "error"
 	// ce qui fait afficher un message d'erreur
@@ -133,7 +133,7 @@ func (h *Handlers) TutorialNouvCommHandler() (m string) {
 
 // fonction Public
 // permet de supprimer un commentaire sur le tuto
-func (h *Handlers) TutorialDelCommHandler() (m string) {
+func (h *Handlers) tutorialDelCommHandler() (m string) {
 	var tp TutorialPost
 	tp.Id, _ = ParseInt(h.R.PostFormValue("id_commentaire"), 0, 64)
 	log.Println("TutorialPost " + Itoa(int(tp.Id)) + " supprimé")
@@ -143,7 +143,7 @@ func (h *Handlers) TutorialDelCommHandler() (m string) {
 }
 
 // affichage du formulaire d'ajout d'un tuto
-func (h *Handlers) TutoAddHandler() (p Page) {
+func (h *Handlers) tutoAddHandler() (p Page) {
 
 	pt := new(PageTutorial)
 
@@ -165,7 +165,7 @@ func (h *Handlers) TutoAddHandler() (p Page) {
 
 // Réception du POST envoyé en AJAX et ajout des
 // données dans la BD
-func (h *Handlers) SubmitTutorialHandler() (m string) {
+func (h *Handlers) submitTutorialHandler() (m string) {
 
 	// Validation des données
 	// Si un des variables est vide, la func retourne un "error"

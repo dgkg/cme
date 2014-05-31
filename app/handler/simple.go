@@ -6,7 +6,7 @@ import (
 )
 
 // affichage d'une question du forum
-func (h *Handlers) PageSimpleHandler() (p Page) {
+func (h *Handlers) pageSimpleHandler() (p Page) {
 	// récupération de la variable id
 	vars := mux.Vars(h.R)
 	pageUrl := vars["pageUrl"]

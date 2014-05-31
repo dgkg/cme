@@ -5,7 +5,7 @@ import (
 )
 
 // affichage d'une news unique
-func (h *Handlers) NewsUniqueHandler() (p Page) {
+func (h *Handlers) newsUniqueHandler() (p Page) {
 	pn := new(PageNews)
 	pn.View()
 	//insersion dans l'interface Page
@@ -14,7 +14,7 @@ func (h *Handlers) NewsUniqueHandler() (p Page) {
 }
 
 // affichage de la liste des news
-func (h *Handlers) NewsHandler() (p Page) {
+func (h *Handlers) newsHandler() (p Page) {
 
 	pn := new(PageNewsList)
 	value := h.R.FormValue("p")

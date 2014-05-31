@@ -45,7 +45,7 @@ func (pu *PageUser) injectDataToDisplay() {
 // et de son prénom formatté en url
 // et de son nom formatté en url
 // retourne un booleen permettan de savoir si oui ou non il a été trouvé
-func (pu *PageUser) findUser() (isFound bool) {
+func (pu *PageUser) FindUser() (isFound bool) {
 
 	listUsers := pu.User.GetUsersByGraduation()
 	sfn := pu.User.FirstName
