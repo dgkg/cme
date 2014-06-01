@@ -2,6 +2,7 @@ package handler
 
 import (
 	. "github.com/konginteractive/cme/app/controler"
+	"net/http"
 )
 
 // affichage d'une news unique
@@ -18,7 +19,7 @@ func NewsUniqueHandler(w http.ResponseWriter, r *http.Request) {
 func NewsHandler(w http.ResponseWriter, r *http.Request) {
 
 	pn := new(PageNewsList)
-	value := h.R.FormValue("p")
+	value := r.FormValue("p")
 	if value == "" {
 		pn.View()
 	} else {

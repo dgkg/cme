@@ -67,6 +67,14 @@ func renderJson(w http.ResponseWriter, msg interface{}) {
 		fmt.Fprint(w, "error")
 	}
 
-	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Header().Add("Accept-Charset", "utf-8")
+	w.Header().Add("Content-Type", "application/json")
+	//w.Header().Set("Content-Type", "application/json; charset=utf-8")
 	fmt.Fprint(w, string(b))
+}
+
+func renderString(w http.ResponseWriter, msg string) {
+	w.Header().Add("Accept-Charset", "utf-8")
+	w.Header().Add("Content-Type", "application/json")
+	fmt.Fprint(w, msg)
 }

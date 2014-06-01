@@ -55,7 +55,7 @@ func ForumHandler(w http.ResponseWriter, r *http.Request) {
 
 	pf := new(PageForumList)
 
-	value := h.R.FormValue("p")
+	value := r.FormValue("p")
 	if value == "" {
 		pf.View()
 	} else {
@@ -71,7 +71,7 @@ func ForumHandler(w http.ResponseWriter, r *http.Request) {
 // affichage de la recherche dans le forum
 func ForumSearchHandler(w http.ResponseWriter, r *http.Request) {
 	pf := new(PageForumList)
-	q := h.R.FormValue("q")
+	q := r.FormValue("q")
 	if q == "" {
 		pf.View()
 	} else {
@@ -92,7 +92,7 @@ func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	category := vars["category"]
 	// récupère la page en cours sélectionnée
-	value := h.R.FormValue("p")
+	value := r.FormValue("p")
 
 	if value == "" {
 		pf.ViewCategory(category)
@@ -116,7 +116,7 @@ func ForumNouvCommHandler(w http.ResponseWriter, r *http.Request) {
 		r.PostFormValue("val_auteur_id") == "" ||
 		r.PostFormValue("val_auteur_id") == "0" {
 		// envoie un message d'erreur
-		return "error"
+		renderString(w, "error")
 	} else {
 		// initialise l'objet ForumPost et récupère les données du formulaire
 		var fp ForumPost
@@ -135,7 +135,7 @@ func ForumNouvCommHandler(w http.ResponseWriter, r *http.Request) {
 		// String qui contient d'abord l'auteur du commentaire
 		// puis son commentaire complet, séparés par ":::"
 		commData := u.FirstName + " " + u.LastName + ":::" + date + ":::" + fp.Text + ":::" + Itoa(int(fp.Id))
-		return commData
+		renderString(w, commData)
 	}
 }
 
@@ -146,7 +146,7 @@ func ForumDelCommHandler(w http.ResponseWriter, r *http.Request) {
 	fp.Id, _ = ParseInt(r.PostFormValue("id_commentaire"), 0, 64)
 	fp.Delete()
 	commData := "success"
-	return commData
+	renderString(w, commData)
 }
 
 // Réception du POST envoyé en AJAX et ajout des
@@ -160,7 +160,7 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 		r.PostFormValue("categorie_post") == "" ||
 		r.PostFormValue("contenu_post") == "" ||
 		r.PostFormValue("user_id") == "" {
-		return "error"
+		renderString(w, "error")
 	} else {
 
 		var f Forum
@@ -189,6 +189,6 @@ func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 		// String qui contient d'abord l'auteur du commentaire
 		// puis son commentaire complet, séparés par ":::"
 		commData := Itoa(int(f.Id)) + ":::" + "All good"
-		return commData
+		renderString(w, commData)
 	}
 }

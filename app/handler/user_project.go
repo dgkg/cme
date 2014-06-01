@@ -1,12 +1,12 @@
 package handler
 
 import (
-	"encoding/json"
 	"github.com/gorilla/mux"
 	"github.com/kennygrant/sanitize"
 	. "github.com/konginteractive/cme/app/controler"
 	. "github.com/konginteractive/cme/app/helper"
 	. "github.com/konginteractive/cme/app/model"
+	"net/http"
 	. "strconv"
 )
 
@@ -22,19 +22,14 @@ func UserProjectAjaxHandler(w http.ResponseWriter, r *http.Request) {
 	// ce qui fait afficher un message d'erreur
 	if idCat == 0 {
 		// envoie un message d'erreur
-		return "error"
+		renderString(w, "error")
 	} else {
 
 		var up UserProject
 		up.UserProjectCategoryId = idCat
 		ups := up.GetByIdCat(3)
 		// encodage en json des projets
-		b, err := json.Marshal(ups)
-		if err != nil {
-			// envoie un message d'erreur
-			return "error"
-		}
-		return string(b)
+		renderJson(w, ups)
 	}
 }
 
@@ -50,18 +45,13 @@ func UserProjectMoreAjaxHandler(w http.ResponseWriter, r *http.Request) {
 	// ce qui fait afficher un message d'erreur
 	if page == 0 {
 		// envoie un message d'erreur
-		return "error"
+		renderString(w, "error")
 	} else {
 
 		var up UserProject
 		ups := up.GetListPaged(page, 3)
 		// encodage en json des projets
-		b, err := json.Marshal(ups)
-		if err != nil {
-			// envoie un message d'erreur
-			return "error"
-		}
-		return string(b)
+		renderJson(w, ups)
 	}
 }
 
@@ -79,19 +69,14 @@ func UserProjectMoreInCatAjaxHandler(w http.ResponseWriter, r *http.Request) {
 	// ce qui fait afficher un message d'erreur
 	if idCat == 0 || page == 0 {
 		// envoie un message d'erreur
-		return "error"
+		renderString(w, "error")
 	} else {
 
 		var up UserProject
 		up.UserProjectCategoryId = idCat
 		ups := up.GetByIdCatPaged(page, 3)
 		// encodage en json des projets
-		b, err := json.Marshal(ups)
-		if err != nil {
-			// envoie un message d'erreur
-			return "error"
-		}
-		return string(b)
+		renderJson(w, ups)
 	}
 }
 
@@ -106,30 +91,30 @@ func UPCreateAjaxHandler(w http.ResponseWriter, r *http.Request) {
 	UserId, err := ParseInt(r.PostFormValue("id_user"), 0, 64)
 	if err != nil {
 		// envoie un message d'erreur
-		return "error"
+		renderString(w, "error")
 	}
 	up.UserId = UserId
 	// crécuprère l'id de la cat
 	up.UserProjectCategoryId, err = ParseInt(r.PostFormValue("id_cat"), 0, 64)
 	if err != nil {
 		// envoie un message d'erreur
-		return "error"
+		renderString(w, "error")
 	}
 	// récupère le titre
 	up.Title = sanitize.HTML(r.PostFormValue("title"))
 	// récupère la description
 	up.Description = sanitize.HTML(r.PostFormValue("Description"))
 	// permet d'uploader l'image
-	up.Url, err = UploadImage(URL_PROJECT_IMAGES, h.R)
+	up.Url, err = UploadImage(URL_PROJECT_IMAGES, r)
 	if err != nil {
 		// envoie un message d'erreur
-		return "error"
+		renderString(w, "error")
 	}
 	// permet de cropper l'image qui viens d'être uploadée
 	err = CropImage(up.Url, 300, 300)
 	if err != nil {
 		// envoie un message d'erreur
-		return "error"
+		renderString(w, "error")
 	}
 	// finit de créer l'objet
 	// définit le projet non visible
@@ -137,10 +122,5 @@ func UPCreateAjaxHandler(w http.ResponseWriter, r *http.Request) {
 	// sauvegarde dans la base de donnée
 	up.Id = up.Save()
 	// retourne l'objet en JSON
-	b, err := json.Marshal(up)
-	if err != nil {
-		// envoie un message d'erreur
-		return "error"
-	}
-	return string(b)
+	renderJson(w, up)
 }

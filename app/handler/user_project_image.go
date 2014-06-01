@@ -1,10 +1,10 @@
 package handler
 
 import (
-	"encoding/json"
 	. "github.com/konginteractive/cme/app/controler"
 	. "github.com/konginteractive/cme/app/helper"
 	. "github.com/konginteractive/cme/app/model"
+	"net/http"
 	. "strconv"
 )
 
@@ -23,16 +23,16 @@ func UPICreateAjaxHandler(w http.ResponseWriter, r *http.Request) {
 	upi.Title = r.PostFormValue("title")
 	upi.Description = r.PostFormValue("description")
 	// permet d'uploader l'image
-	imgPath, err := UploadImage(URL_PROJECT_IMAGES, h.R)
+	imgPath, err := UploadImage(URL_PROJECT_IMAGES, r)
 	if err != nil {
 		// envoie un message d'erreur
-		return "error"
+		renderString(w, "error")
 	}
 	// permet de cropper l'image qui viens d'être uploadée
 	err = CropImage(imgPath, 300, 300)
 	if err != nil {
 		// envoie un message d'erreur
-		return "error"
+		renderString(w, "error")
 	}
 	// finit de créer l'objet
 	upi.Url = imgPath
@@ -41,11 +41,5 @@ func UPICreateAjaxHandler(w http.ResponseWriter, r *http.Request) {
 	// sauvegarde dans la base de donnée
 	upi.Id = upi.Save()
 	// retourne l'objet en json
-	// retourne l'objet en JSON
-	b, err := json.Marshal(upi)
-	if err != nil {
-		// envoie un message d'erreur
-		return "error"
-	}
-	return string(b)
+	renderJson(w, upi)
 }

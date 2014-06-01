@@ -35,8 +35,9 @@ func StudentFicheHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	//insersion dans l'interface Page
+	var p Page
 	p = pu
-	return p
+	render(w, p, r)
 }
 
 // affichage de la connexion
@@ -55,7 +56,7 @@ func ConnexionHandler(w http.ResponseWriter, r *http.Request) {
 	pc.View()
 
 	if connected {
-		session, _ := store.Get(h.R, "cme_connecte")
+		session, _ := store.Get(r, "cme_connecte")
 		// Set some session values.
 		session.Values["id"] = u.Id
 		session.Values["name"] = u.FirstName
@@ -64,7 +65,7 @@ func ConnexionHandler(w http.ResponseWriter, r *http.Request) {
 			HttpOnly: true,
 		}
 		// Save it.
-		session.Save(h.R, h.W)
+		session.Save(r, w)
 		// Set data into current page
 		pc.SessIdUser = u.Id
 		pc.SessNameUser = u.FirstName
@@ -73,8 +74,9 @@ func ConnexionHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	//insersion dans l'interface Page
+	var p Page
 	p = pc
-	return p
+	render(w, p, r)
 }
 
 // DeconnexionHandler permet de supprimer la connexion "cme_connecte"
@@ -82,11 +84,11 @@ func ConnexionHandler(w http.ResponseWriter, r *http.Request) {
 // puis affiche la home
 func DeconnexionHandler(w http.ResponseWriter, r *http.Request) {
 	// récupère la cession en cours
-	session, _ := store.Get(h.R, "cme_connecte")
+	session, _ := store.Get(r, "cme_connecte")
 	// modifie sa date d'expiration
 	session.Options.MaxAge = -1
 	// sauvegarde
-	session.Save(h.R, h.W)
+	session.Save(r, w)
 	// creation de l'objet PageSimple
 	var ps PageSimple
 	ps.SessIdUser = 0
@@ -100,11 +102,11 @@ func DeconnexionHandler(w http.ResponseWriter, r *http.Request) {
 	render(w, p, r)
 }
 
-func ConnexionPostHandler() {
+func ConnexionPostHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Get a session. We're ignoring the error resulted from decoding an
 	// existing session: Get() always returns a session, even if empty.
-	session, _ := store.Get(h.R, "cme_connecte")
+	session, _ := store.Get(r, "cme_connecte")
 	// Set some session values.
 	session.Values["name"] = "Antoine"
 	session.Values["id"] = 1
@@ -114,21 +116,21 @@ func ConnexionPostHandler() {
 	}
 
 	// Save it.
-	session.Save(h.R, h.W)
+	session.Save(r, w)
 }
 
 // affichage du formulaire d'inscription
 func InscriptionHandler(w http.ResponseWriter, r *http.Request) {
 
 	pi := new(PageInscription)
-	idUser, isValid := pi.ValidateDataInscrption(h.R)
+	idUser, isValid := pi.ValidateDataInscrption(r)
 
 	var u User
 	u.Id = idUser
 	u = u.GetById()
 
 	if isValid {
-		session, _ := store.Get(h.R, "cme_connecte")
+		session, _ := store.Get(r, "cme_connecte")
 		// Set some session values.
 		session.Values["id"] = u.Id
 		session.Values["name"] = u.FirstName
@@ -137,7 +139,7 @@ func InscriptionHandler(w http.ResponseWriter, r *http.Request) {
 			HttpOnly: true,
 		}
 		// Save it.
-		session.Save(h.R, h.W)
+		session.Save(r, w)
 		// Set data into current page
 		pi.SessIdUser = u.Id
 		pi.SessNameUser = u.FirstName
@@ -147,8 +149,9 @@ func InscriptionHandler(w http.ResponseWriter, r *http.Request) {
 	pi.View()
 
 	//insersion dans l'interface Page
+	var p Page
 	p = pi
-	return p
+	render(w, p, r)
 }
 
 // Réception du POST envoyé en AJAX et ajout des
@@ -163,7 +166,7 @@ func InscFormHandler(w http.ResponseWriter, r *http.Request) {
 		r.PostFormValue("email") == "" ||
 		r.PostFormValue("pass") == "" {
 
-		return "error"
+		renderString(w, "error")
 	} else {
 		var u User
 		u.FirstName = r.PostFormValue("prenom")
@@ -173,35 +176,37 @@ func InscFormHandler(w http.ResponseWriter, r *http.Request) {
 		u.IsOnline = 1
 		u.Save()
 	}
-	return "all good"
+	renderString(w, "all good")
 }
 
 // affichage de la liste des étudants
 func StudentHandler(w http.ResponseWriter, r *http.Request) {
 	pul := new(PageUserList)
 	pul.View()
+	var p Page
 	p = pul
-	return p
+	render(w, p, r)
 }
 
 // affichage de la recherche dans la liste des étudants
 func StudentSearchHandler(w http.ResponseWriter, r *http.Request) {
 	pul := new(PageUserList)
-	q := h.R.FormValue("q")
+	q := r.FormValue("q")
 	if q == "" {
 		pul.View()
 	} else {
 		pul.ViewSearch(q)
 	}
+	var p Page
 	p = pul
-	return p
+	render(w, p, r)
 }
 
 func MonCompteHandler(w http.ResponseWriter, r *http.Request) {
 
 	pc := new(PageCompte)
 
-	session, err := store.Get(h.R, "cme_connecte")
+	session, err := store.Get(r, "cme_connecte")
 
 	var u User
 
@@ -212,8 +217,9 @@ func MonCompteHandler(w http.ResponseWriter, r *http.Request) {
 	pc.View(u.Id)
 
 	//insersion dans l'interface Page
+	var p Page
 	p = pc
-	return p
+	render(w, p, r)
 }
 
 // Réception du POST envoyé en AJAX et ajout des
@@ -226,7 +232,7 @@ func EditCompteHandler(w http.ResponseWriter, r *http.Request) {
 	sectionRecue := r.PostFormValue("section")
 
 	if sectionRecue == "" {
-		return "error"
+		renderString(w, "error")
 	} else {
 
 		var u User
@@ -264,29 +270,29 @@ func EditCompteHandler(w http.ResponseWriter, r *http.Request) {
 			u.DeleteAccount()
 		}
 	}
-	return "all good"
+	renderString(w, "all good")
 }
 
 // Upload de fichiers avec Go
 // Code original : https://gist.github.com/sanatgersappa/5127317#file-app-go
-func AvatarHandler() {
+func AvatarHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Initialisation des variables utiles
 	var u User
-	session, _ := store.Get(h.R, "cme_connecte")
+	session, _ := store.Get(r, "cme_connecte")
 	u.Id = session.Values["id"].(int64)
 	userId := Itoa(int(u.Id))
 	var strNomFichier string
 
 	//parse the multipart form in the request
-	err := h.R.ParseMultipartForm(100000)
+	err := r.ParseMultipartForm(100000)
 	if err != nil {
-		http.Error(h.W, err.Error(), http.StatusInternalServerError)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	//get a ref to the parsed multipart form
-	m := h.R.MultipartForm
+	m := r.MultipartForm
 
 	//get the *fileheaders
 	files := m.File["photo-upload"]
@@ -295,7 +301,7 @@ func AvatarHandler() {
 
 	defer file.Close()
 	if err != nil {
-		http.Error(h.W, err.Error(), http.StatusInternalServerError)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
@@ -323,13 +329,13 @@ func AvatarHandler() {
 
 	defer dst.Close()
 	if err != nil {
-		http.Error(h.W, err.Error(), http.StatusInternalServerError)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	//copy the uploaded file to the destination file
 	if _, err := io.Copy(dst, file); err != nil {
-		http.Error(h.W, err.Error(), http.StatusInternalServerError)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
@@ -363,25 +369,25 @@ func AvatarHandler() {
 
 // Upload de fichiers avec Go
 // Code original : https://gist.github.com/sanatgersappa/5127317#file-app-go
-func CoverHandler() {
+func CoverHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println("CoverHandler appelé!")
 
 	// Initialisation des variables utiles
 	var u User
-	session, _ := store.Get(h.R, "cme_connecte")
+	session, _ := store.Get(r, "cme_connecte")
 	u.Id = session.Values["id"].(int64)
 	userId := Itoa(int(u.Id))
 	var strNomFichier string
 
 	//parse the multipart form in the request
-	err := h.R.ParseMultipartForm(100000)
+	err := r.ParseMultipartForm(100000)
 	if err != nil {
-		http.Error(h.W, err.Error(), http.StatusInternalServerError)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	//get a ref to the parsed multipart form
-	m := h.R.MultipartForm
+	m := r.MultipartForm
 
 	//get the *fileheaders
 	files := m.File["cover-upload"]
@@ -390,7 +396,7 @@ func CoverHandler() {
 
 	defer file.Close()
 	if err != nil {
-		http.Error(h.W, err.Error(), http.StatusInternalServerError)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
@@ -418,13 +424,13 @@ func CoverHandler() {
 
 	defer dst.Close()
 	if err != nil {
-		http.Error(h.W, err.Error(), http.StatusInternalServerError)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	//copy the uploaded file to the destination file
 	if _, err := io.Copy(dst, file); err != nil {
-		http.Error(h.W, err.Error(), http.StatusInternalServerError)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 

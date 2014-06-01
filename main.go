@@ -53,7 +53,7 @@ func main() {
 	r.HandleFunc("/connexion", ConnexionHandler)
 	r.HandleFunc("/deconnexion", DeconnexionHandler)
 	r.HandleFunc("/valider-connexion", ConnexionPostHandler)
-	r.HandleFunc("/get-connexion", ConnexionGet)
+	//r.HandleFunc("/get-connexion", ConnexionGet)
 	r.HandleFunc("/inscription", InscriptionHandler)
 	r.HandleFunc("/mon-compte", MonCompteHandler)
 	// AJAX

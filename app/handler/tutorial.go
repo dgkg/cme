@@ -23,7 +23,7 @@ func TutoEditHandler(w http.ResponseWriter, r *http.Request) {
 	//insersion dans l'interface Page
 	var p Page
 	p = pt
-	Render(w, p, r)
+	render(w, p, r)
 }
 
 // affichage d'un tuto
@@ -56,7 +56,7 @@ func TutoHandler(w http.ResponseWriter, r *http.Request) {
 	//insersion dans l'interface Page
 	var p Page
 	p = pt
-	Render(w, p, r)
+	render(w, p, r)
 }
 
 // affichage d'une catégorie d'un tutoriel
@@ -78,7 +78,7 @@ func TutoCatHandler(w http.ResponseWriter, r *http.Request) {
 	//insersion dans l'interface Page
 	var p Page
 	p = pt
-	Render(w, p, r)
+	render(w, p, r)
 }
 
 // affichage de la recherche de tutos
@@ -95,7 +95,7 @@ func TutoSearchHandler(w http.ResponseWriter, r *http.Request) {
 	//insersion dans l'interface Page
 	var p Page
 	p = pt
-	Render(w, p, r)
+	render(w, p, r)
 }
 
 // Public function
@@ -109,7 +109,7 @@ func TutorialNouvCommHandler(w http.ResponseWriter, r *http.Request) {
 		r.PostFormValue("val_auteur_id") == "" ||
 		r.PostFormValue("val_auteur_id") == "0" {
 		// envoie un message d'erreur
-		return "error"
+		renderString(w, "error")
 	} else {
 		// initialise l'objet ForumPost et récupère les données du formulaire
 		var tp TutorialPost
@@ -128,7 +128,7 @@ func TutorialNouvCommHandler(w http.ResponseWriter, r *http.Request) {
 		// String qui contient d'abord l'auteur du commentaire
 		// puis son commentaire complet, séparés par ":::"
 		commData := u.FirstName + " " + u.LastName + ":::" + date + ":::" + tp.Text + ":::" + Itoa(int(tp.Id))
-		return commData
+		renderString(w, commData)
 	}
 }
 
@@ -140,7 +140,7 @@ func TutorialDelCommHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println("TutorialPost " + Itoa(int(tp.Id)) + " supprimé")
 	tp.Delete()
 	commData := "success"
-	return commData
+	renderString(w, commData)
 }
 
 // affichage du formulaire d'ajout d'un tuto
@@ -148,7 +148,7 @@ func TutoAddHandler(w http.ResponseWriter, r *http.Request) {
 
 	pt := new(PageTutorial)
 
-	t, v := pt.ValidateForm(h.R)
+	t, v := pt.ValidateForm(r)
 
 	if v {
 		log.Print("VALIDE!!")
@@ -176,7 +176,7 @@ func SubmitTutorialHandler(w http.ResponseWriter, r *http.Request) {
 		r.PostFormValue("categorie_post") == "" ||
 		r.PostFormValue("contenu_post") == "" ||
 		r.PostFormValue("user_id") == "" {
-		return "error"
+		renderString(w, "error")
 	} else {
 
 		var t Tutorial
@@ -190,6 +190,6 @@ func SubmitTutorialHandler(w http.ResponseWriter, r *http.Request) {
 		// String qui contient d'abord l'auteur du commentaire
 		// puis son commentaire complet, séparés par ":::"
 		commData := Itoa(int(t.Id)) + ":::" + "All good"
-		return commData
+		renderString(w, commData)
 	}
 }
