@@ -5,16 +5,17 @@ import (
 )
 
 // affichage d'une news unique
-func (h *Handlers) newsUniqueHandler() (p Page) {
+func NewsUniqueHandler(w http.ResponseWriter, r *http.Request) {
 	pn := new(PageNews)
 	pn.View()
 	//insersion dans l'interface Page
+	var p Page
 	p = pn
-	return p
+	render(w, p, r)
 }
 
 // affichage de la liste des news
-func (h *Handlers) newsHandler() (p Page) {
+func NewsHandler(w http.ResponseWriter, r *http.Request) {
 
 	pn := new(PageNewsList)
 	value := h.R.FormValue("p")
@@ -24,6 +25,7 @@ func (h *Handlers) newsHandler() (p Page) {
 		pn.ViewPaged(value)
 	}
 	//insersion dans l'interface Page
+	var p Page
 	p = pn
-	return p
+	render(w, p, r)
 }

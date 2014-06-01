@@ -10,32 +10,10 @@ import (
 	"time"
 )
 
-/*
-type Handlers struct {
-	W http.ResponseWriter
-	R *http.Request
-	P Page
-	M string
-}
-*/
-
-/*
-func ForumPostHandler(w http.ResponseWriter, r *http.Request) {
-	var h Handlers
-	h.W = w
-	h.R = r
-	h.forumHandler()
-	h.render()
-}
-forumAddHandler
-forumEditHandler
-forumHandler
-forumSearchHandler
-*/
 // affichage d'une question du forum
 func ForumPostHandler(w http.ResponseWriter, r *http.Request) {
 	// récupération de la variable id
-	vars := mux.Vars(h.R)
+	vars := mux.Vars(r)
 	id := vars["id"]
 	// initialisation de l'objet PageForum
 	pf := new(PageForum)
@@ -57,22 +35,23 @@ func ForumAddHandler(w http.ResponseWriter, r *http.Request) {
 	render(w, p, r)
 }
 
-func ForumEditHandler() (p Page) {
+func ForumEditHandler(w http.ResponseWriter, r *http.Request) {
 
 	// récupère la catégorie sélectionnée
-	vars := mux.Vars(h.R)
+	vars := mux.Vars(r)
 	id := vars["id"]
 
 	pf := new(PageForum)
 	pf.ViewEdit(id)
 
 	//insersion dans l'interface Page
+	var p Page
 	p = pf
-	return p
+	render(w, p, r)
 }
 
 // affichage du forum
-func (h *Handlers) forumHandler() (p Page) {
+func ForumHandler(w http.ResponseWriter, r *http.Request) {
 
 	pf := new(PageForumList)
 
@@ -84,12 +63,13 @@ func (h *Handlers) forumHandler() (p Page) {
 	}
 
 	//insersion dans l'interface Page
+	var p Page
 	p = pf
-	return p
+	render(w, p, r)
 }
 
 // affichage de la recherche dans le forum
-func (h *Handlers) forumSearchHandler() (p Page) {
+func ForumSearchHandler(w http.ResponseWriter, r *http.Request) {
 	pf := new(PageForumList)
 	q := h.R.FormValue("q")
 	if q == "" {
@@ -99,16 +79,17 @@ func (h *Handlers) forumSearchHandler() (p Page) {
 	}
 
 	//insersion dans l'interface Page
+	var p Page
 	p = pf
-	return p
+	render(w, p, r)
 }
 
 // affichage d'une catégorie dans le forum
-func (h *Handlers) forumCatHandler() (p Page) {
+func ForumCatHandler(w http.ResponseWriter, r *http.Request) {
 	pf := new(PageForumList)
 
 	// récupère la catégorie sélectionnée
-	vars := mux.Vars(h.R)
+	vars := mux.Vars(r)
 	category := vars["category"]
 	// récupère la page en cours sélectionnée
 	value := h.R.FormValue("p")
@@ -119,28 +100,29 @@ func (h *Handlers) forumCatHandler() (p Page) {
 		pf.ViewCategoryPaged(category, value)
 	}
 	//insersion dans l'interface Page
+	var p Page
 	p = pf
-	return p
+	render(w, p, r)
 }
 
 // Public function
 // permet d'ajouter un commenaire sur une fonction
-func (h *Handlers) forumNouvCommHandler() (m string) {
+func ForumNouvCommHandler(w http.ResponseWriter, r *http.Request) {
 	// Validation des données
 	// Si une des variables est vide, la func retourne un "error"
 	// ce qui fait afficher un message d'erreur
-	if h.R.PostFormValue("val_commentaire") == "" ||
-		h.R.PostFormValue("val_post_id") == "" ||
-		h.R.PostFormValue("val_auteur_id") == "" ||
-		h.R.PostFormValue("val_auteur_id") == "0" {
+	if r.PostFormValue("val_commentaire") == "" ||
+		r.PostFormValue("val_post_id") == "" ||
+		r.PostFormValue("val_auteur_id") == "" ||
+		r.PostFormValue("val_auteur_id") == "0" {
 		// envoie un message d'erreur
 		return "error"
 	} else {
 		// initialise l'objet ForumPost et récupère les données du formulaire
 		var fp ForumPost
-		fp.ForumId, _ = ParseInt(h.R.PostFormValue("val_post_id"), 0, 64)
-		fp.UserId, _ = ParseInt(h.R.PostFormValue("val_auteur_id"), 0, 64)
-		fp.Text = sanitize.HTML(h.R.PostFormValue("val_commentaire"))
+		fp.ForumId, _ = ParseInt(r.PostFormValue("val_post_id"), 0, 64)
+		fp.UserId, _ = ParseInt(r.PostFormValue("val_auteur_id"), 0, 64)
+		fp.Text = sanitize.HTML(r.PostFormValue("val_commentaire"))
 		fp.IsOnline = 1
 		fp.Id = fp.Save()
 		// permet de récuprérer le nom de l'utilisateur
@@ -159,9 +141,9 @@ func (h *Handlers) forumNouvCommHandler() (m string) {
 
 // fonction Public
 // permet de supprimer un commentaire sur une question
-func (h *Handlers) forumDelCommHandler() (m string) {
+func ForumDelCommHandler(w http.ResponseWriter, r *http.Request) {
 	var fp ForumPost
-	fp.Id, _ = ParseInt(h.R.PostFormValue("id_commentaire"), 0, 64)
+	fp.Id, _ = ParseInt(r.PostFormValue("id_commentaire"), 0, 64)
 	fp.Delete()
 	commData := "success"
 	return commData
@@ -169,31 +151,31 @@ func (h *Handlers) forumDelCommHandler() (m string) {
 
 // Réception du POST envoyé en AJAX et ajout des
 // données dans la BD
-func (h *Handlers) submitFormHandler() (m string) {
+func SubmitFormHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Validation des données
 	// Si un des variables est vide, la func retourne un "error"
 	// ce qui fait afficher une message d'erreur
-	if h.R.PostFormValue("titre_post") == "" ||
-		h.R.PostFormValue("categorie_post") == "" ||
-		h.R.PostFormValue("contenu_post") == "" ||
-		h.R.PostFormValue("user_id") == "" {
+	if r.PostFormValue("titre_post") == "" ||
+		r.PostFormValue("categorie_post") == "" ||
+		r.PostFormValue("contenu_post") == "" ||
+		r.PostFormValue("user_id") == "" {
 		return "error"
 	} else {
 
 		var f Forum
 
-		isSolved, _ := ParseInt(h.R.PostFormValue("resolu_post"), 0, 64)
-		idCat, _ := ParseInt(h.R.PostFormValue("categorie_post"), 0, 64)
+		isSolved, _ := ParseInt(r.PostFormValue("resolu_post"), 0, 64)
+		idCat, _ := ParseInt(r.PostFormValue("categorie_post"), 0, 64)
 
-		f.Title = h.R.PostFormValue("titre_post")
+		f.Title = r.PostFormValue("titre_post")
 		f.ForumCategoryId = idCat
 		f.IsSolved = isSolved
-		f.Text = h.R.PostFormValue("contenu_post")
+		f.Text = r.PostFormValue("contenu_post")
 		f.IsOnline = 1
-		f.UserId, _ = ParseInt(h.R.PostFormValue("user_id"), 0, 64)
+		f.UserId, _ = ParseInt(r.PostFormValue("user_id"), 0, 64)
 		// si il y a pas encore un id met un 0
-		f.Id, _ = ParseInt(h.R.PostFormValue("forum_id"), 0, 64)
+		f.Id, _ = ParseInt(r.PostFormValue("forum_id"), 0, 64)
 		f.Id = f.Save()
 		/*
 			log.Println(f.Id)

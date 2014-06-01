@@ -5,13 +5,13 @@ import (
 )
 
 // affichage de la home
-func (h *Handlers) homeHandler() (p Page) {
+func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	ph := new(PageHome)
 	ph.View()
-	return p
+	render(w, p, r)
 }
 
-func (h *Handlers) getProjectsHandler() (m string) {
-	nbProjetsACharger := h.R.PostFormValue("nbProjets")
+func GetProjectsHandler(w http.ResponseWriter, r *http.Request) {
+	nbProjetsACharger := r.PostFormValue("nbProjets")
 	return nbProjetsACharger
 }

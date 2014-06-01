@@ -6,9 +6,9 @@ import (
 )
 
 // affichage d'une question du forum
-func (h *Handlers) pageSimpleHandler() (p Page) {
+func PageSimpleHandler(w http.ResponseWriter, r *http.Request) {
 	// récupération de la variable id
-	vars := mux.Vars(h.R)
+	vars := mux.Vars(r)
 	pageUrl := vars["pageUrl"]
 	// surcharge de la variable d'affichage
 	Templ = "simple"
@@ -19,6 +19,7 @@ func (h *Handlers) pageSimpleHandler() (p Page) {
 	ps.MainClass = "pageinfo"
 	ps.View()
 	//insersion dans l'interface Page
+	var p Page
 	p = ps
-	return p
+	render(w, p, r)
 }

@@ -15,13 +15,13 @@ import (
 // UserProjectImage.Description : description
 // UserProjectImage.Url : URL_PROJECT_IMAGES + image
 // par défaut l'image est visible par tous
-func (h *Handlers) uPICreateAjaxHandler() (m string) {
+func UPICreateAjaxHandler(w http.ResponseWriter, r *http.Request) {
 	// création d'une image dans user project
 	var upi UserProjectImage
 	// récupération des variables
-	upi.ProjectId, _ = ParseInt(h.R.PostFormValue("id_user_project"), 0, 64)
-	upi.Title = h.R.PostFormValue("title")
-	upi.Description = h.R.PostFormValue("description")
+	upi.ProjectId, _ = ParseInt(r.PostFormValue("id_user_project"), 0, 64)
+	upi.Title = r.PostFormValue("title")
+	upi.Description = r.PostFormValue("description")
 	// permet d'uploader l'image
 	imgPath, err := UploadImage(URL_PROJECT_IMAGES, h.R)
 	if err != nil {

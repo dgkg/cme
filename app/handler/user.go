@@ -17,12 +17,12 @@ import (
 )
 
 // affichage de la fiche étudiant
-func (h *Handlers) studentFicheHandler() (p Page) {
+func StudentFicheHandler(w http.ResponseWriter, r *http.Request) {
 
 	pu := new(PageUser)
 	//var u User
 	// récupération de la variable de l'utilisateur
-	vars := mux.Vars(h.R)
+	vars := mux.Vars(r)
 	pu.User.Graduation = vars["year"]
 	pu.User.FirstName = vars["firstName"]
 	pu.User.LastName = vars["lastName"]
@@ -40,11 +40,11 @@ func (h *Handlers) studentFicheHandler() (p Page) {
 }
 
 // affichage de la connexion
-func (h *Handlers) connexionHandler() (p Page) {
+func ConnexionHandler(w http.ResponseWriter, r *http.Request) {
 
 	var u User
-	u.Email = h.R.PostFormValue("login")
-	u.Pass = h.R.PostFormValue("pass")
+	u.Email = r.PostFormValue("login")
+	u.Pass = r.PostFormValue("pass")
 
 	var connected bool
 	if u.Email != "" && u.Pass != "" {
@@ -80,7 +80,7 @@ func (h *Handlers) connexionHandler() (p Page) {
 // DeconnexionHandler permet de supprimer la connexion "cme_connecte"
 // en changant la date d'expiration à -1
 // puis affiche la home
-func (h *Handlers) deconnexionHandler() (p Page) {
+func DeconnexionHandler(w http.ResponseWriter, r *http.Request) {
 	// récupère la cession en cours
 	session, _ := store.Get(h.R, "cme_connecte")
 	// modifie sa date d'expiration
@@ -95,11 +95,12 @@ func (h *Handlers) deconnexionHandler() (p Page) {
 	// surcharge du template à utiliser
 	Templ = "deconnexion"
 	//insersion dans l'interface Page
+	var p Page
 	p = ps
-	return p
+	render(w, p, r)
 }
 
-func (h *Handlers) connexionPostHandler() {
+func ConnexionPostHandler() {
 
 	// Get a session. We're ignoring the error resulted from decoding an
 	// existing session: Get() always returns a session, even if empty.
@@ -117,7 +118,7 @@ func (h *Handlers) connexionPostHandler() {
 }
 
 // affichage du formulaire d'inscription
-func (h *Handlers) inscriptionHandler() (p Page) {
+func InscriptionHandler(w http.ResponseWriter, r *http.Request) {
 
 	pi := new(PageInscription)
 	idUser, isValid := pi.ValidateDataInscrption(h.R)
@@ -152,23 +153,23 @@ func (h *Handlers) inscriptionHandler() (p Page) {
 
 // Réception du POST envoyé en AJAX et ajout des
 // données dans la BD
-func (h *Handlers) inscFormHandler() (m string) {
+func InscFormHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Validation des données
 	// Si un des variables est vide, la func retourne un "error"
 	// ce qui fait afficher une message d'erreur
-	if h.R.PostFormValue("prenom") == "" ||
-		h.R.PostFormValue("nom") == "" ||
-		h.R.PostFormValue("email") == "" ||
-		h.R.PostFormValue("pass") == "" {
+	if r.PostFormValue("prenom") == "" ||
+		r.PostFormValue("nom") == "" ||
+		r.PostFormValue("email") == "" ||
+		r.PostFormValue("pass") == "" {
 
 		return "error"
 	} else {
 		var u User
-		u.FirstName = h.R.PostFormValue("prenom")
-		u.LastName = h.R.PostFormValue("nom")
-		u.Email = h.R.PostFormValue("email")
-		u.Pass = h.R.PostFormValue("pass")
+		u.FirstName = r.PostFormValue("prenom")
+		u.LastName = r.PostFormValue("nom")
+		u.Email = r.PostFormValue("email")
+		u.Pass = r.PostFormValue("pass")
 		u.IsOnline = 1
 		u.Save()
 	}
@@ -176,7 +177,7 @@ func (h *Handlers) inscFormHandler() (m string) {
 }
 
 // affichage de la liste des étudants
-func (h *Handlers) studentHandler() (p Page) {
+func StudentHandler(w http.ResponseWriter, r *http.Request) {
 	pul := new(PageUserList)
 	pul.View()
 	p = pul
@@ -184,7 +185,7 @@ func (h *Handlers) studentHandler() (p Page) {
 }
 
 // affichage de la recherche dans la liste des étudants
-func (h *Handlers) studentSearchHandler() (p Page) {
+func StudentSearchHandler(w http.ResponseWriter, r *http.Request) {
 	pul := new(PageUserList)
 	q := h.R.FormValue("q")
 	if q == "" {
@@ -196,7 +197,7 @@ func (h *Handlers) studentSearchHandler() (p Page) {
 	return p
 }
 
-func (h *Handlers) monCompteHandler() (p Page) {
+func MonCompteHandler(w http.ResponseWriter, r *http.Request) {
 
 	pc := new(PageCompte)
 
@@ -217,12 +218,12 @@ func (h *Handlers) monCompteHandler() (p Page) {
 
 // Réception du POST envoyé en AJAX et ajout des
 // données dans la BD
-func (h *Handlers) editCompteHandler() (m string) {
+func EditCompteHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Validation des données
 	// Si un des variables est vide, la func retourne un "error"
 	// ce qui fait afficher une message d'erreur
-	sectionRecue := h.R.PostFormValue("section")
+	sectionRecue := r.PostFormValue("section")
 
 	if sectionRecue == "" {
 		return "error"
@@ -230,7 +231,7 @@ func (h *Handlers) editCompteHandler() (m string) {
 
 		var u User
 
-		u.Id, _ = ParseInt(h.R.PostFormValue("idUser"), 0, 64)
+		u.Id, _ = ParseInt(r.PostFormValue("idUser"), 0, 64)
 		//log.Println(u.Id)
 
 		switch sectionRecue {
@@ -241,22 +242,22 @@ func (h *Handlers) editCompteHandler() (m string) {
 			//	retourner une confirmation
 
 		case "saveBio":
-			u.Text = h.R.PostFormValue("biographie")
+			u.Text = r.PostFormValue("biographie")
 			u.SaveBio()
 
 		case "saveSocial":
-			u.Facebook = h.R.PostFormValue("facebook")
-			u.Twitter = h.R.PostFormValue("twitter")
-			u.LinkedIn = h.R.PostFormValue("linkedin")
+			u.Facebook = r.PostFormValue("facebook")
+			u.Twitter = r.PostFormValue("twitter")
+			u.LinkedIn = r.PostFormValue("linkedin")
 			u.SaveSocial()
 
 		case "saveGraduation":
-			u.Graduation = h.R.PostFormValue("graduation")
+			u.Graduation = r.PostFormValue("graduation")
 			u.SaveGrad()
 
 		case "saveNomUtilisateur":
-			u.FirstName = h.R.PostFormValue("prenom")
-			u.LastName = h.R.PostFormValue("nom")
+			u.FirstName = r.PostFormValue("prenom")
+			u.LastName = r.PostFormValue("nom")
 			u.SaveUserName()
 
 		case "supprimerCompte":
@@ -268,7 +269,7 @@ func (h *Handlers) editCompteHandler() (m string) {
 
 // Upload de fichiers avec Go
 // Code original : https://gist.github.com/sanatgersappa/5127317#file-app-go
-func (h *Handlers) avatarHandler() {
+func AvatarHandler() {
 
 	// Initialisation des variables utiles
 	var u User
@@ -362,7 +363,7 @@ func (h *Handlers) avatarHandler() {
 
 // Upload de fichiers avec Go
 // Code original : https://gist.github.com/sanatgersappa/5127317#file-app-go
-func (h *Handlers) coverHandler() {
+func CoverHandler() {
 	log.Println("CoverHandler appelé!")
 
 	// Initialisation des variables utiles
