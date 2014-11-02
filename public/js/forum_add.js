@@ -15,7 +15,7 @@ var $val_contenu_post;
 var $val_user_id;
 var $val_forum_id;
 var errorMessage   = new Array();
-var urlAjaxService = "/forum/nouveau/submitform";
+var urlAjaxService = "/ajax/forum/add";
 
 $(window).load(function() {
     $('.msg-succes').hide();

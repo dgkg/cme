@@ -14,7 +14,7 @@ var $val_contenu_post;
 var $val_user_id;
 var $val_tutorial_id;
 var errorMessage   = new Array();
-var urlAjaxService = "/tutoriel/nouveau/submitform";
+var urlAjaxService = "/ajax/tutoriel/add";
 
 $(window).load(function() {
     $('.msg-succes').hide();

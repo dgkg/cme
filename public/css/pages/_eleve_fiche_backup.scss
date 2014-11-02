@@ -1,0 +1,233 @@
+.eleve_fiche {
+
+	.message-accueil {
+		display: none;
+	}
+
+	.body {
+		margin-right: 30px;
+		margin-left: 30px;
+
+		hr {
+			clear: both;
+			margin-top: 30px;
+			margin-bottom: 30px;
+		}
+
+		.etu-fiche {
+
+			.container-img {
+				width: 120px;
+				height: 120px;
+				margin-left: auto;
+				margin-right: auto;
+				overflow: hidden;
+				border-radius: 60px;
+				-webkit-border-radius: 60px;
+				-moz-border-radius: 60px;
+
+				.etu-photo {
+					max-width: 100%;
+					height: auto;
+					margin-left: auto;
+					margin-right: auto;
+					margin-bottom: 60px;
+				}
+			}
+
+
+
+			.etu-gradu {
+				font-family: $titre-regular;
+			}
+
+			.etu-bio {
+				margin-top: 30px;
+				margin-bottom: 30px;
+			}
+
+			.etu-social {
+
+			}
+		}
+
+		.etu-projets {
+
+			.entete-projets {
+				width: 100%;
+				margin-bottom: 20px;
+
+				a {
+					width: 75%;
+					display: block;
+					margin-left: auto;
+					margin-right: auto;
+				}
+			}
+
+			h2 {
+				display: block;
+				font-size: 26px;
+				margin-top: 30px;
+				margin-bottom: 24px;
+			}
+
+	        .img-projet {
+	            width: 100%;
+	            margin-right: auto;
+	            margin-left: auto;
+	            margin-bottom: 30px;
+
+	            img {
+	                width: 100%;
+	            }
+
+	            .over-projet {
+	                padding: 30px;
+	                background-color: black;
+	                opacity: 0.8;
+
+	                h3, p {
+	                    color: $quasi-blanc;
+	                    margin: 0;
+	                }
+
+	                h3 {
+	                    font-family: $titre-regular;
+	                    text-transform: uppercase;
+	                    font-size: 20px;
+	                    margin-bottom: 20px;
+	                }
+
+	                p {
+	                    font-size: 14px;
+	                    margin-bottom: 20px;
+	                }
+
+	                a {
+	                    color: $btn-rouge;
+	                }
+
+	                a:hover {
+	                    color: $btn-rouge-over;
+	                }
+	            }
+	        }
+	    }
+	}
+
+	/* iPads (portrait) ----------- */
+    @media only screen
+    and (min-device-width : 768px) {
+
+    .body {
+
+    	.etu-fiche {
+    		margin-top: 30px;
+			text-align: center;
+			width: 60%;
+			margin-left: auto;
+			margin-right: auto;
+
+    		h1 {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+    		}
+
+			.container-img {
+				width: 120px;
+				border-radius: 80px;
+				-webkit-border-radius: 80px;
+				-moz-border-radius: 80px;
+
+				.etu-photo {
+					width: 100%;
+					margin-right: auto;
+					margin-left: auto;
+				}
+			}
+
+    		.etu-gradu {
+				margin-left: auto;
+				margin-right: auto;
+    		}
+
+    		.etu-bio {
+    			margin-top: 20px;
+    			margin-bottom: 20px;
+				margin-left: auto;
+				margin-right: auto;
+    		}
+
+    		.etu-social {
+				display: inline-block;
+				padding: 8px;
+				margin-left: 10px;
+				border: 1px solid #D4D2D2;
+    		}
+
+			.etu-social:hover {
+				background-color: #EDEDED;
+			}
+    	}
+
+    	.etu-projets {
+
+    		.img-projet {
+    			display: inline-block;
+                width: 30.666666667%;
+                float: left;
+    		}
+
+			.entete-projets {
+				height: 40px;
+				vertical-align: middle;
+				line-height: 40px;
+
+				h2 {
+					float: left;
+					margin-top: 0;
+				}
+
+				a {
+					max-width: 12%;
+					float: right;
+					color: $quasi-blanc;
+				}
+			}
+    	}
+    }
+
+    }
+
+	/* Desktops and laptops ----------- */
+    @media only screen
+    and (min-width : 1224px) {
+
+        #wrapper {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        .body {
+            margin-left: 0;
+            margin-right: 0;
+
+            .etu-fiche {
+				max-width: 40%;
+            }
+
+			.etu-projets {
+
+				h2 {
+					margin-top: 30px;
+					margin-bottom: 24px;
+				}
+			}
+        }
+    }
+}

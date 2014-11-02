@@ -19,22 +19,21 @@
 			}
 
 			.btn-nouv-publication {
-	            display: block;
-	            width: 100%;
-	            height: 30px;
-	            background-color: $btn-rouge;
-	            padding-top: 15px;
-	            padding-bottom: 15px;
-	            color: $quasi-blanc;
-	            text-decoration: none;
-                font-family: $titre-regular;
-                font-size: 16px;
-                text-align: center;
-                line-height: 30px;
-                vertical-align: middle;
-                margin-top: 30px;
-                margin-bottom: 30px;
-	        }
+				display: block;
+				width: 100%;
+				background-color: $btn-rouge;
+				padding-top: 15px;
+				padding-bottom: 15px;
+				color: $quasi-blanc;
+				text-decoration: none;
+				font-family: $titre-regular;
+				font-size: 16px;
+				text-align: center;
+				line-height: 30px;
+				vertical-align: middle;
+				margin-top: 30px;
+				margin-bottom: 30px;
+			}
 
 			.btn-nouv-publication:hover {
 				background-color: $btn-rouge-over;
@@ -53,23 +52,39 @@
 
 			ul {
 				display: none;
+
+				li {
+					a {
+						color: #727272;
+						text-decoration: none;
+					}
+
+					a:visited {
+						color: #727272;
+						text-decoration: none;
+					}
+
+					.selected {
+						color:#E11414;
+					}
+				}
 			}
 
 			select {
-	            display: block;
-	            margin-left: auto;
-	            margin-right: auto;
-	            width: 80%;
-	            height: 40px;
-	            padding: 2px;
-	            -webkit-border-radius:1px;
-	            -moz-border-radius:1px;
-	            border-radius:1px;
-	            font-family: $titre-regular;
-	            font-size: 16px;
-	        }
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				width: 80%;
+				height: 36px;
+				padding: 2px;
+				-webkit-border-radius:1px;
+				-moz-border-radius:1px;
+				border-radius:1px;
+				font-family: $titre-regular;
+				font-size: 16px;
+			}
 
-	        form {
+			form {
 				margin-top: 30px;
 				margin-bottom: 30px;
 
@@ -107,6 +122,10 @@
 					line-height: 1.4em;
 				}
 
+				a {
+					text-decoration: none;
+				}
+
 				.post-meta {
 					display: block;
 					margin-bottom: 10px;
@@ -140,22 +159,22 @@
 
 				.btn-repondre {
 					display: block;
-		            width: 80%;
-		            height: 20px;
-		            background-color: $btn-rouge;
-		            padding-top: 10px;
-		            padding-bottom: 10px;
-		            color: $quasi-blanc;
-		            text-decoration: none;
-	                font-family: $titre-regular;
-	                font-size: 16px;
-	                text-align: center;
-	                line-height: 20px;
-	                vertical-align: middle;
-	                margin-top: 20px;
-	                margin-bottom: 20px;
-	                margin-left: auto;
-	                margin-right: auto;
+					width: 80%;
+					//height: 20px;
+					//background-color: $btn-rouge;
+					//padding-top: 10px;
+					//padding-bottom: 10px;
+					//color: $quasi-blanc;
+					//text-decoration: none;
+					font-family: $titre-regular;
+					//font-size: 16px;
+					//text-align: center;
+					//line-height: 20px;
+					//vertical-align: middle;
+					margin-top: 20px;
+					margin-bottom: 20px;
+					margin-left: auto;
+					margin-right: auto;
 					clear: both;
 				}
 			}
@@ -173,27 +192,27 @@
 
 			select {
 				display: block;
-	            margin-left: auto;
-	            margin-right: auto;
-	            width: 40%;
-	            height: 30px;
-	            padding: 2px;
-	            -webkit-border-radius:1px;
-	            -moz-border-radius:1px;
-	            border-radius:1px;
-	            font-family: $titre-regular;
-	            font-size: 16px;
+				margin-left: auto;
+				margin-right: auto;
+				width: 40%;
+				height: 30px;
+				padding: 2px;
+				-webkit-border-radius:1px;
+				-moz-border-radius:1px;
+				border-radius:1px;
+				font-family: $titre-regular;
+				font-size: 16px;
 			}
 		}
 	}
 
 	/* iPads (portrait) ----------- */
-    @media only screen
-    and (min-device-width : 768px) {
+	@media only screen
+	and (min-device-width : 768px) {
 
-    	.body {
+		.body {
 
-    		.entete-forum {
+			.entete-forum {
 
 				h1, p {
 					float: left;
@@ -205,10 +224,10 @@
 				}
 
 				.btn-nouv-publication {
-		            max-width: 300px;
-		            float: right;
-		            margin: 0;
-		        }
+					max-width: 300px;
+					float: right;
+					margin: 0;
+				}
 			}
 
 			.categories {
@@ -218,44 +237,36 @@
 				}
 
 				ul {
-	                display: block;
-	                padding: 0;
-	                width: 50%;
-	                float: left;
-	                margin: 0;
+					display: block;
+					padding: 0;
+					width: 60%;
+					float: left;
+					margin: 0;
 
-	                li {
-		                display: inline-block;
-		                font-family: $titre-regular;
-		                text-transform: uppercase;
-		                font-size: 20px;
-		                padding-right: 15px;
-		                line-height: 1.4em;
-		                color: #4A4A4A;
-		                float: left;
+					li {
+						display: inline-block;
+						font-family: $titre-regular;
+						text-transform: uppercase;
+						font-size: 20px;
+						padding-right: 15px;
+						line-height: 1.4em;
+						color: #4A4A4A;
+						float: left;
 
-		                a {
-		                    color: #727272;
-		                    text-decoration: none;
-		                }
 
-		                a:visited {
-		                    color: #727272;
-		                    text-decoration: none;
-		                }
-		            }
+					}
 
-		            li:first-child {
-		                margin-right: 20px;
-		                color: $gris-texte;
-		            }
-	            }
+					li:first-child {
+						margin-right: 20px;
+						color: $gris-texte;
+					}
+				}
 
-	            select {
-	                display: none;
-	            }
+				select {
+					display: none;
+				}
 
-	            form {
+				form {
 					float: right;
 					margin: 0;
 					margin-bottom: 30px;
@@ -283,7 +294,6 @@
 
 					h2 {
 						float: left;
-						width: auto;
 					}
 
 					.post-desc {
@@ -314,6 +324,8 @@
 					.btn-repondre {
 						max-width: 140px;
 						float: left;
+						clear: left;
+						margin-bottom: 30px;
 					}
 				}
 			}
@@ -338,24 +350,24 @@
 					display: none;
 				}
 			}
-    	}
+		}
 	}
 
 	/* Desktops and laptops ----------- */
-    @media only screen
-    and (min-width : 1224px) {
+	@media only screen
+	and (min-width : 1224px) {
 
-        #wrapper {
-            max-width: 1280px;
-            margin-left: auto;
-            margin-right: auto;
-            padding-right: 0;
-            padding-left: 0;
-        }
+		#wrapper {
+			max-width: 1280px;
+			margin-left: auto;
+			margin-right: auto;
+			padding-right: 0;
+			padding-left: 0;
+		}
 
-        .body {
-            margin-left: 0;
-            margin-right: 0;
-        }
-    }
+		.body {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
 }

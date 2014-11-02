@@ -2,6 +2,18 @@ $(window).load(function() {
 
     // Initialisation des handlers vers chaque fonction associée
 
+    // Sauvegarde de la photo de profil
+    $('.form-photo').submit( function(event) {
+        event.preventDefault();
+        savePhotoProfil();
+    });
+
+    // Sauvegarde de l'image de cover
+    $('.form-cover').submit( function(event) {
+        event.preventDefault();
+        savePhotoCover();
+    })
+
     // Sauvegarde de la bio
     $('.form-bio').submit( function(event) {
         event.preventDefault();
@@ -38,6 +50,19 @@ $(window).load(function() {
         event.preventDefault();
         supprimerCompte();
     });
+
+    $('#photo-upload').fileValidator({
+        onValidation: function(files){
+            $('#photo-upload').css("background-color","none");
+            $('#submitPhoto').removeAttr("disabled");
+        },
+        onInvalid:    function(validationType, file) {
+            $('#photo-upload').css("background-color","red");
+            $('#submitPhoto').attr("disabled", true);
+        },
+        maxSize:      '2m',
+        type:         'image'
+    });
 });
 
 function afficherSucces(section) {
@@ -50,25 +75,56 @@ function savePhotoProfil() {
 
     // Initialisation des variables de base
     var idUser = $('#id-user').val();
-    var imgUser = $('#myFiles').get(0).files[0];
+    var imgUser = $('#photo-upload').get(0).files[0];
     var strSection = "savePhoto";
 
     // Création de l'objet formulaire
     var formData = new FormData();
 
     // Ajout d'une entrée dans l'objet formulaire
-    formData.append('imgUser', imgUser, imgUser.name);
+    formData.append('photo-upload', imgUser, imgUser.name);
 
     // Création de la requête
     var xhr = new XMLHttpRequest();
 
-    xhr.open('POST', '/mon-compte/upload', true);
+    xhr.open('POST', '/mon-compte/avatar', true);
 
     // Vérification de l'envoi du formulaire
     xhr.onload = function () {
         if (xhr.status === 200) {
-            // File(s) uploaded.
-            alert('Envoyé avec succès');
+            afficherSucces("photo");
+        } else {
+            alert('Une erreur est survenue. Veuillez réessayer.');
+        }
+    };
+
+    // Envoi du formulaire et de son contenu
+    xhr.send(formData);
+}
+
+// Envoi de l'image de cover
+function savePhotoCover() {
+
+    // Initialisation des variables de base
+    var idUser = $('#id-user').val();
+    var imgCover = $('#cover-upload').get(0).files[0];
+    var strSection = "savePhoto";
+
+    // Création de l'objet formulaire
+    var formData = new FormData();
+
+    // Ajout d'une entrée dans l'objet formulaire
+    formData.append('cover-upload', imgCover, imgCover.name);
+
+    // Création de la requête
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('POST', '/mon-compte/cover', true);
+
+    // Vérification de l'envoi du formulaire
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            afficherSucces("cover");
         } else {
             alert('Une erreur est survenue. Veuillez réessayer.');
         }
@@ -82,7 +138,7 @@ function saveBio() {
     var idUser = $('#id-user').val();
     var strBiographie = $('#bio-text').val();
     var strSection = "saveBio";
-    var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection, biographie : strBiographie }, function(data, status){
+    var requete = $.post('/ajax/mon-compte/update', { idUser : idUser, section : strSection, biographie : strBiographie }, function(data, status){
         if (data != "error") {
             afficherSucces("bio");
         } else {
@@ -97,7 +153,7 @@ function saveSocial() {
     var strTw = $('#url-twitter').val();
     var strLi = $('#url-linkedin').val();
     var strSection = "saveSocial";
-    var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection, facebook : strFb, twitter : strTw, linkedin : strLi }, function(data, status){
+    var requete = $.post('/ajax/mon-compte/update', { idUser : idUser, section : strSection, facebook : strFb, twitter : strTw, linkedin : strLi }, function(data, status){
         if (data != "error") {
             afficherSucces("social");
         } else {
@@ -110,7 +166,7 @@ function saveGraduation() {
     var idUser = $('#id-user').val();
     var intGraduation = $('#graduation').val();
     var strSection = "saveGraduation";
-    var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection, graduation : intGraduation }, function(data, status){
+    var requete = $.post('/ajax/mon-compte/update', { idUser : idUser, section : strSection, graduation : intGraduation }, function(data, status){
         if (data != "error") {
             afficherSucces("gradu");
         } else {
@@ -124,7 +180,7 @@ function saveNomUtilisateur() {
     var strPrenom = $('#prenom-utilisateur').val();
     var strNom = $('#nom-utilisateur').val();
     var strSection = "saveNomUtilisateur";
-    var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection, prenom : strPrenom, nom : strNom }, function(data, status){
+    var requete = $.post('/ajax/mon-compte/update', { idUser : idUser, section : strSection, prenom : strPrenom, nom : strNom }, function(data, status){
         if (data != "error") {
             afficherSucces("compte");
         } else {
@@ -136,7 +192,7 @@ function saveNomUtilisateur() {
 function supprimerCompte() {
     var idUser = $('#id-user').val();
     var strSection = "supprimerCompte";
-    var requete = $.post('/mon-compte/update', { idUser : idUser, section : strSection}, function(data, status){
+    var requete = $.post('/ajax/mon-compte/update', { idUser : idUser, section : strSection}, function(data, status){
         if (data != "error") {
             afficherSucces();
         } else {

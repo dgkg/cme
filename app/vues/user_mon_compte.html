@@ -1,0 +1,172 @@
+{{ define "user_compte" }}
+<!DOCTYPE html>
+{{template "header" .}}
+            <div class="body">
+
+                <div class="post">
+
+                        <h2>Votre compte</h2>
+
+                        <div class="formulaire">
+
+                            <div class="msg-erreur"></div>
+
+                            <div class="section profil">
+
+                                <h3>Profil</h3>
+
+                                <h4>Photo</h4>
+
+                                <p>Pour modifier votre photo de profil, utilisez le bouton ci-dessous.</p>
+
+                                <form class="form-photo" method="POST" action="/mon-compte/avatar" enctype="multipart/form-data" accept="image/jpg|image/png|image/gif">
+
+                                    <input class="photo-upload" type="file" name="photo-upload" id="photo-upload" value="Choisir une photo">
+                                    <input id="submitPhoto" class="pure-button pure-button-primary" type="submit" value="Enregistrer">
+
+                                    <p class="msg-succes msg-photo">Vos modifications ont été enregistrés avec succès.</p>
+
+                                </form>
+
+                                <hr>
+
+                                <h4>Cover</h4>
+
+                                <p>Pour modifier votre photo de couverture, utilisez le bouton ci-dessous.</p>
+
+                                <p>La résolution recommandé est de 1280 x 200 pixels.</p>
+
+                                <div class="wrapper-cover">
+                                    <img src="/img/uploads/users/{{.Id}}/{{.PhotoCover}}" alt="Votre cover actuel">
+                                </div>
+
+                                <form class="form-cover" method="POST" action="/mon-compte/cover" enctype="multipart/form-data" accept="image/jpg|image/png|image/gif">
+
+                                    <input class="cover-upload" type="file" name="cover-upload" id="cover-upload" value="Choisir une image">
+                                    <input id="submitCover" class="pure-button pure-button-primary" type="submit" value="Enregistrer">
+
+                                    <p class="msg-succes msg-cover">Vos modifications ont été enregistrés avec succès.</p>
+
+                                </form>
+
+                                <hr>
+
+
+                                <h4>Biographie</h4>
+
+                                <p>Modifiez ici votre biographie publique.</p>
+
+                                <form class="form-bio" method="POST">
+
+                                    <!-- <label for="bio">Biographie</label> -->
+                                    <textarea id="bio-text" class="">{{.Text}}</textarea>
+                                    <input class="pure-button pure-button-primary" type="submit" value="Enregistrer">
+                                    <p class="msg-succes msg-bio">Vos modifications ont été enregistrés avec succès.</p>
+                                    <input id="id-user" name="id-user" type="hidden" value="{{.SessIdUser}}">
+
+                                </form>
+
+                                <hr>
+
+                                <h4>Réseaux sociaux</h4>
+
+                                <p>Affichez sur votre profil les réseaux sociaux sur lesquels vous êtes actifs.</p>
+
+                                <p>Entrez ci-dessous l'adresse URL complète de votre profil pour chaque service.</p>
+
+                                <form class="form-social" method="POST">
+
+                                    <label for="facebook">Facebook</label>
+                                    <input id="url-facebook" type="text" name="facebook" placeholder="ex: http://facebook.com/votrenom" data-validation="url" data-validation-optional="true" data-validation-error-msg="L'URL de votre profil Facebook est invalide." value="{{.Facebook}}">
+
+                                    <label for="twitter">Twitter</label>
+                                    <input id="url-twitter" type="text" name="twitter" placeholder="ex: http://twitter.com/votrenom" data-validation="url" data-validation-optional="true" data-validation-error-msg="L'URL de votre profil Twitter est invalide." value="{{.Twitter}}">
+
+                                    <label for="linkedin">LinkedIn</label>
+                                    <input id="url-linkedin" type="text" name="linkedin" placeholder="ex: http://linkedin.com/votrenom" data-validation="url" data-validation-optional="true"  data-validation-error-msg="L'URL de votre profil LinkedIn est invalide." value="{{.LinkedIn}}">
+
+                                    <input class="pure-button pure-button-primary" type="submit" value="Enregistrer">
+                                    <p class="msg-succes msg-social">Vos modifications ont été enregistrés avec succès.</p>
+
+                                </form>
+
+                                <hr>
+
+                                <h4>Graduation</h4>
+
+                                <p>Sélectionnez l'année de votre graduation.</p>
+
+                                <form class="form-gradu" method="POST">
+
+                                    <select id="graduation" class="gradu">
+
+                                    {{$idAnneeSelected := .Graduation}}
+
+                                    {{range .Graduations}}
+                                        {{if eq . $idAnneeSelected}}
+                                            <option value="{{ . }}" selected>{{.}}</option>
+                                        {{else}}
+                                            <option value="{{ . }}">{{.}}</option>
+                                        {{end}}
+                                    {{end}}
+
+                                    </select>
+
+                                    <input class="pure-button pure-button-primary" type="submit" value="Enregistrer">
+                                    <p class="msg-succes msg-gradu">Vos modifications ont été enregistrés avec succès.</p>
+
+                                </form>
+
+                            </div>
+
+                            <div class="section compte">
+
+                                <h3>Compte</h3>
+
+                                <h4>Nom d'utilisateur</h4>
+
+                                <p>Vous pouvez modifier votre nom d'utilisateur grâce à ce champ.</p>
+
+                                <form class="form-compte" method="POST">
+
+                                    <label for="prenom-utilisateur">Prénom</label>
+                                    <input type="text" id="prenom-utilisateur" name="prenom-utilisateur" placeholder="Votre prénom" value="{{.FirstName}}">
+
+                                    <label for="nom-utilisateur">Nom</label>
+                                    <input type="text" id="nom-utilisateur" name="nom-utilisateur" placeholder="Votre nom" value="{{.LastName}}">
+
+                                    <input class="pure-button pure-button-primary" type="submit" value="Enregistrer">
+                                    <p class="msg-succes msg-compte">Vos modifications ont été enregistrés avec succès.</p>
+
+                                </form>
+
+                                <hr>
+
+                                <h4>Suppression du compte</h4>
+
+                                <p>Cliquez ici pour supprimer entièrement et définitivement votre compte.</p>
+                                <p>Toutes vos données seront perdues et irrécupérable.</p>
+
+                                <form class="form-supp" method="POST">
+
+                                <a id="supp-compte" class="pure-button button-error supp-compte" href="#">Supprimer mon compte</a>
+
+                                <div id="msg-confirm"></div>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+                </div>
+
+               {{template "footer" .}}
+            </div>
+        </div>
+
+        <script type="text/javascript" src="/js/vendor/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="/js/vendor/file-validator.js"></script>
+        <script type="text/javascript" src="/js/mon_compte.js"></script>
+    </body>
+</html>
+{{ end }}
