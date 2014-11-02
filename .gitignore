@@ -2,6 +2,8 @@
 
 *.scssc
 
+.sass-cache/
+
 public/css/inc/editor.css
 
 public/css/inc/menu.css
