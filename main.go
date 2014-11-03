@@ -11,7 +11,8 @@ func main() {
 
 	// création du routeur
 	r := mux.NewRouter()
-
+	r.Host("www.la-communaute-de-maryse-eloy.com")
+        r.Host("{subdomain:[a-z]+}.la-communaute-de-maryse-eloy.com")
 	// listes des routes
 	r.HandleFunc("/", HomeHandler)
 
@@ -78,6 +79,6 @@ func main() {
 	// et lancement du serveur
 	http.Handle("/", r)
 	log.Println("Listening...")
-	http.ListenAndServe(":3000", nil)
+	http.ListenAndServe(":80", nil)
 
 }

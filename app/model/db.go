@@ -7,7 +7,7 @@ import (
 
 // fonction permettant de se connecter à la base de donnée
 func connectToDatabase() gorm.DB {
-	db, _ := gorm.Open("mysql", "root:root@tcp(127.0.0.1:8889)/cme_test?charset=utf8&parseTime=True")
+	db, _ := gorm.Open("mysql", "root:F4hjsv2REJchspP5@/cme?charset=utf8&parseTime=True")
 	db.SingularTable(true)
 	return db
 }
