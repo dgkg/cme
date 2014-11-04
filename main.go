@@ -11,69 +11,69 @@ func main() {
 
 	// création du routeur
 	r := mux.NewRouter()
-	r.Host("www.la-communaute-de-maryse-eloy.com")
-        r.Host("{subdomain:[a-z]+}.la-communaute-de-maryse-eloy.com")
+	s := r.Host("la-communaute-de-maryse-eloy.com").Subrouter()
+        //r.Host("{subdomain:[a-z]+}.la-communaute-de-maryse-eloy.com")
 	// listes des routes
-	r.HandleFunc("/", HomeHandler)
+	s.HandleFunc("/", HomeHandler)
 
 	// routages du forum
-	r.HandleFunc("/forum", ForumHandler)
-	r.HandleFunc("/forum/nouveau", ForumAddHandler)
-	r.HandleFunc("/forum/search", ForumSearchHandler)
-	r.HandleFunc("/forum/{category}", ForumCatHandler)
-	r.HandleFunc("/forum/post/{id:[0-9]+}", ForumPostHandler)
-	r.HandleFunc("/forum/post/edit/{id:[0-9]+}", ForumEditHandler)
+	s.HandleFunc("/forum", ForumHandler)
+	s.HandleFunc("/forum/nouveau", ForumAddHandler)
+	s.HandleFunc("/forum/search", ForumSearchHandler)
+	s.HandleFunc("/forum/{category}", ForumCatHandler)
+	s.HandleFunc("/forum/post/{id:[0-9]+}", ForumPostHandler)
+	s.HandleFunc("/forum/post/edit/{id:[0-9]+}", ForumEditHandler)
 	// AJAX
-	r.HandleFunc("/ajax/forum/add", SubmitFormHandler)
-	r.HandleFunc("/ajax/forum-post/add", ForumNouvCommHandler)
-	r.HandleFunc("/ajax/forum-post/del", ForumDelCommHandler)
+	s.HandleFunc("/ajax/forum/add", SubmitFormHandler)
+	s.HandleFunc("/ajax/forum-post/add", ForumNouvCommHandler)
+	s.HandleFunc("/ajax/forum-post/del", ForumDelCommHandler)
 
 	// routages des élèves
-	r.HandleFunc("/eleves", StudentHandler)
-	r.HandleFunc("/eleves/search", StudentSearchHandler)
-	r.HandleFunc("/eleves/{year:[0-9]+}/{firstName:[a-z-]+}_{lastName:[a-z-]+}", StudentFicheHandler)
+	s.HandleFunc("/eleves", StudentHandler)
+	s.HandleFunc("/eleves/search", StudentSearchHandler)
+	s.HandleFunc("/eleves/{year:[0-9]+}/{firstName:[a-z-]+}_{lastName:[a-z-]+}", StudentFicheHandler)
 	//r.HandleFunc("/eleves/{year:[0-9]+}/{firstName:[a-z-]+}_{lastName:[a-z-]+}/{project:[a-z-]+}", ProjetHandler)
 
 	// routage des tutoriels
-	r.HandleFunc("/tutoriels", TutoHandler)
-	r.HandleFunc("/tutoriel/nouveau", TutoAddHandler)
-	r.HandleFunc("/tutoriel/search", TutoSearchHandler)
-	r.HandleFunc("/tutoriel/{category}", TutoCatHandler)
-	r.HandleFunc("/tutoriel/post/{id:[0-9]+}", TutoPostHandler)
-	r.HandleFunc("/tutoriel/post/edit/{id:[0-9]+}", TutoEditHandler)
+	s.HandleFunc("/tutoriels", TutoHandler)
+	s.HandleFunc("/tutoriel/nouveau", TutoAddHandler)
+	s.HandleFunc("/tutoriel/search", TutoSearchHandler)
+	s.HandleFunc("/tutoriel/{category}", TutoCatHandler)
+	s.HandleFunc("/tutoriel/post/{id:[0-9]+}", TutoPostHandler)
+	s.HandleFunc("/tutoriel/post/edit/{id:[0-9]+}", TutoEditHandler)
 	// AJAX
-	r.HandleFunc("/ajax/tutoriel/add", SubmitTutorialHandler)
-	r.HandleFunc("/ajax/tutoriel-post/add", TutorialNouvCommHandler)
-	r.HandleFunc("/ajax/tutoriel-post/del", TutorialDelCommHandler)
+	s.HandleFunc("/ajax/tutoriel/add", SubmitTutorialHandler)
+	s.HandleFunc("/ajax/tutoriel-post/add", TutorialNouvCommHandler)
+	s.HandleFunc("/ajax/tutoriel-post/del", TutorialDelCommHandler)
 
 	// routages des actualités
-	r.HandleFunc("/actualites", NewsHandler)
-	r.HandleFunc("/actualite/{name:[a-z-]+}", NewsUniqueHandler)
+	s.HandleFunc("/actualites", NewsHandler)
+	s.HandleFunc("/actualite/{name:[a-z-]+}", NewsUniqueHandler)
 
 	// rootage de la page connexion
-	r.HandleFunc("/connexion", ConnexionHandler)
-	r.HandleFunc("/deconnexion", DeconnexionHandler)
-	r.HandleFunc("/valider-connexion", ConnexionPostHandler)
+	s.HandleFunc("/connexion", ConnexionHandler)
+	s.HandleFunc("/deconnexion", DeconnexionHandler)
+	s.HandleFunc("/valider-connexion", ConnexionPostHandler)
 	//r.HandleFunc("/get-connexion", ConnexionGet)
-	r.HandleFunc("/inscription", InscriptionHandler)
-	r.HandleFunc("/mon-compte", MonCompteHandler)
+	s.HandleFunc("/inscription", InscriptionHandler)
+	s.HandleFunc("/mon-compte", MonCompteHandler)
 	// AJAX
-	r.HandleFunc("/ajax/inscription/submitform", InscFormHandler)
-	r.HandleFunc("/ajax/mon-compte/update", EditCompteHandler)
-	r.HandleFunc("/ajax/mon-compte/avatar", AvatarHandler)
-	r.HandleFunc("/ajax/mon-compte/cover", CoverHandler)
-	r.HandleFunc("/ajax/userProject/getByIdCat/{id:[0-9]+}", UserProjectAjaxHandler)
-	r.HandleFunc("/ajax/userProject/getByIdCat/{id:[0-9]+}/{page:[0-9]+}", UserProjectMoreInCatAjaxHandler)
-	r.HandleFunc("/ajax/userProject/getMore/{page:[0-9]+}", UserProjectMoreAjaxHandler)
-	r.HandleFunc("/ajax/up/create", UPCreateAjaxHandler)
-	r.HandleFunc("/ajax/upi/create", UPICreateAjaxHandler)
-	r.HandleFunc("/ajax/get-projects", GetProjectsHandler)
+	s.HandleFunc("/ajax/inscription/submitform", InscFormHandler)
+	s.HandleFunc("/ajax/mon-compte/update", EditCompteHandler)
+	s.HandleFunc("/ajax/mon-compte/avatar", AvatarHandler)
+	s.HandleFunc("/ajax/mon-compte/cover", CoverHandler)
+	s.HandleFunc("/ajax/userProject/getByIdCat/{id:[0-9]+}", UserProjectAjaxHandler)
+	s.HandleFunc("/ajax/userProject/getByIdCat/{id:[0-9]+}/{page:[0-9]+}", UserProjectMoreInCatAjaxHandler)
+	s.HandleFunc("/ajax/userProject/getMore/{page:[0-9]+}", UserProjectMoreAjaxHandler)
+	s.HandleFunc("/ajax/up/create", UPCreateAjaxHandler)
+	s.HandleFunc("/ajax/upi/create", UPICreateAjaxHandler)
+	s.HandleFunc("/ajax/get-projects", GetProjectsHandler)
 
 	// Page simple
-	r.HandleFunc("/page/{pageUrl:[a-z-]+}", PageSimpleHandler)
+	s.HandleFunc("/page/{pageUrl:[a-z-]+}", PageSimpleHandler)
 
 	//gestion des fichiers statiques
-	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
+	s.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
 
 	// insersion des routes dans l'objet http
 	// et lancement du serveur
